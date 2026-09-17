@@ -223,13 +223,13 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
   <div class="wrap">
     <div class="sec-head">
       <h2>Projects</h2>
-      <p>Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring, plus the applications I built to make the fix repeatable. Every application here is a dependency free single file, versioned in Git and deployable by opening it. Where a screenshot is shown, hover to page through it or click to inspect at full size.</p>
+      <p>Work I owned end to end, in role and on my own time. Each entry covers the problem, what I did about it, and what changed as a result. Where a screenshot is shown, hover to page through it or click to inspect at full size.</p>
     </div>
 
     <div class="projgroup" id="group-professional">
       <div class="group-head">
         <h3>Professional</h3>
-        <p>Work owned in role, at McKenna Labs and Micro Center.</p>
+        <p>Owned in role at McKenna Labs, from diagnosis through the documentation that keeps it from recurring. Each application here is a dependency free single file, versioned in Git and deployable by opening it.</p>
       </div>
       <div id="cases-professional"></div>
       <div class="tools" id="tools-professional"></div>
@@ -364,7 +364,7 @@ const SITE = {
       stack: ["Vendor evaluation", "Cost analysis", "Technical writing"]
     },
     {
-      track: "professional",
+      track: "personal",
       kicker: "Infrastructure",
       title: "Virtualization homelab",
       summary: "A self managed hypervisor environment where I run the infrastructure work my job description does not cover yet.",
@@ -447,6 +447,7 @@ document.getElementById('roles').innerHTML = SITE.roles.map(r => `
    `track` field decides which group it lands in; anything unlabeled or
    unrecognized falls back to professional, with a console warning for the
    latter. A group with no entries of either kind is hidden. */
+/* Visual order comes from the markup, not this array, which only drives fill order. */
 const TRACKS = ['professional', 'personal'];
 const trackOf = x => {
   const t = String(x.track || '').trim().toLowerCase();
