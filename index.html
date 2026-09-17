@@ -54,6 +54,14 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .sec-head h2{font-size:26px;letter-spacing:-.02em;font-weight:600;margin:0}
 .sec-head p{margin:0;color:var(--slate);max-width:56ch}
 
+/* project groups */
+.projgroup:not([hidden]) + .projgroup{margin-top:64px}
+.group-head{display:grid;grid-template-columns:200px 1fr;gap:40px;margin-bottom:24px;padding-top:18px;border-top:2px solid var(--ink)}
+.group-head h3{margin:0;font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.group-head p{margin:0;color:var(--slate);max-width:56ch;font-size:15px}
+.projgroup .tools:not(:empty){margin-top:36px}
+.projgroup > div:empty + .tools{margin-top:0}
+
 /* experience */
 .role{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:28px 0;border-top:1px solid var(--rule)}
 .role .when{color:var(--slate);font-size:15px}
@@ -66,16 +74,16 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .case{border-top:1px solid var(--rule);padding:32px 0}
 .case:last-of-type{border-bottom:1px solid var(--rule)}
 .case-top{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
-.case h3{margin:0 0 6px;font-size:21px;letter-spacing:-.015em;font-weight:600}
+.case h4{margin:0 0 6px;font-size:21px;letter-spacing:-.015em;font-weight:600}
 .case .kicker{color:var(--slate);font-size:15px}
 .case .summary{max-width:64ch;margin:0 0 20px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:22px}
-.grid3 h4{margin:0 0 6px;font-size:14px;color:var(--accent);font-weight:600}
+.grid3 h5{margin:0 0 6px;font-size:14px;color:var(--accent);font-weight:600}
 .grid3 p{margin:0;font-size:15px;line-height:1.55;color:var(--slate)}
 .stack{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:3px 9px;border:1px solid var(--rule-strong);color:var(--slate);border-radius:2px}
 
-/* tooling gallery */
+/* tool cards */
 .tools{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 36px}
 .tool{display:flex;flex-direction:column}
 .shotframe{border:1px solid var(--rule-strong);background:#fff;padding:8px;margin-bottom:16px}
@@ -103,7 +111,7 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
   aspect-ratio:16/10;background:var(--accent-soft);border:1px dashed var(--rule-strong);
   font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--slate);padding:20px;line-height:1.7;
 }
-.tool h3{margin:0 0 6px;font-size:18px;font-weight:600}
+.tool h4{margin:0 0 6px;font-size:18px;font-weight:600}
 .tool p{margin:0 0 14px;font-size:15.5px;color:var(--slate);line-height:1.55}
 .tool .stack{margin-top:auto}
 
@@ -161,7 +169,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
   .wrap{padding:0 22px}
   .spec{grid-template-columns:repeat(2,1fr)}
   .spec div:nth-child(2n){border-right:0}
-  .sec-head,.role,.case-top,.contact .wrap,.cred{grid-template-columns:1fr;gap:14px}
+  .sec-head,.group-head,.role,.case-top,.contact .wrap,.cred{grid-template-columns:1fr;gap:14px}
   .grid3,.grid4,.tools{grid-template-columns:1fr;gap:28px}
   .nav ul{gap:16px;font-size:14px}
   .nav .mark{display:none}
@@ -181,8 +189,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
     <span class="mark">Christian Jones</span>
     <ul>
       <li><a href="#work">Experience</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#tooling">Tooling</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -215,20 +222,27 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 <section id="projects">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Selected work</h2>
-      <p>Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring.</p>
+      <h2>Projects</h2>
+      <p>Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring, plus the applications I built to make the fix repeatable. Every application here is a dependency free single file, versioned in Git and deployable by opening it. Where a screenshot is shown, hover to page through it or click to inspect at full size.</p>
     </div>
-    <div id="cases"></div>
-  </div>
-</section>
 
-<section id="tooling">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Tooling</h2>
-      <p>Applications I designed and built to close gaps in day to day IT operations. Each one is a dependency free single file, versioned in Git and deployable by opening it. Hover a screenshot to page through it, or click to inspect at full size.</p>
+    <div class="projgroup" id="group-professional">
+      <div class="group-head">
+        <h3>Professional</h3>
+        <p>Work owned in role, at McKenna Labs and Micro Center.</p>
+      </div>
+      <div id="cases-professional"></div>
+      <div class="tools" id="tools-professional"></div>
     </div>
-    <div class="tools" id="tools"></div>
+
+    <div class="projgroup" id="group-personal" hidden>
+      <div class="group-head">
+        <h3>Personal</h3>
+        <p>Built outside of work, on my own time and infrastructure.</p>
+      </div>
+      <div id="cases-personal"></div>
+      <div class="tools" id="tools-personal"></div>
+    </div>
   </div>
 </section>
 
@@ -320,6 +334,7 @@ const SITE = {
 
   cases: [
     {
+      track: "professional",
       kicker: "Endpoint management",
       title: "Bringing an unmanaged fleet under policy",
       summary: "A large share of corporate endpoints were joined to the directory but never enrolled in mobile device management, leaving them outside compliance reporting entirely.",
@@ -329,6 +344,7 @@ const SITE = {
       stack: ["Microsoft Intune", "Entra ID", "Windows Autopilot", "PowerShell", "Xcitium Endpoint Manager"]
     },
     {
+      track: "professional",
       kicker: "Documentation",
       title: "Standard operating procedure library",
       summary: "Procedural knowledge lived with individuals. I turned it into a consistent, distributable document set.",
@@ -338,6 +354,7 @@ const SITE = {
       stack: ["Python", "ReportLab", "Technical writing"]
     },
     {
+      track: "professional",
       kicker: "Procurement",
       title: "Hardware refresh proposal",
       summary: "Led the standards and cost analysis for a fleet wide device refresh, presented to finance leadership.",
@@ -347,6 +364,7 @@ const SITE = {
       stack: ["Vendor evaluation", "Cost analysis", "Technical writing"]
     },
     {
+      track: "professional",
       kicker: "Infrastructure",
       title: "Virtualization homelab",
       summary: "A self managed hypervisor environment where I run the infrastructure work my job description does not cover yet.",
@@ -359,6 +377,7 @@ const SITE = {
 
   tools: [
     {
+      track: "professional",
       name: "Device deployment checklist",
       blurb: "Guided deployment app covering a multi phase build procedure, with conditional steps by device type, a technician deploy mode and an administrator edit mode, schema migration for saved configurations, session history, a print view, and a versioned export that feeds the asset register.",
       stack: ["HTML", "JavaScript", "localStorage", "JSON schema"],
@@ -376,6 +395,7 @@ const SITE = {
       ]
     },
     {
+      track: "professional",
       name: "Asset register",
       blurb: "Import driven inventory that ingests checklist exports, deduplicates on session, serial, and asset tag, and batch confirms overwrites. Tracks asset categories and lifecycle statuses with custom fields, document links, search and filter, CSV export, and full JSON backup and restore.",
       stack: ["HTML", "JavaScript", "CSV export", "JSON backup"],
@@ -383,30 +403,10 @@ const SITE = {
       captions: []
     },
     {
+      track: "professional",
       name: "Procurement tracker",
       blurb: "Working record for hardware purchasing across device categories, keeping requested, approved, ordered, and received state in one place instead of scattered across mail threads and spreadsheets.",
       stack: ["HTML", "JavaScript", "localStorage"],
-      shots: [],
-      captions: []
-    },
-    {
-      name: "Operations dashboard hub",
-      blurb: "Canvas based launcher that collects the standalone tools into a single entry point, so technicians reach the right utility without hunting for a file path.",
-      stack: ["HTML", "JavaScript", "Canvas"],
-      shots: [],
-      captions: []
-    },
-    {
-      name: "Onboarding feedback survey",
-      blurb: "Structured intake for new hire IT experience, capturing where the setup process actually breaks down so the deployment procedure can be corrected from evidence rather than assumption.",
-      stack: ["HTML", "JavaScript", "Form validation"],
-      shots: [],
-      captions: []
-    },
-    {
-      name: "Ticket escalation dashboard",
-      blurb: "In development. Surfaces escalation paths and ownership for common issue classes, built directly against the written deployment and support procedures.",
-      stack: ["HTML", "JavaScript", "In progress"],
       shots: [],
       captions: []
     }
@@ -443,24 +443,37 @@ document.getElementById('roles').innerHTML = SITE.roles.map(r => `
     </div>
   </article>`).join('');
 
-document.getElementById('cases').innerHTML = SITE.cases.map(c => `
+/* Projects render into two tracks, professional and personal. An entry's
+   `track` field decides which group it lands in; anything unlabeled or
+   unrecognized falls back to professional, with a console warning for the
+   latter. A group with no entries of either kind is hidden. */
+const TRACKS = ['professional', 'personal'];
+const trackOf = x => {
+  const t = String(x.track || '').trim().toLowerCase();
+  if (TRACKS.includes(t)) return t;
+  if (x.track) console.warn(`Unrecognized track "${x.track}", filing as professional.`);
+  return 'professional';
+};
+
+const caseCard = c => `
   <article class="case">
     <div class="case-top">
       <div class="kicker">${esc(c.kicker)}</div>
       <div>
-        <h3>${esc(c.title)}</h3>
+        <h4>${esc(c.title)}</h4>
         <p class="summary">${esc(c.summary)}</p>
         <div class="grid3">
-          <div><h4>Problem</h4><p>${esc(c.problem)}</p></div>
-          <div><h4>Approach</h4><p>${esc(c.approach)}</p></div>
-          <div><h4>Result</h4><p>${esc(c.outcome)}</p></div>
+          <div><h5>Problem</h5><p>${esc(c.problem)}</p></div>
+          <div><h5>Approach</h5><p>${esc(c.approach)}</p></div>
+          <div><h5>Result</h5><p>${esc(c.outcome)}</p></div>
         </div>
         <div class="stack">${c.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
       </div>
     </div>
-  </article>`).join('');
+  </article>`;
 
-document.getElementById('tools').innerHTML = SITE.tools.map((t, ti) => {
+/* ti stays the index into SITE.tools so the viewer lookup survives grouping. */
+const toolCard = (t, ti) => {
   const shots = t.shots || [];
   let frame;
   if (shots.length) {
@@ -477,11 +490,19 @@ document.getElementById('tools').innerHTML = SITE.tools.map((t, ti) => {
   return `
   <article class="tool">
     <div class="shotframe">${frame}</div>
-    <h3>${esc(t.name)}</h3>
+    <h4>${esc(t.name)}</h4>
     <p>${esc(t.blurb)}</p>
     <div class="stack">${t.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
   </article>`;
-}).join('');
+};
+
+TRACKS.forEach(track => {
+  const cases = SITE.cases.filter(c => trackOf(c) === track);
+  const tools = SITE.tools.map((t, ti) => [t, ti]).filter(([t]) => trackOf(t) === track);
+  document.getElementById('cases-' + track).innerHTML = cases.map(caseCard).join('');
+  document.getElementById('tools-' + track).innerHTML = tools.map(([t, ti]) => toolCard(t, ti)).join('');
+  document.getElementById('group-' + track).hidden = !cases.length && !tools.length;
+});
 
 document.getElementById('skills-grid').innerHTML = SITE.skills.map(s => `
   <div class="skillcol">
@@ -560,6 +581,7 @@ function paint(){
 
 function openViewer(ti){
   const t = SITE.tools[ti];
+  if (!t) return;
   if (!t.shots || !t.shots.length) return;
   lastFocus = document.activeElement;
   view = { shots: t.shots, captions: t.captions || [], n: 0, name: t.name };
@@ -579,7 +601,8 @@ function closeViewer(){
 }
 const step = d => { view.n = (view.n + d + view.shots.length) % view.shots.length; paint(); };
 
-document.getElementById('tools').addEventListener('click', e => {
+/* Delegated on the section so both track grids are covered by one listener. */
+document.getElementById('projects').addEventListener('click', e => {
   const stage = e.target.closest('.stage');
   if (stage) openViewer(Number(stage.dataset.tool));
 });
