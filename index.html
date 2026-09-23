@@ -80,6 +80,11 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .bench{display:grid;grid-template-columns:330px 1fr;gap:26px;align-items:start}
 
 .tool-list{display:flex;flex-direction:column;gap:10px}
+.tool-group-label{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--slate);border-bottom:1px solid var(--rule);padding-bottom:6px;margin:18px 0 8px;
+}
+.tool-group-label:first-child{margin-top:0}
 .tool-item{
   display:grid;grid-template-columns:62px 1fr;gap:14px;align-items:start;
   width:100%;text-align:left;padding:13px 14px;cursor:pointer;
@@ -130,6 +135,7 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .detail-body{padding:24px 26px 28px;max-height:calc(100vh - 460px);min-height:220px;overflow-y:auto}
 .detail-body h3{margin:0 0 4px;font-size:22px;letter-spacing:-.015em;font-weight:600}
 .detail-body .status{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--accent);margin-bottom:16px}
+.detail-body .status.group{margin-bottom:6px}
 .detail-body h4{margin:22px 0 7px;font-size:14px;color:var(--accent);font-weight:600}
 .detail-body p{margin:0 0 10px;font-size:15.5px;line-height:1.6;color:var(--slate)}
 .detail-body ul{margin:0;padding-left:18px;font-size:15.5px;color:var(--slate)}
@@ -206,7 +212,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
     <ul>
       <li><a href="#work">Experience</a></li>
       <li><a href="#projects">Work</a></li>
-      <li><a href="#tooling">Tooling</a></li>
+      <li><a href="#tooling">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -249,11 +255,11 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 <section id="tooling">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Tooling</h2>
+      <h2>Projects</h2>
       <p>Applications I designed and built to close gaps in day to day IT operations. Each one is a dependency free single file, versioned in Git and deployable by opening it. Select a tool to read about it, hover a screenshot to page through it, or click to inspect at full size.</p>
     </div>
     <div class="bench">
-      <div class="tool-list" id="tool-list" role="tablist" aria-label="Tools"></div>
+      <div id="tool-list"></div>
       <div class="detail" id="detail"></div>
     </div>
   </div>
@@ -317,6 +323,11 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 
    Per tool:
      name      list heading and detail heading
+     group     "professional" or "personal". A divider label is
+               rendered in the list wherever the group changes between
+               consecutive tools, and the group shows as a mono label
+               above the detail heading. Keep tools of the same group
+               adjacent so each group gets a single divider.
      short     one line, list only
      status    optional mono label under the detail heading
      shots     image paths, in order. Empty renders a placeholder.
@@ -393,6 +404,7 @@ const SITE = {
   tools: [
     {
       name: "Device deployment checklist",
+      group: "professional",
       short: "Guided multi phase build procedure with a tracked, exportable record.",
       shots: [
         "assets/deployment-checklist-1.png",
@@ -425,6 +437,7 @@ const SITE = {
     },
     {
       name: "Asset register",
+      group: "professional",
       short: "Import driven inventory built from the checklist's exports.",
       shots: [],
       captions: [],
@@ -446,6 +459,7 @@ const SITE = {
     },
     {
       name: "Procurement tracker",
+      group: "professional",
       short: "Purchasing state across device categories in one place.",
       shots: [],
       captions: [],
@@ -460,42 +474,25 @@ const SITE = {
       stack: ["HTML", "JavaScript", "localStorage"]
     },
     {
-      name: "Operations dashboard hub",
-      short: "Single entry point to the rest of the tool suite.",
+      name: "K12 Proxmox node",
+      group: "personal",
+      short: "Second hypervisor node built out as a self managed lab.",
       shots: [],
       captions: [],
       sections: [
-        { h: "The tool", p: "A canvas based launcher that collects the standalone tools behind one page, so technicians reach the right utility without knowing a file path." },
-        { h: "Why it exists", p: "Single file tools are easy to deploy and awkward to find. Centralizing the entry point removed the most common question about the suite, which was where a given tool actually lived." }
-      ],
-      stack: ["HTML", "JavaScript", "Canvas"]
-    },
-    {
-      name: "Onboarding feedback survey",
-      short: "Structured intake on where new hire setup breaks down.",
-      shots: [],
-      captions: [],
-      sections: [
-        { h: "The tool", p: "Collects structured feedback from new hires about their first days of IT setup, so the deployment procedure gets corrected from evidence rather than assumption." },
-        { h: "What it captures", list: [
-          "Which parts of the setup were incomplete at handoff",
-          "Access and application gaps found after day one",
-          "Free text detail attached to the specific phase it concerns"
+        { h: "The node", p: "A second Proxmox VE hypervisor added alongside the primary host and built out from a clean install as a self managed lab. It adds capacity to the environment and gives me a separate host to build, test, and rebuild on without putting the primary node at risk." },
+        { h: "What runs on it", list: [
+          "Debian based LXC containers rather than full virtual machines, keeping overhead low",
+          "Self hosted services grouped by service class, so each workload stays separated from the others",
+          "A consistent container baseline, so new services start from the same configuration"
+        ]},
+        { h: "Access and hardening", list: [
+          "Management access restricted to a private Tailscale mesh network rather than exposed directly",
+          "CrowdSec intrusion prevention watching host and service logs",
+          "Host firewalling and a documented patch window for the hypervisor and its containers"
         ]}
       ],
-      stack: ["HTML", "JavaScript", "Form validation"]
-    },
-    {
-      name: "Ticket escalation dashboard",
-      short: "Escalation paths and ownership by issue class.",
-      status: "in development",
-      shots: [],
-      captions: [],
-      sections: [
-        { h: "The tool", p: "Surfaces the escalation path and owner for common issue classes, built directly against the written deployment and support procedures rather than as a separate source of truth." },
-        { h: "Status", p: "In development. The underlying procedures are written and the routing logic is defined. The interface is the remaining work." }
-      ],
-      stack: ["HTML", "JavaScript", "In progress"]
+      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec"]
     }
   ],
 
@@ -567,18 +564,36 @@ const detailEl = document.getElementById('detail');
 let selected = 0;
 let cascadeTimer = null;
 
-listEl.innerHTML = SITE.tools.map((t, i) => {
-  const thumb = t.shots && t.shots.length
-    ? `<img src="${esc(t.shots[0])}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'none',textContent:'+'}))">`
-    : `<span class="none">+</span>`;
-  return `
-  <button class="tool-item${i === 0 ? ' on' : ''}" data-i="${i}" role="tab" aria-selected="${i === 0}">
-    <span class="thumb">${thumb}</span>
-    <span>
-      <h3>${esc(t.name)}</h3>
-      <p>${esc(t.short)}</p>
-    </span>
-  </button>`;
+const GROUP_LABELS = { professional: "Professional", personal: "Personal" };
+const groupLabel = g => GROUP_LABELS[g] || (g ? g.charAt(0).toUpperCase() + g.slice(1) : '');
+
+/* consecutive tools sharing a group form one run: a divider label, then its own tablist */
+const runs = [];
+SITE.tools.forEach((t, i) => {
+  const g = t.group || '';
+  if (!runs.length || runs[runs.length - 1].group !== g) runs.push({ group: g, items: [] });
+  runs[runs.length - 1].items.push(i);
+});
+
+listEl.innerHTML = runs.map((run, r) => {
+  const label = groupLabel(run.group);
+  const head = label ? `<div class="tool-group-label" id="tool-group-${r}">${esc(label)}</div>` : '';
+  const tabs = run.items.map(i => {
+    const t = SITE.tools[i];
+    const thumb = t.shots && t.shots.length
+      ? `<img src="${esc(t.shots[0])}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'none',textContent:'+'}))">`
+      : `<span class="none">+</span>`;
+    return `
+    <button class="tool-item${i === 0 ? ' on' : ''}" data-i="${i}" role="tab" aria-selected="${i === 0}">
+      <span class="thumb">${thumb}</span>
+      <span>
+        <h3>${esc(t.name)}</h3>
+        <p>${esc(t.short)}</p>
+      </span>
+    </button>`;
+  }).join('');
+  const labelling = label ? `aria-labelledby="tool-group-${r}"` : 'aria-label="Tools"';
+  return `${head}<div class="tool-list" role="tablist" ${labelling}>${tabs}</div>`;
 }).join('');
 
 /* ---------- tooling: detail panel ---------- */
@@ -609,6 +624,7 @@ function renderDetail(i){
     <div class="detail-media">${media}</div>
     ${strip}
     <div class="detail-body">
+      ${t.group ? `<div class="status group">${esc(groupLabel(t.group))}</div>` : ''}
       <h3>${esc(t.name)}</h3>
       ${t.status ? `<div class="status">${esc(t.status)}</div>` : ''}
       ${body}
@@ -667,9 +683,10 @@ function select(i){
   clearInterval(cascadeTimer);
   cascadeTimer = null;
   selected = i;
-  [...listEl.children].forEach((b, n) => {
-    b.classList.toggle('on', n === i);
-    b.setAttribute('aria-selected', n === i);
+  listEl.querySelectorAll('.tool-item').forEach(b => {
+    const on = Number(b.dataset.i) === i;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-selected', on);
   });
   renderDetail(i);
 }
