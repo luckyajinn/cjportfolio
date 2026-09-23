@@ -30,7 +30,7 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:20;background:rgba(252,252,250,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(252,252,250,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
 .nav .wrap{display:flex;align-items:baseline;justify-content:space-between;height:60px}
 .nav .mark{font-weight:600;letter-spacing:-.01em}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
@@ -54,14 +54,6 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .sec-head h2{font-size:26px;letter-spacing:-.02em;font-weight:600;margin:0}
 .sec-head p{margin:0;color:var(--slate);max-width:56ch}
 
-/* project groups */
-.projgroup:not([hidden]) + .projgroup{margin-top:64px}
-.group-head{display:grid;grid-template-columns:200px 1fr;gap:40px;margin-bottom:24px;padding-top:18px;border-top:2px solid var(--ink)}
-.group-head h3{margin:0;font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-.group-head p{margin:0;color:var(--slate);max-width:56ch;font-size:15px}
-.projgroup .tools:not(:empty){margin-top:36px}
-.projgroup > div:empty + .tools{margin-top:0}
-
 /* experience */
 .role{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:28px 0;border-top:1px solid var(--rule)}
 .role .when{color:var(--slate);font-size:15px}
@@ -74,70 +66,89 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .case{border-top:1px solid var(--rule);padding:32px 0}
 .case:last-of-type{border-bottom:1px solid var(--rule)}
 .case-top{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
-.case h4{margin:0 0 6px;font-size:21px;letter-spacing:-.015em;font-weight:600}
+.case h3{margin:0 0 6px;font-size:21px;letter-spacing:-.015em;font-weight:600}
 .case .kicker{color:var(--slate);font-size:15px}
 .case .summary{max-width:64ch;margin:0 0 20px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:22px}
-.grid3 h5{margin:0 0 6px;font-size:14px;color:var(--accent);font-weight:600}
+.grid3 h4{margin:0 0 6px;font-size:14px;color:var(--accent);font-weight:600}
 .grid3 p{margin:0;font-size:15px;line-height:1.55;color:var(--slate)}
-.stack{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.stack{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:3px 9px;border:1px solid var(--rule-strong);color:var(--slate);border-radius:2px}
+.case .stack{margin-top:22px}
 
-/* tool cards */
-.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 36px}
-.tool{display:flex;flex-direction:column}
-.shotframe{border:1px solid var(--rule-strong);background:#fff;padding:8px;margin-bottom:16px}
+/* ---- tooling: master and detail ---- */
+.bench{display:grid;grid-template-columns:330px 1fr;gap:26px;align-items:start}
+
+.tool-list{display:flex;flex-direction:column;gap:10px}
+.tool-item{
+  display:grid;grid-template-columns:62px 1fr;gap:14px;align-items:start;
+  width:100%;text-align:left;padding:13px 14px;cursor:pointer;
+  background:#fff;border:1px solid var(--rule);border-left:3px solid transparent;
+  font:inherit;color:inherit;transition:border-color .15s ease,background .15s ease;
+}
+.tool-item:hover{border-color:var(--rule-strong)}
+.tool-item.on{border-color:var(--rule-strong);border-left-color:var(--accent);background:var(--accent-soft)}
+.tool-item h3{margin:0 0 3px;font-size:15.5px;font-weight:600;line-height:1.3}
+.tool-item.on h3{color:var(--accent)}
+.tool-item p{margin:0;font-size:13.5px;line-height:1.45;color:var(--slate)}
+.thumb{
+  position:relative;width:62px;height:62px;overflow:hidden;
+  background:var(--accent-soft);border:1px solid var(--rule);flex:none;
+}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.thumb .none{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:"IBM Plex Mono",monospace;font-size:16px;color:var(--rule-strong);
+}
+
+.detail{border:1px solid var(--rule-strong);background:#fff;position:sticky;top:76px}
+.detail-media{padding:10px;border-bottom:1px solid var(--rule)}
 .stage{
-  position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft);
-  cursor:zoom-in;display:block;width:100%;border:0;padding:0;
+  position:relative;display:block;width:100%;padding:0;border:0;
+  aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft);cursor:zoom-in;
 }
-.stage img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center top;
-  opacity:0;transition:opacity .28s ease;
-}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;transition:opacity .28s ease}
 .stage img.active{opacity:1}
 .stage .count{
-  position:absolute;right:8px;bottom:8px;
-  font-family:"IBM Plex Mono",monospace;font-size:11.5px;
-  background:rgba(20,28,36,.78);color:#fff;padding:3px 8px;
-  letter-spacing:.02em;pointer-events:none;
+  position:absolute;right:8px;bottom:8px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+  background:rgba(20,28,36,.78);color:#fff;padding:3px 8px;pointer-events:none;
 }
 .stage .ticks{position:absolute;left:8px;bottom:10px;display:flex;gap:4px;pointer-events:none}
 .stage .ticks span{width:16px;height:3px;background:rgba(255,255,255,.4)}
 .stage .ticks span.on{background:#fff}
-.shot-pending{
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  aspect-ratio:16/10;background:var(--accent-soft);border:1px dashed var(--rule-strong);
-  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--slate);padding:20px;line-height:1.7;
+.stage-none{
+  aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:var(--accent-soft);border:1px dashed var(--rule-strong);
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--slate);line-height:1.7;padding:20px;
 }
-.tool h4{margin:0 0 6px;font-size:18px;font-weight:600}
-.tool p{margin:0 0 14px;font-size:15.5px;color:var(--slate);line-height:1.55}
-.tool .stack{margin-top:auto}
+.detail-strip{display:flex;gap:8px;padding:10px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.detail-strip button{width:86px;height:54px;padding:0;border:1px solid var(--rule);background:var(--accent-soft);cursor:pointer;overflow:hidden}
+.detail-strip button.on{border-color:var(--accent)}
+.detail-strip img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:.6}
+.detail-strip button.on img{opacity:1}
+
+.detail-body{padding:24px 26px 28px;max-height:calc(100vh - 460px);min-height:220px;overflow-y:auto}
+.detail-body h3{margin:0 0 4px;font-size:22px;letter-spacing:-.015em;font-weight:600}
+.detail-body .status{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--accent);margin-bottom:16px}
+.detail-body h4{margin:22px 0 7px;font-size:14px;color:var(--accent);font-weight:600}
+.detail-body p{margin:0 0 10px;font-size:15.5px;line-height:1.6;color:var(--slate)}
+.detail-body ul{margin:0;padding-left:18px;font-size:15.5px;color:var(--slate)}
+.detail-body li{margin-bottom:6px}
+.detail-body .stack{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule)}
 
 /* viewer */
 .lb{position:fixed;inset:0;z-index:60;display:none;background:rgba(18,25,32,.94);flex-direction:column}
 .lb.open{display:flex}
-.lb-bar{
-  display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.14);
-  color:#E6EDF0;font-size:14.5px;flex:none;
-}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.14);color:#E6EDF0;font-size:14.5px;flex:none}
 .lb-bar .title{font-weight:500;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .lb-nav{display:flex;gap:8px;align-items:center;flex:none}
 .lb-nav .idx{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:#9FB0B8;margin-right:4px}
-.lb-btn{
-  background:none;border:1px solid rgba(255,255,255,.3);color:#E6EDF0;
-  font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:5px 11px;cursor:pointer;
-}
+.lb-btn{background:none;border:1px solid rgba(255,255,255,.3);color:#E6EDF0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:5px 11px;cursor:pointer}
 .lb-btn:hover{border-color:#fff}
 .lb-btn[disabled]{opacity:.35;cursor:default}
 .lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:20px}
 .lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid rgba(255,255,255,.18)}
-.lb-strip{
-  display:flex;gap:10px;padding:12px 20px 18px;justify-content:center;flex-wrap:wrap;
-  border-top:1px solid rgba(255,255,255,.14);flex:none;
-}
+.lb-strip{display:flex;gap:10px;padding:12px 20px 18px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);flex:none}
 .lb-strip button{width:112px;height:70px;padding:0;border:1px solid rgba(255,255,255,.25);background:#000;cursor:pointer;overflow:hidden}
 .lb-strip button.on{border-color:#fff}
 .lb-strip img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.55;display:block}
@@ -164,17 +175,22 @@ section{padding:76px 0;border-bottom:1px solid var(--rule)}
 .contact-links a:hover{border-bottom-color:var(--accent);color:var(--accent)}
 footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px solid var(--rule)}
 
+@media (max-width:900px){
+  .bench{grid-template-columns:1fr;gap:22px}
+  .detail{position:static}
+  .detail-body{max-height:none}
+}
 @media (max-width:820px){
   body{font-size:16px}
   .wrap{padding:0 22px}
   .spec{grid-template-columns:repeat(2,1fr)}
   .spec div:nth-child(2n){border-right:0}
-  .sec-head,.group-head,.role,.case-top,.contact .wrap,.cred{grid-template-columns:1fr;gap:14px}
-  .grid3,.grid4,.tools{grid-template-columns:1fr;gap:28px}
+  .sec-head,.role,.case-top,.contact .wrap,.cred{grid-template-columns:1fr;gap:14px}
+  .grid3,.grid4{grid-template-columns:1fr;gap:28px}
   .nav ul{gap:16px;font-size:14px}
   .nav .mark{display:none}
   .lb-strip button{width:74px;height:48px}
-  .lb-bar .title{font-size:13.5px}
+  .detail-strip button{width:68px;height:44px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -189,7 +205,8 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
     <span class="mark">Christian Jones</span>
     <ul>
       <li><a href="#work">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#tooling">Tooling</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -222,26 +239,22 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 <section id="projects">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Projects</h2>
-      <p>Work I owned end to end, in role and on my own time. Each entry covers the problem, what I did about it, and what changed as a result. Where a screenshot is shown, hover to page through it or click to inspect at full size.</p>
+      <h2>Selected work</h2>
+      <p>Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring.</p>
     </div>
+    <div id="cases"></div>
+  </div>
+</section>
 
-    <div class="projgroup" id="group-professional">
-      <div class="group-head">
-        <h3>Professional</h3>
-        <p>Owned in role at McKenna Labs, from diagnosis through the documentation that keeps it from recurring. Each application here is a dependency free single file, versioned in Git and deployable by opening it.</p>
-      </div>
-      <div id="cases-professional"></div>
-      <div class="tools" id="tools-professional"></div>
+<section id="tooling">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Tooling</h2>
+      <p>Applications I designed and built to close gaps in day to day IT operations. Each one is a dependency free single file, versioned in Git and deployable by opening it. Select a tool to read about it, hover a screenshot to page through it, or click to inspect at full size.</p>
     </div>
-
-    <div class="projgroup" id="group-personal" hidden>
-      <div class="group-head">
-        <h3>Personal</h3>
-        <p>Built outside of work, on my own time and infrastructure.</p>
-      </div>
-      <div id="cases-personal"></div>
-      <div class="tools" id="tools-personal"></div>
+    <div class="bench">
+      <div class="tool-list" id="tool-list" role="tablist" aria-label="Tools"></div>
+      <div class="detail" id="detail"></div>
     </div>
   </div>
 </section>
@@ -298,12 +311,18 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 /* ============================================================
    SITE DATA
 
-   tools[].shots is an array of image paths. One image renders a
-   static screenshot. Two or more enables the hover cascade and
-   the multi image viewer. captions[] runs in the same order and
-   labels each frame in the viewer.
+   Tooling entries drive a master and detail browser: the list on
+   the left, the selected tool's screenshots and write-up on the
+   right.
 
-   Images live in /assets beside this file.
+   Per tool:
+     name      list heading and detail heading
+     short     one line, list only
+     status    optional mono label under the detail heading
+     shots     image paths, in order. Empty renders a placeholder.
+     captions  same order as shots, labels each frame in the viewer
+     sections  detail body. { h, p } for prose, { h, list } for bullets
+     stack     chips at the foot of the detail panel
    ============================================================ */
 const CASCADE_MS = 1750;   /* hover cascade interval, milliseconds */
 
@@ -334,7 +353,6 @@ const SITE = {
 
   cases: [
     {
-      track: "professional",
       kicker: "Endpoint management",
       title: "Bringing an unmanaged fleet under policy",
       summary: "A large share of corporate endpoints were joined to the directory but never enrolled in mobile device management, leaving them outside compliance reporting entirely.",
@@ -344,7 +362,6 @@ const SITE = {
       stack: ["Microsoft Intune", "Entra ID", "Windows Autopilot", "PowerShell", "Xcitium Endpoint Manager"]
     },
     {
-      track: "professional",
       kicker: "Documentation",
       title: "Standard operating procedure library",
       summary: "Procedural knowledge lived with individuals. I turned it into a consistent, distributable document set.",
@@ -354,7 +371,6 @@ const SITE = {
       stack: ["Python", "ReportLab", "Technical writing"]
     },
     {
-      track: "professional",
       kicker: "Procurement",
       title: "Hardware refresh proposal",
       summary: "Led the standards and cost analysis for a fleet wide device refresh, presented to finance leadership.",
@@ -364,7 +380,6 @@ const SITE = {
       stack: ["Vendor evaluation", "Cost analysis", "Technical writing"]
     },
     {
-      track: "personal",
       kicker: "Infrastructure",
       title: "Virtualization homelab",
       summary: "A self managed hypervisor environment where I run the infrastructure work my job description does not cover yet.",
@@ -377,10 +392,8 @@ const SITE = {
 
   tools: [
     {
-      track: "professional",
       name: "Device deployment checklist",
-      blurb: "Guided deployment app covering a multi phase build procedure, with conditional steps by device type, a technician deploy mode and an administrator edit mode, schema migration for saved configurations, session history, a print view, and a versioned export that feeds the asset register.",
-      stack: ["HTML", "JavaScript", "localStorage", "JSON schema"],
+      short: "Guided multi phase build procedure with a tracked, exportable record.",
       shots: [
         "assets/deployment-checklist-1.png",
         "assets/deployment-checklist-2.png",
@@ -392,35 +405,97 @@ const SITE = {
         "Management enrollment and endpoint protection phase",
         "Peripheral setup and device handoff phase",
         "Administrator edit mode with exportable configuration"
-      ]
+      ],
+      sections: [
+        { h: "The tool", p: "Walks a technician through a full device build, phase by phase, and captures what was actually completed. It replaced a printed procedure that produced no record once the device left the bench." },
+        { h: "Two modes", p: "Deploy mode is the technician view: check off steps, capture device details, track progress against the phase count. Edit mode is the administrator view, where the procedure itself is rewritten without touching code. Step text, phases, and device types are all editable in the browser." },
+        { h: "Conditional procedure", list: [
+          "Device type selection skips phases that do not apply, so a factory fresh machine does not walk through an operating system install",
+          "Separate procedures for standard workstations and warehouse devices",
+          "Optional sections for pre-existing damage and physical condition notes"
+        ]},
+        { h: "Data handling", list: [
+          "Configurations persist in the browser with schema migration, so an older saved config still loads after the procedure changes",
+          "Session history retains prior deployments",
+          "Print view produces a clean physical record",
+          "Versioned JSON export feeds directly into the asset register"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "localStorage", "JSON schema"]
     },
     {
-      track: "professional",
       name: "Asset register",
-      blurb: "Import driven inventory that ingests checklist exports, deduplicates on session, serial, and asset tag, and batch confirms overwrites. Tracks asset categories and lifecycle statuses with custom fields, document links, search and filter, CSV export, and full JSON backup and restore.",
-      stack: ["HTML", "JavaScript", "CSV export", "JSON backup"],
-      shots: [
-        "assets/asset-register1.png",
-        "assets/asset-register2.png"
+      short: "Import driven inventory built from the checklist's exports.",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The tool", p: "Takes the deployment checklist's exports and builds a searchable inventory from them, so the record created at the bench becomes the record of the fleet." },
+        { h: "Import and matching", list: [
+          "Ingests both checklist export formats",
+          "Deduplicates on session, then serial, then asset tag",
+          "Batch confirms overwrites rather than prompting per record"
+        ]},
+        { h: "Record structure", list: [
+          "Six asset categories and five lifecycle statuses",
+          "Custom fields and linked documentation per asset",
+          "Search, filter, sort, and bulk delete",
+          "CSV export and full JSON backup and restore"
+        ]}
       ],
-      captions: [
-        "Inventory list with lifecycle counts, status filter, and checklist import",
-        "Item detail with serial, asset tag, owner, and the device access panel"
-      ]
+      stack: ["HTML", "JavaScript", "CSV export", "JSON backup"]
     },
     {
-      track: "professional",
       name: "Procurement tracker",
-      blurb: "Working record for hardware purchasing across device categories, keeping requested, approved, ordered, and received state in one place instead of scattered across mail threads and spreadsheets.",
-      stack: ["HTML", "JavaScript", "localStorage"],
-      shots: [
-        "assets/procurement-tracker1.png",
-        "assets/procurement-tracker2.png"
+      short: "Purchasing state across device categories in one place.",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The tool", p: "Keeps hardware purchasing visible from request through receipt, instead of scattered across mail threads and spreadsheets that go stale between approvals." },
+        { h: "What it tracks", list: [
+          "Requested, approved, ordered, and received state per line",
+          "Device categories matched to the approved hardware standard",
+          "Quantities and costs against the refresh plan"
+        ]}
       ],
-      captions: [
-        "Item intake with store detection, cost, and quantity against a requisition list",
-        "Purchased items tab with store filter, date sorting, and CSV export"
-      ]
+      stack: ["HTML", "JavaScript", "localStorage"]
+    },
+    {
+      name: "Operations dashboard hub",
+      short: "Single entry point to the rest of the tool suite.",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The tool", p: "A canvas based launcher that collects the standalone tools behind one page, so technicians reach the right utility without knowing a file path." },
+        { h: "Why it exists", p: "Single file tools are easy to deploy and awkward to find. Centralizing the entry point removed the most common question about the suite, which was where a given tool actually lived." }
+      ],
+      stack: ["HTML", "JavaScript", "Canvas"]
+    },
+    {
+      name: "Onboarding feedback survey",
+      short: "Structured intake on where new hire setup breaks down.",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The tool", p: "Collects structured feedback from new hires about their first days of IT setup, so the deployment procedure gets corrected from evidence rather than assumption." },
+        { h: "What it captures", list: [
+          "Which parts of the setup were incomplete at handoff",
+          "Access and application gaps found after day one",
+          "Free text detail attached to the specific phase it concerns"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "Form validation"]
+    },
+    {
+      name: "Ticket escalation dashboard",
+      short: "Escalation paths and ownership by issue class.",
+      status: "in development",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The tool", p: "Surfaces the escalation path and owner for common issue classes, built directly against the written deployment and support procedures rather than as a separate source of truth." },
+        { h: "Status", p: "In development. The underlying procedures are written and the routing logic is defined. The interface is the remaining work." }
+      ],
+      stack: ["HTML", "JavaScript", "In progress"]
     }
   ],
 
@@ -441,10 +516,11 @@ const SITE = {
   ]
 };
 
-/* ---------- render ---------- */
+/* ---------- helpers ---------- */
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ---------- static sections ---------- */
 document.getElementById('roles').innerHTML = SITE.roles.map(r => `
   <article class="role">
     <div class="when">${esc(r.when)}</div>
@@ -455,67 +531,22 @@ document.getElementById('roles').innerHTML = SITE.roles.map(r => `
     </div>
   </article>`).join('');
 
-/* Projects render into two tracks, professional and personal. An entry's
-   `track` field decides which group it lands in; anything unlabeled or
-   unrecognized falls back to professional, with a console warning for the
-   latter. A group with no entries of either kind is hidden. */
-/* Visual order comes from the markup, not this array, which only drives fill order. */
-const TRACKS = ['professional', 'personal'];
-const trackOf = x => {
-  const t = String(x.track || '').trim().toLowerCase();
-  if (TRACKS.includes(t)) return t;
-  if (x.track) console.warn(`Unrecognized track "${x.track}", filing as professional.`);
-  return 'professional';
-};
-
-const caseCard = c => `
+document.getElementById('cases').innerHTML = SITE.cases.map(c => `
   <article class="case">
     <div class="case-top">
       <div class="kicker">${esc(c.kicker)}</div>
       <div>
-        <h4>${esc(c.title)}</h4>
+        <h3>${esc(c.title)}</h3>
         <p class="summary">${esc(c.summary)}</p>
         <div class="grid3">
-          <div><h5>Problem</h5><p>${esc(c.problem)}</p></div>
-          <div><h5>Approach</h5><p>${esc(c.approach)}</p></div>
-          <div><h5>Result</h5><p>${esc(c.outcome)}</p></div>
+          <div><h4>Problem</h4><p>${esc(c.problem)}</p></div>
+          <div><h4>Approach</h4><p>${esc(c.approach)}</p></div>
+          <div><h4>Result</h4><p>${esc(c.outcome)}</p></div>
         </div>
         <div class="stack">${c.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
       </div>
     </div>
-  </article>`;
-
-/* ti stays the index into SITE.tools so the viewer lookup survives grouping. */
-const toolCard = (t, ti) => {
-  const shots = t.shots || [];
-  let frame;
-  if (shots.length) {
-    const layers = shots.map((s, i) =>
-      `<img src="${esc(s)}" alt="${esc(t.name)} screenshot ${i + 1}" class="${i === 0 ? 'active' : ''}"${i ? ' loading="lazy"' : ''}>`).join('');
-    const meta = shots.length > 1
-      ? `<span class="ticks">${shots.map((_, i) => `<span class="${i === 0 ? 'on' : ''}"></span>`).join('')}</span>
-         <span class="count">${shots.length} views</span>`
-      : `<span class="count">expand</span>`;
-    frame = `<button class="stage" data-tool="${ti}" aria-label="Inspect ${esc(t.name)} screenshots">${layers}${meta}</button>`;
-  } else {
-    frame = `<div class="shot-pending">screenshot pending<br>${esc(t.name.toLowerCase().replace(/\s+/g, '-'))}.png</div>`;
-  }
-  return `
-  <article class="tool">
-    <div class="shotframe">${frame}</div>
-    <h4>${esc(t.name)}</h4>
-    <p>${esc(t.blurb)}</p>
-    <div class="stack">${t.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
-  </article>`;
-};
-
-TRACKS.forEach(track => {
-  const cases = SITE.cases.filter(c => trackOf(c) === track);
-  const tools = SITE.tools.map((t, ti) => [t, ti]).filter(([t]) => trackOf(t) === track);
-  document.getElementById('cases-' + track).innerHTML = cases.map(caseCard).join('');
-  document.getElementById('tools-' + track).innerHTML = tools.map(([t, ti]) => toolCard(t, ti)).join('');
-  document.getElementById('group-' + track).hidden = !cases.length && !tools.length;
-});
+  </article>`).join('');
 
 document.getElementById('skills-grid').innerHTML = SITE.skills.map(s => `
   <div class="skillcol">
@@ -530,47 +561,132 @@ document.getElementById('creds').innerHTML = SITE.credentials.map(c => `
     <div class="status ${c.active ? 'active' : ''}">${esc(c.status)}</div>
   </div>`).join('');
 
-/* ---------- missing image fallback ---------- */
-/* A shot referenced in SITE but absent from /assets degrades to the
-   same placeholder the empty cards use, instead of a broken image. */
-document.querySelectorAll('.stage').forEach(stage => {
-  const imgs = [...stage.querySelectorAll('img')];
-  let failed = 0;
-  imgs.forEach(img => {
-    img.addEventListener('error', () => {
-      img.remove();
-      if (++failed === imgs.length) {
-        stage.parentElement.innerHTML = '<div class="shot-pending">screenshot pending</div>';
-      }
-    });
-  });
-});
+/* ---------- tooling: master list ---------- */
+const listEl = document.getElementById('tool-list');
+const detailEl = document.getElementById('detail');
+let selected = 0;
+let cascadeTimer = null;
 
-/* ---------- hover cascade ---------- */
-document.querySelectorAll('.stage').forEach(stage => {
+listEl.innerHTML = SITE.tools.map((t, i) => {
+  const thumb = t.shots && t.shots.length
+    ? `<img src="${esc(t.shots[0])}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'none',textContent:'+'}))">`
+    : `<span class="none">+</span>`;
+  return `
+  <button class="tool-item${i === 0 ? ' on' : ''}" data-i="${i}" role="tab" aria-selected="${i === 0}">
+    <span class="thumb">${thumb}</span>
+    <span>
+      <h3>${esc(t.name)}</h3>
+      <p>${esc(t.short)}</p>
+    </span>
+  </button>`;
+}).join('');
+
+/* ---------- tooling: detail panel ---------- */
+function renderDetail(i){
+  const t = SITE.tools[i];
+  const shots = t.shots || [];
+
+  const media = shots.length
+    ? `<button class="stage" id="stage" aria-label="Inspect ${esc(t.name)} screenshots">
+         ${shots.map((s, n) => `<img src="${esc(s)}" alt="${esc(t.name)} screenshot ${n + 1}" class="${n === 0 ? 'active' : ''}"${n ? ' loading="lazy"' : ''}>`).join('')}
+         ${shots.length > 1 ? `<span class="ticks">${shots.map((_, n) => `<span class="${n === 0 ? 'on' : ''}"></span>`).join('')}</span>
+           <span class="count">${shots.length} views</span>` : `<span class="count">expand</span>`}
+       </button>`
+    : `<div class="stage-none">screenshots pending</div>`;
+
+  const strip = shots.length > 1
+    ? `<div class="detail-strip" id="detail-strip">${shots.map((s, n) =>
+        `<button class="${n === 0 ? 'on' : ''}" data-n="${n}" aria-label="View screenshot ${n + 1}"><img src="${esc(s)}" alt="" loading="lazy"></button>`).join('')}</div>`
+    : '';
+
+  const body = (t.sections || []).map(sec => {
+    const head = `<h4>${esc(sec.h)}</h4>`;
+    if (sec.list) return head + `<ul>${sec.list.map(li => `<li>${esc(li)}</li>`).join('')}</ul>`;
+    return head + `<p>${esc(sec.p)}</p>`;
+  }).join('');
+
+  detailEl.innerHTML = `
+    <div class="detail-media">${media}</div>
+    ${strip}
+    <div class="detail-body">
+      <h3>${esc(t.name)}</h3>
+      ${t.status ? `<div class="status">${esc(t.status)}</div>` : ''}
+      ${body}
+      <div class="stack">${t.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
+    </div>`;
+
+  wireStage(i);
+}
+
+/* hover cascade plus click to open the viewer */
+function wireStage(i){
+  const stage = document.getElementById('stage');
+  if (!stage) return;
+
   const imgs = [...stage.querySelectorAll('img')];
   const ticks = [...stage.querySelectorAll('.ticks span')];
-  if (imgs.length < 2 || reduceMotion) return;
+  const strip = document.getElementById('detail-strip');
+  let n = 0;
 
-  let i = 0, timer = null;
+  /* a shot listed in SITE but missing from disk degrades to the placeholder */
+  let failed = 0;
+  imgs.forEach(img => img.addEventListener('error', () => {
+    img.remove();
+    if (++failed === imgs.length) stage.parentElement.innerHTML = '<div class="stage-none">screenshots pending</div>';
+  }));
 
-  const show = n => {
-    imgs[i].classList.remove('active');
-    if (ticks[i]) ticks[i].classList.remove('on');
-    i = n;
-    imgs[i].classList.add('active');
-    if (ticks[i]) ticks[i].classList.add('on');
+  const show = to => {
+    if (!imgs[to]) return;
+    imgs[n].classList.remove('active');
+    if (ticks[n]) ticks[n].classList.remove('on');
+    if (strip && strip.children[n]) strip.children[n].classList.remove('on');
+    n = to;
+    imgs[n].classList.add('active');
+    if (ticks[n]) ticks[n].classList.add('on');
+    if (strip && strip.children[n]) strip.children[n].classList.add('on');
   };
-  const start = () => { if (!timer) timer = setInterval(() => show((i + 1) % imgs.length), CASCADE_MS); };
-  const stop = () => { clearInterval(timer); timer = null; show(0); };
 
-  stage.addEventListener('mouseenter', start);
-  stage.addEventListener('mouseleave', stop);
-  stage.addEventListener('focus', start);
-  stage.addEventListener('blur', stop);
+  if (imgs.length > 1 && !reduceMotion) {
+    const start = () => { if (!cascadeTimer) cascadeTimer = setInterval(() => show((n + 1) % imgs.length), CASCADE_MS); };
+    const stop = () => { clearInterval(cascadeTimer); cascadeTimer = null; };
+    stage.addEventListener('mouseenter', start);
+    stage.addEventListener('mouseleave', stop);
+    stage.addEventListener('focus', start);
+    stage.addEventListener('blur', stop);
+  }
+
+  if (strip) strip.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b) { clearInterval(cascadeTimer); cascadeTimer = null; show(Number(b.dataset.n)); }
+  });
+
+  stage.addEventListener('click', () => openViewer(i, n));
+}
+
+function select(i){
+  clearInterval(cascadeTimer);
+  cascadeTimer = null;
+  selected = i;
+  [...listEl.children].forEach((b, n) => {
+    b.classList.toggle('on', n === i);
+    b.setAttribute('aria-selected', n === i);
+  });
+  renderDetail(i);
+}
+
+listEl.addEventListener('click', e => {
+  const b = e.target.closest('.tool-item');
+  if (!b) return;
+  const i = Number(b.dataset.i);
+  select(i);
+  if (window.matchMedia('(max-width: 900px)').matches) {
+    detailEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  }
 });
 
-/* ---------- viewer ---------- */
+select(0);
+
+/* ---------- full screen viewer ---------- */
 const lb = document.getElementById('lb');
 const lbImg = document.getElementById('lb-img');
 const lbTitle = document.getElementById('lb-title');
@@ -592,14 +708,13 @@ function paint(){
   [...lbStrip.children].forEach((b, i) => b.classList.toggle('on', i === n));
 }
 
-function openViewer(ti){
-  const t = SITE.tools[ti];
-  if (!t) return;
+function openViewer(toolIndex, startAt){
+  const t = SITE.tools[toolIndex];
   if (!t.shots || !t.shots.length) return;
   lastFocus = document.activeElement;
-  view = { shots: t.shots, captions: t.captions || [], n: 0, name: t.name };
+  view = { shots: t.shots, captions: t.captions || [], n: startAt || 0, name: t.name };
   lbStrip.innerHTML = t.shots.map((s, i) =>
-    `<button class="${i === 0 ? 'on' : ''}" data-n="${i}" aria-label="View screenshot ${i + 1}"><img src="${esc(s)}" alt=""></button>`).join('');
+    `<button data-n="${i}" aria-label="View screenshot ${i + 1}"><img src="${esc(s)}" alt=""></button>`).join('');
   lbStrip.style.display = t.shots.length > 1 ? 'flex' : 'none';
   paint();
   lb.classList.add('open');
@@ -614,11 +729,6 @@ function closeViewer(){
 }
 const step = d => { view.n = (view.n + d + view.shots.length) % view.shots.length; paint(); };
 
-/* Delegated on the section so both track grids are covered by one listener. */
-document.getElementById('projects').addEventListener('click', e => {
-  const stage = e.target.closest('.stage');
-  if (stage) openViewer(Number(stage.dataset.tool));
-});
 lbStrip.addEventListener('click', e => {
   const b = e.target.closest('button');
   if (b) { view.n = Number(b.dataset.n); paint(); }
