@@ -62,9 +62,18 @@ a{color:inherit}
 /* hero */
 .hero{padding:88px 0 64px;border-bottom:1px solid var(--rule)}
 .hero h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-.03em;font-weight:600;margin:0 0 22px}
+.hero{position:relative}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(20,28,36,0.29) 1px, transparent 1.3px);
+  background-size:18px 18px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);
+}
 .lede{font-size:20px;line-height:1.55;max-width:62ch;margin:0 0 40px}
 .lede .quiet{color:var(--slate)}
-.spec{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule-strong)}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule-strong);background:var(--paper)}
 .spec div{padding:16px 20px 18px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
 .spec div:last-child{border-right:0}
 .spec dt{font-size:13px;color:var(--slate);margin-bottom:5px}
@@ -242,6 +251,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 </nav>
 
 <header class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap">
     <h1>Christian Jones</h1>
     <p class="lede">IT Specialist working across help desk operations, endpoint management, and the internal tooling that keeps both consistent. <span class="quiet">Five years of hardware fundamentals behind the counter, now applied to fleet identity, compliance, and deployment at scale.</span></p>
