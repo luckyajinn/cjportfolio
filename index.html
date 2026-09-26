@@ -95,7 +95,7 @@ a{color:inherit}
 .nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
 
 /* hero */
-.hero{padding:88px 0 64px;border-bottom:1px solid var(--rule)}
+.hero{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
 .hero h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-.03em;font-weight:600;margin:0 0 22px}
 .hero{position:relative}
 .hero .wrap{position:relative;z-index:1}
@@ -276,9 +276,9 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
   <div class="wrap">
     <span class="mark">Christian Jones</span>
     <ul>
-      <li><a href="#work">Experience</a></li>
-      <li><a href="#projects">Work</a></li>
       <li><a href="#tooling">Projects</a></li>
+      <li><a href="#projects">Case studies</a></li>
+      <li><a href="#work">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -289,7 +289,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap">
     <h1>Christian Jones</h1>
-    <p class="lede">IT Specialist working across help desk operations, endpoint management, and the internal tooling that keeps both consistent. <span class="quiet">Five years of hardware fundamentals behind the counter, now applied to fleet identity, compliance, and deployment at scale.</span></p>
+    <p class="lede">IT Specialist handling help desk, device management in Intune and Entra ID, and internal tools for the team. <span class="quiet">Before that, five years building and repairing PCs at Micro Center.</span></p>
     <dl class="spec">
       <div><dt>Current role</dt><dd>IT Specialist, McKenna Labs</dd></div>
       <div><dt>Focus</dt><dd>Endpoint and identity administration</dd></div>
@@ -313,31 +313,11 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 </section>
 </noscript>
 
-<section id="work">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Experience</h2>
-      <p>Six years across consumer hardware and enterprise operations. The through line is the same: diagnose the real fault, then make the fix repeatable.</p>
-    </div>
-    <div id="roles"></div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Selected work</h2>
-      <p>Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring.</p>
-    </div>
-    <div id="cases"></div>
-  </div>
-</section>
-
 <section id="tooling">
   <div class="wrap">
     <div class="sec-head">
       <h2>Projects</h2>
-      <p>Applications I designed and built to close gaps in day to day IT operations. Each one is a dependency free single file, versioned in Git and deployable by opening it. Select a tool to read about it, hover a screenshot to page through it, or click to inspect at full size.</p>
+      <p>Tools I built for day-to-day IT work. Each is a single HTML file with no dependencies. Click a screenshot to enlarge it.</p>
     </div>
     <div class="bench">
       <div id="tool-list"></div>
@@ -346,11 +326,30 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
   </div>
 </section>
 
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Case studies</h2>
+      <p>Larger problems I've worked through, at work and at home.</p>
+    </div>
+    <div id="cases"></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Experience</h2>
+    </div>
+    <div id="roles"></div>
+  </div>
+</section>
+
 <section id="skills">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Technical scope</h2>
-      <p>Tools in regular production use, not a list of everything I have opened once.</p>
+      <h2>Skills</h2>
+      <p>Tools I use regularly.</p>
     </div>
     <div class="grid4" id="skills-grid"></div>
   </div>
@@ -359,8 +358,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
 <section id="credentials">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Education and credentials</h2>
-      <p>Largely self taught, now formalizing the foundation. Status listed honestly.</p>
+      <h2>Education and certifications</h2>
     </div>
     <div id="creds"></div>
   </div>
@@ -378,7 +376,7 @@ footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px soli
   </div>
 </section>
 
-<footer><div class="wrap">Designed, built, and maintained by me. Last updated September 2026.</div></footer>
+<footer><div class="wrap">Built and maintained by me. Updated September 2026.</div></footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project screenshots">
   <div class="lb-bar">
@@ -425,10 +423,10 @@ const SITE = {
       title: "IT Specialist",
       org: "McKenna Labs",
       points: [
-        "Administer Windows endpoints through Microsoft Intune and Entra ID, covering enrollment, compliance policy, and device lifecycle.",
-        "Own tier 1 and tier 2 escalations across identity, messaging, endpoint security, and warehouse hardware.",
-        "Author the standard operating procedures the rest of the team deploys against.",
-        "Build internal tooling that turns manual checklists into tracked, exportable records."
+        "Manage Windows devices in Intune and Entra ID: enrollment, compliance, and lifecycle.",
+        "Handle tier 1 and tier 2 tickets for accounts, email, endpoint security, and warehouse hardware.",
+        "Write the SOPs the team follows for device deployments.",
+        "Build internal tools that replace paper checklists with tracked records."
       ]
     },
     {
@@ -436,9 +434,9 @@ const SITE = {
       title: "Build Your Own Department",
       org: "Micro Center",
       points: [
-        "Specified, assembled, and diagnosed custom systems across five years of daily hardware work.",
-        "Translated technical constraints into plain language for customers at every experience level.",
-        "Developed the component level troubleshooting instinct that still shortens enterprise diagnosis."
+        "Specced, built, and repaired custom PCs daily for five years.",
+        "Explained technical issues to customers of every skill level.",
+        "Learned component-level troubleshooting I still use on the job."
       ]
     }
   ],
@@ -446,38 +444,34 @@ const SITE = {
   cases: [
     {
       kicker: "Endpoint management",
-      title: "Bringing an unmanaged fleet under policy",
-      summary: "A large share of corporate endpoints were joined to the directory but never enrolled in mobile device management, leaving them outside compliance reporting entirely.",
-      problem: "Enrollment scope was limited to a narrow set of device groups, so an entire hardware class had no path into management. Compliance evaluation also failed on machines running a third party endpoint agent instead of the default one.",
-      approach: "Audited enrollment state across the fleet, built the missing device grouping, corrected the management scope, and replaced the default antivirus compliance check with a custom detection script matched to the agent actually deployed.",
-      outcome: "Previously invisible devices reporting into management, and compliance status that reflects the real security posture rather than a failed default check.",
+      title: "Enrolling unmanaged devices in Intune",
+      problem: "Many company devices were joined to the directory but never enrolled in Intune, so they were missing from compliance reports. Devices running a third-party antivirus also failed the default compliance check.",
+      approach: "Audited enrollment, created the missing device group, fixed the enrollment scope, and wrote a custom detection script for the antivirus we actually run.",
+      outcome: "Those devices now report into Intune, and compliance status is accurate.",
       stack: ["Microsoft Intune", "Entra ID", "Windows Autopilot", "PowerShell", "Xcitium Endpoint Manager"]
     },
     {
       kicker: "Documentation",
-      title: "Standard operating procedure library",
-      summary: "Procedural knowledge lived with individuals. I turned it into a consistent, distributable document set.",
-      problem: "Recurring tasks across deployment, device registration, and account administration had no written standard, so outcomes varied by whoever picked up the ticket.",
-      approach: "Wrote and programmatically generated a library of formatted procedure documents in a consistent house style, covering device deployment, hardware registration, warehouse device redeployment, shared device administration, and collaboration platform management.",
-      outcome: "A reference set new technicians can execute against without shadowing, and a stable basis for the deployment tooling built on top of it.",
+      title: "SOP library",
+      problem: "Common tasks like device deployment and account setup had no written process, so results depended on who took the ticket.",
+      approach: "Wrote a set of procedures, generated with Python in one consistent format, covering deployment, hardware registration, warehouse redeployment, shared devices, and collaboration tools.",
+      outcome: "New techs can follow them without shadowing. The deployment checklist is built on them.",
       stack: ["Python", "ReportLab", "Technical writing"]
     },
     {
       kicker: "Procurement",
       title: "Hardware refresh proposal",
-      summary: "Led the standards and cost analysis for a fleet wide device refresh, presented to finance leadership.",
-      problem: "Purchasing was reactive and inconsistent, producing a fleet with no common manageability, warranty, or support baseline.",
-      approach: "Defined five device categories against real role requirements, evaluated vendors on enterprise manageability, warranty response, and management platform compatibility, then built a costed proposal with a recommended standard configuration per category.",
-      outcome: "A single approved hardware standard and a budgeted refresh plan sized for the fleet.",
+      problem: "Hardware was bought as needed with no standard, leaving a mix of devices with different management and warranty support.",
+      approach: "Defined five device categories by role, compared vendors on manageability, warranty, and management platform support, and presented a costed proposal to finance leadership.",
+      outcome: "An approved hardware standard and a budgeted refresh plan.",
       stack: ["Vendor evaluation", "Cost analysis", "Technical writing"]
     },
     {
       kicker: "Infrastructure",
-      title: "Virtualization homelab",
-      summary: "A self managed hypervisor environment where I run the infrastructure work my job description does not cover yet.",
-      problem: "Networking, Linux administration, and security hardening are where I am headed professionally, and reading about them is not the same as operating them.",
-      approach: "Built a multi node hypervisor cluster running containerized services including DNS filtering and application servers, segmented by service class. Access is restricted to a private mesh network with single sign on and multi factor authentication, with intrusion prevention, host firewalling, and a documented patch window.",
-      outcome: "A running environment I maintain under real uptime expectations, and the practical grounding behind the networking certifications in progress.",
+      title: "Homelab",
+      problem: "I want hands-on practice with networking, Linux, and security beyond what my current role covers.",
+      approach: "Built a multi-node Proxmox cluster running containers like DNS filtering and app servers, separated by service type. Access is through Tailscale with SSO and MFA, plus CrowdSec, Fail2ban, host firewalls, and a regular patch schedule.",
+      outcome: "A lab I keep running and patched, and hands-on practice for my CCNA.",
       stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec", "Fail2ban"]
     }
   ],
@@ -486,7 +480,7 @@ const SITE = {
     {
       name: "Device deployment checklist",
       group: "professional",
-      short: "Guided multi phase build procedure with a tracked, exportable record.",
+      short: "Step-by-step device builds with an exportable record.",
       shots: [
         "assets/deployment-checklist-1.png",
         "assets/deployment-checklist-2.png",
@@ -500,18 +494,13 @@ const SITE = {
         "Administrator edit mode with exportable configuration"
       ],
       sections: [
-        { h: "The tool", p: "Walks a technician through a full device build, phase by phase, and captures what was actually completed. It replaced a printed procedure that produced no record once the device left the bench." },
-        { h: "Two modes", p: "Deploy mode is the technician view: check off steps, capture device details, track progress against the phase count. Edit mode is the administrator view, where the procedure itself is rewritten without touching code. Step text, phases, and device types are all editable in the browser." },
-        { h: "Conditional procedure", list: [
-          "Device type selection skips phases that do not apply, so a factory fresh machine does not walk through an operating system install",
-          "Separate procedures for standard workstations and warehouse devices",
-          "Optional sections for pre-existing damage and physical condition notes"
-        ]},
-        { h: "Data handling", list: [
-          "Configurations persist in the browser with schema migration, so an older saved config still loads after the procedure changes",
-          "Session history retains prior deployments",
-          "Print view produces a clean physical record",
-          "Versioned JSON export feeds directly into the asset register"
+        { h: "What it does", p: "Walks a tech through a device build phase by phase and records what was done. Replaced a printed checklist that left no record." },
+        { h: "Features", list: [
+          "Deploy mode for techs, edit mode for changing steps without touching code",
+          "Skips phases that don't apply to the device type",
+          "Separate procedures for workstations and warehouse devices",
+          "Condition and damage notes",
+          "Saved history, print view, and JSON export into the asset register"
         ]}
       ],
       stack: ["HTML", "JavaScript", "localStorage", "JSON schema"]
@@ -519,7 +508,7 @@ const SITE = {
     {
       name: "Asset register",
       group: "professional",
-      short: "Import driven inventory built from the checklist's exports.",
+      short: "Searchable inventory built from checklist exports.",
       shots: [
         "assets/asset-register1.png",
         "assets/asset-register2.png"
@@ -529,17 +518,13 @@ const SITE = {
         "Asset record with device access and linked documents"
       ],
       sections: [
-        { h: "The tool", p: "Takes the deployment checklist's exports and builds a searchable inventory from them, so the record created at the bench becomes the record of the fleet." },
-        { h: "Import and matching", list: [
-          "Ingests both checklist export formats",
-          "Deduplicates on session, then serial, then asset tag",
-          "Batch confirms overwrites rather than prompting per record"
-        ]},
-        { h: "Record structure", list: [
+        { h: "What it does", p: "Imports deployment checklist exports into a searchable inventory of every device." },
+        { h: "Features", list: [
+          "Deduplicates by session, serial, then asset tag",
           "Six asset categories and five lifecycle statuses",
-          "Custom fields and linked documentation per asset",
+          "Custom fields and linked docs per asset",
           "Search, filter, sort, and bulk delete",
-          "CSV export and full JSON backup and restore"
+          "CSV export and JSON backup/restore"
         ]}
       ],
       stack: ["HTML", "JavaScript", "CSV export", "JSON backup"]
@@ -547,7 +532,7 @@ const SITE = {
     {
       name: "Procurement tracker",
       group: "professional",
-      short: "Purchasing state across device categories in one place.",
+      short: "Hardware purchases from request to receipt.",
       shots: [
         "assets/procurement-tracker1.png",
         "assets/procurement-tracker2.png"
@@ -557,11 +542,11 @@ const SITE = {
         "Purchase history with store filter and export"
       ],
       sections: [
-        { h: "The tool", p: "Keeps hardware purchasing visible from request through receipt, instead of scattered across mail threads and spreadsheets that go stale between approvals." },
-        { h: "What it tracks", list: [
-          "Requested, approved, ordered, and received state per line",
-          "Device categories matched to the approved hardware standard",
-          "Quantities and costs against the refresh plan"
+        { h: "What it does", p: "Tracks hardware purchases in one place instead of across email threads and spreadsheets." },
+        { h: "Features", list: [
+          "Requested, approved, ordered, and received status per item",
+          "Categories match the approved hardware standard",
+          "Quantities and costs tracked against the refresh plan"
         ]}
       ],
       stack: ["HTML", "JavaScript", "localStorage"]
@@ -569,20 +554,16 @@ const SITE = {
     {
       name: "K12 Proxmox node",
       group: "personal",
-      short: "Second hypervisor node built out as a self managed lab.",
+      short: "Second Proxmox host in my homelab.",
       shots: [],
       captions: [],
       sections: [
-        { h: "The node", p: "A second Proxmox VE hypervisor added alongside the primary host and built out from a clean install as a self managed lab. It adds capacity to the environment and gives me a separate host to build, test, and rebuild on without putting the primary node at risk." },
-        { h: "What runs on it", list: [
-          "Debian based LXC containers rather than full virtual machines, keeping overhead low",
-          "Self hosted services grouped by service class, so each workload stays separated from the others",
-          "A consistent container baseline, so new services start from the same configuration"
-        ]},
-        { h: "Access and hardening", list: [
-          "Management access restricted to a private Tailscale mesh network rather than exposed directly",
-          "CrowdSec intrusion prevention watching host and service logs",
-          "Host firewalling and a documented patch window for the hypervisor and its containers"
+        { h: "What it is", p: "A second Proxmox VE node, built from a clean install, so I can test and rebuild without risking the main host." },
+        { h: "Setup", list: [
+          "Debian LXC containers instead of full VMs to keep overhead low",
+          "Services separated by type, all from the same container baseline",
+          "Management only reachable through Tailscale",
+          "CrowdSec, host firewall, and a regular patch schedule"
         ]}
       ],
       stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec"]
@@ -627,7 +608,7 @@ document.getElementById('cases').innerHTML = SITE.cases.map(c => `
       <div class="kicker">${esc(c.kicker)}</div>
       <div>
         <h3>${esc(c.title)}</h3>
-        <p class="summary">${esc(c.summary)}</p>
+        ${c.summary ? `<p class="summary">${esc(c.summary)}</p>` : ''}
         <div class="grid3">
           <div><h4>Problem</h4><p>${esc(c.problem)}</p></div>
           <div><h4>Approach</h4><p>${esc(c.approach)}</p></div>
