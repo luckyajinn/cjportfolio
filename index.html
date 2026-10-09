@@ -563,10 +563,11 @@ const SITE = {
           "Debian LXC containers instead of full VMs to keep overhead low",
           "Services separated by type, all from the same container baseline",
           "Management only reachable through Tailscale",
-          "CrowdSec, host firewall, and a regular patch schedule"
+          "CrowdSec, host firewall, and a regular patch schedule",
+          "Fail2ban, so I can 'jail' IPs that attempt to brute force access."
         ]}
       ],
-      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec"]
+      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec","Fail2ban"]
     }
   ],
 
