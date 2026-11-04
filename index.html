@@ -1115,19 +1115,23 @@ const SITE = {
       short: "Searchable inventory built from checklist exports.",
       shots: [
         "assets/asset-register1.png",
-        "assets/asset-register2.png"
+        "assets/asset-register2.png",
+        "assets/asset-register3.png",
+        "assets/asset-register4.png"
       ],
       captions: [
         "Inventory overview with status totals and search",
-        "Asset record with device access and linked documents"
+        "Asset record with device access and linked documents",
+        "Category filter, status sorting, and bulk actions",
+        "Imported deployment record with phase progress"
       ],
       sections: [
         { h: "What it does", p: "Imports deployment checklist exports into a searchable inventory of every device." },
         { h: "Features", list: [
           "Deduplicates by session, serial, then asset tag",
-          "Six asset categories and five lifecycle statuses",
+          "Six asset categories and six lifecycle statuses",
           "Custom fields and linked docs per asset",
-          "Search, filter, sort, and bulk delete",
+          "Search, filter, sort, and bulk status change or delete",
           "CSV export and JSON backup/restore"
         ]}
       ],
@@ -1136,21 +1140,29 @@ const SITE = {
     {
       name: "Procurement tracker",
       group: "professional",
-      short: "Hardware purchases from request to receipt.",
+      short: "Hardware purchase list with price tracking and history.",
       shots: [
         "assets/procurement-tracker1.png",
-        "assets/procurement-tracker2.png"
+        "assets/procurement-tracker2.png",
+        "assets/procurement-tracker3.png",
+        "assets/procurement-tracker4.png"
       ],
       captions: [
-        "Add item form for new requisitions",
-        "Purchase history with store filter and export"
+        "Add item form with the store detected from the product URL",
+        "Purchase history filtered by store, with CSV and backup export",
+        "Requisitions with a stale price flag, price history, and mark purchased",
+        "Duplicate warning when adding an item already purchased"
       ],
       sections: [
         { h: "What it does", p: "Tracks hardware purchases in one place instead of across email threads and spreadsheets." },
         { h: "Features", list: [
-          "Requested, approved, ordered, and received status per item",
-          "Categories match the approved hardware standard",
-          "Quantities and costs tracked against the refresh plan"
+          "Two lists: items to requisition and items already purchased, with a purchase date",
+          "Quantity and price per item, with totals for estimated cost, total spent, and spent this month",
+          "Flags a price that has not been checked in 14 days, and keeps a price history",
+          "Detects the store from the product URL",
+          "Warns when an item is already on a list",
+          "Search, store filter, and sorting",
+          "CSV export, and JSON backup and import"
         ]}
       ],
       stack: ["HTML", "JavaScript", "localStorage"]
