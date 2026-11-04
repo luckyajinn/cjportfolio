@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christian Jones - IT Specialist</title>
+<link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<!-- search and social preview -->
+<meta name="description" content="I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent.">
+<link rel="canonical" href="https://luckyajinn.github.io/cjportfolio/">
+<meta name="theme-color" content="#1B5B66">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Christian Jones">
+<meta property="og:url" content="https://luckyajinn.github.io/cjportfolio/">
+<meta property="og:title" content="Christian Jones, IT Specialist">
+<meta property="og:description" content="I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent.">
+<meta property="og:image" content="https://luckyajinn.github.io/cjportfolio/assets/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Christian Jones, IT Specialist, Orange County California">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Christian Jones, IT Specialist">
+<meta name="twitter:description" content="I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent.">
+<meta name="twitter:image" content="https://luckyajinn.github.io/cjportfolio/assets/preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Christian Jones",
+  "jobTitle": "IT Specialist",
+  "url": "https://luckyajinn.github.io/cjportfolio/",
+  "email": "mailto:christianjonesbusiness@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Orange County",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "McKenna Labs"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/christian-jones-762301193/",
+    "https://github.com/luckyajinn"
+  ],
+  "knowsAbout": [
+    "Microsoft Intune",
+    "Microsoft Entra ID",
+    "Windows Autopilot",
+    "Exchange Online",
+    "Microsoft 365 administration",
+    "Endpoint management",
+    "PowerShell",
+    "Proxmox VE",
+    "Linux administration"
+  ]
+}
+</script>
+<style>
+/* ============================================================
+   BLUEPRINT CONCEPT
+   Drafting paper, blueprint ink, sections drawn as nodes on a
+   trunk link with packets travelling between them.
+   ============================================================ */
+:root{
+  --paper:#F4F7FA;
+  --panel:#FFFFFF;
+  --ink:#0F2236;
+  --muted:#44576A;
+  --line:#CCD8E3;
+  --line-strong:#9AAFC2;
+  --blue:#0B5CAD;
+  --blue-deep:#0A2B4F;
+  --blue-soft:#E7F0FA;
+  --amber:#A65300;
+  --amber-bright:#FFB547;
+  --ok:#1C7A4A;
+  --grid-minor:rgba(11,92,173,.055);
+  --grid-major:rgba(11,92,173,.10);
+  --focus:#0B5CAD;
+  --maxw:1140px;
+  --pad:76px;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  margin:0;color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid-minor) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:96px 96px,96px 96px,16px 16px,16px 16px;
+  overflow-x:hidden;
+}
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--blue-deep);color:#fff;padding:8px 14px;font-size:14px;text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:30;background:rgba(244,247,250,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand-mark{width:26px;height:26px;flex:none}
+.brand b{font-weight:600;letter-spacing:-.01em;font-size:16px}
+.brand small{font-family:var(--mono);font-size:11.5px;color:var(--muted);border-left:1px solid var(--line-strong);padding-left:10px}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;font-size:14.5px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{display:flex;align-items:baseline;gap:6px;color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;white-space:nowrap}
+.nav ul a .if{font-family:var(--mono);font-size:10.5px;color:var(--blue)}
+.nav ul a:hover{color:var(--ink);border-color:var(--line);background:var(--panel)}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--blue);background:var(--blue-soft);border:1px solid #C6D9EE;padding:4px 10px;margin-bottom:22px}
+.led{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(28,122,74,.16);flex:none}
+.hero h1{font-size:clamp(42px,6vw,66px);line-height:1.02;letter-spacing:-.03em;font-weight:600;margin:0 0 20px}
+.lede{font-size:19.5px;line-height:1.55;max-width:58ch;margin:0 0 30px}
+.lede .quiet{color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 34px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:15px;font-weight:500;padding:9px 16px;border:1px solid var(--blue);background:var(--blue);color:#fff;text-decoration:none;cursor:pointer}
+.btn:hover{background:#094C90}
+.btn.ghost{background:var(--panel);color:var(--blue)}
+.btn.ghost:hover{background:var(--blue-soft)}
+.btn .mono{font-size:11.5px;opacity:.8}
+
+.spec{border:1px solid var(--line-strong);background:var(--panel)}
+.spec-head{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:7px 14px;border-bottom:1px solid var(--line);background:var(--blue-soft)}
+.spec-head .up{color:var(--ok)}
+.spec-grid{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.spec-grid div{padding:13px 16px 15px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.spec-grid div:nth-child(2n){border-right:0}
+.spec-grid div:nth-last-child(-n+2){border-bottom:0}
+.spec dt{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-bottom:3px}
+.spec dt .if{color:var(--blue);margin-right:6px}
+.spec dd{margin:0;font-size:15.5px;font-weight:500;line-height:1.4}
+
+/* topology panel */
+.sheet{position:relative;background:var(--blue-deep);color:#D8E8FA;border:1px solid #06203D;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 18px 40px -24px rgba(10,43,79,.55)}
+.sheet::before{content:"";position:absolute;inset:8px;border:1px solid rgba(160,200,255,.28);pointer-events:none}
+.topo{display:block;width:100%;height:auto}
+.topo .wire{fill:none;stroke:#8DBBEB;stroke-width:1.6}
+.topo .wire.mesh{stroke:#6FD3C4;stroke-dasharray:5 5}
+.topo .shape{fill:#123E6E;stroke:#A9CFF5;stroke-width:1.5}
+.topo .shape.soft{fill:none;stroke:rgba(169,207,245,.5);stroke-dasharray:4 4}
+.topo .trace{fill:none;stroke:#A9CFF5;stroke-width:1.2}
+.topo text{font-family:"IBM Plex Mono",monospace;font-size:12.5px;fill:#E1EEFB}
+.topo .lbl{font-size:10.5px;fill:#8FB7E2}
+.topo .lbl.mesh{fill:#7FDCCF}
+.topo .packet{fill:#FFB547}
+.topo .packet.mesh{fill:#7FDCCF}
+.titleblock{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:6px 14px;margin:0 8px 8px;padding:9px 12px;border-top:1px solid rgba(160,200,255,.28);font-family:var(--mono);font-size:10.5px;color:#9CC0E6;letter-spacing:.04em}
+.titleblock b{display:block;color:#E1EEFB;font-weight:500;font-size:11.5px;letter-spacing:0}
+
+/* ---------- network sections: trunk, nodes, packets ---------- */
+section{position:relative;padding:var(--pad) 0;border-bottom:1px solid var(--line)}
+.net .wrap{position:relative;padding-left:104px}
+.net .wrap::before{
+  content:"";position:absolute;left:46px;top:calc(var(--pad) * -1);bottom:calc(var(--pad) * -1);
+  width:2px;background:linear-gradient(to bottom,rgba(11,92,173,.38),rgba(11,92,173,.38));
+}
+.net .wrap::after{
+  content:"";position:absolute;left:43px;width:8px;height:8px;background:var(--amber-bright);
+  border:1px solid var(--amber);top:calc(var(--pad) * -1);
+  animation:travel var(--dur,9s) linear infinite;animation-delay:var(--delay,0s);opacity:0;
+}
+.net:nth-of-type(2n) .wrap::after{--dur:11s;--delay:-3s}
+.net:nth-of-type(3n) .wrap::after{--dur:8s;--delay:-5s}
+@keyframes travel{
+  0%{top:calc(var(--pad) * -1);opacity:0}
+  6%{opacity:1}
+  94%{opacity:1}
+  100%{top:calc(100% + var(--pad));opacity:0}
+}
+.node{
+  position:absolute;left:37px;width:20px;height:20px;margin-top:1px;
+  background:var(--panel);border:2px solid var(--blue);
+}
+.node::before{content:"";position:absolute;inset:4px;background:var(--blue)}
+.node::after{content:"";position:absolute;left:100%;top:7px;width:47px;border-top:2px dotted var(--blue);opacity:.7}
+
+.sec-head{margin-bottom:40px;max-width:760px}
+.sec-id{display:flex;flex-wrap:wrap;gap:6px;font-family:var(--mono);font-size:11.5px;margin-bottom:10px;line-height:20px}
+.tag{display:inline-block;font-family:var(--mono);font-size:11.5px;line-height:1.5;padding:0 7px;border:1px solid #C6D9EE;background:var(--blue-soft);color:var(--blue);white-space:nowrap}
+.tag.plain{background:transparent;border-color:var(--line);color:var(--muted)}
+.sec-head h2{font-size:clamp(26px,3.2vw,32px);letter-spacing:-.02em;font-weight:600;margin:0 0 10px;line-height:1.15}
+.sec-head p{margin:0;color:var(--muted);max-width:62ch}
+
+.card{background:var(--panel);border:1px solid var(--line-strong)}
+.card-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:8px 16px;border-bottom:1px solid var(--line);background:#FAFCFE;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+/* ---------- experience ---------- */
+.roles{display:flex;flex-direction:column;gap:18px}
+.role{display:grid;grid-template-columns:200px minmax(0,1fr)}
+.role-meta{padding:18px 18px;border-right:1px solid var(--line);background:#FAFCFE;display:flex;flex-direction:column;gap:8px}
+.role-meta .when{font-size:15px;font-weight:500}
+.role-body{padding:20px 24px 18px}
+.role h3{margin:0 0 2px;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.role .org{color:var(--blue);font-size:15.5px;font-weight:500;margin-bottom:12px}
+.role ul{margin:0;padding-left:18px;max-width:66ch}
+.role li{margin-bottom:6px}
+.role li::marker{color:var(--blue)}
+
+/* ---------- case studies ---------- */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.case{display:flex;flex-direction:column}
+.case .card-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.case h3{margin:0 0 8px;font-size:20px;letter-spacing:-.015em;font-weight:600;line-height:1.3}
+.case .summary{margin:0 0 18px}
+.path{list-style:none;margin:0 0 18px;padding:0;position:relative}
+.path::before{content:"";position:absolute;left:11px;top:12px;bottom:12px;border-left:2px dotted var(--line-strong)}
+.path li{position:relative;padding-left:36px;margin-bottom:14px}
+.path li:last-child{margin-bottom:0}
+.hop{position:absolute;left:0;top:1px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--panel);border:1.5px solid var(--blue);color:var(--blue)}
+.path li:last-child .hop{background:var(--blue);color:#fff}
+.path h4{margin:0 0 2px;font-size:13.5px;font-weight:600;color:var(--blue);font-family:var(--mono);letter-spacing:.02em;text-transform:uppercase}
+.path p{margin:0;font-size:15.5px;line-height:1.55;color:var(--muted)}
+.stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding:0;list-style:none}
+.chip{font-family:var(--mono);font-size:12.5px;padding:2px 9px;border:1px solid var(--line-strong);color:var(--ink);background:var(--paper)}
+
+/* ---------- projects: devices ---------- */
+.dev-group + .dev-group{margin-top:40px}
+.dev-group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line-strong)}
+.dev-group-head h3{margin:0;font-size:18px;font-weight:600}
+.dev-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.device{
+  display:flex;flex-direction:column;width:100%;height:100%;padding:0;text-align:left;cursor:pointer;
+  font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line-strong);
+  transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease;
+}
+.device:hover{border-color:var(--blue);box-shadow:0 10px 24px -18px rgba(10,43,79,.6);transform:translateY(-2px)}
+.device:focus-visible{outline-offset:2px;border-color:var(--blue)}
+.dev-bar{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--muted);background:#FAFCFE}
+.dev-bar .port{margin-left:auto;color:var(--blue)}
+.dev-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--blue-soft);border-bottom:1px solid var(--line)}
+.dev-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.dev-text{display:block;padding:14px 14px 6px}
+.dev-name{display:block;font-size:17px;font-weight:600;line-height:1.3;margin-bottom:4px}
+.device:hover .dev-name{color:var(--blue)}
+.dev-short{display:block;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.dev-foot{display:flex;justify-content:space-between;gap:8px;margin-top:auto;padding:10px 14px 12px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.dev-foot .open{color:var(--blue);font-weight:500}
+
+/* placeholder for missing screenshots */
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#7F9BB8;
+  background-color:var(--blue-soft);
+  background-image:linear-gradient(rgba(11,92,173,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(11,92,173,.08) 1px,transparent 1px);
+  background-size:12px 12px}
+.ph svg{width:42%;max-width:150px;height:auto}
+.ph span{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.skill .card-body{padding:14px 16px 16px}
+.skill h3{font-size:16px;margin:0;font-weight:600;line-height:1.35}
+.skill ul{list-style:none;margin:0;padding:0;font-size:15px}
+.skill li{display:flex;gap:10px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--line)}
+.skill li:last-child{border-bottom:0}
+.skill li::before{content:"";flex:none;width:7px;height:7px;border:1.5px solid var(--blue);transform:translateY(-1px)}
+
+/* ---------- credentials ---------- */
+.creds{list-style:none;margin:0;padding:0}
+.cred{display:grid;grid-template-columns:20px minmax(0,1.15fr) minmax(0,1fr) 120px;gap:16px;align-items:baseline;padding:14px 18px;border-bottom:1px solid var(--line)}
+.cred:last-child{border-bottom:0}
+.cred .led{background:transparent;border:1.5px solid var(--line-strong);box-shadow:none;transform:translateY(1px)}
+.cred .led.on{background:var(--amber-bright);border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,181,71,.22)}
+.cred-name{font-weight:500}
+.cred-detail{color:var(--muted);font-size:15px}
+.cred-status{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.cred-status.active{color:var(--amber);font-weight:600}
+.creds-head{display:grid;grid-template-columns:20px minmax(0,1.15fr) minmax(0,1fr) 120px;gap:16px}
+.creds-head span:last-child{text-align:right}
+
+/* ---------- contact ---------- */
+.contact{border-bottom:0}
+.console{max-width:720px}
+.console ul{list-style:none;margin:0;padding:8px 0}
+.console li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;align-items:baseline;padding:10px 18px}
+.console .prompt{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.console .prompt::before{content:"> ";color:var(--blue)}
+.console a{font-size:18px;text-decoration:none;border-bottom:1px solid var(--line-strong);overflow-wrap:anywhere;padding-bottom:1px}
+.console a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+footer{padding:26px 0 46px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer .mono{font-size:11.5px}
+
+/* ---------- detail dialog ---------- */
+dialog{color:var(--ink)}
+.detail{
+  padding:0;border:1px solid var(--line-strong);background:var(--panel);
+  width:min(1140px,calc(100vw - 32px));max-width:none;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);
+  box-shadow:0 30px 80px -30px rgba(6,24,45,.7);
+}
+.detail::backdrop{background:rgba(7,24,44,.62)}
+.d-wrap{display:flex;flex-direction:column;max-height:calc(100vh - 34px);max-height:calc(100dvh - 34px)}
+.d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 22px 14px;border-bottom:1px solid var(--line);background:#FAFCFE;flex:none}
+.d-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.d-head h2{margin:0;font-size:24px;letter-spacing:-.015em;font-weight:600;line-height:1.2}
+.x-btn{flex:none;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px;padding:6px 12px;background:var(--panel);border:1px solid var(--line-strong);color:var(--ink);cursor:pointer}
+.x-btn:hover{border-color:var(--blue);color:var(--blue)}
+kbd{font-family:var(--mono);font-size:11px;padding:0 5px;border:1px solid var(--line-strong);background:var(--paper);color:var(--muted)}
+.d-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);min-height:0;flex:1}
+.d-media{padding:18px;border-right:1px solid var(--line);overflow:auto;background:var(--paper)}
+.d-body{padding:20px 26px 26px;overflow:auto}
+.d-fig{margin:0}
+.d-stage{position:relative;display:block;width:100%;padding:0;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--line-strong);background:var(--blue-soft);cursor:zoom-in}
+.d-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.d-stage .zoom{position:absolute;right:8px;bottom:8px;font-size:11.5px;background:rgba(10,43,79,.86);color:#fff;padding:3px 8px;pointer-events:none}
+.d-ph{position:relative;aspect-ratio:16/10;border:1px dashed var(--line-strong);overflow:hidden}
+.d-cap{display:flex;gap:12px;align-items:baseline;padding:10px 2px 0;font-size:14.5px;color:var(--muted);min-height:2.6em}
+.d-cap .mono{flex:none;font-size:12px;color:var(--blue)}
+.d-pager{display:flex;align-items:center;gap:10px;margin-top:12px}
+.pg-btn{flex:none;font-family:var(--mono);font-size:12.5px;padding:6px 10px;background:var(--panel);border:1px solid var(--line-strong);color:var(--ink);cursor:pointer}
+.pg-btn:hover{border-color:var(--blue);color:var(--blue)}
+.d-strip{display:flex;gap:8px;flex-wrap:wrap;min-width:0;flex:1}
+.d-strip button{width:76px;height:48px;padding:0;border:1px solid var(--line);background:var(--blue-soft);cursor:pointer;overflow:hidden}
+.d-strip button[aria-current="true"]{border:2px solid var(--blue)}
+.d-strip img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:.6}
+.d-strip button[aria-current="true"] img,.d-strip button:hover img{opacity:1}
+.d-body h3{margin:22px 0 7px;font-size:13.5px;color:var(--blue);font-weight:600;font-family:var(--mono);text-transform:uppercase;letter-spacing:.03em}
+.d-body h3:first-child{margin-top:0}
+.d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.62;color:var(--muted)}
+.d-body ul{margin:0;padding-left:18px;font-size:15.5px;color:var(--muted)}
+.d-body li{margin-bottom:6px}
+.d-body li::marker{color:var(--blue)}
+.d-body .stack{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+
+/* ---------- full size viewer ---------- */
+.viewer{
+  --focus:#FFB547;
+  padding:0;border:0;margin:0;inset:0;width:100%;height:100%;max-width:100%;max-height:100%;
+  background:rgba(6,20,37,.97);color:#E1EEFB;
+}
+.viewer[open]{display:flex;flex-direction:column}
+.viewer::backdrop{background:rgba(6,20,37,.9)}
+.v-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 20px;border-bottom:1px solid rgba(160,200,255,.18);flex:none}
+.v-title{min-width:0;font-size:14.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.v-nav{display:flex;gap:8px;align-items:center;flex:none}
+.v-idx{font-family:var(--mono);font-size:12.5px;color:#9CC0E6;margin-right:4px}
+.v-btn{background:none;border:1px solid rgba(169,207,245,.4);color:#E1EEFB;font-family:var(--mono);font-size:12.5px;padding:5px 11px;cursor:pointer}
+.v-btn:hover{border-color:#fff}
+.v-btn[disabled]{opacity:.35;cursor:default}
+.v-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:20px}
+.v-stage img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid rgba(169,207,245,.25);background:#0A2B4F}
+.v-strip{display:flex;gap:10px;padding:12px 20px 18px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(160,200,255,.18);flex:none}
+.v-strip[hidden]{display:none}
+.v-strip button{width:108px;height:66px;padding:0;border:1px solid rgba(169,207,245,.3);background:#000;cursor:pointer;overflow:hidden}
+.v-strip button[aria-current="true"]{border:2px solid #FFB547}
+.v-strip img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.55;display:block}
+.v-strip button[aria-current="true"] img{opacity:1}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .sheet{max-width:640px}
+  .dev-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .cases{grid-template-columns:1fr}
+  .d-grid{display:block;overflow:auto}
+  .d-media{border-right:0;border-bottom:1px solid var(--line);overflow:visible}
+  .d-body{overflow:visible}
+}
+@media (max-width:760px){
+  :root{--pad:56px}
+  body{font-size:16px}
+  .wrap,.net .wrap{padding:0 16px}
+  .net .wrap::before,.net .wrap::after,.node{display:none}
+  .brand small{display:none}
+  .nav .wrap{gap:10px}
+  .nav ul a .if{display:none}
+  .nav ul a{padding:6px 7px}
+  .hero{padding:44px 0 48px}
+  .lede{font-size:17.5px}
+  .role{grid-template-columns:1fr}
+  .role-meta{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:12px 16px}
+  .role-body{padding:16px 16px 14px}
+  .case .card-body{padding:16px}
+  .dev-grid,.skills{grid-template-columns:1fr}
+  .cred,.creds-head{grid-template-columns:20px minmax(0,1fr);gap:4px 12px;padding:12px 14px}
+  .creds-head span:nth-child(n+3){display:none}
+  .cred-detail,.cred-status{grid-column:2}
+  .cred-status{text-align:left}
+  .console li{grid-template-columns:1fr;gap:2px;padding:10px 16px}
+  .console a{font-size:16.5px}
+  .titleblock{grid-template-columns:repeat(2,auto)}
+  .detail{width:calc(100vw - 16px);max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px)}
+  .d-wrap{max-height:calc(100vh - 18px);max-height:calc(100dvh - 18px)}
+  .d-head{padding:12px 14px}
+  .d-head h2{font-size:20px}
+  .x-btn kbd{display:none}
+  .d-media{padding:12px}
+  .d-body{padding:16px}
+  .d-strip button{width:58px;height:38px}
+  .v-bar{padding:10px 12px;flex-wrap:wrap}
+  .v-title{flex-basis:100%;white-space:normal}
+  .v-stage{padding:10px}
+  .v-strip button{width:68px;height:44px}
+}
+@media (max-width:480px){
+  .nav .brand{display:none}
+  .nav .wrap{justify-content:center}
+  .nav ul{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .net .wrap::after{animation:none;display:none}
+  .topo .packet{display:none}
+  .device{transition:none}
+  .device:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Christian Jones, back to top">
+      <svg class="brand-mark" viewBox="0 0 26 26" aria-hidden="true">
+        <rect x="1" y="1" width="24" height="24" fill="#0A2B4F"/>
+        <path d="M7 8h12M7 13h12M7 18h12" stroke="#8DBBEB" stroke-width="1.4"/>
+        <circle cx="10" cy="8" r="2" fill="#FFB547"/><circle cx="16" cy="13" r="2" fill="#E1EEFB"/><circle cx="12" cy="18" r="2" fill="#E1EEFB"/>
+      </svg>
+      <b>Christian Jones</b>
+      <small>IT Specialist</small>
+    </a>
+    <ul>
+      <li><a href="#work"><span class="if">Gi0/1</span>Experience</a></li>
+      <li><a href="#projects"><span class="if">Gi0/2</span>Work</a></li>
+      <li><a href="#tooling"><span class="if">Gi0/3</span>Projects</a></li>
+      <li><a href="#skills"><span class="if">Gi0/4</span>Skills</a></li>
+      <li><a href="#contact"><span class="if">Con0</span>Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="led" aria-hidden="true"></span><span>IT Specialist · Orange County, CA</span></div>
+      <h1>Christian Jones</h1>
+      <p class="lede">IT Specialist working across help desk operations, endpoint management, and the internal tooling that keeps both consistent. <span class="quiet">Five years of hardware fundamentals behind the counter, now applied to fleet identity, compliance, and deployment at scale.</span></p>
+      <div class="cta">
+        <a class="btn" href="#tooling">View projects <span class="mono" aria-hidden="true">Gi0/3</span></a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="spec">
+        <div class="spec-head" aria-hidden="true"><span>show interfaces brief</span><span class="up">4/4 up</span></div>
+        <dl class="spec-grid">
+          <div><dt><span class="if" aria-hidden="true">Gi0/1</span>Current role</dt><dd>IT Specialist, McKenna Labs</dd></div>
+          <div><dt><span class="if" aria-hidden="true">Gi0/2</span>Focus</dt><dd>Endpoint and identity administration</dd></div>
+          <div><dt><span class="if" aria-hidden="true">Gi0/3</span>Location</dt><dd>Orange County, California</dd></div>
+          <div><dt><span class="if" aria-hidden="true">Gi0/4</span>Studying</dt><dd>Computer Engineering, CCNA</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <figure class="sheet" style="margin:0">
+      <svg class="topo" viewBox="0 0 560 420" role="img" aria-labelledby="topo-t topo-d">
+        <title id="topo-t">Topology sketch</title>
+        <desc id="topo-d">Illustrative network diagram: an edge router and core switch linking a managed Windows endpoint fleet, Microsoft cloud identity, and two Proxmox hypervisor nodes reached over a private Tailscale mesh.</desc>
+        <defs>
+          <pattern id="bp-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M20 0H0V20" fill="none" stroke="rgba(160,200,255,.09)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="560" height="420" fill="url(#bp-grid)"/>
+
+        <!-- links -->
+        <path id="l1" class="wire" d="M280 66V106"/>
+        <path id="l2" class="wire" d="M280 150V196"/>
+        <path id="l3" class="wire" d="M258 128H160"/>
+        <path id="l4" class="wire mesh" d="M302 128H448"/>
+        <path id="l5" class="wire" d="M250 230V262H100V292"/>
+        <path id="l6" class="wire" d="M280 230V296"/>
+        <path id="l7" class="wire" d="M310 230V262H440V296"/>
+        <path id="l8" class="wire mesh" d="M484 150V296"/>
+
+        <!-- link labels -->
+        <text class="lbl" x="288" y="92">Gi0/0</text>
+        <text class="lbl" x="288" y="178">Gi0/1</text>
+        <text class="lbl" x="178" y="120">https</text>
+        <text class="lbl mesh" x="342" y="120">tailnet</text>
+        <text class="lbl" x="128" y="254">VLAN 10</text>
+        <text class="lbl" x="288" y="278">VLAN 20</text>
+        <text class="lbl" x="372" y="254">VLAN 30</text>
+
+        <!-- internet -->
+        <path class="shape" d="M242 66h66a16 16 0 0 0 2-32a24 24 0 0 0-44-6a16 16 0 0 0-22 12a13 13 0 0 0-2 26z"/>
+        <text x="280" y="54" text-anchor="middle">WAN</text>
+
+        <!-- cloud identity -->
+        <path class="shape" d="M70 146h66a16 16 0 0 0 2-32a24 24 0 0 0-44-6a16 16 0 0 0-22 12a13 13 0 0 0-2 26z"/>
+        <text x="108" y="135" text-anchor="middle" style="font-size:11px">M365</text>
+        <text x="108" y="166" text-anchor="middle" class="lbl">Entra ID</text>
+
+        <!-- edge router -->
+        <circle class="shape" cx="280" cy="128" r="22"/>
+        <path class="trace" d="M268 128h24M280 116v24M288 124l4 4-4 4M272 124l-4 4 4 4M276 120l4-4 4 4M276 136l4 4 4-4"/>
+        <text x="270" y="170" text-anchor="end" class="lbl">edge</text>
+
+        <!-- tailscale mesh -->
+        <circle class="shape" cx="470" cy="128" r="22" style="stroke:#6FD3C4"/>
+        <circle cx="462" cy="122" r="2.4" fill="#7FDCCF"/><circle cx="478" cy="122" r="2.4" fill="#7FDCCF"/>
+        <circle cx="462" cy="134" r="2.4" fill="#7FDCCF"/><circle cx="478" cy="134" r="2.4" fill="#7FDCCF"/>
+        <circle cx="470" cy="128" r="2.4" fill="#7FDCCF"/>
+        <text x="470" y="90" text-anchor="middle" class="lbl mesh">Tailscale</text>
+
+        <!-- core switch -->
+        <rect class="shape" x="226" y="196" width="108" height="34" rx="2"/>
+        <path class="trace" d="M238 222h8M252 222h8M266 222h8M280 222h8M294 222h8M308 222h8"/>
+        <text x="280" y="214" text-anchor="middle">core-sw</text>
+
+        <!-- endpoint fleet -->
+        <rect class="shape" x="70" y="292" width="60" height="40" rx="2"/>
+        <path class="shape" d="M60 336h80l-6 8H66z"/>
+        <path class="trace" d="M80 304h40M80 312h28M80 320h34"/>
+        <text x="100" y="366" text-anchor="middle">Intune fleet</text>
+        <text x="100" y="382" text-anchor="middle" class="lbl">Autopilot</text>
+
+        <!-- hypervisor cluster -->
+        <rect class="shape soft" x="224" y="284" width="292" height="104" rx="6"/>
+        <rect class="shape" x="240" y="296" width="80" height="56" rx="2"/>
+        <path class="trace" d="M250 310h60M250 324h60M250 338h60"/>
+        <circle cx="304" cy="310" r="2" fill="#FFB547"/><circle cx="304" cy="324" r="2" fill="#8DBBEB"/><circle cx="304" cy="338" r="2" fill="#8DBBEB"/>
+        <text x="280" y="372" text-anchor="middle">pve primary</text>
+        <rect class="shape" x="420" y="296" width="80" height="56" rx="2"/>
+        <path class="trace" d="M430 310h60M430 324h60M430 338h60"/>
+        <circle cx="484" cy="310" r="2" fill="#FFB547"/><circle cx="484" cy="324" r="2" fill="#8DBBEB"/><circle cx="484" cy="338" r="2" fill="#8DBBEB"/>
+        <text x="460" y="372" text-anchor="middle">pve k12</text>
+        <text x="370" y="406" text-anchor="middle" class="lbl">Proxmox VE · LXC · Debian</text>
+
+        <!-- packets (removed under reduced motion) -->
+        <circle class="packet" r="3.5"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#l1"/></animateMotion></circle>
+        <circle class="packet" r="3.5"><animateMotion dur="2.6s" begin="0.6s" repeatCount="indefinite"><mpath href="#l2"/></animateMotion></circle>
+        <circle class="packet" r="3.5"><animateMotion dur="3s" begin="0.3s" repeatCount="indefinite"><mpath href="#l3"/></animateMotion></circle>
+        <circle class="packet" r="3.5"><animateMotion dur="3.6s" begin="1s" repeatCount="indefinite"><mpath href="#l5"/></animateMotion></circle>
+        <circle class="packet" r="3.5"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite"><mpath href="#l6"/></animateMotion></circle>
+        <circle class="packet" r="3.5"><animateMotion dur="3.8s" begin="0.2s" repeatCount="indefinite"><mpath href="#l7"/></animateMotion></circle>
+        <circle class="packet mesh" r="3"><animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite"><mpath href="#l4"/></animateMotion></circle>
+        <circle class="packet mesh" r="3"><animateMotion dur="3s" begin="1.8s" repeatCount="indefinite"><mpath href="#l8"/></animateMotion></circle>
+      </svg>
+      <figcaption class="titleblock">
+        <span>Drawing<b>CJ-01</b></span>
+        <span>Drawn by<b>C. Jones</b></span>
+        <span>Revision<b>2026.09</b></span>
+        <span>Scale<b>NTS</b></span>
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<noscript>
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Summary</h2>
+      <p>IT Specialist at McKenna Labs since January 2026, administering Windows endpoints through Microsoft Intune and Entra ID and owning tier 1 and tier 2 escalations. Previously five years in the Build Your Own department at Micro Center. Currently studying for an Associate's in Computer Engineering at Santa Ana College and preparing for the Cisco CCNA.</p>
+      <p>Core tools: Microsoft Intune, Entra ID, Windows Autopilot, Exchange Online, Microsoft 365, PowerShell, Proxmox VE, and Linux.</p>
+      <p>This page renders its full content with JavaScript. Contact details are listed below.</p>
+    </div>
+  </div>
+</section>
+</noscript>
+
+<main id="main">
+<section class="net" id="work" aria-labelledby="h-work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="node" aria-hidden="true"></span>
+      <div class="sec-id" aria-hidden="true"><span class="tag">VLAN 10</span><span class="tag plain">Gi0/1</span><span class="tag plain">10.0.10.0/24</span></div>
+      <h2 id="h-work">Experience</h2>
+      <p>Six years across consumer hardware and enterprise operations. The through line is the same: diagnose the real fault, then make the fix repeatable.</p>
+    </div>
+    <div class="roles" id="roles"></div>
+  </div>
+</section>
+
+<section class="net" id="projects" aria-labelledby="h-projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="node" aria-hidden="true"></span>
+      <div class="sec-id" aria-hidden="true"><span class="tag">VLAN 20</span><span class="tag plain">Gi0/2</span><span class="tag plain">10.0.20.0/24</span></div>
+      <h2 id="h-projects">Selected work</h2>
+      <p>Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring.</p>
+    </div>
+    <div class="cases" id="cases"></div>
+  </div>
+</section>
+
+<section class="net" id="tooling" aria-labelledby="h-tooling">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="node" aria-hidden="true"></span>
+      <div class="sec-id" aria-hidden="true"><span class="tag">VLAN 30</span><span class="tag plain">Gi0/3</span><span class="tag plain">10.0.30.0/24</span></div>
+      <h2 id="h-tooling">Projects</h2>
+      <p>Applications I designed and built to close gaps in day to day IT operations. Each one is a dependency free single file, versioned in Git and deployable by opening it. Select a device to read the full write-up, page through its screenshots, and inspect them at full size.</p>
+    </div>
+    <div id="tools"></div>
+  </div>
+</section>
+
+<section class="net" id="skills" aria-labelledby="h-skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="node" aria-hidden="true"></span>
+      <div class="sec-id" aria-hidden="true"><span class="tag">VLAN 40</span><span class="tag plain">Gi0/4</span><span class="tag plain">10.0.40.0/24</span></div>
+      <h2 id="h-skills">Technical scope</h2>
+      <p>Tools in regular production use, not a list of everything I have opened once.</p>
+    </div>
+    <div class="skills" id="skills-grid"></div>
+  </div>
+</section>
+
+<section class="net" id="credentials" aria-labelledby="h-creds">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="node" aria-hidden="true"></span>
+      <div class="sec-id" aria-hidden="true"><span class="tag">VLAN 50</span><span class="tag plain">Gi0/5</span><span class="tag plain">10.0.50.0/24</span></div>
+      <h2 id="h-creds">Education and credentials</h2>
+      <p>Largely self taught, now formalizing the foundation. Status listed honestly.</p>
+    </div>
+    <div class="card">
+      <div class="card-bar creds-head" aria-hidden="true"><span></span><span>credential</span><span>detail</span><span>status</span></div>
+      <ul class="creds" id="creds"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="net contact" id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="node" aria-hidden="true"></span>
+      <div class="sec-id" aria-hidden="true"><span class="tag">MGMT</span><span class="tag plain">Con0</span></div>
+      <h2 id="h-contact">Get in touch</h2>
+    </div>
+    <div class="card console">
+      <div class="card-bar" aria-hidden="true"><span>line con 0</span><span>3 routes</span></div>
+      <ul>
+        <li><span class="prompt">email</span><a href="mailto:christianjonesbusiness@gmail.com">christianjonesbusiness@gmail.com</a></li>
+        <li><span class="prompt">linkedin</span><a href="https://www.linkedin.com/in/christian-jones-762301193/" target="_blank" rel="noopener noreferrer">linkedin.com/in/christian-jones</a></li>
+        <li><span class="prompt">github</span><a href="https://github.com/luckyajinn" target="_blank" rel="noopener noreferrer">github.com/luckyajinn</a></li>
+        <!-- <li><span class="prompt">resume</span><a href="../assets/christian-jones-resume.pdf" target="_blank" rel="noopener noreferrer">Download resume (PDF)</a></li> -->
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Designed, built, and maintained by me. Last updated September 2026.</span><span class="mono" aria-hidden="true">end of drawing · sheet 1 of 1</span></div></footer>
+
+<!-- expanded project detail -->
+<dialog class="detail" id="detail" aria-labelledby="d-title">
+  <div class="d-wrap">
+    <div class="d-head">
+      <div>
+        <div class="d-meta" id="d-meta"></div>
+        <h2 id="d-title"></h2>
+      </div>
+      <button type="button" class="x-btn" id="d-close" aria-label="Close project details">Close <kbd>Esc</kbd></button>
+    </div>
+    <div class="d-grid">
+      <div class="d-media" id="d-media"></div>
+      <div class="d-body" id="d-body"></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- full size screenshot viewer -->
+<dialog class="viewer" id="viewer" aria-label="Screenshot viewer">
+  <div class="v-bar">
+    <span class="v-title" id="v-title"></span>
+    <div class="v-nav">
+      <span class="v-idx" id="v-idx" aria-live="polite"></span>
+      <button type="button" class="v-btn" id="v-prev" aria-label="Previous screenshot">prev</button>
+      <button type="button" class="v-btn" id="v-next" aria-label="Next screenshot">next</button>
+      <button type="button" class="v-btn" id="v-close" aria-label="Close viewer">close esc</button>
+    </div>
+  </div>
+  <div class="v-stage" id="v-stage"><img id="v-img" alt=""></div>
+  <div class="v-strip" id="v-strip" role="group" aria-label="Screenshots"></div>
+</dialog>
+
+<script>
+/* ============================================================
+   SITE DATA
+
+   Edit content here. Everything below the data block renders it.
+
+   Per tool:
+     name      card heading and detail heading
+     group     "professional" or "personal". Consecutive tools that
+               share a group render under one group heading, so keep
+               tools of the same group adjacent.
+     short     one line, card only
+     status    optional mono label in the detail header
+     shots     image paths, in order. Empty renders a placeholder,
+               and any path that fails to load is skipped.
+     captions  same order as shots, labels each frame
+     sections  detail body. { h, p } for prose, { h, list } for bullets
+     stack     chips at the foot of the detail panel
+
+   Interface labels (Gi0/x, VLAN tags, 10.0.x.x ids) are decoration
+   generated from list position, not data.
+   ============================================================ */
+const SITE = {
+  roles: [
+    {
+      when: "Jan 2026 to present",
+      title: "IT Specialist",
+      org: "McKenna Labs",
+      points: [
+        "Administer Windows endpoints through Microsoft Intune and Entra ID, covering enrollment, compliance policy, and device lifecycle.",
+        "Own tier 1 and tier 2 escalations across identity, messaging, endpoint security, and warehouse hardware.",
+        "Author the standard operating procedures the rest of the team deploys against.",
+        "Build internal tooling that turns manual checklists into tracked, exportable records."
+      ]
+    },
+    {
+      when: "2020 to 2026",
+      title: "Build Your Own Department",
+      org: "Micro Center",
+      points: [
+        "Specified, assembled, and diagnosed custom systems across five years of daily hardware work.",
+        "Translated technical constraints into plain language for customers at every experience level.",
+        "Developed the component level troubleshooting instinct that still shortens enterprise diagnosis."
+      ]
+    }
+  ],
+
+  cases: [
+    {
+      kicker: "Endpoint management",
+      title: "Bringing an unmanaged fleet under policy",
+      summary: "A large share of corporate endpoints were joined to the directory but never enrolled in mobile device management, leaving them outside compliance reporting entirely.",
+      problem: "Enrollment scope was limited to a narrow set of device groups, so an entire hardware class had no path into management. Compliance evaluation also failed on machines running a third party endpoint agent instead of the default one.",
+      approach: "Audited enrollment state across the fleet, built the missing device grouping, corrected the management scope, and replaced the default antivirus compliance check with a custom detection script matched to the agent actually deployed.",
+      outcome: "Previously invisible devices reporting into management, and compliance status that reflects the real security posture rather than a failed default check.",
+      stack: ["Microsoft Intune", "Entra ID", "Windows Autopilot", "PowerShell", "Xcitium Endpoint Manager"]
+    },
+    {
+      kicker: "Documentation",
+      title: "Standard operating procedure library",
+      summary: "Procedural knowledge lived with individuals. I turned it into a consistent, distributable document set.",
+      problem: "Recurring tasks across deployment, device registration, and account administration had no written standard, so outcomes varied by whoever picked up the ticket.",
+      approach: "Wrote and programmatically generated a library of formatted procedure documents in a consistent house style, covering device deployment, hardware registration, warehouse device redeployment, shared device administration, and collaboration platform management.",
+      outcome: "A reference set new technicians can execute against without shadowing, and a stable basis for the deployment tooling built on top of it.",
+      stack: ["Python", "ReportLab", "Technical writing"]
+    },
+    {
+      kicker: "Procurement",
+      title: "Hardware refresh proposal",
+      summary: "Led the standards and cost analysis for a fleet wide device refresh, presented to finance leadership.",
+      problem: "Purchasing was reactive and inconsistent, producing a fleet with no common manageability, warranty, or support baseline.",
+      approach: "Defined five device categories against real role requirements, evaluated vendors on enterprise manageability, warranty response, and management platform compatibility, then built a costed proposal with a recommended standard configuration per category.",
+      outcome: "A single approved hardware standard and a budgeted refresh plan sized for the fleet.",
+      stack: ["Vendor evaluation", "Cost analysis", "Technical writing"]
+    },
+    {
+      kicker: "Infrastructure",
+      title: "Virtualization homelab",
+      summary: "A self managed hypervisor environment where I run the infrastructure work my job description does not cover yet.",
+      problem: "Networking, Linux administration, and security hardening are where I am headed professionally, and reading about them is not the same as operating them.",
+      approach: "Built a multi node hypervisor cluster running containerized services including DNS filtering and application servers, segmented by service class. Access is restricted to a private mesh network with single sign on and multi factor authentication, with intrusion prevention, host firewalling, and a documented patch window.",
+      outcome: "A running environment I maintain under real uptime expectations, and the practical grounding behind the networking certifications in progress.",
+      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec", "Fail2ban"]
+    }
+  ],
+
+  tools: [
+    {
+      name: "Device deployment checklist",
+      group: "professional",
+      short: "Guided multi phase build procedure with a tracked, exportable record.",
+      shots: [
+        "../assets/deployment-checklist-1.png",
+        "../assets/deployment-checklist-2.png",
+        "../assets/deployment-checklist-3.png",
+        "../assets/deployment-checklist-4.png"
+      ],
+      captions: [
+        "Prerequisites and device condition capture",
+        "Management enrollment and endpoint protection phase",
+        "Peripheral setup and device handoff phase",
+        "Administrator edit mode with exportable configuration"
+      ],
+      sections: [
+        { h: "The tool", p: "Walks a technician through a full device build, phase by phase, and captures what was actually completed. It replaced a printed procedure that produced no record once the device left the bench." },
+        { h: "Two modes", p: "Deploy mode is the technician view: check off steps, capture device details, track progress against the phase count. Edit mode is the administrator view, where the procedure itself is rewritten without touching code. Step text, phases, and device types are all editable in the browser." },
+        { h: "Conditional procedure", list: [
+          "Device type selection skips phases that do not apply, so a factory fresh machine does not walk through an operating system install",
+          "Separate procedures for standard workstations and warehouse devices",
+          "Optional sections for pre-existing damage and physical condition notes"
+        ]},
+        { h: "Data handling", list: [
+          "Configurations persist in the browser with schema migration, so an older saved config still loads after the procedure changes",
+          "Session history retains prior deployments",
+          "Print view produces a clean physical record",
+          "Versioned JSON export feeds directly into the asset register"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "localStorage", "JSON schema"]
+    },
+    {
+      name: "Asset register",
+      group: "professional",
+      short: "Import driven inventory built from the checklist's exports.",
+      shots: [
+        "../assets/asset-register1.png",
+        "../assets/asset-register2.png"
+      ],
+      captions: [
+        "Inventory overview with status totals and search",
+        "Asset record with device access and linked documents"
+      ],
+      sections: [
+        { h: "The tool", p: "Takes the deployment checklist's exports and builds a searchable inventory from them, so the record created at the bench becomes the record of the fleet." },
+        { h: "Import and matching", list: [
+          "Ingests both checklist export formats",
+          "Deduplicates on session, then serial, then asset tag",
+          "Batch confirms overwrites rather than prompting per record"
+        ]},
+        { h: "Record structure", list: [
+          "Six asset categories and five lifecycle statuses",
+          "Custom fields and linked documentation per asset",
+          "Search, filter, sort, and bulk delete",
+          "CSV export and full JSON backup and restore"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "CSV export", "JSON backup"]
+    },
+    {
+      name: "Procurement tracker",
+      group: "professional",
+      short: "Purchasing state across device categories in one place.",
+      shots: [
+        "../assets/procurement-tracker1.png",
+        "../assets/procurement-tracker2.png"
+      ],
+      captions: [
+        "Add item form for new requisitions",
+        "Purchase history with store filter and export"
+      ],
+      sections: [
+        { h: "The tool", p: "Keeps hardware purchasing visible from request through receipt, instead of scattered across mail threads and spreadsheets that go stale between approvals." },
+        { h: "What it tracks", list: [
+          "Requested, approved, ordered, and received state per line",
+          "Device categories matched to the approved hardware standard",
+          "Quantities and costs against the refresh plan"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "localStorage"]
+    },
+    {
+      name: "K12 Proxmox node",
+      group: "personal",
+      short: "Second hypervisor node built out as a self managed lab.",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The node", p: "A second Proxmox VE hypervisor added alongside the primary host and built out from a clean install as a self managed lab. It adds capacity to the environment and gives me a separate host to build, test, and rebuild on without putting the primary node at risk." },
+        { h: "What runs on it", list: [
+          "Debian based LXC containers rather than full virtual machines, keeping overhead low",
+          "Self hosted services grouped by service class, so each workload stays separated from the others",
+          "A consistent container baseline, so new services start from the same configuration"
+        ]},
+        { h: "Access and hardening", list: [
+          "Management access restricted to a private Tailscale mesh network rather than exposed directly",
+          "CrowdSec intrusion prevention watching host and service logs",
+          "Host firewalling and a documented patch window for the hypervisor and its containers"
+        ]}
+      ],
+      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec"]
+    }
+  ],
+
+  skills: [
+    { group:"Identity and endpoint", items:["Microsoft Entra ID","Microsoft Intune","Windows Autopilot","Conditional Access","Group Policy"] },
+    { group:"Messaging and collaboration", items:["Exchange Online","Microsoft 365 administration","SharePoint","Teams","License management"] },
+    { group:"Security and service management", items:["Xcitium Endpoint Manager","Xcitium Service Desk v2","Microsoft Defender","BitLocker and key escrow","Web content filtering","Endpoint hardening"] },
+    { group:"Systems and scripting", items:["Windows 11 and Server","Linux administration","Proxmox VE","PowerShell","Python, HTML, JavaScript"] }
+  ],
+
+  credentials: [
+    { name:"Associate's, Computer Engineering", detail:"Santa Ana College, expected May 2028", status:"In progress", active:true },
+    { name:"Cisco CCNA 200-301", detail:"Targeting early 2027", status:"Studying", active:true },
+    { name:"CompTIA Network+", detail:"Planned", status:"Planned", active:false },
+    { name:"CompTIA Security+", detail:"Planned", status:"Planned", active:false },
+    { name:"CompTIA A+", detail:"Planned", status:"Planned", active:false },
+    { name:"Microsoft Azure track", detail:"AZ-900 then AZ-104", status:"Planned", active:false }
+  ]
+};
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad2 = n => String(n).padStart(2, '0');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const chips = list => `<ul class="stack" aria-label="Stack">${(list || []).map(s => `<li class="chip">${esc(s)}</li>`).join('')}</ul>`;
+
+if (reduceMotion) document.querySelectorAll('.topo .packet').forEach(p => p.remove());
+
+/* screenshots that failed to load are skipped everywhere */
+const broken = new Set();
+
+const RACK_SVG = `<svg viewBox="0 0 160 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+  <rect x="30" y="12" width="100" height="76" rx="3" stroke-dasharray="4 3"/>
+  <rect x="40" y="22" width="80" height="15" rx="1.5"/><rect x="40" y="42" width="80" height="15" rx="1.5"/><rect x="40" y="62" width="80" height="15" rx="1.5"/>
+  <path d="M90 29.5h22M90 49.5h22M90 69.5h22"/>
+  <g fill="currentColor" stroke="none"><circle cx="49" cy="29.5" r="2.2"/><circle cx="49" cy="49.5" r="2.2"/><circle cx="49" cy="69.5" r="2.2"/></g>
+</svg>`;
+const placeholder = label => `<span class="ph" role="img" aria-label="${esc(label)}">${RACK_SVG}<span aria-hidden="true">${esc(label)}</span></span>`;
+
+const GROUP_LABELS = { professional: "Professional", personal: "Personal" };
+const groupLabel = g => GROUP_LABELS[g] || (g ? g.charAt(0).toUpperCase() + g.slice(1) : '');
+
+/* decorative interface labels derived from position */
+const devId = i => 'dev-' + pad2(i + 1);
+const devPort = i => 'Gi1/0/' + (i + 1);
+
+/* ---------- experience ---------- */
+$('#roles').innerHTML = SITE.roles.map((r, i) => `
+  <article class="role card">
+    <div class="role-meta">
+      <span class="tag" aria-hidden="true">uplink Gi0/1.${i + 1}</span>
+      <div class="when">${esc(r.when)}</div>
+    </div>
+    <div class="role-body">
+      <h3>${esc(r.title)}</h3>
+      <div class="org">${esc(r.org)}</div>
+      <ul>${r.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
+    </div>
+  </article>`).join('');
+
+/* ---------- case studies ---------- */
+$('#cases').innerHTML = SITE.cases.map((c, i) => `
+  <article class="case card">
+    <div class="card-bar"><span aria-hidden="true">10.0.20.${i + 1}</span><span class="tag">${esc(c.kicker)}</span></div>
+    <div class="card-body">
+      <h3>${esc(c.title)}</h3>
+      <p class="summary">${esc(c.summary)}</p>
+      <ol class="path">
+        <li><span class="hop" aria-hidden="true">01</span><h4>Problem</h4><p>${esc(c.problem)}</p></li>
+        <li><span class="hop" aria-hidden="true">02</span><h4>Approach</h4><p>${esc(c.approach)}</p></li>
+        <li><span class="hop" aria-hidden="true">03</span><h4>Result</h4><p>${esc(c.outcome)}</p></li>
+      </ol>
+      ${chips(c.stack)}
+    </div>
+  </article>`).join('');
+
+/* ---------- skills ---------- */
+$('#skills-grid').innerHTML = SITE.skills.map((s, i) => `
+  <div class="skill card">
+    <div class="card-bar" aria-hidden="true"><span>area ${pad2(i + 1)}</span><span>${s.items.length} entries</span></div>
+    <div class="card-body">
+      <h3>${esc(s.group)}</h3>
+      <ul>${s.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    </div>
+  </div>`).join('');
+
+/* ---------- credentials ---------- */
+$('#creds').innerHTML = SITE.credentials.map(c => `
+  <li class="cred">
+    <span class="led${c.active ? ' on' : ''}" aria-hidden="true"></span>
+    <div class="cred-name">${esc(c.name)}</div>
+    <div class="cred-detail">${esc(c.detail)}</div>
+    <div class="cred-status${c.active ? ' active' : ''}">${esc(c.status)}</div>
+  </li>`).join('');
+
+/* ---------- projects: device cards ---------- */
+const toolsEl = $('#tools');
+const runs = [];
+SITE.tools.forEach((t, i) => {
+  const g = t.group || '';
+  if (!runs.length || runs[runs.length - 1].group !== g) runs.push({ group: g, items: [] });
+  runs[runs.length - 1].items.push(i);
+});
+
+function cardThumb(t){
+  const first = (t.shots || [])[0];
+  if (!first) return placeholder('screenshots pending');
+  return `<img src="${esc(first)}" alt="" loading="lazy" data-thumb>`;
+}
+
+toolsEl.innerHTML = runs.map((run, r) => {
+  const label = groupLabel(run.group) || 'Projects';
+  const n = run.items.length;
+  const cards = run.items.map(i => {
+    const t = SITE.tools[i];
+    const count = (t.shots || []).length;
+    return `
+    <li>
+      <button type="button" class="device" data-i="${i}" aria-haspopup="dialog">
+        <span class="dev-bar" aria-hidden="true"><span class="led"></span>${devId(i)}<span class="port">${devPort(i)}</span></span>
+        <span class="dev-thumb">${cardThumb(t)}</span>
+        <span class="dev-text">
+          <span class="dev-name">${esc(t.name)}</span>
+          <span class="dev-short">${esc(t.short)}</span>
+        </span>
+        <span class="dev-foot"><span>${count ? count + (count === 1 ? ' screenshot' : ' screenshots') : 'write-up only'}</span><span class="open" aria-hidden="true">open details &rarr;</span></span>
+      </button>
+    </li>`;
+  }).join('');
+  return `
+  <div class="dev-group">
+    <div class="dev-group-head">
+      <h3 id="grp-${r}">${esc(label)}</h3>
+      <span class="tag plain" aria-hidden="true">${n} ${n === 1 ? 'device' : 'devices'}</span>
+    </div>
+    <ul class="dev-grid" aria-labelledby="grp-${r}">${cards}</ul>
+  </div>`;
+}).join('');
+
+/* a thumbnail that fails to load degrades to the placeholder */
+toolsEl.querySelectorAll('img[data-thumb]').forEach(img => {
+  const fail = () => {
+    broken.add(img.getAttribute('src'));
+    img.insertAdjacentHTML('afterend', placeholder('screenshot unavailable'));
+    img.remove();
+  };
+  if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) fail();
+  else img.addEventListener('error', fail, { once: true });
+});
+
+/* ---------- dialog helpers ---------- */
+const canModal = typeof HTMLDialogElement === 'function' && typeof HTMLDialogElement.prototype.showModal === 'function';
+/* cleanup runs once per close, whether closed by a button (synchronously)
+   or natively by Esc (through the close event) */
+const closeHandlers = new Map();
+function openModal(d){
+  if (d.open) return;
+  d.dataset.state = 'open';
+  if (canModal) d.showModal(); else d.setAttribute('open', '');
+}
+function afterClose(d){
+  if (d.dataset.state !== 'open') return;
+  d.dataset.state = 'closed';
+  const fn = closeHandlers.get(d);
+  if (fn) fn();
+}
+function closeModal(d){
+  if (!d.open) return;
+  if (canModal) d.close(); else d.removeAttribute('open');
+  afterClose(d);
+}
+
+/* ---------- expanded detail ---------- */
+const dlg = $('#detail');
+const dMedia = $('#d-media');
+const dBody = $('#d-body');
+let cur = { i: 0, n: 0 };
+let lastCard = null;
+
+function okShots(t){
+  const caps = t.captions || [];
+  return (t.shots || []).map((src, n) => ({ src, cap: caps[n] || '' })).filter(s => !broken.has(s.src));
+}
+
+function openDetail(i, from){
+  const t = SITE.tools[i];
+  lastCard = from || document.activeElement;
+  cur = { i, n: 0 };
+
+  $('#d-meta').innerHTML =
+    `<span class="tag">${esc(groupLabel(t.group))}</span>` +
+    `<span class="tag plain" aria-hidden="true">${devId(i)}</span>` +
+    `<span class="tag plain" aria-hidden="true">${devPort(i)}</span>` +
+    (t.status ? `<span class="tag plain">${esc(t.status)}</span>` : '');
+  $('#d-title').textContent = t.name;
+
+  dBody.innerHTML = (t.sections || []).map(sec => {
+    const head = `<h3>${esc(sec.h)}</h3>`;
+    if (sec.list) return head + `<ul>${sec.list.map(li => `<li>${esc(li)}</li>`).join('')}</ul>`;
+    return head + `<p>${esc(sec.p)}</p>`;
+  }).join('') + chips(t.stack);
+
+  buildMedia();
+  document.documentElement.style.overflow = 'hidden';
+  openModal(dlg);
+  dBody.scrollTop = 0;
+  dMedia.scrollTop = 0;
+  $('#d-close').focus();
+}
+
+function buildMedia(){
+  const t = SITE.tools[cur.i];
+  const shots = okShots(t);
+  if (!shots.length) {
+    const label = (t.shots || []).length ? 'screenshots unavailable' : 'screenshots pending';
+    dMedia.innerHTML = `<div class="d-ph">${placeholder(label)}</div>`;
+    return;
+  }
+  cur.n = Math.max(0, Math.min(cur.n, shots.length - 1));
+  const multi = shots.length > 1;
+  dMedia.innerHTML = `
+    <figure class="d-fig">
+      <button type="button" class="d-stage" id="d-stage"><img id="d-img" alt=""><span class="zoom mono" aria-hidden="true">full size</span></button>
+      <figcaption class="d-cap"><span class="mono" id="d-idx"></span><span id="d-captext"></span></figcaption>
+    </figure>
+    ${multi ? `
+    <div class="d-pager">
+      <button type="button" class="pg-btn" id="d-prev" aria-label="Previous screenshot">&larr; prev</button>
+      <div class="d-strip" id="d-strip" role="group" aria-label="Choose screenshot">
+        ${shots.map((s, k) => `<button type="button" data-k="${k}" aria-label="Screenshot ${k + 1}${s.cap ? ': ' + esc(s.cap) : ''}"><img src="${esc(s.src)}" alt="" loading="lazy"></button>`).join('')}
+      </div>
+      <button type="button" class="pg-btn" id="d-next" aria-label="Next screenshot">next &rarr;</button>
+    </div>` : ''}`;
+
+  const img = $('#d-img');
+  img.addEventListener('error', () => markBroken(img.getAttribute('src')));
+  dMedia.querySelectorAll('.d-strip img').forEach(im => im.addEventListener('error', () => markBroken(im.getAttribute('src'))));
+  $('#d-stage').addEventListener('click', () => openViewer(cur.n));
+  if (multi) {
+    $('#d-prev').addEventListener('click', () => stepDetail(-1));
+    $('#d-next').addEventListener('click', () => stepDetail(1));
+    $('#d-strip').addEventListener('click', e => {
+      const b = e.target.closest('button[data-k]');
+      if (b) { cur.n = Number(b.dataset.k); paintDetail(); }
+    });
+  }
+  paintDetail();
+}
+
+function paintDetail(){
+  const t = SITE.tools[cur.i];
+  const shots = okShots(t);
+  const s = shots[cur.n];
+  const img = $('#d-img');
+  if (!s || !img) return;
+  if (img.getAttribute('src') !== s.src) img.setAttribute('src', s.src);
+  img.alt = s.cap || `${t.name} screenshot ${cur.n + 1}`;
+  $('#d-idx').textContent = `${pad2(cur.n + 1)} / ${pad2(shots.length)}`;
+  $('#d-captext').textContent = s.cap;
+  $('#d-stage').setAttribute('aria-label', `View screenshot ${cur.n + 1} of ${shots.length} full size${s.cap ? ': ' + s.cap : ''}`);
+  dMedia.querySelectorAll('.d-strip button').forEach((b, k) => b.setAttribute('aria-current', k === cur.n ? 'true' : 'false'));
+}
+
+function stepDetail(d){
+  const len = okShots(SITE.tools[cur.i]).length;
+  if (len < 2) return;
+  cur.n = (cur.n + d + len) % len;
+  paintDetail();
+}
+
+function markBroken(src){
+  if (!src || broken.has(src)) return;
+  broken.add(src);
+  const hadFocus = dMedia.contains(document.activeElement);
+  buildMedia();
+  if (hadFocus || document.activeElement === document.body) ( $('#d-stage') || $('#d-close') ).focus();
+}
+
+toolsEl.addEventListener('click', e => {
+  const b = e.target.closest('.device');
+  if (b) openDetail(Number(b.dataset.i), b);
+});
+$('#d-close').addEventListener('click', () => closeModal(dlg));
+dlg.addEventListener('click', e => { if (e.target === dlg) closeModal(dlg); });
+dlg.addEventListener('close', () => afterClose(dlg));
+closeHandlers.set(dlg, () => {
+  if (vw.open) closeModal(vw);
+  document.documentElement.style.overflow = '';
+  if (lastCard && lastCard.isConnected) lastCard.focus();
+});
+
+/* ---------- full size viewer ---------- */
+const vw = $('#viewer');
+const vImg = $('#v-img');
+const vStrip = $('#v-strip');
+const vPrev = $('#v-prev');
+const vNext = $('#v-next');
+let vShots = [];
+let vn = 0;
+
+function openViewer(n){
+  const t = SITE.tools[cur.i];
+  vShots = okShots(t);
+  if (!vShots.length) return;
+  vn = Math.max(0, Math.min(n || 0, vShots.length - 1));
+  buildViewerStrip();
+  paintViewer();
+  openModal(vw);
+  $('#v-close').focus();
+}
+function buildViewerStrip(){
+  vStrip.innerHTML = vShots.map((s, k) =>
+    `<button type="button" data-k="${k}" aria-label="Screenshot ${k + 1}${s.cap ? ': ' + esc(s.cap) : ''}"><img src="${esc(s.src)}" alt=""></button>`).join('');
+  vStrip.hidden = vShots.length < 2;
+  vPrev.disabled = vNext.disabled = vShots.length < 2;
+}
+function paintViewer(){
+  const t = SITE.tools[cur.i];
+  const s = vShots[vn];
+  if (!s) return;
+  vImg.src = s.src;
+  vImg.alt = s.cap || `${t.name} screenshot ${vn + 1}`;
+  $('#v-title').textContent = s.cap ? `${t.name}: ${s.cap}` : t.name;
+  $('#v-idx').textContent = `${vn + 1} / ${vShots.length}`;
+  [...vStrip.children].forEach((b, k) => b.setAttribute('aria-current', k === vn ? 'true' : 'false'));
+}
+function stepViewer(d){
+  if (vShots.length < 2) return;
+  vn = (vn + d + vShots.length) % vShots.length;
+  paintViewer();
+}
+
+vImg.addEventListener('error', () => {
+  const src = vImg.getAttribute('src');
+  if (!vw.open || !src) return;
+  broken.add(src);
+  vShots = okShots(SITE.tools[cur.i]);
+  if (!vShots.length) { closeModal(vw); return; }
+  vn = Math.min(vn, vShots.length - 1);
+  buildViewerStrip();
+  paintViewer();
+});
+vStrip.addEventListener('click', e => {
+  const b = e.target.closest('button[data-k]');
+  if (b) { vn = Number(b.dataset.k); paintViewer(); }
+});
+vPrev.addEventListener('click', () => stepViewer(-1));
+vNext.addEventListener('click', () => stepViewer(1));
+$('#v-close').addEventListener('click', () => closeModal(vw));
+$('#v-stage').addEventListener('click', e => { if (e.target !== vImg) closeModal(vw); });
+vw.addEventListener('close', () => afterClose(vw));
+closeHandlers.set(vw, () => {
+  vImg.removeAttribute('src');
+  if (!dlg.open) return;
+  cur.n = vn;
+  buildMedia();
+  ( $('#d-stage') || $('#d-close') ).focus();
+});
+
+/* basic swipe paging in the viewer */
+let touchX = null;
+vw.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+vw.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  touchX = null;
+  if (Math.abs(dx) > 50) stepViewer(dx < 0 ? 1 : -1);
+});
+
+/* ---------- keyboard ---------- */
+document.addEventListener('keydown', e => {
+  const key = e.key;
+  if (vw.open) {
+    if (key === 'ArrowRight') { e.preventDefault(); stepViewer(1); }
+    else if (key === 'ArrowLeft') { e.preventDefault(); stepViewer(-1); }
+    else if (key === 'Escape' && !canModal) closeModal(vw);
+    return;
+  }
+  if (dlg.open) {
+    if (key === 'ArrowRight') { e.preventDefault(); stepDetail(1); }
+    else if (key === 'ArrowLeft') { e.preventDefault(); stepDetail(-1); }
+    else if (key === 'Escape' && !canModal) closeModal(dlg);
+  }
+});
+</script>
+</body>
+</html>

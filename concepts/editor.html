@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christian Jones - IT Specialist</title>
+<link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<!-- search and social preview -->
+<meta name="description" content="I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent.">
+<link rel="canonical" href="https://luckyajinn.github.io/cjportfolio/">
+<meta name="theme-color" content="#1B5B66">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Christian Jones">
+<meta property="og:url" content="https://luckyajinn.github.io/cjportfolio/">
+<meta property="og:title" content="Christian Jones, IT Specialist">
+<meta property="og:description" content="I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent.">
+<meta property="og:image" content="https://luckyajinn.github.io/cjportfolio/assets/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Christian Jones, IT Specialist, Orange County California">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Christian Jones, IT Specialist">
+<meta name="twitter:description" content="I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent.">
+<meta name="twitter:image" content="https://luckyajinn.github.io/cjportfolio/assets/preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Christian Jones",
+  "jobTitle": "IT Specialist",
+  "url": "https://luckyajinn.github.io/cjportfolio/",
+  "email": "mailto:christianjonesbusiness@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Orange County",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "McKenna Labs"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/christian-jones-762301193/",
+    "https://github.com/luckyajinn"
+  ],
+  "knowsAbout": [
+    "Microsoft Intune",
+    "Microsoft Entra ID",
+    "Windows Autopilot",
+    "Exchange Online",
+    "Microsoft 365 administration",
+    "Endpoint management",
+    "PowerShell",
+    "Proxmox VE",
+    "Linux administration"
+  ]
+}
+</script>
+<script>
+/* pick the theme before first paint so there is no flash */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('cj-editor-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<style>
+/* ============================================================
+   THEME TOKENS
+   ============================================================ */
+:root, :root[data-theme="light"]{
+  --bg:#FCFCFA;          /* editor surface */
+  --bg-side:#F1F3F0;     /* explorer */
+  --bg-chrome:#E7EAE6;   /* title bar, tab strip */
+  --bg-elev:#FFFFFF;     /* cards */
+  --bg-hover:rgba(20,28,36,.06);
+  --fg:#141C24;
+  --fg-muted:#4F5B64;
+  --fg-faint:#626D75;
+  --rule:#D9DFE2;
+  --rule-strong:#B4BEC4;
+  --accent:#1B5B66;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#E3EEEE;
+  --sel:rgba(27,91,102,.12);
+  --status-bg:#1B5B66;
+  --status-fg:#FFFFFF;
+  --focus:#1B5B66;
+  --mm-ink:rgba(20,28,36,.22);
+  --mm-head:rgba(27,91,102,.75);
+  --mm-view:rgba(20,28,36,.08);
+  --shadow:0 1px 2px rgba(20,28,36,.06),0 6px 20px rgba(20,28,36,.06);
+  /* syntax */
+  --t-k:#7A3E9D;  /* keyword */
+  --t-s:#2D6A3A;  /* string */
+  --t-p:#1D5A9E;  /* property */
+  --t-n:#9A4F00;  /* number, literal */
+  --t-t:#A1461F;  /* type */
+  --t-c:#5E6971;  /* comment */
+  --t-u:#4F5B64;  /* punctuation */
+  --t-h:#1B5B66;  /* heading */
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#14191E;
+  --bg-side:#101418;
+  --bg-chrome:#0C0F12;
+  --bg-elev:#1A2027;
+  --bg-hover:rgba(255,255,255,.06);
+  --fg:#DCE3E8;
+  --fg-muted:#A9B4BC;
+  --fg-faint:#87939D;
+  --rule:#252D35;
+  --rule-strong:#3A454F;
+  --accent:#6CC3CF;
+  --accent-ink:#0C1A1D;
+  --accent-soft:rgba(108,195,207,.12);
+  --sel:rgba(108,195,207,.16);
+  --status-bg:#1B5B66;
+  --status-fg:#FFFFFF;
+  --focus:#6CC3CF;
+  --mm-ink:rgba(220,227,232,.20);
+  --mm-head:rgba(108,195,207,.8);
+  --mm-view:rgba(255,255,255,.07);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  --t-k:#D3A6F2;
+  --t-s:#A8D8A0;
+  --t-p:#8DB8F5;
+  --t-n:#F0B27A;
+  --t-t:#F2C77E;
+  --t-c:#8C99A5;
+  --t-u:#A9B4BC;
+  --t-h:#6CC3CF;
+  color-scheme:dark;
+}
+/* no script: follow the system */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme]){
+    --bg:#14191E;--bg-side:#101418;--bg-chrome:#0C0F12;--bg-elev:#1A2027;--bg-hover:rgba(255,255,255,.06);
+    --fg:#DCE3E8;--fg-muted:#A9B4BC;--fg-faint:#87939D;--rule:#252D35;--rule-strong:#3A454F;
+    --accent:#6CC3CF;--accent-ink:#0C1A1D;--accent-soft:rgba(108,195,207,.12);--focus:#6CC3CF;
+    color-scheme:dark;
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
+::selection{background:var(--sel)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:8px;top:-60px;z-index:100;background:var(--accent);color:var(--accent-ink);padding:8px 12px;text-decoration:none;font-size:14px}
+.skip:focus{top:8px}
+kbd{font-family:"IBM Plex Mono",monospace;font-size:11px;border:1px solid var(--rule-strong);border-bottom-width:2px;padding:0 5px;border-radius:3px;color:var(--fg-muted);background:var(--bg-elev)}
+
+/* ============================================================
+   SHELL
+   ============================================================ */
+.app{height:100vh;height:100dvh;display:flex;flex-direction:column}
+
+.titlebar{
+  flex:none;height:42px;display:flex;align-items:center;gap:12px;padding:0 10px 0 14px;
+  background:var(--bg-chrome);border-bottom:1px solid var(--rule);font-size:13.5px;
+}
+.dots{display:flex;gap:7px;flex:none}
+.dots i{width:11px;height:11px;border-radius:50%;background:var(--rule-strong)}
+.dots i:nth-child(1){background:#E0695F}.dots i:nth-child(2){background:#E5B142}.dots i:nth-child(3){background:#5FB46A}
+.tb-title{margin:0;flex:1;min-width:0;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--fg-muted)}
+.tb-title strong{color:var(--fg);font-weight:600}
+.tb-actions{display:flex;align-items:center;gap:6px;flex:none}
+.tb-btn{
+  display:inline-flex;align-items:center;justify-content:center;width:32px;height:30px;
+  background:none;border:1px solid transparent;border-radius:5px;cursor:pointer;color:var(--fg-muted);
+}
+.tb-btn:hover{background:var(--bg-hover);color:var(--fg)}
+.tb-menu{display:none}
+.tb-search{
+  display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 8px 0 10px;min-width:200px;
+  background:var(--bg);border:1px solid var(--rule);border-radius:6px;cursor:pointer;color:var(--fg-muted);font-size:13px;
+}
+.tb-search:hover{border-color:var(--rule-strong);color:var(--fg)}
+.tb-search .ico{width:15px;height:15px}
+.tb-search-label{flex:1;text-align:left}
+.tb-cta{
+  height:28px;padding:0 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);
+  font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;
+}
+.tb-cta:hover{filter:brightness(1.08)}
+[data-theme="dark"] .i-sun, :root:not([data-theme="dark"]) .i-moon{display:none}
+
+.workbench{flex:1;min-height:0;display:flex}
+
+.activity{
+  flex:none;width:48px;display:flex;flex-direction:column;align-items:center;gap:4px;padding-top:6px;
+  background:var(--bg-chrome);border-right:1px solid var(--rule);
+}
+.act{
+  position:relative;width:48px;height:44px;display:flex;align-items:center;justify-content:center;
+  background:none;border:0;cursor:pointer;color:var(--fg-faint);
+}
+.act .ico{width:22px;height:22px;stroke-width:1.5}
+.act:hover{color:var(--fg)}
+.act[aria-expanded="true"]{color:var(--fg)}
+.act[aria-expanded="true"]::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;background:var(--accent)}
+
+/* explorer */
+.sidebar{
+  flex:none;width:256px;display:flex;flex-direction:column;min-height:0;
+  background:var(--bg-side);border-right:1px solid var(--rule);font-size:13.5px;
+}
+.side-collapsed .sidebar{display:none}
+.side-head{
+  display:flex;align-items:center;justify-content:space-between;height:36px;padding:0 10px 0 18px;flex:none;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-muted);font-weight:500;
+}
+.side-close{display:none;background:none;border:0;width:30px;height:30px;font-size:20px;line-height:1;cursor:pointer;color:var(--fg-muted);border-radius:5px}
+.side-close:hover{background:var(--bg-hover)}
+.side-root{
+  margin:0;padding:3px 10px 3px 12px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  display:flex;align-items:center;gap:6px;color:var(--fg);flex:none;
+}
+.side-root .ico{width:14px;height:14px}
+.tree-wrap{flex:1;min-height:0;overflow:auto;padding-bottom:12px}
+.tree{list-style:none;margin:0;padding:0}
+.tree-row{
+  --d:0;display:flex;align-items:center;gap:6px;width:100%;height:26px;
+  padding:0 10px 0 calc(14px + var(--d) * 14px);
+  background:none;border:0;border-left:2px solid transparent;cursor:pointer;text-align:left;color:var(--fg-muted);
+  white-space:nowrap;overflow:hidden;font-size:13.5px;
+}
+.tree-row span.nm{overflow:hidden;text-overflow:ellipsis}
+.tree-row:hover{background:var(--bg-hover);color:var(--fg)}
+.tree-row[aria-current="page"]{background:var(--sel);color:var(--fg);border-left-color:var(--accent)}
+.tree-dir{color:var(--fg)}
+.tree-dir .chev{width:14px;height:14px;transition:transform .15s ease}
+.tree-dir[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.tree-file{padding-left:calc(34px + var(--d) * 14px)}
+.ficon{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;width:18px;height:14px;
+  font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;border-radius:2px;letter-spacing:-.02em;
+  color:var(--fg-muted);
+}
+.i-ts{color:#2F74C0}.i-md{color:#2D7F8C}.i-json{color:#B07D00}.i-yml{color:#B4475A}
+[data-theme="dark"] .i-ts{color:#7DB2EE}[data-theme="dark"] .i-md{color:#6CC3CF}[data-theme="dark"] .i-json{color:#E8C060}[data-theme="dark"] .i-yml{color:#EE8D9C}
+.folder{width:15px;height:15px;color:var(--fg-faint)}
+.side-sec{
+  flex:none;border-top:1px solid var(--rule);padding:10px 18px 14px;
+}
+.side-sec h2{margin:0 0 6px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-muted);font-weight:500}
+.side-sec p{margin:0;font-size:13px;line-height:1.5;color:var(--fg-muted)}
+.side-sec p strong{color:var(--fg);font-weight:600}
+.side-links{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:3px}
+.side-links a{font-size:12.5px;color:var(--fg-muted);text-decoration:none;font-family:"IBM Plex Mono",monospace;overflow-wrap:anywhere}
+.side-links a:hover{color:var(--accent);text-decoration:underline}
+
+.scrim{display:none}
+
+/* editor column */
+.main{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;background:var(--bg)}
+
+.tabs{
+  flex:none;display:flex;height:38px;background:var(--bg-chrome);border-bottom:1px solid var(--rule);
+  overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;
+}
+.tabs::-webkit-scrollbar{height:4px}
+.tabs::-webkit-scrollbar-thumb{background:var(--rule-strong)}
+.tab{
+  position:relative;flex:none;display:flex;align-items:center;border-right:1px solid var(--rule);
+  background:transparent;color:var(--fg-muted);font-size:13px;
+}
+.tab.on{background:var(--bg);color:var(--fg)}
+.tab.on::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--accent)}
+.tab.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--bg)}
+.tab-btn{
+  display:flex;align-items:center;gap:6px;height:100%;padding:0 4px 0 12px;background:none;border:0;cursor:pointer;white-space:nowrap;
+}
+.tab-desc{color:var(--fg-faint);font-size:12px}
+.tab-x{
+  width:22px;height:22px;margin-right:6px;display:flex;align-items:center;justify-content:center;
+  background:none;border:0;border-radius:4px;cursor:pointer;color:var(--fg-faint);font-size:16px;line-height:1;
+  opacity:.0;
+}
+.tab.on .tab-x,.tab:hover .tab-x,.tab-x:focus-visible{opacity:1}
+.tab-x:hover{background:var(--bg-hover);color:var(--fg)}
+@media (hover:none){.tab-x{opacity:1}}
+
+.crumbs{
+  flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:32px;padding:0 12px 0 18px;border-bottom:1px solid var(--rule);font-size:12.5px;color:var(--fg-muted);
+}
+.crumbs nav{min-width:0;overflow:hidden}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crumbs li{display:flex;align-items:center;gap:4px;min-width:0}
+.crumbs li+li::before{content:"\203A";color:var(--fg-faint)}
+.crumbs li:last-child{color:var(--fg)}
+.mode{display:flex;flex:none;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--bg-side)}
+.mode button{
+  border:0;background:none;padding:3px 11px;font-size:12px;cursor:pointer;color:var(--fg-muted);
+  font-family:"IBM Plex Mono",monospace;
+}
+.mode button+button{border-left:1px solid var(--rule)}
+.mode button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.mode button:not([aria-pressed="true"]):hover{background:var(--bg-hover);color:var(--fg)}
+
+.editor{flex:1;min-height:0;display:flex}
+.scroller{flex:1;min-width:0;overflow:auto;position:relative;scrollbar-width:thin;scrollbar-color:var(--rule-strong) transparent}
+.scroller:focus-visible{outline-offset:-2px}
+
+/* minimap */
+.minimap{
+  flex:none;width:92px;position:relative;border-left:1px solid var(--rule);cursor:pointer;
+  background:var(--bg);overflow:hidden;user-select:none;touch-action:none;
+}
+#mm-bars{position:absolute;inset:6px 10px 6px 10px}
+#mm-bars i{
+  position:absolute;display:block;border-radius:1px;
+  background:repeating-linear-gradient(to bottom,var(--mm-ink) 0 2px,transparent 2px 4px);
+}
+#mm-bars i.h{background:var(--mm-head)}
+#mm-bars i.c{background:var(--mm-ink)}
+.mm-view{position:absolute;left:0;right:0;top:0;background:var(--mm-view);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);pointer-events:none}
+@media (max-width:1180px){.minimap{display:none}}
+
+/* status bar */
+.status{
+  flex:none;height:26px;display:flex;align-items:center;gap:2px;padding:0 6px;
+  background:var(--status-bg);color:var(--status-fg);font-size:12px;font-family:"IBM Plex Mono",monospace;
+  white-space:nowrap;overflow:hidden;
+}
+.sb{display:inline-flex;align-items:center;gap:5px;padding:0 8px;height:100%}
+.sb .ico{width:13px;height:13px;stroke-width:2}
+.sb-msg{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;opacity:.92}
+button.sb{background:none;border:0;cursor:pointer;color:inherit;font:inherit}
+button.sb:hover{background:rgba(255,255,255,.14)}
+.status :focus-visible{outline-color:#fff;outline-offset:-2px}
+
+/* ============================================================
+   DOCUMENT (preview and source share the gutter)
+   ============================================================ */
+.doc{
+  --gutter:68px;
+  position:relative;counter-reset:ln;
+  padding:34px 44px 72px var(--gutter);
+  background:linear-gradient(var(--rule),var(--rule)) no-repeat calc(var(--gutter) - 16px) 0 / 1px 100%;
+  min-height:100%;
+}
+:root{--body-lnh:27px}
+.ln,.cl{counter-increment:ln;--lnh:var(--body-lnh)}
+.ln::before,.cl::before{
+  content:counter(ln);position:absolute;left:0;width:calc(var(--gutter) - 28px);text-align:right;
+  font:400 12px/var(--lnh) "IBM Plex Mono",monospace;color:var(--fg-faint);opacity:.75;
+  pointer-events:none;user-select:none;-webkit-user-select:none;
+}
+.ln:hover::before,.cl:hover::before{color:var(--fg);opacity:1}
+.doc.compiled{animation:compile .35s ease-out}
+@keyframes compile{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* prose */
+.prose{max-width:none}
+.prose > *{max-width:70ch}
+.prose > .wide,.prose > section{max-width:1040px}
+.prose > section > :not(.wide){max-width:70ch}
+.prose h1{
+  --fs:clamp(30px,4.2vw,42px);--lnh:calc(var(--fs) * 1.12);
+  font-size:var(--fs);line-height:1.12;letter-spacing:-.025em;font-weight:600;margin:0 0 14px;
+}
+.prose h1:focus{outline:none}
+.prose h1:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.prose h2{--lnh:29px;font-size:22px;line-height:1.3;letter-spacing:-.015em;font-weight:600;margin:40px 0 10px}
+.prose h2.sec{--lnh:24px;font-size:15.5px;line-height:1.55;letter-spacing:0;color:var(--accent);margin:30px 0 6px}
+.prose h3{font-size:16px;font-weight:600;margin:0 0 4px}
+.prose p{margin:0 0 14px}
+.hash{font-family:"IBM Plex Mono",monospace;font-weight:400;color:var(--fg-faint);opacity:.8;font-size:.82em}
+.intro{color:var(--fg-muted);font-size:17.5px;--lnh:29px}
+.lede{font-size:19px;line-height:1.6;--lnh:30px}
+.lede .quiet{color:var(--fg-muted)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--fg-muted);margin:0 0 10px !important;
+  display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;--lnh:22px;
+}
+.pill{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.6;
+  padding:0 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);
+}
+.pill.solid{background:var(--accent);color:var(--accent-ink)}
+.pill.dim{border-color:var(--rule-strong);color:var(--fg-muted)}
+.t-k{color:var(--t-k)}.t-s{color:var(--t-s)}.t-p{color:var(--t-p)}.t-n{color:var(--t-n)}
+.t-t{color:var(--t-t)}.t-c{color:var(--t-c)}.t-u{color:var(--t-u)}.t-h{color:var(--t-h);font-weight:500}
+.list{margin:0 0 14px;padding-left:20px}
+.list li{margin-bottom:6px}
+.list li::marker{color:var(--accent)}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.chips li{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.5;padding:2px 9px;border-radius:4px;
+  background:var(--bg-side);border:1px solid var(--rule);color:var(--fg-muted);
+}
+.chips li::before{content:"\"";color:var(--t-s);opacity:.7}
+.chips li::after{content:"\"";color:var(--t-s);opacity:.7}
+.chip-row{margin:14px 0 0 !important;--lnh:28px}
+
+/* README */
+.readme h1{--fs:clamp(38px,6vw,62px);letter-spacing:-.035em;margin-bottom:18px}
+.spec{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:8px 0 28px;
+  border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--bg-elev);
+}
+.spec div{padding:13px 16px 15px;border-right:1px solid var(--rule)}
+.spec div:last-child{border-right:0}
+.spec dt{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--t-p);margin-bottom:4px}
+.spec dt::after{content:":";color:var(--t-u)}
+.spec dd{margin:0;font-size:15px;font-weight:500;line-height:1.4}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;--lnh:36px}
+.qbtn{
+  display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px 0 10px;cursor:pointer;
+  background:var(--bg-elev);border:1px solid var(--rule);border-radius:6px;font-size:14px;color:var(--fg);
+}
+.qbtn:hover{border-color:var(--accent);background:var(--accent-soft)}
+.qbtn .pth{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--fg-faint)}
+.hint{font-size:14px;color:var(--fg-muted)}
+.foot{font-size:14px;color:var(--fg-muted);border-top:1px solid var(--rule);padding-top:14px;margin-top:30px !important}
+
+/* experience */
+.role-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 18px;margin:34px 0 10px;--lnh:29px}
+.role-head h2{margin:0}
+.org{color:var(--accent);font-weight:500}
+.when{margin:0 !important;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--t-c)}
+
+/* selected work */
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--t-c);margin:46px 0 4px !important;--lnh:22px}
+.case-title{margin-top:0 !important}
+.pax{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0 0}
+.pax > div{background:var(--bg-elev);border:1px solid var(--rule);border-radius:8px;padding:14px 16px 16px}
+.pax h3{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;color:var(--t-k);margin:0 0 6px}
+.pax p{margin:0;font-size:15px;line-height:1.6;color:var(--fg-muted)}
+
+/* projects: cards */
+.group-h{margin-top:36px !important}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px;margin:12px 0 0}
+.card{
+  position:relative;display:flex;flex-direction:column;background:var(--bg-elev);border:1px solid var(--rule);
+  border-radius:9px;overflow:hidden;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+.card:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
+.card:focus-within{border-color:var(--accent)}
+.card-thumb{position:relative;aspect-ratio:21/10;background:var(--bg-side);border-bottom:1px solid var(--rule);overflow:hidden}
+.card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card-file{margin:0 !important;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--fg-faint);overflow-wrap:anywhere}
+.card h3{margin:0;font-size:16.5px;line-height:1.35}
+.card-open{all:unset;cursor:pointer}
+.card-open::after{content:"";position:absolute;inset:0;z-index:1}
+.card-open:focus-visible{outline:none}
+.card:has(.card-open:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.card-short{margin:0 !important;font-size:14.5px;line-height:1.5;color:var(--fg-muted);flex:1}
+.card-meta{margin:8px 0 0 !important;display:flex;justify-content:space-between;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--fg-faint)}
+.card-meta .go{color:var(--accent)}
+
+/* placeholders for missing or pending images */
+[data-fallback] .ph{display:none}
+[data-fallback].is-missing img{display:none}
+[data-fallback].is-missing .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--fg-faint);
+  background:
+    repeating-linear-gradient(135deg,transparent 0 10px,var(--bg-hover) 10px 11px),
+    var(--bg-side);
+}
+
+/* project detail: gallery */
+.gal{margin:22px 0 8px;max-width:1040px !important}
+.gal-stage{position:relative;aspect-ratio:21/10;background:var(--bg-side);border:1px solid var(--rule);border-radius:9px;overflow:hidden}
+.gal-zoom{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;display:block}
+.gal-zoom img{width:100%;height:100%;object-fit:contain;display:block}
+.gal-zoom:focus-visible{outline-offset:-3px}
+.gal-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  background:var(--bg-elev);border:1px solid var(--rule-strong);color:var(--fg);box-shadow:var(--shadow);
+}
+.gal-arrow:hover{border-color:var(--accent);color:var(--accent)}
+.gal-arrow.prev{left:10px}.gal-arrow.next{right:10px}
+.gal-cap{display:flex;gap:12px;align-items:baseline;margin-top:10px;font-size:14.5px;color:var(--fg-muted);line-height:1.5}
+.gal-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);flex:none}
+.gal-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.gal-thumb{width:96px;padding:0;border:1px solid var(--rule);border-radius:5px;background:var(--bg-side);cursor:pointer;overflow:hidden;opacity:.7}
+.gal-thumb:hover{opacity:1}
+.gal-thumb[aria-current="true"]{opacity:1;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.thumb-box{position:relative;display:block;aspect-ratio:21/10}
+.thumb-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block}
+.gal-hint{margin:8px 0 0 !important;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--fg-faint)}
+.gal-none{
+  aspect-ratio:21/10;max-height:300px;width:100%;display:flex;align-items:center;justify-content:center;border-radius:9px;
+  border:1px dashed var(--rule-strong);font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--fg-faint);
+  background:repeating-linear-gradient(135deg,transparent 0 10px,var(--bg-hover) 10px 11px),var(--bg-side);
+}
+
+/* pager */
+.pager{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin:48px 0 0 !important;padding-top:18px;border-top:1px solid var(--rule);max-width:1040px !important;--lnh:58px}
+.pg{
+  display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 180px;max-width:320px;padding:10px 14px;cursor:pointer;text-align:left;
+  background:var(--bg-elev);border:1px solid var(--rule);border-radius:8px;
+}
+.pg.next{text-align:right;align-items:flex-end;margin-left:auto}
+.pg.up{align-items:center;text-align:center}
+.pg:hover{border-color:var(--accent)}
+.pg-k{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--fg-faint)}
+.pg-f{display:flex;align-items:center;gap:6px;font-weight:500;font-size:14.5px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:16px;margin-top:16px}
+.skill{background:var(--bg-elev);border:1px solid var(--rule);border-radius:8px;padding:14px 16px}
+.skill h2{font-size:15.5px;margin:0 0 8px;letter-spacing:0;display:flex;justify-content:space-between;gap:8px}
+.skill h2 .t-n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:400}
+.skill ul{list-style:none;margin:0;padding:0;font-size:14.5px;color:var(--fg-muted)}
+.skill li{padding:5px 0;border-top:1px solid var(--rule)}
+
+/* credentials */
+.creds{border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-top:16px;max-width:860px !important}
+.cred{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px 20px;align-items:baseline;padding:13px 16px;border-top:1px solid var(--rule);background:var(--bg-elev)}
+.creds .cred:first-child{border-top:0}
+.cred .name{font-weight:500}
+.cred .detail{font-size:14.5px;color:var(--fg-muted)}
+
+/* contact */
+.contact-list{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.contact-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;--lnh:30px}
+.contact-list .k{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--t-p);min-width:72px}
+.contact-list a{font-size:18px;text-decoration:none;border-bottom:1px solid var(--rule-strong);overflow-wrap:anywhere}
+.contact-list a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* empty editor */
+.empty{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+
+/* source view */
+.code-doc{padding-top:22px}
+.code{
+  margin:0;font:400 13.5px/1.75 "IBM Plex Mono",ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;
+  tab-size:2;color:var(--fg);
+}
+.code code{font:inherit;display:block}
+.cl{display:block;min-height:1.75em;--lnh:23.6px;border-radius:2px}
+.cl:hover{background:var(--bg-hover)}
+
+/* ============================================================
+   VIEWER AND QUICK OPEN
+   ============================================================ */
+.lb{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:rgba(10,14,18,.95);color:#E6EDF0}
+.lb[hidden]{display:none}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.14);flex:none}
+.lb-title{margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;font-size:14.5px}
+.lb-nav{display:flex;gap:8px;align-items:center;flex:none}
+.lb-idx{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:#A9B8C0;margin-right:4px}
+.lb-btn{background:none;border:1px solid rgba(255,255,255,.32);color:#E6EDF0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:5px 11px;cursor:pointer;border-radius:5px}
+.lb-btn:hover{border-color:#fff}
+.lb-btn[disabled]{opacity:.35;cursor:default}
+.lb :focus-visible{outline-color:#8FD6E0}
+.lb-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:18px}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid rgba(255,255,255,.18);border-radius:4px}
+.lb-stage.is-missing .ph{position:static;width:min(560px,100%);aspect-ratio:21/10;border-radius:6px;color:#A9B8C0;background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(255,255,255,.05) 10px 11px),#151B21}
+.lb-cap{margin:0;padding:0 18px 10px;text-align:center;font-size:14px;color:#C5D1D7;flex:none}
+.lb-strip{display:flex;gap:8px;padding:10px 16px 16px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);flex:none}
+.lb-strip[hidden]{display:none}
+.lb-strip button{width:104px;padding:0;border:1px solid rgba(255,255,255,.25);background:#000;cursor:pointer;overflow:hidden;border-radius:4px;opacity:.6}
+.lb-strip button[aria-current="true"]{opacity:1;border-color:#fff}
+.lb-strip .thumb-box .ph{background:#151B21}
+
+.qo{position:fixed;inset:0;z-index:70;display:flex;justify-content:center;align-items:flex-start;padding:70px 16px 16px;background:rgba(10,14,18,.35)}
+.qo[hidden]{display:none}
+.qo-box{width:min(560px,100%);background:var(--bg-elev);border:1px solid var(--rule-strong);border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden}
+.qo-in{display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid var(--rule)}
+.qo-in .ico{color:var(--fg-faint)}
+.qo input{flex:1;min-width:0;height:44px;border:0;background:none;color:var(--fg);font:15px "IBM Plex Sans",sans-serif;outline:none}
+.qo ul{list-style:none;margin:0;padding:6px;max-height:min(60vh,420px);overflow:auto}
+.qo li{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;cursor:pointer;font-size:14px}
+.qo li .dir{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--fg-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qo li[aria-selected="true"]{background:var(--sel)}
+.qo .none{color:var(--fg-muted);cursor:default}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1100px){
+  .pax{grid-template-columns:1fr}
+  .spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .spec div:nth-child(2n){border-right:0}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+  .tb-search{min-width:0}
+}
+@media (max-width:860px){
+  body{font-size:16px}
+  :root{--body-lnh:26.4px}
+  .activity{display:none}
+  .tb-menu{display:inline-flex}
+  .dots{display:none}
+  .tb-title{text-align:left}
+  .tb-search{width:32px;min-width:0;padding:0;justify-content:center}
+  .tb-search-label,.tb-search kbd{display:none}
+  .sidebar{
+    position:fixed;z-index:50;top:42px;bottom:0;left:0;width:min(310px,86vw);
+    transform:translateX(-100%);visibility:hidden;transition:transform .2s ease,visibility 0s linear .2s;
+    box-shadow:none;
+  }
+  .side-collapsed .sidebar{display:flex}
+  .drawer-open .sidebar{transform:none;visibility:visible;transition:transform .2s ease;box-shadow:0 0 40px rgba(0,0,0,.25)}
+  .side-close{display:inline-flex;align-items:center;justify-content:center}
+  .tree-row{height:34px;font-size:14.5px}
+  .scrim{position:fixed;inset:42px 0 0 0;z-index:45;background:rgba(10,14,18,.4);border:0}
+  .drawer-open .scrim{display:block}
+  .doc{--gutter:42px;padding:24px 16px 56px var(--gutter)}
+  .ln::before,.cl::before{width:calc(var(--gutter) - 18px);font-size:11px}
+  .doc{background-position:calc(var(--gutter) - 10px) 0}
+  .lede{font-size:17.5px;--lnh:28px}
+  .intro{font-size:16.5px;--lnh:27px}
+  .crumbs{padding:0 8px 0 12px}
+  .code{font-size:12.5px}
+  .cl{--lnh:21.9px}
+  .sb-hide{display:none}
+  .cred{grid-template-columns:1fr auto}
+  .cred .detail{grid-column:1 / -1;grid-row:2}
+  .gal-arrow{width:34px;height:34px}
+  .gal-thumb{width:72px}
+  .lb-strip button{width:68px}
+  .lb-btn{padding:5px 8px}
+}
+@media (max-width:520px){
+  .tb-cta{display:none}
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:0;border-bottom:1px solid var(--rule)}
+  .spec div:last-child{border-bottom:0}
+  .crumbs nav{display:none}
+  .crumbs{justify-content:flex-end}
+  .lb-close-label{display:none}
+  .pg{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  .card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#scroller">Skip to editor</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-files" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M6 7.2v9.6M18 9.2c0 4.8-7 3.6-11 7.6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevl" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app">
+  <header class="titlebar">
+    <button class="tb-btn tb-menu" id="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open file explorer"><svg class="ico"><use href="#i-menu"/></svg></button>
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <p class="tb-title"><strong>Christian Jones</strong><span class="sb-hide"> &middot; IT Specialist &middot; cjportfolio</span></p>
+    <div class="tb-actions">
+      <button class="tb-search" id="qo-btn" type="button" aria-label="Go to file" aria-keyshortcuts="Control+K"><svg class="ico"><use href="#i-search"/></svg><span class="tb-search-label">Go to file</span><kbd>Ctrl K</kbd></button>
+      <button class="tb-cta" type="button" data-open="contact.md">Get in touch</button>
+      <button class="tb-btn" id="theme-btn" type="button" aria-label="Switch to dark theme"><svg class="ico i-sun"><use href="#i-sun"/></svg><svg class="ico i-moon"><use href="#i-moon"/></svg></button>
+    </div>
+  </header>
+
+  <div class="workbench">
+    <nav class="activity" aria-label="Workbench">
+      <button class="act" id="act-explorer" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Explorer" title="Explorer"><svg class="ico"><use href="#i-files"/></svg></button>
+      <button class="act" id="act-search" type="button" aria-label="Go to file" title="Go to file (Ctrl K)"><svg class="ico"><use href="#i-search"/></svg></button>
+    </nav>
+
+    <aside class="sidebar" id="sidebar" aria-label="Explorer">
+      <div class="side-head"><span>Explorer</span><button class="side-close" id="side-close" type="button" aria-label="Close file explorer">&times;</button></div>
+      <p class="side-root"><svg class="ico"><use href="#i-chev"/></svg>cjportfolio</p>
+      <nav class="tree-wrap" id="tree" aria-label="Files"></nav>
+      <div class="side-sec">
+        <h2>Author</h2>
+        <p><strong>Christian Jones</strong><br>IT Specialist, McKenna Labs</p>
+        <ul class="side-links" id="side-links"></ul>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <main class="main" id="main">
+      <nav class="tabs" id="tabs" aria-label="Open editors"></nav>
+      <div class="crumbs">
+        <nav aria-label="Breadcrumb" id="crumbs"></nav>
+        <div class="mode" role="group" aria-label="View mode">
+          <button type="button" data-mode="preview" aria-pressed="true">Preview</button>
+          <button type="button" data-mode="source" aria-pressed="false">Source</button>
+        </div>
+      </div>
+      <div class="editor">
+        <div class="scroller" id="scroller" tabindex="0" role="region" aria-label="Editor">
+          <noscript>
+            <div class="doc prose">
+              <h1>Christian Jones</h1>
+              <p>IT Specialist at McKenna Labs since January 2026, administering Windows endpoints through Microsoft Intune and Entra ID and owning tier 1 and tier 2 escalations. Previously five years in the Build Your Own department at Micro Center. Currently studying for an Associate's in Computer Engineering at Santa Ana College and preparing for the Cisco CCNA.</p>
+              <p>Core tools: Microsoft Intune, Entra ID, Windows Autopilot, Exchange Online, Microsoft 365, PowerShell, Proxmox VE, and Linux.</p>
+              <p>This page renders its full content with JavaScript. Contact details are listed below.</p>
+              <p><a href="mailto:christianjonesbusiness@gmail.com">christianjonesbusiness@gmail.com</a><br>
+              <a href="https://www.linkedin.com/in/christian-jones-762301193/" rel="noopener noreferrer">linkedin.com/in/christian-jones</a><br>
+              <a href="https://github.com/luckyajinn" rel="noopener noreferrer">github.com/luckyajinn</a></p>
+            </div>
+          </noscript>
+          <div id="doc"></div>
+        </div>
+        <div class="minimap" id="minimap" aria-hidden="true"><div id="mm-bars"></div><div class="mm-view" id="mm-view"></div></div>
+      </div>
+    </main>
+  </div>
+
+  <div class="status" id="status">
+    <span class="sb"><svg class="ico"><use href="#i-branch"/></svg>main</span>
+    <span class="sb sb-hide"><svg class="ico"><use href="#i-check"/></svg>0 problems</span>
+    <span class="sb sb-msg" id="sb-msg" aria-live="polite"></span>
+    <span class="sb" id="sb-pos">Ln 1, Col 1</span>
+    <span class="sb sb-hide">Spaces: 2</span>
+    <span class="sb sb-hide">UTF-8</span>
+    <span class="sb sb-hide">LF</span>
+    <span class="sb" id="sb-lang">Markdown</span>
+    <button class="sb sb-hide" id="sb-theme" type="button">Light</button>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+  <div class="lb-bar">
+    <p class="lb-title" id="lb-title"></p>
+    <div class="lb-nav">
+      <span class="lb-idx" id="lb-idx"></span>
+      <button class="lb-btn" id="lb-prev" type="button" aria-label="Previous screenshot">prev</button>
+      <button class="lb-btn" id="lb-next" type="button" aria-label="Next screenshot">next</button>
+      <button class="lb-btn" id="lb-close" type="button" aria-label="Close viewer">close<span class="lb-close-label"> esc</span></button>
+    </div>
+  </div>
+  <div class="lb-stage" id="lb-stage" data-fallback><img id="lb-img" alt=""><span class="ph" aria-hidden="true"><span>image unavailable</span></span></div>
+  <p class="lb-cap" id="lb-cap"></p>
+  <div class="lb-strip" id="lb-strip" role="group" aria-label="Choose a screenshot"></div>
+</div>
+
+<div class="qo" id="qo" role="dialog" aria-modal="true" aria-label="Go to file" hidden>
+  <div class="qo-box">
+    <div class="qo-in"><svg class="ico"><use href="#i-search"/></svg>
+      <input id="qo-input" type="text" role="combobox" aria-expanded="true" aria-controls="qo-list" aria-autocomplete="list" aria-label="Search files" placeholder="Search files by name or topic" autocomplete="off" spellcheck="false">
+      <kbd>esc</kbd>
+    </div>
+    <ul id="qo-list" role="listbox" aria-label="Files"></ul>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   SITE DATA
+
+   Everything the editor shows comes from this object. Each file
+   in the explorer is generated from one part of it, and the
+   Source tab prints that part back as typed data.
+
+   Per tool:
+     name      card heading and detail heading
+     group     "professional" or "personal". Decides the folder the
+               file lives in and the card group on projects/index.md.
+               Keep tools of the same group adjacent.
+     file      optional file name override (defaults to the name)
+     short     one line, card and detail lede
+     status    optional mono label under the detail heading
+     shots     image paths, in order. Empty renders a placeholder.
+     captions  same order as shots, labels each frame
+     sections  detail body. { h, p } for prose, { h, list } for bullets
+     stack     chips at the foot of the detail view
+   ============================================================ */
+const SITE = {
+  hero: {
+    name: "Christian Jones",
+    role: "IT Specialist",
+    location: "Orange County, California",
+    lede: "IT Specialist working across help desk operations, endpoint management, and the internal tooling that keeps both consistent.",
+    quiet: "Five years of hardware fundamentals behind the counter, now applied to fleet identity, compliance, and deployment at scale.",
+    facts: [
+      { k: "Current role", v: "IT Specialist, McKenna Labs" },
+      { k: "Focus", v: "Endpoint and identity administration" },
+      { k: "Location", v: "Orange County, California" },
+      { k: "Studying", v: "Computer Engineering, CCNA" }
+    ]
+  },
+
+  intros: {
+    experience: { h: "Experience", p: "Six years across consumer hardware and enterprise operations. The through line is the same: diagnose the real fault, then make the fix repeatable." },
+    work: { h: "Selected work", p: "Problems I owned end to end, from the initial diagnosis through the documentation that keeps it from recurring." },
+    projects: { h: "Projects", p: "Applications I designed and built to close gaps in day to day IT operations. Each one is a dependency free single file, versioned in Git and deployable by opening it.", hint: "Open a card to read about a tool, page through its screenshots, or inspect them at full size." },
+    skills: { h: "Technical scope", p: "Tools in regular production use, not a list of everything I have opened once." },
+    credentials: { h: "Education and credentials", p: "Largely self taught, now formalizing the foundation. Status listed honestly." },
+    contact: { h: "Get in touch" }
+  },
+
+  roles: [
+    {
+      when: "Jan 2026 to present",
+      title: "IT Specialist",
+      org: "McKenna Labs",
+      points: [
+        "Administer Windows endpoints through Microsoft Intune and Entra ID, covering enrollment, compliance policy, and device lifecycle.",
+        "Own tier 1 and tier 2 escalations across identity, messaging, endpoint security, and warehouse hardware.",
+        "Author the standard operating procedures the rest of the team deploys against.",
+        "Build internal tooling that turns manual checklists into tracked, exportable records."
+      ]
+    },
+    {
+      when: "2020 to 2026",
+      title: "Build Your Own Department",
+      org: "Micro Center",
+      points: [
+        "Specified, assembled, and diagnosed custom systems across five years of daily hardware work.",
+        "Translated technical constraints into plain language for customers at every experience level.",
+        "Developed the component level troubleshooting instinct that still shortens enterprise diagnosis."
+      ]
+    }
+  ],
+
+  cases: [
+    {
+      kicker: "Endpoint management",
+      title: "Bringing an unmanaged fleet under policy",
+      summary: "A large share of corporate endpoints were joined to the directory but never enrolled in mobile device management, leaving them outside compliance reporting entirely.",
+      problem: "Enrollment scope was limited to a narrow set of device groups, so an entire hardware class had no path into management. Compliance evaluation also failed on machines running a third party endpoint agent instead of the default one.",
+      approach: "Audited enrollment state across the fleet, built the missing device grouping, corrected the management scope, and replaced the default antivirus compliance check with a custom detection script matched to the agent actually deployed.",
+      outcome: "Previously invisible devices reporting into management, and compliance status that reflects the real security posture rather than a failed default check.",
+      stack: ["Microsoft Intune", "Entra ID", "Windows Autopilot", "PowerShell", "Xcitium Endpoint Manager"]
+    },
+    {
+      kicker: "Documentation",
+      title: "Standard operating procedure library",
+      summary: "Procedural knowledge lived with individuals. I turned it into a consistent, distributable document set.",
+      problem: "Recurring tasks across deployment, device registration, and account administration had no written standard, so outcomes varied by whoever picked up the ticket.",
+      approach: "Wrote and programmatically generated a library of formatted procedure documents in a consistent house style, covering device deployment, hardware registration, warehouse device redeployment, shared device administration, and collaboration platform management.",
+      outcome: "A reference set new technicians can execute against without shadowing, and a stable basis for the deployment tooling built on top of it.",
+      stack: ["Python", "ReportLab", "Technical writing"]
+    },
+    {
+      kicker: "Procurement",
+      title: "Hardware refresh proposal",
+      summary: "Led the standards and cost analysis for a fleet wide device refresh, presented to finance leadership.",
+      problem: "Purchasing was reactive and inconsistent, producing a fleet with no common manageability, warranty, or support baseline.",
+      approach: "Defined five device categories against real role requirements, evaluated vendors on enterprise manageability, warranty response, and management platform compatibility, then built a costed proposal with a recommended standard configuration per category.",
+      outcome: "A single approved hardware standard and a budgeted refresh plan sized for the fleet.",
+      stack: ["Vendor evaluation", "Cost analysis", "Technical writing"]
+    },
+    {
+      kicker: "Infrastructure",
+      title: "Virtualization homelab",
+      summary: "A self managed hypervisor environment where I run the infrastructure work my job description does not cover yet.",
+      problem: "Networking, Linux administration, and security hardening are where I am headed professionally, and reading about them is not the same as operating them.",
+      approach: "Built a multi node hypervisor cluster running containerized services including DNS filtering and application servers, segmented by service class. Access is restricted to a private mesh network with single sign on and multi factor authentication, with intrusion prevention, host firewalling, and a documented patch window.",
+      outcome: "A running environment I maintain under real uptime expectations, and the practical grounding behind the networking certifications in progress.",
+      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec", "Fail2ban"]
+    }
+  ],
+
+  tools: [
+    {
+      name: "Device deployment checklist",
+      group: "professional",
+      short: "Guided multi phase build procedure with a tracked, exportable record.",
+      shots: [
+        "../assets/deployment-checklist-1.png",
+        "../assets/deployment-checklist-2.png",
+        "../assets/deployment-checklist-3.png",
+        "../assets/deployment-checklist-4.png"
+      ],
+      captions: [
+        "Prerequisites and device condition capture",
+        "Management enrollment and endpoint protection phase",
+        "Peripheral setup and device handoff phase",
+        "Administrator edit mode with exportable configuration"
+      ],
+      sections: [
+        { h: "The tool", p: "Walks a technician through a full device build, phase by phase, and captures what was actually completed. It replaced a printed procedure that produced no record once the device left the bench." },
+        { h: "Two modes", p: "Deploy mode is the technician view: check off steps, capture device details, track progress against the phase count. Edit mode is the administrator view, where the procedure itself is rewritten without touching code. Step text, phases, and device types are all editable in the browser." },
+        { h: "Conditional procedure", list: [
+          "Device type selection skips phases that do not apply, so a factory fresh machine does not walk through an operating system install",
+          "Separate procedures for standard workstations and warehouse devices",
+          "Optional sections for pre-existing damage and physical condition notes"
+        ]},
+        { h: "Data handling", list: [
+          "Configurations persist in the browser with schema migration, so an older saved config still loads after the procedure changes",
+          "Session history retains prior deployments",
+          "Print view produces a clean physical record",
+          "Versioned JSON export feeds directly into the asset register"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "localStorage", "JSON schema"]
+    },
+    {
+      name: "Asset register",
+      group: "professional",
+      short: "Import driven inventory built from the checklist's exports.",
+      shots: [
+        "../assets/asset-register1.png",
+        "../assets/asset-register2.png"
+      ],
+      captions: [
+        "Inventory overview with status totals and search",
+        "Asset record with device access and linked documents"
+      ],
+      sections: [
+        { h: "The tool", p: "Takes the deployment checklist's exports and builds a searchable inventory from them, so the record created at the bench becomes the record of the fleet." },
+        { h: "Import and matching", list: [
+          "Ingests both checklist export formats",
+          "Deduplicates on session, then serial, then asset tag",
+          "Batch confirms overwrites rather than prompting per record"
+        ]},
+        { h: "Record structure", list: [
+          "Six asset categories and five lifecycle statuses",
+          "Custom fields and linked documentation per asset",
+          "Search, filter, sort, and bulk delete",
+          "CSV export and full JSON backup and restore"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "CSV export", "JSON backup"]
+    },
+    {
+      name: "Procurement tracker",
+      group: "professional",
+      short: "Purchasing state across device categories in one place.",
+      shots: [
+        "../assets/procurement-tracker1.png",
+        "../assets/procurement-tracker2.png"
+      ],
+      captions: [
+        "Add item form for new requisitions",
+        "Purchase history with store filter and export"
+      ],
+      sections: [
+        { h: "The tool", p: "Keeps hardware purchasing visible from request through receipt, instead of scattered across mail threads and spreadsheets that go stale between approvals." },
+        { h: "What it tracks", list: [
+          "Requested, approved, ordered, and received state per line",
+          "Device categories matched to the approved hardware standard",
+          "Quantities and costs against the refresh plan"
+        ]}
+      ],
+      stack: ["HTML", "JavaScript", "localStorage"]
+    },
+    {
+      name: "K12 Proxmox node",
+      group: "personal",
+      short: "Second hypervisor node built out as a self managed lab.",
+      shots: [],
+      captions: [],
+      sections: [
+        { h: "The node", p: "A second Proxmox VE hypervisor added alongside the primary host and built out from a clean install as a self managed lab. It adds capacity to the environment and gives me a separate host to build, test, and rebuild on without putting the primary node at risk." },
+        { h: "What runs on it", list: [
+          "Debian based LXC containers rather than full virtual machines, keeping overhead low",
+          "Self hosted services grouped by service class, so each workload stays separated from the others",
+          "A consistent container baseline, so new services start from the same configuration"
+        ]},
+        { h: "Access and hardening", list: [
+          "Management access restricted to a private Tailscale mesh network rather than exposed directly",
+          "CrowdSec intrusion prevention watching host and service logs",
+          "Host firewalling and a documented patch window for the hypervisor and its containers"
+        ]}
+      ],
+      stack: ["Proxmox VE", "LXC", "Debian", "Tailscale", "CrowdSec"]
+    }
+  ],
+
+  skills: [
+    { group:"Identity and endpoint", items:["Microsoft Entra ID","Microsoft Intune","Windows Autopilot","Conditional Access","Group Policy"] },
+    { group:"Messaging and collaboration", items:["Exchange Online","Microsoft 365 administration","SharePoint","Teams","License management"] },
+    { group:"Security and service management", items:["Xcitium Endpoint Manager","Xcitium Service Desk v2","Microsoft Defender","BitLocker and key escrow","Web content filtering","Endpoint hardening"] },
+    { group:"Systems and scripting", items:["Windows 11 and Server","Linux administration","Proxmox VE","PowerShell","Python, HTML, JavaScript"] }
+  ],
+
+  credentials: [
+    { name:"Associate's, Computer Engineering", detail:"Santa Ana College, expected May 2028", status:"In progress", active:true },
+    { name:"Cisco CCNA 200-301", detail:"Targeting early 2027", status:"Studying", active:true },
+    { name:"CompTIA Network+", detail:"Planned", status:"Planned", active:false },
+    { name:"CompTIA Security+", detail:"Planned", status:"Planned", active:false },
+    { name:"CompTIA A+", detail:"Planned", status:"Planned", active:false },
+    { name:"Microsoft Azure track", detail:"AZ-900 then AZ-104", status:"Planned", active:false }
+  ],
+
+  contact: [
+    { label: "Email", text: "christianjonesbusiness@gmail.com", href: "mailto:christianjonesbusiness@gmail.com" },
+    { label: "LinkedIn", text: "linkedin.com/in/christian-jones", href: "https://www.linkedin.com/in/christian-jones-762301193/", external: true },
+    { label: "GitHub", text: "github.com/luckyajinn", href: "https://github.com/luckyajinn", external: true }
+    /* { label: "Resume", text: "Download resume (PDF)", href: "../assets/christian-jones-resume.pdf", external: true } */
+  ],
+
+  footer: "Designed, built, and maintained by me. Last updated September 2026."
+};
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mqMobile = window.matchMedia('(max-width: 860px)');
+const GROUP_LABELS = { professional: "Professional", personal: "Personal" };
+const groupLabel = g => GROUP_LABELS[g] || (g ? g.charAt(0).toUpperCase() + g.slice(1) : 'Other');
+const icon = (id, cls = '') => `<svg class="ico ${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+/* ============================================================
+   FILE SYSTEM: every explorer entry maps to part of SITE
+   ============================================================ */
+const LANGS = { ts: 'TypeScript', md: 'Markdown', json: 'JSON', yml: 'YAML' };
+const FILES = [];
+const addFile = f => {
+  f.name = f.path.split('/').pop();
+  f.ext = f.name.split('.').pop();
+  f.lang = LANGS[f.ext] || 'Plain Text';
+  FILES.push(f);
+};
+addFile({ path: 'README.md', kind: 'readme', title: 'About' });
+addFile({ path: 'experience.ts', kind: 'experience', title: SITE.intros.experience.h });
+addFile({ path: 'selected-work.md', kind: 'work', title: SITE.intros.work.h });
+addFile({ path: 'projects/index.md', kind: 'projects', title: SITE.intros.projects.h, desc: 'projects' });
+SITE.tools.forEach((t, i) => addFile({
+  path: `projects/${slug(t.group || 'other')}/${slug(t.file || t.name)}.ts`,
+  kind: 'tool', tool: i, title: t.name
+}));
+addFile({ path: 'skills.json', kind: 'skills', title: SITE.intros.skills.h });
+addFile({ path: 'credentials.yml', kind: 'credentials', title: SITE.intros.credentials.h });
+addFile({ path: 'contact.md', kind: 'contact', title: SITE.intros.contact.h });
+
+const byPath = new Map(FILES.map(f => [f.path, f]));
+const TOP_ORDER = FILES.filter(f => f.kind !== 'tool').map(f => f.path);
+const TOOL_ORDER = FILES.filter(f => f.kind === 'tool').map(f => f.path);
+const toolPath = i => FILES.find(f => f.kind === 'tool' && f.tool === i).path;
+
+/* old section anchors from the single page site still land somewhere sensible */
+const LEGACY = { work: 'experience.ts', projects: 'selected-work.md', tooling: 'projects/index.md', skills: 'skills.json', credentials: 'credentials.yml', contact: 'contact.md' };
+
+const fileIcon = path => {
+  const ext = path.split('.').pop();
+  const map = { ts: ['TS', 'i-ts'], md: ['M↓', 'i-md'], json: ['{ }', 'i-json'], yml: ['YML', 'i-yml'] };
+  const [g, c] = map[ext] || ['TXT', ''];
+  return `<span class="ficon ${c}" aria-hidden="true">${g}</span>`;
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  tabs: ['README.md'],
+  active: 'README.md',
+  mode: 'preview',
+  gal: {},          /* tool index to current screenshot */
+  scroll: {}        /* path plus mode to scrollTop */
+};
+
+const docEl = $('#doc');
+const scroller = $('#scroller');
+let lines = [];
+
+/* ============================================================
+   PREVIEW RENDERERS
+   ============================================================ */
+const h1 = text => `<h1 class="ln" tabindex="-1">${esc(text)}</h1>`;
+const h2 = (text, cls = '') => `<h2 class="ln ${cls}"><span class="hash" aria-hidden="true">## </span>${esc(text)}</h2>`;
+const chips = (arr, label = 'Stack') => `<ul class="chips" aria-label="${esc(label)}">${arr.map(s => `<li>${esc(s)}</li>`).join('')}</ul>`;
+
+function pager(path){
+  const f = byPath.get(path);
+  const seq = f.kind === 'tool' ? TOOL_ORDER : TOP_ORDER;
+  const i = seq.indexOf(path);
+  const prev = seq[i - 1], next = seq[i + 1];
+  const btn = (p, label, cls) => p
+    ? `<button type="button" class="pg ${cls}" data-open="${esc(p)}"><span class="pg-k">${label} &middot; ${esc(byPath.get(p).name)}</span><span class="pg-f">${esc(byPath.get(p).title)}</span></button>`
+    : '';
+  const up = f.kind === 'tool'
+    ? `<button type="button" class="pg up" data-open="projects/index.md"><span class="pg-k">Back to</span><span class="pg-f">All projects</span></button>` : '';
+  return `<nav class="ln pager wide" aria-label="File navigation">${btn(prev, '← Previous', 'prev')}${up}${btn(next, 'Next →', 'next')}</nav>`;
+}
+
+function readmePreview(){
+  const h = SITE.hero;
+  const quick = [
+    ['experience.ts', 'Experience'],
+    ['selected-work.md', 'Selected work'],
+    ['projects/index.md', 'Projects'],
+    ['contact.md', 'Contact']
+  ];
+  return `<article class="doc prose readme">
+    <p class="ln eyebrow"><span class="pill solid">${esc(h.role)}</span><span>${esc(h.location)}</span></p>
+    ${h1(h.name)}
+    <p class="ln lede">${esc(h.lede)} <span class="quiet">${esc(h.quiet)}</span></p>
+    <dl class="ln spec wide">${h.facts.map(f => `<div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join('')}</dl>
+    <div class="ln quick wide">${quick.map(([p, label]) =>
+      `<button type="button" class="qbtn" data-open="${p}">${fileIcon(p)}<span>${esc(label)}</span><span class="pth">${esc(p)}</span></button>`).join('')}</div>
+    <p class="ln hint">Every section of this page is a file. Open one from the explorer, or press <kbd>Ctrl</kbd> <kbd>K</kbd> to jump to it. Use <strong>Source</strong> above to see the typed data a view compiles from.</p>
+    <p class="ln foot">${esc(SITE.footer)}</p>
+    ${pager('README.md')}
+  </article>`;
+}
+
+function experiencePreview(){
+  const s = SITE.intros.experience;
+  return `<article class="doc prose">
+    ${h1(s.h)}
+    <p class="ln intro">${esc(s.p)}</p>
+    ${SITE.roles.map(r => `
+      <section class="role">
+        <div class="ln role-head">
+          <h2><span class="hash" aria-hidden="true">## </span>${esc(r.title)} <span class="org">@ ${esc(r.org)}</span></h2>
+          <p class="when">${esc(r.when)}</p>
+        </div>
+        <ul class="list">${r.points.map(p => `<li class="ln">${esc(p)}</li>`).join('')}</ul>
+      </section>`).join('')}
+    ${pager('experience.ts')}
+  </article>`;
+}
+
+function workPreview(){
+  const s = SITE.intros.work;
+  return `<article class="doc prose">
+    ${h1(s.h)}
+    <p class="ln intro">${esc(s.p)}</p>
+    ${SITE.cases.map(c => `
+      <section>
+        <p class="ln kicker"><span aria-hidden="true">// </span>${esc(c.kicker)}</p>
+        ${h2(c.title, 'case-title')}
+        <p class="ln">${esc(c.summary)}</p>
+        <div class="ln pax wide">
+          <div><h3>problem</h3><p>${esc(c.problem)}</p></div>
+          <div><h3>approach</h3><p>${esc(c.approach)}</p></div>
+          <div><h3>result</h3><p>${esc(c.outcome)}</p></div>
+        </div>
+        <div class="ln chip-row wide">${chips(c.stack)}</div>
+      </section>`).join('')}
+    ${pager('selected-work.md')}
+  </article>`;
+}
+
+function cardHTML(t, i){
+  const shots = t.shots || [];
+  const path = toolPath(i);
+  const thumb = shots.length
+    ? `<div class="card-thumb" data-fallback><img src="${esc(shots[0])}" alt="" loading="lazy" decoding="async"><span class="ph" aria-hidden="true"><span>image unavailable</span></span></div>`
+    : `<div class="card-thumb is-missing" data-fallback><span class="ph" aria-hidden="true"><span>screenshots pending</span></span></div>`;
+  return `<article class="card">
+    ${thumb}
+    <div class="card-body">
+      <p class="card-file">${esc(path.replace(/^projects\//, ''))}</p>
+      <h3><button type="button" class="card-open" data-open="${esc(path)}">${esc(t.name)}</button></h3>
+      <p class="card-short">${esc(t.short)}</p>
+      <p class="card-meta"><span>${shots.length ? shots.length + (shots.length === 1 ? ' screenshot' : ' screenshots') : 'screenshots pending'}</span><span class="go" aria-hidden="true">open →</span></p>
+    </div>
+  </article>`;
+}
+
+function projectsPreview(){
+  const s = SITE.intros.projects;
+  const runs = [];
+  SITE.tools.forEach((t, i) => {
+    const g = t.group || '';
+    if (!runs.length || runs[runs.length - 1].group !== g) runs.push({ group: g, items: [] });
+    runs[runs.length - 1].items.push(i);
+  });
+  return `<article class="doc prose">
+    ${h1(s.h)}
+    <p class="ln intro">${esc(s.p)}</p>
+    <p class="ln hint">${esc(s.hint)}</p>
+    ${runs.map(run => `
+      ${h2(groupLabel(run.group), 'group-h')}
+      <div class="ln cards wide">${run.items.map(i => cardHTML(SITE.tools[i], i)).join('')}</div>`).join('')}
+    ${pager('projects/index.md')}
+  </article>`;
+}
+
+function galleryHTML(t, i){
+  const n = t.shots.length;
+  const arrows = n > 1
+    ? `<button type="button" class="gal-arrow prev" data-step="-1" aria-label="Previous screenshot">${icon('i-chevl')}</button>
+       <button type="button" class="gal-arrow next" data-step="1" aria-label="Next screenshot">${icon('i-chev')}</button>` : '';
+  const strip = n > 1
+    ? `<div class="gal-strip" role="group" aria-label="Choose a screenshot">${t.shots.map((s, k) =>
+        `<button type="button" class="gal-thumb" data-goto="${k}" aria-label="Screenshot ${k + 1}${t.captions[k] ? ': ' + esc(t.captions[k]) : ''}">
+           <span class="thumb-box" data-fallback><img src="${esc(s)}" alt="" loading="lazy" decoding="async"><span class="ph" aria-hidden="true"></span></span>
+         </button>`).join('')}</div>` : '';
+  return `<figure class="ln gal" data-gal="${i}" aria-label="${esc(t.name)} screenshots">
+    <div class="gal-stage" data-fallback>
+      <button type="button" class="gal-zoom" data-zoom><img class="gal-img" alt="" decoding="async"></button>
+      <span class="ph" aria-hidden="true"><span>image unavailable</span></span>
+      ${arrows}
+    </div>
+    <figcaption class="gal-cap"><span class="gal-num"></span><span class="gal-text"></span></figcaption>
+    ${strip}
+    <p class="gal-hint" aria-hidden="true">${n > 1 ? '← → to page, ' : ''}select the image to view it full size</p>
+  </figure>`;
+}
+
+function toolPreview(f){
+  const t = SITE.tools[f.tool];
+  const shots = t.shots || [];
+  const gallery = shots.length
+    ? galleryHTML(t, f.tool)
+    : `<figure class="ln gal"><div class="gal-none">screenshots pending</div></figure>`;
+  const body = (t.sections || []).map(sec =>
+    h2(sec.h, 'sec') + (sec.list
+      ? `<ul class="list">${sec.list.map(li => `<li class="ln">${esc(li)}</li>`).join('')}</ul>`
+      : `<p class="ln">${esc(sec.p)}</p>`)
+  ).join('');
+  return `<article class="doc prose">
+    <p class="ln eyebrow"><span class="pill${t.group === 'personal' ? ' dim' : ''}">${esc(groupLabel(t.group))}</span><span class="t-c">projects/${esc(slug(t.group || 'other'))}/</span></p>
+    ${h1(t.name)}
+    <p class="ln lede">${esc(t.short)}</p>
+    ${t.status ? `<p class="ln eyebrow">${esc(t.status)}</p>` : ''}
+    ${gallery}
+    ${body}
+    ${h2('Stack', 'sec')}
+    <div class="ln">${chips(t.stack)}</div>
+    ${pager(f.path)}
+  </article>`;
+}
+
+function skillsPreview(){
+  const s = SITE.intros.skills;
+  return `<article class="doc prose">
+    ${h1(s.h)}
+    <p class="ln intro">${esc(s.p)}</p>
+    <div class="ln skills wide">${SITE.skills.map(g => `
+      <section class="skill">
+        <h2>${esc(g.group)}<span class="t-n" aria-hidden="true">[${g.items.length}]</span></h2>
+        <ul>${g.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
+      </section>`).join('')}</div>
+    ${pager('skills.json')}
+  </article>`;
+}
+
+function credentialsPreview(){
+  const s = SITE.intros.credentials;
+  return `<article class="doc prose">
+    ${h1(s.h)}
+    <p class="ln intro">${esc(s.p)}</p>
+    <div class="ln creds wide" role="list">${SITE.credentials.map(c => `
+      <div class="cred" role="listitem">
+        <span class="name">${esc(c.name)}</span>
+        <span class="detail">${esc(c.detail)}</span>
+        <span class="pill${c.active ? '' : ' dim'}">${esc(c.status)}</span>
+      </div>`).join('')}</div>
+    ${pager('credentials.yml')}
+  </article>`;
+}
+
+function contactPreview(){
+  const s = SITE.intros.contact;
+  return `<article class="doc prose">
+    ${h1(s.h)}
+    <ul class="contact-list">${SITE.contact.map(c => `
+      <li class="ln"><span class="k">${esc(c.label.toLowerCase())}:</span><a href="${esc(c.href)}"${c.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(c.text)}</a></li>`).join('')}</ul>
+    <p class="ln foot">${esc(SITE.footer)}</p>
+    ${pager('contact.md')}
+  </article>`;
+}
+
+function emptyPreview(){
+  return `<div class="doc prose empty">
+    <h1 class="ln" tabindex="-1">No open editors</h1>
+    <p class="ln intro">Pick a file from the explorer, or start here.</p>
+    <div class="ln quick"><button type="button" class="qbtn" data-open="README.md">${fileIcon('README.md')}<span>Open README.md</span></button>
+    <button type="button" class="qbtn" data-qo>${icon('i-search')}<span>Go to file</span><kbd>Ctrl K</kbd></button></div>
+  </div>`;
+}
+
+function previewHTML(f){
+  switch (f.kind){
+    case 'readme': return readmePreview();
+    case 'experience': return experiencePreview();
+    case 'work': return workPreview();
+    case 'projects': return projectsPreview();
+    case 'tool': return toolPreview(f);
+    case 'skills': return skillsPreview();
+    case 'credentials': return credentialsPreview();
+    case 'contact': return contactPreview();
+  }
+  return emptyPreview();
+}
+
+/* ============================================================
+   SOURCE RENDERERS: print SITE data back as typed code
+   ============================================================ */
+const T = {
+  k: s => `<span class="t-k">${s}</span>`,
+  t: s => `<span class="t-t">${s}</span>`,
+  p: s => `<span class="t-p">${s}</span>`,
+  n: s => `<span class="t-n">${s}</span>`,
+  u: s => `<span class="t-u">${s}</span>`,
+  c: s => `<span class="t-c">${esc(s)}</span>`,
+  s: s => `<span class="t-s">${esc(JSON.stringify(s))}</span>`
+};
+
+/* serialize a value as highlighted TS or JSON, one "\n" per line */
+function ser(v, ind, json){
+  const pad = '  '.repeat(ind + 1), end = '  '.repeat(ind);
+  if (typeof v === 'string') return T.s(v);
+  if (typeof v === 'number' || typeof v === 'boolean') return T.n(String(v));
+  if (Array.isArray(v)){
+    if (!v.length) return T.u('[]');
+    if (v.every(x => typeof x === 'string') && JSON.stringify(v).length < 60)
+      return T.u('[') + v.map(T.s).join(T.u(', ')) + T.u(']');
+    return T.u('[') + '\n' + v.map((x, i) => pad + ser(x, ind + 1, json) + (json && i === v.length - 1 ? '' : T.u(','))).join('\n') + '\n' + end + T.u(']');
+  }
+  const keys = Object.keys(v).filter(k => v[k] !== undefined);
+  const key = k => json || !/^[A-Za-z_$][\w$]*$/.test(k) ? esc(JSON.stringify(k)) : k;
+  return T.u('{') + '\n' + keys.map((k, i) =>
+    pad + T.p(key(k)) + T.u(': ') + ser(v[k], ind + 1, json) + (json && i === keys.length - 1 ? '' : T.u(','))
+  ).join('\n') + '\n' + end + T.u('}');
+}
+
+/* wrap each line, keeping a hanging indent so wrapped strings stay readable */
+function codeBlock(html, label){
+  const out = html.split('\n').map(line => {
+    const lead = line.match(/^ */)[0].length;
+    const rest = line.slice(lead);
+    return `<span class="cl" data-indent="${lead}" style="padding-left:${lead + 2}ch;text-indent:-2ch">${rest}</span>`;
+  }).join('');
+  return `<div class="doc code-doc"><pre class="code" aria-label="${esc(label)}"><code>${out}</code></pre></div>`;
+}
+
+function hlMd(raw){
+  if (/^<!--/.test(raw)) return T.c(raw);
+  if (/^#{1,6} /.test(raw)) return `<span class="t-h">${esc(raw)}</span>`;
+  return esc(raw)
+    .replace(/^(\s*)([-*] )/, '$1<span class="t-u">$2</span>')
+    .replace(/\*\*(.+?)\*\*/g, '<span class="t-k">**$1**</span>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<span class="t-u">[</span><span class="t-s">$1</span><span class="t-u">](</span><span class="t-p">$2</span><span class="t-u">)</span>')
+    .replace(/`([^`]+)`/g, '<span class="t-n">`$1`</span>')
+    .replace(/^_(.+)_$/, '<span class="t-t">_$1_</span>');
+}
+
+function hlYml(raw){
+  if (/^\s*#/.test(raw)) return T.c(raw);
+  const m = raw.match(/^(\s*)(- )?(\w+)(:)(.*)$/);
+  if (!m) return esc(raw);
+  const [, sp, dash, key, , val] = m;
+  const v = val.trim();
+  const vh = v === '' ? '' : ' ' + (/^(true|false|\d+)$/.test(v) ? T.n(v) : `<span class="t-s">${esc(v)}</span>`);
+  return sp + (dash ? T.u('- ') : '') + T.p(key) + T.u(':') + vh;
+}
+
+const MD_NOTE = '<!-- Switch to Preview to render this file. -->';
+const TS_NOTE = '// Typed data for this view. Switch to Preview to compile it.';
+const yq = s => JSON.stringify(s);
+
+function sourceHTML(f){
+  const label = 'Source of ' + f.path;
+  const md = arr => codeBlock(arr.map(hlMd).join('\n'), label);
+
+  switch (f.kind){
+    case 'readme': {
+      const h = SITE.hero;
+      return md([MD_NOTE, '', '# ' + h.name, '', '_' + h.role + ', ' + h.location + '_', '', h.lede, h.quiet, '',
+        ...h.facts.map(x => `- **${x.k}:** ${x.v}`), '', SITE.footer]);
+    }
+    case 'work': {
+      const s = SITE.intros.work, out = [MD_NOTE, '', '# ' + s.h, '', s.p];
+      SITE.cases.forEach(c => out.push('', '## ' + c.title, '_' + c.kicker + '_', '', c.summary, '',
+        '**Problem.** ' + c.problem, '**Approach.** ' + c.approach, '**Result.** ' + c.outcome, '',
+        c.stack.map(x => '`' + x + '`').join(' ')));
+      return md(out);
+    }
+    case 'projects': {
+      const s = SITE.intros.projects, out = [MD_NOTE, '', '# ' + s.h, '', s.p];
+      let g = null;
+      SITE.tools.forEach((t, i) => {
+        if (t.group !== g){ g = t.group; out.push('', '## ' + groupLabel(g)); }
+        out.push(`- [${t.name}](./${toolPath(i).replace(/^projects\//, '')}): ${t.short}`);
+      });
+      return md(out);
+    }
+    case 'contact': {
+      const s = SITE.intros.contact;
+      return md([MD_NOTE, '', '# ' + s.h, '', ...SITE.contact.map(c => `- ${c.label}: [${c.text}](${c.href})`), '', SITE.footer]);
+    }
+    case 'experience': {
+      const s = SITE.intros.experience;
+      const html = [
+        T.c(TS_NOTE),
+        T.c('// ' + s.h + ': ' + s.p),
+        '',
+        T.k('interface') + ' ' + T.t('Role') + ' ' + T.u('{'),
+        '  ' + T.p('when') + T.u(': ') + T.t('string') + T.u(';'),
+        '  ' + T.p('title') + T.u(': ') + T.t('string') + T.u(';'),
+        '  ' + T.p('org') + T.u(': ') + T.t('string') + T.u(';'),
+        '  ' + T.p('points') + T.u(': ') + T.t('string[]') + T.u(';'),
+        T.u('}'),
+        '',
+        T.k('export const') + ' roles' + T.u(': ') + T.t('Role[]') + T.u(' = ') + ser(SITE.roles, 0, false) + T.u(';')
+      ].join('\n');
+      return codeBlock(html, label);
+    }
+    case 'tool': {
+      const t = SITE.tools[f.tool];
+      const html = [
+        T.c(TS_NOTE),
+        '',
+        T.k('type') + ' ' + T.t('Section') + T.u(' = { ') + T.p('h') + T.u(': ') + T.t('string') + T.u('; ') + T.p('p') + T.u('?: ') + T.t('string') + T.u('; ') + T.p('list') + T.u('?: ') + T.t('string[]') + T.u(' };'),
+        '',
+        T.k('interface') + ' ' + T.t('Tool') + ' ' + T.u('{'),
+        '  ' + T.p('name') + T.u(': ') + T.t('string') + T.u(';'),
+        '  ' + T.p('group') + T.u(': ') + T.s('professional') + T.u(' | ') + T.s('personal') + T.u(';'),
+        '  ' + T.p('short') + T.u(': ') + T.t('string') + T.u(';'),
+        '  ' + T.p('status') + T.u('?: ') + T.t('string') + T.u(';'),
+        '  ' + T.p('shots') + T.u(': ') + T.t('string[]') + T.u(';'),
+        '  ' + T.p('captions') + T.u(': ') + T.t('string[]') + T.u(';'),
+        '  ' + T.p('sections') + T.u(': ') + T.t('Section[]') + T.u(';'),
+        '  ' + T.p('stack') + T.u(': ') + T.t('string[]') + T.u(';'),
+        T.u('}'),
+        '',
+        T.k('const') + ' tool' + T.u(': ') + T.t('Tool') + T.u(' = ') + ser(t, 0, false) + T.u(';'),
+        '',
+        T.k('export default') + ' tool' + T.u(';')
+      ].join('\n');
+      return codeBlock(html, label);
+    }
+    case 'skills': {
+      const obj = {};
+      SITE.skills.forEach(g => { obj[g.group] = g.items; });
+      return codeBlock(ser(obj, 0, true), label);
+    }
+    case 'credentials': {
+      const s = SITE.intros.credentials;
+      const out = ['# Switch to Preview to render this file.', '# ' + s.h + ': ' + s.p, '', 'credentials:'];
+      SITE.credentials.forEach(c => out.push(
+        '  - name: ' + yq(c.name),
+        '    detail: ' + yq(c.detail),
+        '    status: ' + yq(c.status),
+        '    active: ' + c.active
+      ));
+      return codeBlock(out.map(hlYml).join('\n'), label);
+    }
+  }
+  return emptyPreview();
+}
+
+/* ============================================================
+   CHROME: explorer, tabs, breadcrumbs, status
+   ============================================================ */
+function buildTree(){
+  const root = { children: [] };
+  FILES.forEach(f => {
+    const parts = f.path.split('/');
+    let node = root, acc = '';
+    parts.slice(0, -1).forEach(p => {
+      acc = acc ? acc + '/' + p : p;
+      let c = node.children.find(x => x.dir && x.name === p);
+      if (!c){ c = { name: p, dir: true, path: acc, children: [] }; node.children.push(c); }
+      node = c;
+    });
+    node.children.push({ name: parts[parts.length - 1], file: f });
+  });
+  const html = (nodes, d) => `<ul class="tree" role="list">${nodes.map(n => n.dir
+    ? `<li><button type="button" class="tree-row tree-dir" data-folder="${esc(n.path)}" aria-expanded="true" style="--d:${d}">${icon('i-chev', 'chev')}${icon('i-folder', 'folder')}<span class="nm">${esc(n.name)}</span></button>${html(n.children, d + 1)}</li>`
+    : `<li><button type="button" class="tree-row tree-file" data-open="${esc(n.file.path)}" style="--d:${d}" title="${esc(n.file.title)}">${fileIcon(n.file.path)}<span class="nm">${esc(n.name)}</span></button></li>`
+  ).join('')}</ul>`;
+  $('#tree').innerHTML = html(root.children, 0);
+}
+
+function renderTabs(){
+  $('#tabs').innerHTML = state.tabs.map(p => {
+    const f = byPath.get(p), on = p === state.active;
+    return `<div class="tab${on ? ' on' : ''}">
+      <button type="button" class="tab-btn" data-open="${esc(p)}" aria-current="${on ? 'page' : 'false'}" title="${esc(p)}">${fileIcon(p)}<span>${esc(f.name)}</span>${f.desc ? `<span class="tab-desc">${esc(f.desc)}</span>` : ''}</button>
+      <button type="button" class="tab-x" data-close="${esc(p)}" aria-label="Close ${esc(f.name)}">&times;</button>
+    </div>`;
+  }).join('');
+  const on = $('#tabs .tab.on');
+  if (on){
+    const bar = $('#tabs');
+    if (on.offsetLeft < bar.scrollLeft) bar.scrollLeft = on.offsetLeft;
+    else if (on.offsetLeft + on.offsetWidth > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = on.offsetLeft + on.offsetWidth - bar.clientWidth;
+  }
+}
+
+function renderChrome(){
+  const f = state.active ? byPath.get(state.active) : null;
+  $$('#tree .tree-file').forEach(b => b.setAttribute('aria-current', b.dataset.open === state.active ? 'page' : 'false'));
+  const crumbs = ['cjportfolio', ...(f ? f.path.split('/') : [])];
+  $('#crumbs').innerHTML = `<ol>${crumbs.map((c, i) => `<li${i === crumbs.length - 1 ? ' aria-current="location"' : ''}>${i === crumbs.length - 1 && f ? fileIcon(f.path) : ''}${esc(c)}</li>`).join('')}</ol>`;
+  $$('.mode button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === state.mode));
+  $('#sb-lang').textContent = f ? (state.mode === 'source' ? f.lang : f.lang + ' Preview') : 'Plain Text';
+  document.title = !f || f.kind === 'readme' ? 'Christian Jones - IT Specialist' : `${f.name} | Christian Jones - IT Specialist`;
+  renderTabs();
+}
+
+let msgTimer = null;
+function flash(msg){
+  const el = $('#sb-msg');
+  el.textContent = msg;
+  clearTimeout(msgTimer);
+  msgTimer = setTimeout(() => { el.textContent = ''; }, 3200);
+}
+
+function setPos(ln, col){ $('#sb-pos').textContent = `Ln ${ln}, Col ${col}`; }
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+const scrollKey = () => state.active + '|' + state.mode;
+
+function render(){
+  const t0 = performance.now();
+  const f = state.active ? byPath.get(state.active) : null;
+  docEl.innerHTML = !f ? emptyPreview() : state.mode === 'source' ? sourceHTML(f) : previewHTML(f);
+  $$('.gal[data-gal]', docEl).forEach(paintGallery);
+  lines = $$('.ln, .cl', docEl);
+  renderChrome();
+  scroller.scrollTop = state.scroll[scrollKey()] || 0;
+  updatePos();
+  scheduleMinimap();
+  return performance.now() - t0;
+}
+
+function openFile(path, opts = {}){
+  if (!byPath.has(path)) path = 'README.md';
+  if (state.active) state.scroll[scrollKey()] = scroller.scrollTop;
+  if (!state.tabs.includes(path)) state.tabs.push(path);
+  const changed = state.active !== path;
+  state.active = path;
+  const hash = '#/' + path;
+  if (opts.push !== false && location.hash !== hash){
+    try { history.pushState(null, '', hash); } catch (e) { location.hash = hash; }
+  }
+  render();
+  if (mqMobile.matches && document.body.classList.contains('drawer-open')) setDrawer(false, false);
+  if (opts.focus) focusDoc();
+  if (changed && opts.announce !== false) flash('Opened ' + path);
+}
+
+function closeTab(path){
+  const i = state.tabs.indexOf(path);
+  if (i < 0) return;
+  state.tabs.splice(i, 1);
+  delete state.scroll[path + '|preview'];
+  delete state.scroll[path + '|source'];
+  if (state.active === path){
+    const next = state.tabs[i] || state.tabs[i - 1] || null;
+    if (next){ openFile(next, { announce: false }); }
+    else {
+      state.active = null;
+      try { history.pushState(null, '', location.pathname + location.search); } catch (e) {}
+      render();
+    }
+  } else renderTabs();
+  const tab = $('#tabs .tab.on .tab-btn');
+  (tab || docEl.querySelector('h1') || scroller).focus({ preventScroll: true });
+}
+
+function focusDoc(){
+  const h = docEl.querySelector('h1');
+  (state.mode === 'preview' && h ? h : scroller).focus({ preventScroll: true });
+}
+
+function setMode(m){
+  if (m === state.mode) return;
+  if (state.active) state.scroll[scrollKey()] = scroller.scrollTop;
+  state.mode = m;
+  const ms = render();
+  const f = state.active ? byPath.get(state.active) : null;
+  if (!f) return;
+  if (m === 'preview'){
+    const d = docEl.firstElementChild;
+    if (d && !reduceMotion){ d.classList.add('compiled'); d.addEventListener('animationend', () => d.classList.remove('compiled'), { once: true }); }
+    flash(`Compiled ${f.name} in ${Math.max(ms, 0.1).toFixed(1)} ms`);
+  } else {
+    flash(`Showing source of ${f.name}, ${lines.length} lines`);
+  }
+}
+
+/* ============================================================
+   GALLERY (inside a project file)
+   ============================================================ */
+function paintGallery(fig){
+  const i = Number(fig.dataset.gal), t = SITE.tools[i], n = t.shots.length;
+  let k = state.gal[i] || 0;
+  if (k >= n || k < 0) k = 0;
+  state.gal[i] = k;
+  const stage = $('.gal-stage', fig), img = $('.gal-img', fig);
+  const src = t.shots[k], cap = (t.captions || [])[k] || '';
+  if (img.getAttribute('src') !== src){ stage.classList.remove('is-missing'); img.src = src; }
+  img.alt = cap || `${t.name} screenshot ${k + 1}`;
+  $('.gal-zoom', fig).setAttribute('aria-label', `View full size, screenshot ${k + 1} of ${n}${cap ? ': ' + cap : ''}`);
+  $('.gal-num', fig).textContent = `${k + 1} / ${n}`;
+  $('.gal-text', fig).textContent = cap;
+  $$('.gal-thumb', fig).forEach((b, j) => b.setAttribute('aria-current', j === k ? 'true' : 'false'));
+}
+function stepGallery(fig, d){
+  const i = Number(fig.dataset.gal), n = SITE.tools[i].shots.length;
+  if (n < 2) return;
+  state.gal[i] = ((state.gal[i] || 0) + d + n) % n;
+  paintGallery(fig);
+}
+
+/* ============================================================
+   FULL SIZE VIEWER
+   ============================================================ */
+const lb = $('#lb'), lbImg = $('#lb-img'), lbStage = $('#lb-stage'), lbStrip = $('#lb-strip');
+const lbPrev = $('#lb-prev'), lbNext = $('#lb-next');
+let view = { tool: -1, shots: [], captions: [], n: 0, name: '' };
+let lbReturn = null;
+
+function paintViewer(){
+  const { shots, captions, n, name } = view;
+  const cap = captions[n] || '';
+  if (lbImg.getAttribute('src') !== shots[n]){ lbStage.classList.remove('is-missing'); lbImg.src = shots[n]; }
+  lbImg.alt = cap || `${name} screenshot ${n + 1}`;
+  $('#lb-title').textContent = name;
+  $('#lb-cap').textContent = cap;
+  $('#lb-idx').textContent = `${n + 1} / ${shots.length}`;
+  lbPrev.disabled = lbNext.disabled = shots.length < 2;
+  $$('button', lbStrip).forEach((b, i) => b.setAttribute('aria-current', i === n ? 'true' : 'false'));
+}
+
+function openViewer(toolIndex, startAt){
+  const t = SITE.tools[toolIndex];
+  if (!t || !t.shots || !t.shots.length) return;
+  const active = document.activeElement;
+  lbReturn = active && active !== document.body ? active : docEl.querySelector(`.gal[data-gal="${toolIndex}"] .gal-zoom`);
+  view = { tool: toolIndex, shots: t.shots, captions: t.captions || [], n: startAt || 0, name: t.name };
+  lbStrip.innerHTML = t.shots.map((s, i) =>
+    `<button type="button" data-n="${i}" aria-label="Screenshot ${i + 1}${view.captions[i] ? ': ' + esc(view.captions[i]) : ''}"><span class="thumb-box" data-fallback><img src="${esc(s)}" alt=""><span class="ph" aria-hidden="true"></span></span></button>`).join('');
+  lbStrip.hidden = t.shots.length < 2;
+  lbImg.removeAttribute('src');
+  paintViewer();
+  lb.hidden = false;
+  $('#app').inert = true;
+  $('#lb-close').focus();
+}
+function closeViewer(){
+  if (lb.hidden) return;
+  lb.hidden = true;
+  $('#app').inert = false;
+  lbImg.removeAttribute('src');
+  /* keep the inline gallery on the frame the visitor ended on */
+  state.gal[view.tool] = view.n;
+  const fig = docEl.querySelector(`.gal[data-gal="${view.tool}"]`);
+  if (fig) paintGallery(fig);
+  if (lbReturn && document.contains(lbReturn)) lbReturn.focus();
+}
+const stepViewer = d => { if (view.shots.length < 2) return; view.n = (view.n + d + view.shots.length) % view.shots.length; paintViewer(); };
+
+lbPrev.addEventListener('click', () => stepViewer(-1));
+lbNext.addEventListener('click', () => stepViewer(1));
+$('#lb-close').addEventListener('click', closeViewer);
+lbStrip.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (b){ view.n = Number(b.dataset.n); paintViewer(); }
+});
+lbStage.addEventListener('click', e => { if (e.target !== lbImg) closeViewer(); });
+let touchX = null;
+lbStage.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+lbStage.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  touchX = null;
+  if (Math.abs(dx) > 50) stepViewer(dx < 0 ? 1 : -1);
+});
+
+/* ============================================================
+   QUICK OPEN
+   ============================================================ */
+const qo = $('#qo'), qoInput = $('#qo-input'), qoList = $('#qo-list');
+let qoItems = [], qoSel = 0, qoReturn = null;
+
+function openQO(){
+  qoReturn = document.activeElement;
+  qo.hidden = false;
+  $('#app').inert = true;
+  qoInput.value = '';
+  filterQO();
+  qoInput.focus();
+}
+function closeQO(restore = true){
+  if (qo.hidden) return;
+  qo.hidden = true;
+  $('#app').inert = false;
+  if (restore && qoReturn && document.contains(qoReturn)) qoReturn.focus();
+}
+function filterQO(){
+  const q = qoInput.value.trim().toLowerCase();
+  qoItems = FILES.filter(f => !q || f.path.toLowerCase().includes(q) || f.title.toLowerCase().includes(q));
+  qoSel = 0;
+  paintQO();
+}
+function paintQO(){
+  if (!qoItems.length){
+    qoList.innerHTML = '<li class="none" role="option" aria-disabled="true" aria-selected="false">No matching files</li>';
+    qoInput.removeAttribute('aria-activedescendant');
+    return;
+  }
+  qoList.innerHTML = qoItems.map((f, i) =>
+    `<li id="qo-${i}" role="option" aria-selected="${i === qoSel}" data-pick="${esc(f.path)}">${fileIcon(f.path)}<span>${esc(f.name)}</span><span class="dir">${esc(f.title)}${f.path.includes('/') ? ' &middot; ' + esc(f.path.split('/').slice(0, -1).join('/')) : ''}</span></li>`).join('');
+  qoInput.setAttribute('aria-activedescendant', 'qo-' + qoSel);
+  const sel = $('#qo-' + qoSel);
+  if (sel) sel.scrollIntoView({ block: 'nearest' });
+}
+qoInput.addEventListener('input', filterQO);
+qoInput.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp'){
+    e.preventDefault();
+    if (!qoItems.length) return;
+    qoSel = (qoSel + (e.key === 'ArrowDown' ? 1 : -1) + qoItems.length) % qoItems.length;
+    paintQO();
+  } else if (e.key === 'Enter'){
+    e.preventDefault();
+    if (qoItems[qoSel]){ closeQO(false); openFile(qoItems[qoSel].path, { focus: true }); }
+  }
+});
+qoList.addEventListener('click', e => {
+  const li = e.target.closest('[data-pick]');
+  if (li){ closeQO(false); openFile(li.dataset.pick, { focus: true }); }
+});
+qo.addEventListener('click', e => { if (e.target === qo) closeQO(); });
+
+/* ============================================================
+   EXPLORER: desktop collapse and mobile drawer
+   ============================================================ */
+function setDrawer(open, restore = true){
+  document.body.classList.toggle('drawer-open', open);
+  $('#menu-btn').setAttribute('aria-expanded', open);
+  $('#main').inert = open;
+  $('#status').inert = open;
+  if (open){
+    const cur = $('#tree [aria-current="page"]') || $('#tree .tree-row');
+    if (cur) cur.focus();
+  } else if (restore) $('#menu-btn').focus();
+}
+function toggleExplorer(){
+  if (mqMobile.matches) return setDrawer(!document.body.classList.contains('drawer-open'));
+  const collapsed = document.body.classList.toggle('side-collapsed');
+  $('#act-explorer').setAttribute('aria-expanded', !collapsed);
+  scheduleMinimap();
+}
+$('#menu-btn').addEventListener('click', toggleExplorer);
+$('#act-explorer').addEventListener('click', toggleExplorer);
+$('#side-close').addEventListener('click', () => setDrawer(false));
+$('#scrim').addEventListener('click', () => setDrawer(false));
+mqMobile.addEventListener('change', () => {
+  scheduleMinimap();
+  if (mqMobile.matches) return;
+  document.body.classList.remove('drawer-open');
+  $('#menu-btn').setAttribute('aria-expanded', 'false');
+  $('#main').inert = false;
+  $('#status').inert = false;
+  scheduleMinimap();
+});
+$('#act-search').addEventListener('click', openQO);
+$('#qo-btn').addEventListener('click', openQO);
+
+/* ============================================================
+   THEME
+   ============================================================ */
+function applyThemeUI(){
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  $('#theme-btn').setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  $('#sb-theme').textContent = dark ? 'Dark' : 'Light';
+  $('#sb-theme').setAttribute('aria-label', dark ? 'Dark theme, switch to light' : 'Light theme, switch to dark');
+}
+function toggleTheme(){
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('cj-editor-theme', next); } catch (e) {}
+  applyThemeUI();
+  flash('Color theme: ' + (next === 'dark' ? 'Dark' : 'Light'));
+}
+$('#theme-btn').addEventListener('click', toggleTheme);
+$('#sb-theme').addEventListener('click', toggleTheme);
+
+/* ============================================================
+   MINIMAP AND CURSOR POSITION
+   ============================================================ */
+const mm = $('#minimap'), mmBars = $('#mm-bars'), mmView = $('#mm-view');
+let mmScale = 0.1, mmPending = 0;
+
+function scheduleMinimap(){
+  cancelAnimationFrame(mmPending);
+  mmPending = requestAnimationFrame(buildMinimap);
+}
+function buildMinimap(){
+  if (getComputedStyle(mm).display === 'none') return;
+  const inner = docEl.firstElementChild;
+  if (!inner){ mmBars.innerHTML = ''; return; }
+  const H = Math.max(scroller.scrollHeight, 1), mh = mmBars.clientHeight || mm.clientHeight;
+  mmScale = Math.min(0.15, mh / H);
+  const base = inner.offsetTop;
+  mmBars.innerHTML = lines.map(el => {
+    const top = (base + el.offsetTop) * mmScale;
+    const h = Math.max(2, el.offsetHeight * mmScale - 1);
+    const code = el.classList.contains('cl');
+    const len = el.textContent.trim().length;
+    const ind = code ? Number(el.dataset.indent || 0) * 3 : 0;
+    const w = Math.max(6, Math.min(100 - ind, code ? len * 1.3 : 30 + len * 0.5));
+    const cls = /^H[12]$/.test(el.tagName) || el.classList.contains('role-head') ? 'h' : code ? 'c' : '';
+    return len ? `<i class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px;left:${ind}%;width:${w}%"></i>` : '';
+  }).join('');
+  paintMinimap();
+}
+function paintMinimap(){
+  mmView.style.top = (6 + scroller.scrollTop * mmScale) + 'px';
+  mmView.style.height = Math.max(12, scroller.clientHeight * mmScale) + 'px';
+}
+let mmDrag = false;
+const mmJump = e => {
+  const y = e.clientY - mmBars.getBoundingClientRect().top;
+  scroller.scrollTop = y / mmScale - scroller.clientHeight / 2;
+};
+mm.addEventListener('pointerdown', e => { mmDrag = true; mm.setPointerCapture(e.pointerId); mmJump(e); });
+mm.addEventListener('pointermove', e => { if (mmDrag) mmJump(e); });
+mm.addEventListener('pointerup', () => { mmDrag = false; });
+mm.addEventListener('pointercancel', () => { mmDrag = false; });
+
+function updatePos(){
+  const inner = docEl.firstElementChild;
+  if (!inner || !lines.length){ setPos(1, 1); return; }
+  const st = scroller.scrollTop, base = inner.offsetTop;
+  let i = 0;
+  while (i < lines.length - 1 && base + lines[i].offsetTop + lines[i].offsetHeight <= st + 4) i++;
+  setPos(i + 1, 1);
+}
+let posFrame = 0;
+scroller.addEventListener('scroll', () => {
+  cancelAnimationFrame(posFrame);
+  posFrame = requestAnimationFrame(() => { updatePos(); paintMinimap(); });
+}, { passive: true });
+
+/* clicking into the text moves the "cursor" in the status bar */
+function caretPos(){
+  const sel = window.getSelection();
+  if (!sel || !sel.anchorNode || !docEl.contains(sel.anchorNode)) return;
+  const node = sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement;
+  const el = node && node.closest('.ln, .cl');
+  const idx = lines.indexOf(el);
+  if (idx < 0) return;
+  let col = 1;
+  try {
+    const r = document.createRange();
+    r.setStart(el, 0);
+    r.setEnd(sel.anchorNode, sel.anchorOffset);
+    col = r.toString().length + 1 + Number(el.dataset.indent || 0);
+  } catch (e) {}
+  setPos(idx + 1, col);
+}
+scroller.addEventListener('mouseup', () => setTimeout(caretPos, 0));
+
+if ('ResizeObserver' in window) new ResizeObserver(scheduleMinimap).observe(scroller);
+else window.addEventListener('resize', scheduleMinimap);
+
+/* ============================================================
+   IMAGE FALLBACK: any listed shot missing from disk becomes a placeholder
+   ============================================================ */
+document.addEventListener('error', e => {
+  const img = e.target;
+  if (!(img instanceof HTMLImageElement)) return;
+  const box = img.closest('[data-fallback]');
+  if (box) box.classList.add('is-missing');
+}, true);
+docEl.addEventListener('load', e => { if (e.target instanceof HTMLImageElement) scheduleMinimap(); }, true);
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+document.addEventListener('click', e => {
+  const opener = e.target.closest('[data-open]');
+  if (opener && !opener.closest('#qo')){
+    e.preventDefault();
+    const fromTabs = !!opener.closest('#tabs');
+    openFile(opener.dataset.open, { focus: !fromTabs });
+    return;
+  }
+  const closer = e.target.closest('[data-close]');
+  if (closer){ closeTab(closer.dataset.close); return; }
+
+  const folder = e.target.closest('[data-folder]');
+  if (folder){
+    const open = folder.getAttribute('aria-expanded') !== 'true';
+    folder.setAttribute('aria-expanded', open);
+    folder.nextElementSibling.hidden = !open;
+    return;
+  }
+  const mode = e.target.closest('[data-mode]');
+  if (mode){ setMode(mode.dataset.mode); return; }
+  if (e.target.closest('[data-qo]')){ openQO(); return; }
+
+  const fig = e.target.closest('.gal[data-gal]');
+  if (fig){
+    const stepBtn = e.target.closest('[data-step]');
+    if (stepBtn){ stepGallery(fig, Number(stepBtn.dataset.step)); return; }
+    const go = e.target.closest('[data-goto]');
+    if (go){ state.gal[fig.dataset.gal] = Number(go.dataset.goto); paintGallery(fig); return; }
+    if (e.target.closest('[data-zoom]')){ const i = Number(fig.dataset.gal); openViewer(i, state.gal[i] || 0); }
+  }
+});
+
+/* middle click closes a tab, like a real editor */
+$('#tabs').addEventListener('auxclick', e => {
+  const t = e.target.closest('.tab');
+  if (e.button === 1 && t){ e.preventDefault(); closeTab($('.tab-x', t).dataset.close); }
+});
+
+/* arrow keys page an inline gallery while focus is inside it */
+docEl.addEventListener('keydown', e => {
+  const fig = e.target.closest && e.target.closest('.gal[data-gal]');
+  if (!fig) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+    e.preventDefault();
+    stepGallery(fig, e.key === 'ArrowRight' ? 1 : -1);
+  }
+});
+
+/* keep Tab inside whichever dialog is open */
+function trapFocus(e, root){
+  const f = $$('button:not([disabled]):not([hidden]), input, [href], [tabindex]:not([tabindex="-1"])', root)
+    .filter(el => el.offsetParent !== null || el === document.activeElement);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+}
+
+document.addEventListener('keydown', e => {
+  if (!lb.hidden){
+    if (e.key === 'Escape'){ e.preventDefault(); closeViewer(); }
+    else if (e.key === 'ArrowRight'){ e.preventDefault(); stepViewer(1); }
+    else if (e.key === 'ArrowLeft'){ e.preventDefault(); stepViewer(-1); }
+    else if (e.key === 'Tab') trapFocus(e, lb);
+    return;
+  }
+  if (!qo.hidden){
+    if (e.key === 'Escape'){ e.preventDefault(); closeQO(); }
+    else if (e.key === 'Tab') trapFocus(e, qo);
+    return;
+  }
+  if ((e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && (e.key || '').toLowerCase() === 'k'){
+    e.preventDefault();
+    openQO();
+    return;
+  }
+  if (e.key === 'Escape' && document.body.classList.contains('drawer-open')) setDrawer(false);
+  else if (e.key === 'Tab' && document.body.classList.contains('drawer-open')) trapFocus(e, $('#sidebar'));
+});
+
+/* ============================================================
+   ROUTING AND BOOT
+   ============================================================ */
+function pathFromHash(){
+  const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+  if (!h) return null;
+  if (byPath.has(h)) return h;
+  if (LEGACY[h]) return LEGACY[h];
+  return null;
+}
+function onRoute(){
+  const p = pathFromHash();
+  if (p && p !== state.active) openFile(p, { push: false, announce: false });
+}
+window.addEventListener('popstate', onRoute);
+window.addEventListener('hashchange', onRoute);
+
+$('#side-links').innerHTML = SITE.contact.map(c =>
+  `<li><a href="${esc(c.href)}"${c.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(c.text)}</a></li>`).join('');
+
+buildTree();
+applyThemeUI();
+{
+  const start = pathFromHash();
+  if (start && start !== 'README.md') state.tabs.push(start);
+  state.active = start || 'README.md';
+  if (start && location.hash !== '#/' + start){
+    try { history.replaceState(null, '', '#/' + start); } catch (e) {}
+  }
+  render();
+}
+</script>
+</body>
+</html>
