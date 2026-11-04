@@ -1,102 +1,114 @@
 # cjportfolio
 
-Personal portfolio site. Single page, static, no build step required to run it.
+Personal portfolio site. Single page, static, no build step.
 
-Live at: https://luckyajinn.github.io/cjportfolio
+Live at: https://luckyajinn.github.io/cjportfolio/
 
 ## Overview
 
-A self contained HTML page covering professional experience, selected IT
-operations work, and the internal tooling built alongside it. Written as one
-file with no framework and no runtime dependencies, so it can be served from
-GitHub Pages, opened from a local path, or emailed as a single attachment.
+One HTML file with inline CSS and JavaScript. No framework, no package manager,
+and no build. The only outside request is the IBM Plex fonts from Google Fonts,
+and the page falls back to system fonts without them. Screenshots load from
+`assets/`.
+
+The design is a network blueprint: sections are drawn as nodes on a trunk line,
+and the hero holds an interactive diagram of my home server.
 
 ## Structure
 
 ```
 cjportfolio/
-  index.html      the site, source of truth for content and styling
-  build.py        optional, produces a standalone single file version
-  assets/         screenshots referenced by the tooling section
+  index.html      the site: markup, styles, SITE data, and scripts
+  assets/         favicons and tool screenshots
+  concepts/       earlier redesign mockups, kept for reference, not linked
 ```
 
 ## Editing content
 
-All page content lives in a single `SITE` object at the top of the script block
-in `index.html`. The markup is generated from it, so adding or changing an entry
-means editing an array, not hand writing HTML.
+Experience, case studies, projects, skills, and credentials live in the `SITE`
+object at the top of the main script block in `index.html`. The page builds
+those sections from it. The hero text, section intros, contact links, footer,
+and the homelab diagram are written directly in the markup.
 
 | Array | Drives |
 | --- | --- |
-| `roles` | Experience section |
-| `cases` | Selected work case studies |
-| `tools` | Tooling gallery |
-| `skills` | Technical scope columns |
+| `roles` | Experience |
+| `cases` | Case studies |
+| `tools` | Projects |
+| `skills` | Skills |
 | `credentials` | Education and certifications |
 
-### Adding a tool
+### Adding a project
 
 Append an object to `SITE.tools`:
 
 ```js
 {
-  name: "Tool name",
-  blurb: "What problem it solves and how.",
-  stack: ["HTML", "JavaScript"],
-  shots: ["assets/tool-name-1.png", "assets/tool-name-2.png"],
-  captions: ["First view", "Second view"]
+  name: "Project name",
+  group: "professional",          // or "personal"
+  short: "One line for the card.",
+  status: "Optional label",       // optional
+  shots: ["assets/project-1.png", "assets/project-2.png"],
+  captions: ["First view", "Second view"],
+  sections: [
+    { h: "What it does", p: "Short paragraph." },
+    { h: "Features", list: ["Point one", "Point two"] }
+  ],
+  stack: ["HTML", "JavaScript"]
 }
 ```
 
-Behavior follows the number of screenshots supplied:
+Keep projects of the same `group` next to each other so each group gets one
+heading.
 
-- No entries in `shots`: the card renders a labeled placeholder.
-- One entry: a static screenshot that opens in the viewer on click.
-- Two or more: hovering the card cycles the images, and clicking opens a viewer
-  with previous and next controls, a thumbnail strip, and arrow key navigation.
+- Cards show the first screenshot with a count.
+- Clicking a card opens a detail dialog with the write-up and a screenshot
+  stage that has previous and next controls, a thumbnail strip, and arrow key
+  navigation.
+- Clicking the stage opens a full size viewer.
+- An empty `shots` array renders a placeholder, and any image that fails to
+  load is skipped.
 
-`captions` runs in the same order as `shots` and labels each frame in the viewer.
-A screenshot listed in `shots` but missing from `assets/` falls back to the
-placeholder rather than rendering as a broken image.
-
-The cascade interval is set by the `CASCADE_MS` constant directly above the
-`SITE` object. It is disabled automatically for visitors who have reduced motion
-enabled in their operating system.
+Case studies use `kicker`, `title`, `problem`, `approach`, `outcome`, and
+`stack`. A `summary` line is optional and only shows when present.
 
 ## Screenshots
 
-Capture at roughly 1600 pixels wide. Cards crop to a 16:10 frame anchored to the
-top of the image, and the full image is shown uncropped in the viewer.
+Capture at roughly 1600 pixels wide and save to `assets/`. Cards crop to a
+fixed frame anchored to the top of the image, and the viewer shows the full
+image.
 
 Screenshots of internal tools are loaded with placeholder data before capture.
 Nothing identifying an employer environment belongs in a public repository.
 
-## Standalone build
+## The homelab diagram
 
-`build.py` produces `index-standalone.html`, a single file with every asset
-inlined as a base64 data URI and no external dependencies at all. Useful for
-sending the page as an attachment or opening it without a server.
+The hero diagram is inline SVG with a `DATA` object in the second script block
+that drives the hover, focus, and tap readout. Hover, tap, or tab to a device to
+highlight its links. The diagram is public, so keep these out of it:
 
-```
-python build.py
-```
+- exact IP addresses, port numbers, the tailnet name, and ACL tags
+- employer devices and where devices physically are
+- backup schedules and backup gaps
+- security tooling that is not meant to be public
 
-Standard library only, no packages to install. The script reports each asset it
-inlines, the final file size, and any path referenced in `index.html` that is
-missing from disk.
+The interface labels (Gi0/x, VLAN tags, 10.0.x.x) are decoration, not real
+addresses.
 
-Deploy `index.html` with the `assets` folder for hosting, since separate images
-cache independently. Use the standalone build for offline or attachment use.
+## Social preview
+
+The page points its link preview at `assets/preview.png` (1200 by 630). That
+file has not been added yet, so shared links show no image until it is.
 
 ## Deployment
 
-Served by GitHub Pages from the `main` branch, root folder. Any push to `main`
+Served by GitHub Pages from the `main` branch, root folder. A push to `main`
 publishes within about a minute.
 
 ## Notes
 
-- No frameworks, no package manager, no build required for the hosted version.
-- Browser support: any current browser. Uses CSS Grid, `aspect-ratio`, and
-  standard DOM APIs.
-- Responsive down to mobile, keyboard navigable, honors reduced motion
-  preferences.
+- Browser support: current browsers. The page uses CSS Grid, `aspect-ratio`, and
+  the `<dialog>` element, with a fallback when `showModal` is missing.
+- Responsive down to phone width, keyboard navigable, and it honors reduced
+  motion preferences.
+- Without JavaScript the hero and contact links still show, plus a short summary.
