@@ -1156,6 +1156,43 @@ const SITE = {
       stack: ["HTML", "JavaScript", "localStorage"]
     },
     {
+      name: "Printer registry",
+      group: "professional",
+      short: "Searchable printer inventory with standards checks and flags.",
+      shots: [
+        "assets/printer-registry-1.png",
+        "assets/printer-registry-2.png",
+        "assets/printer-registry-3.png",
+        "assets/printer-registry-4.png"
+      ],
+      captions: [
+        "Printer list grouped by building, with status and scan test results",
+        "Flagged view: duplicate IP, DNS off standard, and warranty flags",
+        "Printer record with scan to email and support details",
+        "Site standards that new printers start from"
+      ],
+      sections: [
+        { h: "What it does", p: "Keeps one record per printer in a searchable, sortable table: location, make and model, IP address, DNS, scan to email account, support dates, and a change log." },
+        { h: "Checks and flags", list: [
+          "Duplicate IP addresses",
+          "Failed scan to email tests",
+          "DNS that differs from the site standard",
+          "Scan account that differs from the standard",
+          "Warranty expired or ending within 90 days"
+        ]},
+        { h: "Features", list: [
+          "Site standards set the default DNS, subnet mask, scanner account, and vault entry for new printers",
+          "Quick filters, search, and building, make, connection, and status filters",
+          "Handles network, USB, and standalone printers differently",
+          "Stores the name of the password vault entry only, never the password",
+          "Change log, duplicate printer, and a mark verified today button",
+          "CSV export and import, plus JSON backup and restore"
+        ]},
+        { h: "Screenshots", p: "The screenshots use made up printers and addresses." }
+      ],
+      stack: ["HTML", "JavaScript", "localStorage"]
+    },
+    {
       name: "GMKTec K12 home server",
       group: "personal",
       short: "Mini PC running Proxmox as my private home server.",
