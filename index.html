@@ -274,7 +274,16 @@ h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.03em;color:var(-
 .stat b i{font-family:var(--serif);font-weight:400;color:var(--acc);letter-spacing:0}
 .stat > span{display:block;margin-top:10px;color:var(--mut);font-size:15.5px;max-width:17rem}
 
-/* ---------- projects: expand on hover ---------- */
+/* ---------- projects: group tabs, expand on hover ---------- */
+.tabs{display:inline-flex;gap:4px;padding:5px;margin-bottom:16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.tabs:empty{display:none}
+.tabs button{display:flex;align-items:center;gap:9px;height:42px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:500;color:var(--mut);transition:background .35s,color .35s}
+.tabs button small{font-family:var(--mono);font-size:11.5px;opacity:.75}
+.tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.tabs button:not([aria-pressed="true"]):hover{color:var(--fg)}
+.xp li[hidden]{display:none}
+.xp.swap li{animation:panel-in .75s var(--ease) both}
+@keyframes panel-in{from{opacity:0;transform:translateY(26px)}}
 .xp{display:flex;gap:8px;height:clamp(440px,66vh,640px)}
 .xp li{flex:1 1 0;min-width:0;transition:flex-grow .8s var(--ease)}
 .xp li.on{flex-grow:6.2}
@@ -314,7 +323,9 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .d-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);flex:1;min-height:0}
 .d-media{display:flex;flex-direction:column;min-height:0;padding:16px;gap:10px;background:var(--bg2);border-right:1px solid var(--line)}
 .d-stage{position:relative;flex:1;min-height:0;border-radius:12px;overflow:hidden;background:var(--bg)}
-.d-stage img{width:100%;height:100%;object-fit:contain;cursor:zoom-in}
+.d-stage::before{content:"";position:absolute;inset:-48px;background:var(--amb,none) center/cover no-repeat;filter:blur(42px) brightness(.5) saturate(1.3);pointer-events:none}
+.d-stage img{position:relative;width:100%;height:100%;object-fit:contain;cursor:zoom-in}
+.d-stage img.tall{object-fit:cover;object-position:top center}
 .d-nav{position:absolute;top:50%;translate:0 -50%;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,11,.72);color:#f3f2ed;border:1px solid rgba(255,255,255,.25)}
 .d-nav:hover{background:var(--acc);color:var(--on-acc)}
 .d-nav svg{width:16px;height:16px}
@@ -335,7 +346,13 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .d-body .chips{margin-top:26px}
 .dlg.zoom .d-grid{grid-template-columns:minmax(0,1fr)}
 .dlg.zoom .d-body,.dlg.zoom .d-thumbs{display:none}
-.dlg.zoom .d-stage img{cursor:zoom-out}
+.dlg.zoom .d-stage{overflow:auto}
+.dlg.zoom .d-stage::before{display:none}
+.dlg.zoom .d-stage img,.dlg.zoom .d-stage img.tall{width:auto;max-width:100%;height:auto;margin:0 auto;object-fit:contain;cursor:zoom-out}
+.d-links{display:grid;gap:6px}
+.d-links a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--line2);border-radius:12px;text-decoration:none;font-family:var(--mono);font-size:13.5px;transition:background .25s,color .25s,border-color .25s}
+.d-links a:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.d-links svg{width:14px;height:14px;flex:none}
 
 /* ---------- case studies: card stack ---------- */
 .cases{display:grid;gap:26px}
@@ -484,12 +501,12 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .skill li:hover{color:var(--fg);padding-left:8px}
 
 /* ---------- education ---------- */
-.creds li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:8px 24px;align-items:center;padding:20px 0;border-top:1px solid var(--line);transition:padding .4s var(--ease),background .3s}
+.creds li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 132px;gap:8px 24px;align-items:center;padding:20px 0;border-top:1px solid var(--line);transition:padding .4s var(--ease),background .3s}
 .creds li:last-child{border-bottom:1px solid var(--line)}
 .creds li:hover{padding-inline:16px;background:color-mix(in srgb,var(--fg) 4%,transparent)}
 .c-name{font-size:clamp(1.15rem,2.2vw,1.7rem);font-weight:500;letter-spacing:-.035em;line-height:1.2}
 .c-detail{color:var(--mut);font-size:15px}
-.c-st{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--mut);white-space:nowrap}
+.c-st{display:inline-flex;align-items:center;justify-self:end;gap:8px;font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--mut);white-space:nowrap}
 .c-st.active{color:var(--fg);border-color:var(--acc)}
 .c-st.active::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2.4s infinite}
 
@@ -502,9 +519,10 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .copy{margin-left:auto;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);font-size:14px;font-weight:500;transition:background .25s,color .25s,translate .5s var(--ease)}
 .copy:hover,.copy.done{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
 .copy svg{width:15px;height:15px}
-.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.links .soon{display:flex;align-items:center;padding:22px 24px;border:1px dashed var(--line2);border-radius:18px;font-size:1.25rem;font-weight:500;letter-spacing:-.03em;color:var(--mut)}
 .links a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 24px;border:1px solid var(--line);border-radius:18px;text-decoration:none;font-size:1.25rem;font-weight:500;letter-spacing:-.03em;transition:background .3s,color .3s,border-color .3s}
-.links a small{display:block;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:0;color:var(--mut);transition:color .3s}
+.links small{display:block;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:0;color:var(--mut);transition:color .3s;overflow-wrap:anywhere}
 .links a:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .links a:hover small{color:inherit}
 .links svg{width:20px;height:20px;flex:none;transition:transform .5s var(--ease)}
@@ -537,6 +555,7 @@ footer{padding:36px 0 0;overflow:hidden}
   .nav-links,.kbtn .k-l{display:none}
   .burger{display:flex}
   .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .links{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:860px){
   body{font-size:16px}
@@ -551,7 +570,7 @@ footer{padding:36px 0 0;overflow:hidden}
   .xp li,.xp li.on{flex:none}
   .panel{height:330px}
   .panel img{filter:none;width:100%}
-  .panel::after{opacity:1}
+  .panel::after{opacity:1;background:linear-gradient(to top,rgba(6,6,8,.97) 0%,rgba(6,6,8,.93) 60%,rgba(6,6,8,.4) 76%,rgba(6,6,8,0) 92%)}
   .panel::before{opacity:0}
   .p-side{display:none}
   .p-info{opacity:1;transform:none;left:18px;right:18px;bottom:18px;width:auto}
@@ -566,8 +585,8 @@ footer{padding:36px 0 0;overflow:hidden}
   .creds li{grid-template-columns:minmax(0,1fr) auto}
   .c-detail{grid-column:1;grid-row:2}
   .c-st{grid-column:2;grid-row:1 / span 2}
-  .links{grid-template-columns:minmax(0,1fr)}
   .copy{margin-left:0}
+  .tabs button{padding:0 16px}
   .dlg{height:calc(100dvh - 20px);width:calc(100vw - 16px)}
   .dlg[open]{overflow:auto}
   .d-grid{display:block}
@@ -659,7 +678,7 @@ footer{padding:36px 0 0;overflow:hidden}
     <dl class="facts hv d3">
       <div><dt>Current role</dt><dd>IT Specialist, McKenna Labs</dd></div>
       <div><dt>Focus</dt><dd>Endpoint and identity administration</dd></div>
-      <div><dt>Location</dt><dd>Orange County, California</dd></div>
+      <div><dt>Working toward</dt><dd>Systems administration, networking, or cloud</dd></div>
       <div><dt>Studying</dt><dd>Computer Engineering, CCNA</dd></div>
     </dl>
   </div>
@@ -683,8 +702,8 @@ footer{padding:36px 0 0;overflow:hidden}
     <p class="say" id="say">I'm an IT Specialist working in endpoint and identity administration, help desk operations, and the internal tooling I build to keep IT work consistent. Before that, I spent more than five years building and repairing PCs at Micro Center.</p>
     <div class="stats">
       <div class="stat rv"><b><span data-count="5">5</span><i>+</i></b><span>years building and repairing custom PCs at Micro Center</span></div>
-      <div class="stat rv"><b><span data-count="4">4</span></b><span>internal tools built for day-to-day IT work</span></div>
-      <div class="stat rv"><b><span data-count="8">8</span></b><span>containers on one Proxmox mini PC, one of them still planned</span></div>
+      <div class="stat rv"><b><span data-count="5">5</span></b><span>internal tools built for day-to-day IT work, including a full help desk app</span></div>
+      <div class="stat rv"><b><span data-count="6">6</span></b><span>open source mods for Claude Code, public on GitHub</span></div>
     </div>
   </div>
 </section>
@@ -694,8 +713,9 @@ footer{padding:36px 0 0;overflow:hidden}
     <div class="sh rv">
       <span class="idx">01 / Projects</span>
       <h2 id="h-projects">Things I <em>built</em></h2>
-      <p>Tools I built for day-to-day IT work, and the home server I run. The tools are single HTML files with no dependencies.</p>
+      <p>A help desk app and tools I built for day-to-day IT work, plus what I build and run at home.</p>
     </div>
+    <div class="tabs rv" id="tabs" role="group" aria-label="Show projects by group"></div>
     <ul class="xp rv" id="xp" role="list"></ul>
     <p class="xp-hint" aria-hidden="true">Hover to preview. Select a project to read the write-up.</p>
   </div>
@@ -1061,7 +1081,7 @@ footer{padding:36px 0 0;overflow:hidden}
     <div class="links rv">
       <a href="https://www.linkedin.com/in/christian-jones-762301193/" target="_blank" rel="noopener noreferrer"><span>LinkedIn<small>linkedin.com/in/christian-jones</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       <a href="https://github.com/luckyajinn" target="_blank" rel="noopener noreferrer"><span>GitHub<small>github.com/luckyajinn</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-      <!-- <a href="assets/christian-jones-resume.pdf" target="_blank" rel="noopener noreferrer"><span>Resume<small>Download the PDF</small></span></a> -->
+      <div class="soon" id="resume"><span>Resume<small>PDF coming soon</small></span></div>
     </div>
   </div>
 </section>
@@ -1095,6 +1115,7 @@ footer{padding:36px 0 0;overflow:hidden}
       <h3 id="d-title"></h3>
       <p class="d-short" id="d-short"></p>
       <div id="d-sections"></div>
+      <div id="d-links"></div>
       <ul class="chips" id="d-chips" role="list" aria-label="Stack"></ul>
     </div>
   </div>
@@ -1119,11 +1140,17 @@ footer{padding:36px 0 0;overflow:hidden}
      name      panel heading and write-up heading
      group     "professional" or "personal", shown as a label
      short     one line, shown on the panel
+     status    optional label in the write-up header
      shots     image paths, in order. The first one is the panel
                background. Any path that fails to load is skipped.
      captions  same order as shots, labels each screenshot
      sections  write-up body. { h, p } for prose, { h, list } for bullets
+     links     optional. [{ label, url }] shown as links in the write-up
      stack     chips at the foot of the write-up
+
+   Screenshots are WebP. For "assets/name.webp" the page also loads
+   "assets/name-800.webp" (800 pixels wide) for panels and thumbnails.
+   A PNG or JPG path works too, it just loads the one file.
    ============================================================ */
 const SITE = {
   roles: [
@@ -1140,8 +1167,8 @@ const SITE = {
     },
     {
       when: "2020 to 2026",
-      title: "Build Your Own Department",
-      org: "Micro Center",
+      title: "Sales Associate",
+      org: "Micro Center, Build Your Own department",
       points: [
         "Specced, built, and repaired custom PCs daily for more than five years.",
         "Explained technical issues to customers of every skill level.",
@@ -1187,14 +1214,61 @@ const SITE = {
 
   tools: [
     {
+      name: "InH-Ticketing",
+      group: "professional",
+      short: "In-house help desk app with Microsoft 365 sign-in and email.",
+      status: "v0.9.1, in pilot",
+      shots: [
+        "assets/ticketing-queue.webp",
+        "assets/ticketing-agent-ticket.webp",
+        "assets/ticketing-requester-ticket.webp",
+        "assets/ticketing-password-check.webp",
+        "assets/ticketing-common-request.webp",
+        "assets/ticketing-reports.webp",
+        "assets/ticketing-department-queue.webp",
+        "assets/ticketing-phone.webp"
+      ],
+      captions: [
+        "IT queue sorted by priority, with views, search, and filters",
+        "A ticket as IT sees it: timeline, internal note, and the properties panel",
+        "The same ticket as the requester sees it, with a progress tracker",
+        "Password check warning before a request is sent",
+        "New request form with a common request picked",
+        "Reports for admins, per team",
+        "A department's own queue, here Mechanics",
+        "The queue on a phone"
+      ],
+      sections: [
+        { h: "What it is", p: "A help desk I built for work. Staff sign in with their Microsoft 365 work account and send a request to IT, Mechanics, or Cleaning and sanitization. The team works it through to resolution, and the person is kept up to date by email. It replaces ad hoc emails and hallway requests with one tracked record per request." },
+        { h: "How a request moves", list: [
+          "Staff pick a common request or type their own, attach files, or just email the help desk mailbox",
+          "The team works from a queue sorted by priority, then age",
+          "Public replies are emailed to the person. Internal notes stay with the team",
+          "A reply to the email lands back on the ticket",
+          "Resolved tickets close by themselves after 7 days, and every change is logged with who and when"
+        ]},
+        { h: "Features", list: [
+          "Roles come from Microsoft Entra app roles, checked at every sign-in. The app never sees a password",
+          "Password check: warns before anything that looks like a password is sent, with an audit trail that never stores the text",
+          "Departments: each team sees only its own tickets and notes, and admins move tickets between them",
+          "Reports for admins: requests, response times, and resolve times per team, never per person, with CSV download",
+          "Closed tickets go to a read-only archive",
+          "On a phone, the queue becomes cards"
+        ]},
+        { h: "How it's built", p: "A Django app rendered on the server, with PostgreSQL in Docker and a Caddy HTTPS proxy, running on a server inside the company network. Email goes out and comes in through Microsoft Graph, sent by a background worker. It has more than 350 automated tests, including injection attack tests on every input. I built it with Claude Code." },
+        { h: "Screenshots and source", p: "The screenshots use made-up people and tickets. The code is private." }
+      ],
+      stack: ["Django", "Python", "PostgreSQL", "Docker", "Caddy", "Microsoft Graph", "Entra ID", "Claude Code"]
+    },
+    {
       name: "Device deployment checklist",
       group: "professional",
       short: "Step-by-step device builds with an exportable record.",
       shots: [
-        "assets/deployment-checklist-1.png",
-        "assets/deployment-checklist-2.png",
-        "assets/deployment-checklist-3.png",
-        "assets/deployment-checklist-4.png"
+        "assets/deployment-checklist-1.webp",
+        "assets/deployment-checklist-2.webp",
+        "assets/deployment-checklist-3.webp",
+        "assets/deployment-checklist-4.webp"
       ],
       captions: [
         "Prerequisites and device condition capture",
@@ -1219,10 +1293,10 @@ const SITE = {
       group: "professional",
       short: "Searchable inventory built from checklist exports.",
       shots: [
-        "assets/asset-register1.png",
-        "assets/asset-register2.png",
-        "assets/asset-register3.png",
-        "assets/asset-register4.png"
+        "assets/asset-register1.webp",
+        "assets/asset-register2.webp",
+        "assets/asset-register3.webp",
+        "assets/asset-register4.webp"
       ],
       captions: [
         "Inventory overview with status totals and search",
@@ -1247,10 +1321,10 @@ const SITE = {
       group: "professional",
       short: "Hardware purchase list with price tracking and history.",
       shots: [
-        "assets/procurement-tracker1.png",
-        "assets/procurement-tracker2.png",
-        "assets/procurement-tracker3.png",
-        "assets/procurement-tracker4.png"
+        "assets/procurement-tracker1.webp",
+        "assets/procurement-tracker2.webp",
+        "assets/procurement-tracker3.webp",
+        "assets/procurement-tracker4.webp"
       ],
       captions: [
         "Add item form with the store detected from the product URL",
@@ -1277,10 +1351,10 @@ const SITE = {
       group: "professional",
       short: "Searchable printer inventory with standards checks and flags.",
       shots: [
-        "assets/printer-registry-1.png",
-        "assets/printer-registry-2.png",
-        "assets/printer-registry-3.png",
-        "assets/printer-registry-4.png"
+        "assets/printer-registry-1.webp",
+        "assets/printer-registry-2.webp",
+        "assets/printer-registry-3.webp",
+        "assets/printer-registry-4.webp"
       ],
       captions: [
         "Printer list grouped by building, with status and scan test results",
@@ -1310,12 +1384,47 @@ const SITE = {
       stack: ["HTML", "JavaScript", "localStorage"]
     },
     {
+      name: "Claude Code mods",
+      group: "personal",
+      short: "Six open source add-ons for Claude Code.",
+      status: "Open source, MIT",
+      shots: [
+        "assets/agent-monitor-tree.webp",
+        "assets/agent-monitor-detail.webp"
+      ],
+      captions: [
+        "agent-monitor: the main agent and its subagents as a tree, with progress and estimated cost",
+        "agent-monitor: one agent opened, with its model, tokens, cost, and recent steps"
+      ],
+      sections: [
+        { h: "What they are", p: "Small add-ons for Claude Code, the AI coding tool I use to build my projects. All six are public on GitHub under the MIT license." },
+        { h: "The mods", list: [
+          "secret-guard: blocks API keys, tokens, and passwords before they reach files, commands, commits, or prompts",
+          "audit-trail: keeps a redacted local log of what a session ran and changed",
+          "usage-guard: watches the 5-hour and 7-day usage limits, warns as they climb, and refuses new subagents near the cap",
+          "usage-hud: a one-line strip showing plan usage and prompt cache state",
+          "agent-monitor: a live tree of the main agent and its subagents, with task, progress, and estimated cost",
+          "clean-voice-prompt: cleans voice-dictated prompts before they are sent, cutting filler words and repeats"
+        ]},
+        { h: "Screenshots", p: "Both screenshots show agent-monitor." }
+      ],
+      links: [
+        { label: "claude-secret-guard", url: "https://github.com/luckyajinn/claude-secret-guard" },
+        { label: "claude-audit-trail", url: "https://github.com/luckyajinn/claude-audit-trail" },
+        { label: "claude-usage-guard", url: "https://github.com/luckyajinn/claude-usage-guard" },
+        { label: "usage-hud", url: "https://github.com/luckyajinn/usage-hud" },
+        { label: "claude-agent-monitor", url: "https://github.com/luckyajinn/claude-agent-monitor" },
+        { label: "clean-voice-prompt", url: "https://github.com/luckyajinn/clean-voice-prompt" }
+      ],
+      stack: ["TypeScript", "Claude Code mod API", "MIT license"]
+    },
+    {
       name: "GMKTec K12 home server",
       group: "personal",
       short: "Mini PC running Proxmox as my private home server.",
       shots: [
-        "assets/k12-proxmox-summary.png",
-        "assets/k12-tailscale-machines.png"
+        "assets/k12-proxmox-summary.webp",
+        "assets/k12-tailscale-machines.webp"
       ],
       captions: [
         "Proxmox node summary for the K12 host",
@@ -1345,11 +1454,12 @@ const SITE = {
   credentials: [
     { name:"Associate's, Computer Engineering", detail:"Santa Ana College, expected May 2028", status:"In progress", active:true },
     { name:"Cisco CCNA 200-301", detail:"Targeting early 2027", status:"Studying", active:true },
-    { name:"CompTIA Network+", detail:"Planned", status:"Planned", active:false },
-    { name:"CompTIA Security+", detail:"Planned", status:"Planned", active:false },
-    { name:"CompTIA A+", detail:"Planned", status:"Planned", active:false },
-    { name:"Microsoft Azure track", detail:"AZ-900 then AZ-104", status:"Planned", active:false }
-  ]
+    { name:"CompTIA and Azure certifications", detail:"Network+, Security+, A+, then AZ\u2011900 and AZ\u2011104", status:"Planned", active:false }
+  ],
+
+  /* Path to the resume PDF, for example "assets/christian-jones-resume.pdf".
+     While this is empty the contact section shows "PDF coming soon". */
+  resume: ""
 };
 
 /* ---------- helpers ---------- */
@@ -1365,23 +1475,30 @@ const EMAIL = 'christianjonesbusiness@gmail.com';
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
 const GROUP_LABELS = { professional: 'Professional', personal: 'Personal' };
 const chipList = list => (list || []).map(s => `<li>${esc(s)}</li>`).join('');
+/* the 800 pixel copy of a WebP screenshot, used for panels and thumbnails */
+const small = p => /\.webp$/i.test(p) ? p.replace(/\.webp$/i, '-800.webp') : p;
+const groupOf = t => t.group || 'other';
+const groupIndex = i => SITE.tools.slice(0, i).filter(t => groupOf(t) === groupOf(SITE.tools[i])).length;
 
 /* ---------- render: projects ---------- */
 const xp = $('#xp');
-xp.innerHTML = SITE.tools.map((t, i) => `
-  <li${i === 0 ? ' class="on"' : ''}>
+xp.innerHTML = SITE.tools.map((t, i) => {
+  const n = pad2(groupIndex(i) + 1), shot = t.shots && t.shots[0];
+  return `
+  <li data-g="${esc(groupOf(t))}">
     <button class="panel" type="button" data-i="${i}" data-cur="Open" aria-haspopup="dialog">
-      ${t.shots && t.shots[0] ? `<img src="${esc(t.shots[0])}" alt="" loading="lazy" decoding="async">` : ''}
+      ${shot ? `<img src="${esc(small(shot))}" srcset="${esc(small(shot))} 800w, ${esc(shot)} 1600w" sizes="(max-width:860px) 150vw, 1100px" alt="" loading="lazy" decoding="async">` : ''}
       <span class="p-count" aria-hidden="true">${(t.shots || []).length} screenshots</span>
-      <span class="p-side" aria-hidden="true"><span class="p-num">${pad2(i + 1)}</span><span class="p-vname">${esc(t.name)}</span></span>
+      <span class="p-side" aria-hidden="true"><span class="p-num">${n}</span><span class="p-vname">${esc(t.name)}</span></span>
       <span class="p-info">
-        <span class="p-tag">${pad2(i + 1)} · ${esc(GROUP_LABELS[t.group] || t.group || '')}</span>
+        <span class="p-tag">${n} · ${esc(GROUP_LABELS[t.group] || t.group || '')}</span>
         <span class="p-name">${esc(t.name)}</span>
         <span class="p-short">${esc(t.short)}</span>
         <span class="p-open" aria-hidden="true">Open write-up ${ARROW}</span>
       </span>
     </button>
-  </li>`).join('');
+  </li>`;
+}).join('');
 const xpItems = $$('li', xp);
 const setPanel = li => xpItems.forEach(x => x.classList.toggle('on', x === li));
 xpItems.forEach(li => {
@@ -1389,6 +1506,41 @@ xpItems.forEach(li => {
   li.addEventListener('focusin', () => setPanel(li));
   $('img', li) && $('img', li).addEventListener('error', e => e.target.remove());
 });
+
+/* group tabs: one button per group, in the order groups first appear */
+const tabsEl = $('#tabs');
+function setGroup(g, animate) {
+  $$('button', tabsEl).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.g === g)));
+  let k = 0;
+  xpItems.forEach(li => {
+    const show = li.dataset.g === g;
+    li.hidden = !show;
+    li.classList.toggle('on', show && k === 0);
+    if (show) li.style.animationDelay = (k++ * 70) + 'ms';
+  });
+  xp.classList.remove('swap');
+  if (animate && !RM) { void xp.offsetWidth; xp.classList.add('swap'); }
+}
+{
+  const groups = Array.from(new Set(SITE.tools.map(groupOf)));
+  if (groups.length > 1) {
+    tabsEl.innerHTML = groups.map(g =>
+      `<button type="button" data-g="${esc(g)}">${esc(GROUP_LABELS[g] || g)}<small>${pad2(SITE.tools.filter(t => groupOf(t) === g).length)}</small></button>`).join('');
+    tabsEl.addEventListener('click', e => {
+      const b = e.target.closest('button');
+      if (b && b.getAttribute('aria-pressed') !== 'true') setGroup(b.dataset.g, true);
+    });
+  }
+  setGroup(groups[0], false);
+}
+
+/* resume: a link once SITE.resume is set, a placeholder until then */
+if (SITE.resume) {
+  const a = document.createElement('a');
+  a.href = SITE.resume; a.target = '_blank'; a.rel = 'noopener noreferrer';
+  a.innerHTML = `<span>Resume<small>Download the PDF</small></span>${ARROW}`;
+  $('#resume').replaceWith(a);
+}
 
 /* ---------- render: case studies ---------- */
 $('#case-list').innerHTML = SITE.cases.map((c, i) => `
@@ -1840,6 +1992,7 @@ function showShot(i) {
   D.i = (i + n) % n;
   const img = $('#d-img');
   img.src = D.shots[D.i];
+  img.parentElement.style.setProperty('--amb', `url("${small(D.shots[D.i]).replace(/"/g, '%22')}")`);
   img.alt = D.caps[D.i] || D.tool.name;
   $('#d-cap').innerHTML = `<b>${pad2(D.i + 1)} / ${pad2(n)}</b>${esc(D.caps[D.i] || '')}`;
   $$('#d-thumbs button').forEach((b, k) => b.setAttribute('aria-current', String(k === D.i)));
@@ -1849,15 +2002,18 @@ function openTool(i) {
   if (!t) return;
   D.tool = t; D.shots = (t.shots || []).slice(); D.caps = (t.captions || []).slice();
   dlg.classList.remove('zoom');
-  $('#d-tag').textContent = `${pad2(i + 1)} · ${GROUP_LABELS[t.group] || t.group || ''}${t.status ? ' · ' + t.status : ''}`;
+  $('#d-tag').textContent = `${pad2(groupIndex(i) + 1)} · ${GROUP_LABELS[t.group] || t.group || ''}${t.status ? ' · ' + t.status : ''}`;
   $('#d-title').textContent = t.name;
   $('#d-short').textContent = t.short;
   $('#d-sections').innerHTML = (t.sections || []).map(s =>
     `<h4>${esc(s.h)}</h4>` + (s.list ? `<ul class="pts">${s.list.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : `<p>${esc(s.p || '')}</p>`)
   ).join('');
+  $('#d-links').innerHTML = (t.links || []).length
+    ? `<h4>On GitHub</h4><div class="d-links">${t.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}${ARROW}</a>`).join('')}</div>`
+    : '';
   $('#d-chips').innerHTML = chipList(t.stack);
   $('#d-thumbs').innerHTML = D.shots.length > 1 ? D.shots.map((s, k) =>
-    `<button type="button" data-k="${k}" aria-label="Screenshot ${k + 1}: ${esc(D.caps[k] || '')}"><img src="${esc(s)}" alt=""></button>`).join('') : '';
+    `<button type="button" data-k="${k}" aria-label="Screenshot ${k + 1}: ${esc(D.caps[k] || '')}"><img src="${esc(small(s))}" alt=""></button>`).join('') : '';
   const many = D.shots.length > 1;
   $('#d-prev').hidden = $('#d-next').hidden = !many;
   $('.d-media', dlg).hidden = !D.shots.length;
@@ -1873,6 +2029,11 @@ $('#d-close').addEventListener('click', () => dlg.close());
 $('#d-prev').addEventListener('click', () => showShot(D.i - 1));
 $('#d-next').addEventListener('click', () => showShot(D.i + 1));
 $('#d-img').addEventListener('click', () => dlg.classList.toggle('zoom'));
+/* tall screenshots fill the stage from the top instead of shrinking to fit */
+$('#d-img').addEventListener('load', e => {
+  const im = e.target;
+  im.classList.toggle('tall', im.naturalWidth >= 700 && im.naturalHeight / im.naturalWidth > 0.95);
+});
 $('#d-thumbs').addEventListener('click', e => {
   const b = e.target.closest('button');
   if (b) showShot(Number(b.dataset.k));
@@ -1896,7 +2057,8 @@ dlg.addEventListener('keydown', e => {
     { l: 'Skills', h: 'Section', run: go('skills') },
     { l: 'Education and certifications', h: 'Section', run: go('education') },
     { l: 'Contact', h: 'Section', run: go('contact') },
-    ...SITE.tools.map((t, i) => ({ l: t.name, h: 'Project', run: () => openTool(i) })),
+    ...SITE.tools.map((t, i) => ({ l: t.name, h: 'Project', run: () => { setGroup(groupOf(t), false); openTool(i); } })),
+    ...(SITE.resume ? [{ l: 'Open resume', h: 'Link', run: open(SITE.resume) }] : []),
     { l: 'Copy email address', h: 'Action', run: copyEmail },
     { l: 'Switch theme', h: 'Action', run: toggleTheme },
     { l: 'Open LinkedIn', h: 'Link', run: open('https://www.linkedin.com/in/christian-jones-762301193/') },

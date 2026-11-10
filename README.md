@@ -21,7 +21,7 @@ command menu on Ctrl K (or Cmd K) for jumping around the page.
 ```
 cjportfolio/
   index.html      the site: markup, styles, SITE data, and scripts
-  assets/         favicons and tool screenshots
+  assets/         favicons, screenshots, and the link preview image
   concepts/       earlier designs, kept for reference, not linked
                   (blueprint-live.html is the page that was live until November 2026)
 ```
@@ -50,20 +50,25 @@ Append an object to `SITE.tools`:
 {
   name: "Project name",
   group: "professional",          // or "personal"
-  short: "One line for the card.",
+  short: "One line for the panel.",
   status: "Optional label",       // optional
-  shots: ["assets/project-1.png", "assets/project-2.png"],
+  shots: ["assets/project-1.webp", "assets/project-2.webp"],
   captions: ["First view", "Second view"],
   sections: [
     { h: "What it does", p: "Short paragraph." },
     { h: "Features", list: ["Point one", "Point two"] }
   ],
+  links: [{ label: "repo-name", url: "https://github.com/..." }],  // optional
   stack: ["HTML", "JavaScript"]
 }
 ```
 
+Each `group` gets a tab above the gallery (Professional, Personal), in the
+order the groups first appear in the list. The first project in each group is
+the one shown open, so put the strongest one first.
+
 - Each project is a panel in the gallery. The first screenshot is the panel
-  background, and `group` shows as a label.
+  background.
 - Hovering or focusing a panel expands it. On phones the panels stack.
 - Clicking a panel opens a dialog with the write-up and a screenshot stage
   that has previous and next controls, a thumbnail strip, and arrow key
@@ -76,9 +81,26 @@ Case studies use `kicker`, `title`, `problem`, `approach`, `outcome`, and
 
 ## Screenshots
 
-Capture at roughly 1600 pixels wide and save to `assets/`. Cards crop to a
-fixed frame anchored to the top of the image, and the viewer shows the full
-image.
+Capture at roughly 1600 pixels wide. Panels crop to a fixed frame anchored to
+the top of the image, and the write-up shows the full image. Tall screenshots
+fill the frame from the top, and clicking one opens it full size.
+
+The page uses WebP copies in two widths: `name.webp` (up to 1600 pixels wide)
+and `name-800.webp` (800 pixels wide, used for panels and thumbnails). List
+only `assets/name.webp` in `shots`; the page works out the small one. To add
+a screenshot, save both sizes. With Python and Pillow:
+
+```python
+from PIL import Image
+im = Image.open("shot.png").convert("RGB")
+for width, suffix, quality in [(1600, "", 86), (800, "-800", 80)]:
+    out = im if im.width <= width else im.resize((width, round(im.height * width / im.width)))
+    out.save(f"assets/name{suffix}.webp", quality=quality, method=6)
+```
+
+A plain PNG or JPG path in `shots` also works. It just loads the one file.
+The PNG screenshots still in `assets/` are the originals of the older
+screenshots, and only the archived pages in `concepts/` load them.
 
 Screenshots of internal tools are loaded with placeholder data before capture.
 Nothing identifying an employer environment belongs in a public repository.
@@ -99,8 +121,15 @@ addresses.
 
 ## Social preview
 
-The page points its link preview at `assets/preview.png` (1200 by 630). That
-file has not been added yet, so shared links show no image until it is.
+Shared links show `assets/preview.png` (1200 by 630), a card with my name and
+title in the same look as the hero.
+
+## Resume
+
+`SITE.resume` holds the path to the resume PDF, for example
+`"assets/christian-jones-resume.pdf"`. While it is empty the contact section
+shows a "PDF coming soon" card. Once it is set, the card becomes a link and
+the resume appears in the command menu.
 
 ## Deployment
 
