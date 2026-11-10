@@ -22,6 +22,7 @@ command menu on Ctrl K (or Cmd K) for jumping around the page.
 cjportfolio/
   index.html      the site: markup, styles, SITE data, and scripts
   assets/         favicons, screenshots, and the link preview image
+  resume/         source page for the resume PDF
   concepts/       earlier designs, kept for reference, not linked
                   (blueprint-live.html is the page that was live until November 2026)
 ```
@@ -126,10 +127,21 @@ title in the same look as the hero.
 
 ## Resume
 
-`SITE.resume` holds the path to the resume PDF, for example
-`"assets/christian-jones-resume.pdf"`. While it is empty the contact section
-shows a "PDF coming soon" card. Once it is set, the card becomes a link and
-the resume appears in the command menu.
+`SITE.resume` holds the path to the resume PDF,
+`assets/christian-jones-resume.pdf`. The contact section links to it and it
+appears in the command menu. If the value is empty, the contact section shows
+a "PDF coming soon" card instead.
+
+The source is `resume/resume.html`, one Letter page in the same look as the
+site. To update the resume, edit that file, open it in a browser, and print
+to PDF (Letter, no headers or footers, background graphics on), saving over
+the file in `assets/`. Check that it is still one page. The file avoids CSS
+`position` and `z-index` on purpose, because positioned elements are written
+to the PDF out of order and scramble the text that applicant tracking systems
+read.
+
+In `SITE.credentials`, `active: true` marks something in progress and
+`done: true` marks something completed.
 
 ## Deployment
 

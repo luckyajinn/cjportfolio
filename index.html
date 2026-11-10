@@ -501,7 +501,7 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .skill li:hover{color:var(--fg);padding-left:8px}
 
 /* ---------- education ---------- */
-.creds li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 132px;gap:8px 24px;align-items:center;padding:20px 0;border-top:1px solid var(--line);transition:padding .4s var(--ease),background .3s}
+.creds li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 156px;gap:8px 24px;align-items:center;padding:20px 0;border-top:1px solid var(--line);transition:padding .4s var(--ease),background .3s}
 .creds li:last-child{border-bottom:1px solid var(--line)}
 .creds li:hover{padding-inline:16px;background:color-mix(in srgb,var(--fg) 4%,transparent)}
 .c-name{font-size:clamp(1.15rem,2.2vw,1.7rem);font-weight:500;letter-spacing:-.035em;line-height:1.2}
@@ -509,6 +509,8 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .c-st{display:inline-flex;align-items:center;justify-self:end;gap:8px;font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--mut);white-space:nowrap}
 .c-st.active{color:var(--fg);border-color:var(--acc)}
 .c-st.active::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2.4s infinite}
+.c-st.done{color:var(--fg)}
+.c-st.done::before{content:"";width:9px;height:5px;margin-top:-3px;border-left:1.6px solid var(--acc);border-bottom:1.6px solid var(--acc);transform:rotate(-45deg)}
 
 /* ---------- contact ---------- */
 .contact{padding-bottom:40px}
@@ -1166,6 +1168,15 @@ const SITE = {
       ]
     },
     {
+      when: "Summer 2025",
+      title: "IT Fundamentals Intern",
+      org: "Voit Real Estate Services",
+      points: [
+        "Mapped a corporate network and its IP plan.",
+        "Worked with Active Directory groups, Group Policy, file sharing, and ACL permissions."
+      ]
+    },
+    {
       when: "2020 to 2026",
       title: "Sales Associate",
       org: "Micro Center, Build Your Own department",
@@ -1454,12 +1465,13 @@ const SITE = {
   credentials: [
     { name:"Associate's, Computer Engineering", detail:"Santa Ana College, expected May 2028", status:"In progress", active:true },
     { name:"Cisco CCNA 200-301", detail:"Targeting early 2027", status:"Studying", active:true },
+    { name:"IBM cybersecurity certificates", detail:"Four courses: IT fundamentals, compliance frameworks, tools and cyberattacks, and operating system security", status:"Completed 2025", done:true },
     { name:"CompTIA and Azure certifications", detail:"Network+, Security+, A+, then AZ\u2011900 and AZ\u2011104", status:"Planned", active:false }
   ],
 
-  /* Path to the resume PDF, for example "assets/christian-jones-resume.pdf".
-     While this is empty the contact section shows "PDF coming soon". */
-  resume: ""
+  /* Path to the resume PDF. The source is resume/resume.html.
+     If this is empty the contact section shows "PDF coming soon". */
+  resume: "assets/christian-jones-resume.pdf"
 };
 
 /* ---------- helpers ---------- */
@@ -1577,7 +1589,7 @@ $('#creds').innerHTML = SITE.credentials.map(c => `
   <li class="rv">
     <span class="c-name">${esc(c.name)}</span>
     <span class="c-detail">${esc(c.detail)}</span>
-    <span class="c-st${c.active ? ' active' : ''}">${esc(c.status)}</span>
+    <span class="c-st${c.active ? ' active' : c.done ? ' done' : ''}">${esc(c.status)}</span>
   </li>`).join('');
 
 const mq = $('#mq');
