@@ -22,7 +22,8 @@ command menu on Ctrl K (or Cmd K) for jumping around the page.
 cjportfolio/
   index.html      the site: markup, styles, SITE data, and scripts
   assets/         favicons and tool screenshots
-  concepts/       earlier redesign mockups, kept for reference, not linked
+  concepts/       earlier designs, kept for reference, not linked
+                  (blueprint-live.html is the page that was live until November 2026)
 ```
 
 ## Editing content
