@@ -13,7 +13,7 @@ Screenshots load from `assets/`.
 
 The design is dark by default with a light theme toggle. It has an animated
 dot grid in the hero, a project gallery that expands on hover, case studies
-that stack as you scroll, an interactive diagram of my home server, and a
+that stack as you scroll, a diagram of my home server with paths you can play, and a
 command menu on Ctrl K (or Cmd K) for jumping around the page.
 
 ## Structure
@@ -108,17 +108,22 @@ Nothing identifying an employer environment belongs in a public repository.
 
 ## The homelab diagram
 
-The diagram is inline SVG with a `DATA` object in the second script block
-that drives the hover, focus, and tap readout. Hover, tap, or tab to a device to
-highlight its links. The diagram is public, so keep these out of it:
+The diagram is drawn by the second script block in `index.html` from four
+objects: `N` (each device, with the text shown when you point at it),
+`LAYOUT` (box positions and line paths for the wide drawing and the tall one),
+`REL` (what lights up when a device is selected), and `SC` (the paths you can
+play, one captioned step at a time). To add a container, add it to `N`, give
+it a box in both layouts, and list its links in `REL`. Under 861 pixels wide
+the page uses the tall drawing, so the diagram never scrolls sideways.
+
+The three numbers above the diagram and the "Read the diagram as text" list
+are written in the markup, so update them when the lab changes. The diagram
+is public, so keep these out of it:
 
 - exact IP addresses, port numbers, the tailnet name, and ACL tags
 - employer devices and where devices physically are
 - backup schedules and backup gaps
 - security tooling that is not meant to be public
-
-The interface labels (Gi0/x, VLAN tags, 10.0.x.x) are decoration, not real
-addresses.
 
 ## Social preview
 

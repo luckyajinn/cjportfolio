@@ -92,7 +92,9 @@
   --acc:#ff5a1f;
   --acc-t:#ff8552;
   --on-acc:#0a0a0b;
-  --blue-deep:#0A2B4F;
+  --tile:#1c1c1f;
+  --tail:#5fd4c4;
+  --deny:#ff6464;
   --sans:"Geist",-apple-system,"Segoe UI",Roboto,sans-serif;
   --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
@@ -112,6 +114,9 @@
   --line2:rgba(0,0,0,.26);
   --acc:#f4511a;
   --acc-t:#b63605;
+  --tile:#ffffff;
+  --tail:#0c8576;
+  --deny:#c62828;
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -374,108 +379,103 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
   .case:last-child{margin-bottom:0}
 }
 
-/* ---------- homelab ---------- */
-/* topology panel: interactive schematic */
-.sheet{position:relative;background:var(--blue-deep);color:#D8E8FA;border:1px solid #06203D;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 18px 40px -24px rgba(10,43,79,.55);
-  --c-games:#FF8AC4;--c-svc:#A3E05F;--c-lab:#B9A6FF;--c-tail:#6FD3C4;--c-pub:#F3C77A;--c-lan:#8DBBEB;--c-store:#C7D7EA;--c-led:#F2F7FD}
-.sheet::before{content:"";position:absolute;inset:8px;border:1px solid rgba(160,200,255,.28);pointer-events:none}
-.topo-scroll{position:relative;margin:10px 10px 0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-color:#3F6E9E transparent}
-.topo{display:block;width:100%;height:auto}
-.topo text{font-family:var(--mono);font-size:12px;fill:#E1EEFB}
-.topo .lbl{font-size:10.5px;fill:#9CC0E6}
-.topo .lbl.soft{fill:#92B6DC}
-.topo .nm{font-size:13.5px;font-weight:600;fill:#F2F7FD}
-.topo .nm2{font-size:12px;font-weight:600;fill:#F2F7FD}
-.topo .nm2.sm{font-size:11px}
-.topo .layer{font-size:9.5px;letter-spacing:.18em;fill:#7DA6D2}
-.topo .callout{font-size:12px;font-weight:600;fill:var(--c-pub)}
-.topo .frame{fill:rgba(6,26,48,.35);stroke:rgba(169,207,245,.4);stroke-width:1}
-.topo .frame.tail{fill:rgba(111,211,196,.05);stroke:var(--c-tail);stroke-dasharray:6 4}
-.topo .grp{fill:rgba(255,255,255,.02);stroke-width:1;stroke-dasharray:3 3}
-.topo .grp.games{stroke:var(--c-games)}.topo .grp.svc{stroke:var(--c-svc)}.topo .grp.lab{stroke:var(--c-lab)}
-.topo .grp-t{font-size:10.5px;font-weight:600;letter-spacing:.08em}
-.topo .grp-t.games{fill:var(--c-games)}.topo .grp-t.svc{fill:var(--c-svc)}.topo .grp-t.lab{fill:var(--c-lab)}
-.topo .bind{fill:none;stroke:rgba(199,215,234,.25);stroke-dasharray:2 4}
-.topo .fw{fill:#3B1F2C;stroke:#FF8A8A;stroke-width:1.2}
-.topo .fw-l{stroke:#FF8A8A;stroke-width:1}
-.topo .box{fill:#123E6E;stroke:#A9CFF5;stroke-width:1.4;transition:stroke-width .15s}
-.topo .gl{fill:none;stroke:#A9CFF5;stroke-width:1.2}
-.topo .edge .box{fill:#17385C}
-.topo .dev .box,.topo .tl .tl-t{stroke:var(--c-tail)}
-.topo .tl .tl-t{fill:var(--c-tail);stroke:none;font-weight:600}
-.topo .ct.games .box,.topo .ct.games .gl{stroke:var(--c-games)}
-.topo .ct.svc .box,.topo .ct.svc .gl,.topo .vol .box,.topo .vol .gl{stroke:var(--c-svc)}
-.topo .ct.lab .box,.topo .ct.lab .gl{stroke:var(--c-lab)}
-.topo .ct.games .band{fill:var(--c-games)}.topo .ct.svc .band{fill:var(--c-svc)}.topo .ct.lab .band{fill:var(--c-lab)}
-.topo .st-planned .box{fill:rgba(18,62,110,.3);stroke-dasharray:5 4}
-.topo .st-planned text{opacity:.75}
-.topo .hit{fill:none;stroke:transparent;stroke-width:16}
-.topo .hit-r{fill:transparent}
-.led-live{fill:var(--c-led)}
-.led-ring{fill:none;stroke:var(--c-led);stroke-width:1.4}
-.led-half{fill:var(--c-led)}
-.led-plan{fill:none;stroke:var(--c-led);stroke-width:1.3;stroke-dasharray:2.2 2}
-.blink{animation:topo-blink 1.4s steps(2,start) infinite}
-@keyframes topo-blink{to{opacity:.25}}
-.topo .ln{fill:none;stroke-width:1.6;transition:opacity .2s,stroke-width .2s}
-.topo .k-lan{stroke:var(--c-lan)}
-.topo .k-bus{stroke-width:3}
-.topo .k-pub{stroke:var(--c-pub);stroke-width:2}
-.topo .k-tail{stroke:var(--c-tail);stroke-dasharray:6 4}
-.topo .k-store{stroke:var(--c-store);stroke-dasharray:1.5 3.5;stroke-linecap:round;stroke-width:1.9}
-.topo .k-hub{stroke:var(--c-svc);stroke-width:1.3}
-.topo .pt rect{fill:#0A2B4F;stroke:rgba(169,207,245,.6);stroke-width:1}
-.topo .pt text{font-size:10.5px;fill:#D8E8FA}
-.topo .pt.pub rect{stroke:var(--c-pub)}.topo .pt.pub text{fill:var(--c-pub)}
-.topo .pt.tail rect{stroke:var(--c-tail)}.topo .pt.tail text{fill:var(--c-tail)}
-.topo .pk{fill:#FFB547;stroke:#7A3E00;stroke-width:.8}
-.topo .nd{cursor:pointer;outline:none}
-.topo .nd,.topo .pt,.topo .pk,.topo .deco{transition:opacity .2s}
-.topo .nd:focus-visible .box,.topo .nd:focus-visible .hit{stroke:#FFB547 !important;stroke-width:2.8;stroke-dasharray:none}
-.topo .nd:focus-visible .hit{stroke:rgba(255,181,71,.7) !important;stroke-width:14}
-.topo .nd:focus-visible .hit-r{stroke:#FFB547;stroke-width:1.5}
-.topo .nd.sel .box{stroke-width:2.8}
-.topo.has-sel .nd:not(.on),.topo.has-sel .ln:not(.on),.topo.has-sel .pt:not(.on),.topo.has-sel .pk:not(.on){opacity:.14}
-.topo.has-sel .deco{opacity:.45}
-.topo.has-sel .ln.on{stroke-width:2.8}
-.topo-hint{display:none;margin:6px 18px 0;font-family:var(--mono);font-size:11px;color:#7FA6CF}
-.topo-foot{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);margin:10px 10px 0;border:1px solid rgba(160,200,255,.22)}
-.readout{background:#061A30;font-family:var(--mono);font-size:12.5px;line-height:1.5;color:#D8E8FA;min-width:0;border-right:1px solid rgba(160,200,255,.22)}
-.ro-head{display:flex;justify-content:space-between;gap:10px;padding:6px 12px;border-bottom:1px solid rgba(160,200,255,.18);font-size:11px;color:#7FA6CF}
-.ro-head #ro-id{color:#FFB547}
-.ro-head .cur::after{content:"_";color:#FFB547;animation:topo-blink 1s steps(2,start) infinite}
-.readout dl{margin:0;padding:8px 12px 10px}
-.readout dl div{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;padding:2px 0}
-.readout dt{color:#7FA6CF}
-.readout dt::before{content:"> ";color:#3F6E9E}
-.readout dd{margin:0;overflow-wrap:anywhere}
-#ro-name{color:#F2F7FD;font-weight:600}
-.ro-led{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:0;border:1.5px solid var(--c-led)}
-.ro-led.live{background:var(--c-led)}
-.ro-led.setup{background:linear-gradient(90deg,var(--c-led) 50%,transparent 50%);animation:topo-blink 1.4s steps(2,start) infinite}
-.ro-led.planned{border-style:dashed}
-.ro-led.edge{border-color:#FF8A8A}
-.legend{list-style:none;margin:0;padding:10px 12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 12px;align-content:start;font-family:var(--mono);font-size:11px;color:#9CC0E6}
-.legend li{display:flex;align-items:center;gap:7px;white-space:nowrap}
-.legend svg{width:26px;height:12px;flex:none;overflow:visible}
-.lg-games{fill:#123E6E;stroke:var(--c-games);stroke-width:1.6}
-.lg-svc{fill:#123E6E;stroke:var(--c-svc);stroke-width:1.6}
-.lg-lab{fill:#123E6E;stroke:var(--c-lab);stroke-width:1.6}
-.lg-pub{stroke:var(--c-pub);stroke-width:2}
-.lg-lan{stroke:var(--c-lan);stroke-width:2}
-.lg-tail{stroke:var(--c-tail);stroke-width:2;stroke-dasharray:5 3}
-.lg-store{stroke:var(--c-store);stroke-width:2;stroke-dasharray:1.5 3.5;stroke-linecap:round}
-.lg-hub{stroke:var(--c-svc);stroke-width:1.5}
-.topo-alt{margin:10px 10px 0;font-size:14px;color:#C9DCF0}
-.topo-alt summary{cursor:pointer;font-family:var(--mono);font-size:11.5px;color:#9CC0E6;padding:6px 8px}
-.topo-alt summary:focus-visible{outline:2px solid #FFB547;outline-offset:0}
-.topo-alt ul{margin:0 0 6px;padding:4px 14px 6px 28px;line-height:1.5}
-.topo-alt li{margin-bottom:4px}
-.titleblock{display:grid;grid-template-columns:repeat(5,auto);justify-content:space-between;gap:6px 14px;margin:10px 8px 8px;padding:9px 12px;border-top:1px solid rgba(160,200,255,.28);font-family:var(--mono);font-size:10.5px;color:#9CC0E6;letter-spacing:.04em}
-.titleblock b{display:block;color:#E1EEFB;font-weight:500;font-size:11.5px;letter-spacing:0}
-.sheet{border-radius:16px;overflow:hidden;margin:0}
-.sheet::before{border-radius:10px}
-@media (pointer:coarse){.topo .hit{stroke-width:30}}
+/* ---------- homelab: facts, traceable paths, and a diagram that re-draws for phones ---------- */
+.lab{display:grid;gap:22px}
+#lab-body{min-height:3.3rem;display:grid;align-content:center}
+/* the three facts a visitor should leave with */
+.lab-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line)}
+.lab-facts li{display:flex;align-items:baseline;gap:14px;padding:16px 18px 16px 0}
+.lab-facts li + li{padding-left:18px;border-left:1px solid var(--line)}
+.lab-facts b{font-size:clamp(2rem,4.6vw,3.4rem);line-height:1;font-weight:600;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.lab-facts li:first-child b{color:var(--acc)}
+.lab-facts span{font-size:14.5px;line-height:1.35;color:var(--mut);min-width:0}
+
+/* trace controls */
+.lab-trace{display:grid;gap:12px}
+.lab-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.lab-chips .lab-lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-right:6px}
+.lab-chip{height:38px;padding:0 15px;border:1px solid var(--line2);border-radius:999px;font-size:14px;font-weight:500;color:var(--mut);transition:background .3s,color .3s,border-color .3s}
+.lab-chip:hover{color:var(--fg);border-color:var(--fg)}
+.lab-chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.lab-cap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:6px 16px;min-height:64px;padding:12px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.lab-step{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--acc-t);white-space:nowrap}
+.lab-cap p{font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.35;font-weight:500;letter-spacing:-.015em}
+.lab-cap ol{display:grid;gap:4px;font-size:15px}
+.lab-cap ol li{display:grid;grid-template-columns:1.6em minmax(0,1fr)}
+.lab-cap ol li::before{content:counter(step);counter-increment:step;font-family:var(--mono);font-size:12px;color:var(--acc-t);padding-top:.15em}
+.lab-cap ol{counter-reset:step}
+.lab-replay{height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);font-size:13px;font-weight:500;white-space:nowrap}
+.lab-replay:hover{background:var(--fg);color:var(--bg)}
+
+/* diagram */
+.lab-stage{position:relative;border:1px solid var(--line);border-radius:20px;background:var(--bg);padding:clamp(6px,1.2vw,14px)}
+.dg{display:block;width:100%;height:auto;overflow:visible}
+.dg text{font-family:var(--sans);fill:var(--fg)}
+.dg .t-title{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.dg .t-sub{font-size:11px;fill:var(--mut)}
+.dg .t-tag{font-family:var(--mono);font-size:9.8px;fill:var(--faint);letter-spacing:.04em}
+.dg .t-flabel{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;fill:var(--mut)}
+.dg .t-ftag{font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;fill:var(--faint)}
+.dg .t-ftag.pub{fill:var(--acc-t)} .dg .t-ftag.tail{fill:var(--tail)}
+.dg .t-note{font-size:12px;fill:var(--mut)}
+.dg .t-call{font-family:var(--mono);font-size:11px;fill:var(--acc-t)}
+.dg .t-host{font-size:14.5px;font-weight:600}
+.dg .t-spec{font-size:11.5px;fill:var(--mut)}
+.dg.tall .t-title{font-size:12.5px} .dg.tall .t-sub{font-size:10.5px} .dg.tall .t-note{font-size:11px} .dg.tall .t-spec{font-size:11px}
+.dg .frame{fill:var(--card);stroke:var(--line);stroke-width:1}
+.dg .frame.grp{fill:color-mix(in srgb,var(--fg) 3%,transparent)}
+.dg .frame.tailnet{fill:color-mix(in srgb,var(--tail) 6%,transparent);stroke:var(--tail);stroke-dasharray:5 5;stroke-opacity:.7}
+.dg .frame.host.on{stroke:var(--fg)}
+.dg .box{fill:var(--tile);stroke:var(--line2);stroke-width:1.2;transition:stroke .3s,stroke-width .3s}
+.dg .nd.pub .box{stroke:var(--acc)}
+.dg .nd.dev .box{stroke:var(--tail);stroke-opacity:.75}
+.dg .nd.planned .box{stroke-dasharray:5 4;fill:transparent}
+.dg .nd.planned{opacity:.62}
+.dg .nd{cursor:pointer;outline:none;transition:opacity .35s}
+.dg .nd:hover .box,.dg .nd.sel .box{stroke:var(--fg);stroke-width:1.8}
+.dg .nd:focus-visible .box{stroke:var(--acc);stroke-width:2.4}
+.dg .nd.on .box{stroke-width:2}
+.dg .hit{fill:transparent}
+.dg .sdot{fill:var(--fg)} .dg .sdot-o{fill:none;stroke:var(--fg);stroke-width:1.3} .dg .sdot-p{fill:none;stroke:var(--mut);stroke-width:1.2;stroke-dasharray:2 2}
+.dg .lk{fill:none;stroke-width:1.6;opacity:.6;transition:opacity .35s}
+.dg .lk.pub{stroke:var(--acc);opacity:.9} .dg .lk.lan{stroke:var(--mut)} .dg .lk.tail{stroke:var(--tail);stroke-dasharray:5 5} .dg .lk.store{stroke:var(--mut);stroke-dasharray:1.5 5;stroke-linecap:round;stroke-width:2}
+.dg .gl{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.dg .gl.pub{stroke:var(--acc)} .dg .gl.lan{stroke:var(--fg);stroke-width:2.4} .dg .gl.tail{stroke:var(--tail)} .dg .gl.store{stroke:var(--fg);stroke-width:2.4}
+.dg .gl.lit{opacity:1;filter:drop-shadow(0 0 5px currentColor)}
+.dg .gl.pub{color:var(--acc)} .dg .gl.tail{color:var(--tail)} .dg .gl.lan,.dg .gl.store{color:var(--mut)}
+.dg .wall{fill:color-mix(in srgb,var(--deny) 18%,var(--bg));stroke:var(--deny);stroke-width:1.2}
+.dg .wall-l{stroke:var(--deny);stroke-width:1}
+.dg .t-wall{font-family:var(--mono);font-size:10px;fill:var(--deny)}
+.dg .wallg.hit-now{animation:shake .5s}
+@keyframes shake{20%{transform:translateX(-3px)}45%{transform:translateX(3px)}70%{transform:translateX(-2px)}}
+.dg .lock{fill:none;stroke:var(--mut);stroke-width:1.3}
+.dg .pk-halo{opacity:.3} .dg .pk-core{fill:var(--fg);stroke-width:2}
+.dg .pk{transition:opacity .3s}
+.dg .pk.pub{color:var(--acc)} .dg .pk.tail{color:var(--tail)} .dg .pk.lan,.dg .pk.store{color:var(--fg)} .dg .pk.deny{color:var(--deny)}
+.dg .pk-halo{fill:currentColor} .dg .pk-core{stroke:currentColor}
+.dg.dim .nd:not(.on):not(.sel){opacity:.34}
+.dg.dim .nd.planned:not(.on):not(.sel){opacity:.22}
+.dg.dim .lk{opacity:.16}
+.dg .note.on text{fill:var(--fg)} .dg .note.on .lock{stroke:var(--acc)}
+
+/* popover with a device's details */
+.lab-pop{position:absolute;z-index:3;width:min(300px,calc(100% - 16px));padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line2);box-shadow:0 18px 50px -18px rgba(0,0,0,.6);pointer-events:none}
+.lab-pop-top{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;color:var(--faint)}
+.lab-pop-st{display:inline-flex;align-items:center;gap:6px;color:var(--mut)}
+.lab-pop-st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fg)}
+.lab-pop-st.setup::before{background:linear-gradient(90deg,var(--fg) 50%,transparent 50%);outline:1px solid var(--fg)}
+.lab-pop-st.planned::before{background:transparent;outline:1px dashed var(--mut)}
+.lab-pop-st.edge::before{background:var(--deny)}
+.lab-pop h4{font-size:1.15rem;font-weight:600;letter-spacing:-.03em;margin-top:4px}
+.lab-pop .role{font-size:13.5px;color:var(--acc-t)}
+.lab-pop .reach{font-size:14px;line-height:1.45;color:var(--mut);margin-top:8px}
+
+.lab-legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12px;color:var(--mut)}
+.lab-legend li{display:flex;align-items:center;gap:8px}
+.lab-legend svg{width:30px;height:10px;flex:none;overflow:visible}
+.lab-text{font-size:14.5px;color:var(--mut)}
+.lab-text summary{cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--mut);padding:6px 0;width:fit-content}
+.lab-text ul{display:grid;gap:6px;padding:8px 0 0 18px;list-style:disc;max-width:70ch}
 
 /* ---------- experience ---------- */
 .roles{position:relative;padding-left:34px}
@@ -597,11 +597,12 @@ footer{padding:36px 0 0;overflow:hidden}
   .d-thumbs button{width:64px}
   .d-body{overflow:visible;padding:20px 18px 28px}
   .d-top{position:sticky;top:0;z-index:2;background:var(--card)}
-  .topo{width:1040px;max-width:none}
-  .topo-hint{display:block}
-  .topo-foot{grid-template-columns:minmax(0,1fr)}
-  .readout{border-right:0;border-bottom:1px solid rgba(160,200,255,.22)}
-  .titleblock{grid-template-columns:repeat(2,auto)}
+  .lab-facts{grid-template-columns:minmax(0,1fr)}
+  .lab-facts li + li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .lab-facts li{padding:12px 0}
+  .lab-cap{grid-template-columns:minmax(0,1fr) auto}
+  .lab-step{grid-column:1/-1}
+  #lab-body{min-height:5.5rem}
 }
 @media (max-width:520px){
   .skills{grid-template-columns:minmax(0,1fr)}
@@ -613,7 +614,6 @@ footer{padding:36px 0 0;overflow:hidden}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition:none !important}
   .js .ch,.js .hv,.js .rv,.js .nav{transform:none;opacity:1;translate:0 0}
-  .topo .pk{display:none}
   .js .pre{display:none !important}
 }
 </style>
@@ -739,299 +739,61 @@ footer{padding:36px 0 0;overflow:hidden}
     <div class="sh rv">
       <span class="idx">03 / Homelab</span>
       <h2 id="h-homelab">The lab, <em>drawn</em></h2>
-      <p>My home server as a network diagram. Hover, tap, or tab to a device to trace its links.</p>
+      <p>My home server. Two game ports face the Internet. Everything else is private and reached over Tailscale.</p>
     </div>
-    <div class="rv">
-    <figure class="sheet" style="margin:0" aria-labelledby="topo-cap">
-      <div class="topo-scroll">
-      <svg class="topo" id="topo" viewBox="0 0 1200 704" role="group" aria-labelledby="topo-t topo-d">
-        <title id="topo-t">Homelab topology, pve</title>
-        <desc id="topo-d">Homelab topology in three layers: network, host and containers, and drive. Network: the Internet reaches the router only through two port forwards, one game port each to CT 110 and CT 111; all other inbound traffic is denied. The router serves a private home LAN. A Tailscale tailnet overlays it: the host advertises the home subnet, and desktop-main, desktop-secondary, and a phone are members. Host: pve, a GMKTec K12 mini PC with a Ryzen 7 H255 and 32 GB RAM running Proxmox VE 9.2, SSH key only, firewall default deny inbound. Containers: Games group with CT 110 mc-vanilla and CT 111 cte2 (live) and CT 112 terraria (planned); Services group with CT 120 tools, CT 121 vault, CT 123 ai and CT 125 dns (all live); Lab group with CT 124 linuxlab (setting up). CT 121 serves the Home Hub that links the services. CT 123 reaches a model API on desktop-main over Tailscale. CT 125 serves DNS over TLS to the phone. Drive: one internal drive shared by everything, holding the 500 GB vault data volume owned by CT 121; CT 110 and CT 111 read their Minecraft folders from it through the host, and CT 111 writes backups there. Every container blocks outbound traffic to the LAN.</desc>
-        <defs>
-          <pattern id="bp-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M20 0H0V20" fill="none" stroke="rgba(160,200,255,.08)" stroke-width="1"/>
-          </pattern>
-          <path id="pk-p3" d="M300 100V140H600V186"/><path id="pk-p8" d="M556 616V456H214V380"/>
-        </defs>
-        <rect class="bg" width="1200" height="704" fill="url(#bp-grid)"/>
+    <div class="lab rv">
+      <ul class="lab-facts">
+        <li><b>2</b><span>ports open to the Internet, one for each public game server</span></li>
+        <li><b>8</b><span>containers on one mini PC: 6 live, 1 setting up, 1 planned</span></li>
+        <li><b>0</b><span>containers that can open a connection to the home LAN</span></li>
+      </ul>
 
-        <!-- layer frames and labels (decoration) -->
-        <g class="deco" aria-hidden="true">
-          <text class="layer" transform="translate(12 128) rotate(-90)">NETWORK</text>
-          <text class="layer" transform="translate(12 520) rotate(-90)">HOST / CONTAINERS</text>
-          <text class="layer" transform="translate(12 680) rotate(-90)">DRIVE</text>
-          <rect class="frame host" x="20" y="186" width="1160" height="398" rx="5"/>
-          <rect class="frame tail" x="800" y="18" width="376" height="110" rx="8"/>
-          <rect class="grp games" x="40" y="258" width="348" height="134" rx="4"/>
-          <rect class="grp svc" x="404" y="258" width="460" height="162" rx="4"/>
-          <rect class="grp lab" x="880" y="258" width="124" height="134" rx="4"/>
-          <text class="grp-t games" x="112" y="279">GAMES</text>
-          <text class="grp-t svc" x="414" y="279">SERVICES  CT 120, 121, 123, 125</text>
-          <text class="grp-t lab" x="890" y="279">LAB  CT 124</text>
-          <rect class="bind" x="36" y="440" width="1128" height="58" rx="3"/>
-          <text class="lbl" x="1152" y="490" text-anchor="end">host bind mounts: CT 110 and CT 111 reach the vault volume through pve</text>
-          <text class="lbl" x="36" y="568">* Every container blocks outbound traffic to the LAN (not drawn).</text>
-          <text class="lbl" x="1164" y="568" text-anchor="end">pve firewall: default deny inbound</text>
-          <rect class="frame drv" x="20" y="604" width="1160" height="88" rx="5"/>
-          <!-- firewall at the WAN edge -->
-          <rect class="fw" x="170" y="44" width="12" height="56"/>
-          <path class="fw-l" d="M170 54h12M170 88h12M176 44v10M176 88v12"/>
-          <text class="lbl" x="176" y="116" text-anchor="middle">deny</text>
-          <text class="callout" x="346" y="62">2 forwards, all else denied</text>
-          <text class="lbl" x="346" y="78">one game port each to CT 110 and CT 111</text>
-          <text class="lbl" x="1164" y="208" text-anchor="end">tailnet: advertises the home subnet</text>
-          <text class="lbl" x="620" y="414">Home Hub links (CT 121)</text>
-        </g>
-
-        <!-- links -->
-        <g class="lns" aria-hidden="true">
-<path id="ln-f1" class="ln k-pub" data-l="f1" data-ends="inet router ct110" d="M140 64H232V160H102V290"/>
-<path id="ln-f2" class="ln k-pub" data-l="f2" data-ends="inet router ct111" d="M140 78H252V172H214V290"/>
-<path id="ln-up" class="ln k-lan" data-l="up" data-ends="router lan" d="M300 100V140"/>
-<path id="ln-bus" class="ln k-lan k-bus" data-l="bus" data-ends="lan" d="M180 140H740"/>
-<path id="ln-hl" class="ln k-lan" data-l="hl" data-ends="lan pve" d="M600 140V186"/>
-<path id="ln-sub" class="ln k-tail" data-l="sub" data-ends="pve tailnet" d="M1150 186V128"/>
-<path id="ln-ai" class="ln k-tail" data-l="ai" data-ends="ct123 dm tailnet" d="M678 290V150H860V112"/>
-<path id="ln-dns" class="ln k-tail" data-l="dns" data-ends="ct125 phone tailnet" d="M802 290V160H1118V112"/>
-<path id="ln-h120" class="ln k-hub" data-l="h120" data-ends="ct121 ct120" d="M578 380V398H466V380"/>
-<path id="ln-h123" class="ln k-hub" data-l="h123" data-ends="ct121 ct123" d="M578 398H690V380"/>
-<path id="ln-h125" class="ln k-hub" data-l="h125" data-ends="ct121 ct125" d="M578 398H802V380"/>
-<path id="ln-b110" class="ln k-store" data-l="b110" data-ends="ct110 pve vault" d="M102 380V470H540V616"/>
-<path id="ln-b111" class="ln k-store" data-l="b111" data-ends="ct111 pve vault" d="M214 380V456H556V616"/>
-<path id="ln-m121" class="ln k-store" data-l="m121" data-ends="ct121 vault" d="M610 380V616"/>
-        </g>
-
-        <!-- port callouts -->
-        <g class="pts" aria-hidden="true">
-          <g class="pt pub" data-l="f1"><rect x="68" y="222" width="68" height="15" rx="2"/><text x="102" y="233.5" text-anchor="middle">game port</text></g>
-          <g class="pt pub" data-l="f2"><rect x="180" y="222" width="68" height="15" rx="2"/><text x="214" y="233.5" text-anchor="middle">game port</text></g>
-          <g class="pt " data-l="hl"><rect x="579" y="155" width="42" height="15" rx="2"/><text x="600" y="166.5" text-anchor="middle">vmbr0</text></g>
-          <g class="pt tail" data-l="sub"><rect x="1126" y="160" width="48" height="15" rx="2"/><text x="1150" y="171.5" text-anchor="middle">subnet</text></g>
-          <g class="pt tail" data-l="ai"><rect x="640" y="162" width="76" height="15" rx="2"/><text x="678" y="173.5" text-anchor="middle">model API</text></g>
-          <g class="pt tail" data-l="dns"><rect x="966" y="152" width="88" height="15" rx="2"/><text x="1010" y="163.5" text-anchor="middle">DNS over TLS</text></g>
-          <g class="pt " data-l="b110"><rect x="56" y="404" width="92" height="15" rx="2"/><text x="102" y="415.5" text-anchor="middle">mc data, read</text></g>
-          <g class="pt " data-l="b111"><rect x="155.5" y="422" width="117" height="15" rx="2"/><text x="214" y="433.5" text-anchor="middle">mc data + backups</text></g>
-          <g class="pt " data-l="m121"><rect x="570.5" y="532" width="79" height="15" rx="2"/><text x="610" y="543.5" text-anchor="middle">CT 121 data</text></g>
-        </g>
-
-        <!-- packets (hidden under reduced motion) -->
-        <g class="pks" aria-hidden="true">
-<circle class="pk" data-l="f1" r="3.4"><animateMotion dur="4.8s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f1"/></animateMotion></circle>
-<circle class="pk" data-l="f1" r="3.4"><animateMotion dur="4.8s" begin="2.4s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f1"/></animateMotion></circle>
-<circle class="pk" data-l="f2" r="3.4"><animateMotion dur="5.3s" begin="1.3s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f2"/></animateMotion></circle>
-<circle class="pk" data-l="hl" r="3.4"><animateMotion dur="3.1s" begin="0.6s" repeatCount="indefinite" rotate="auto"><mpath href="#pk-p3"/></animateMotion></circle>
-<circle class="pk" data-l="ai" r="3.4"><animateMotion dur="3.9s" begin="0.3s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-ai"/></animateMotion></circle>
-<circle class="pk" data-l="dns" r="3.4"><animateMotion dur="4.5s" begin="1.7s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-dns"/></animateMotion></circle>
-<circle class="pk" data-l="b110" r="3.4"><animateMotion dur="6.2s" begin="0.8s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-b110"/></animateMotion></circle>
-<circle class="pk" data-l="b111" r="3.4"><animateMotion dur="6.7s" begin="2.8s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-b111"/></animateMotion></circle>
-<circle class="pk" data-l="b111" r="3.4"><animateMotion dur="6.7s" begin="6.2s" repeatCount="indefinite" rotate="auto"><mpath href="#pk-p8"/></animateMotion></circle>
-<circle class="pk" data-l="m121" r="3.4"><animateMotion dur="4.2s" begin="1.4s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-m121"/></animateMotion></circle>
-<circle class="pk" data-l="h120" r="3.4"><animateMotion dur="3.6s" begin="0.4s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-h120"/></animateMotion></circle>
-<circle class="pk" data-l="h123" r="3.4"><animateMotion dur="3.6s" begin="2.1s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-h123"/></animateMotion></circle>
-        </g>
-
-        <!-- nodes: network row -->
-        <g class="nd edge" data-id="inet" tabindex="0" role="button" aria-pressed="false" aria-label="Internet, edge, untrusted">
-          <path class="box" d="M44 92h92a18 18 0 0 0 4-36a28 28 0 0 0-52-10a20 20 0 0 0-30 14a16 16 0 0 0-14 32z"/>
-          <text x="92" y="80" text-anchor="middle">Internet</text>
-        </g>
-        <g class="nd " data-id="router" tabindex="0" role="button" aria-pressed="false" aria-label="Router, live">
-          <path class="gl" d="M222 40V27M308 40V27"/>
-          <rect class="box" x="200" y="40" width="130" height="60" rx="3"/>
-          <path class="gl" d="M212 88h4M220 88h4M228 88h4M236 88h4"/>
-          <text x="265" y="62" text-anchor="middle">router</text>
-          <text class="lbl" x="265" y="78" text-anchor="middle">gateway</text>
-        </g>
-        <g class="nd " data-id="lan" tabindex="0" role="button" aria-pressed="false" aria-label="Home LAN, live">
-          <path class="hit" d="M180 140H740"/>
-          <text x="372" y="132">Home LAN</text>
-          <text class="lbl" x="440" y="132">private /24</text>
-        </g>
-        <g class="nd tl" data-id="tailnet" tabindex="0" role="button" aria-pressed="false" aria-label="Tailscale tailnet, live">
-          <rect class="hit-r" x="806" y="22" width="220" height="22"/>
-          <text class="tl-t" x="814" y="38">Tailscale tailnet</text>
-          <text class="lbl" x="950" y="38">overlay</text>
-        </g>
-        <g class="nd dev" data-id="dm" tabindex="0" role="button" aria-pressed="false" aria-label="desktop-main, live">
-          <rect class="box" x="812" y="48" width="120" height="64" rx="3"/>
-          <path class="gl" d="M822 56h24v15h-24zM830 75h8M834 71v4"/>
-          <text class="lbl" x="854" y="68">tailnet</text>
-          <text class="nm2" x="822" y="92">desktop-main</text>
-          <text class="lbl" x="822" y="106">model host</text>
-        </g>
-        <g class="nd dev" data-id="ds" tabindex="0" role="button" aria-pressed="false" aria-label="desktop-secondary, live">
-          <rect class="box" x="940" y="48" width="132" height="64" rx="3"/>
-          <path class="gl" d="M950 56h24v15h-24zM958 75h8M962 71v4"/>
-          <text class="lbl" x="982" y="68">tailnet</text>
-          <text class="nm2 sm" x="950" y="92">desktop-secondary</text>
-          <text class="lbl" x="950" y="106">second PC</text>
-        </g>
-        <g class="nd dev" data-id="phone" tabindex="0" role="button" aria-pressed="false" aria-label="phone, live">
-          <rect class="box" x="1080" y="48" width="86" height="64" rx="3"/>
-          <rect class="gl" x="1090" y="55" width="12" height="20" rx="2"/>
-          <text class="lbl" x="1108" y="68">tailnet</text>
-          <text class="nm2" x="1090" y="92">phone</text>
-          <text class="lbl" x="1090" y="106">mobile</text>
-        </g>
-
-        <!-- host -->
-        <g class="nd host" data-id="pve" tabindex="0" role="button" aria-pressed="false" aria-label="pve, Proxmox VE 9.2, live">
-          <rect class="box" x="252" y="194" width="470" height="56" rx="3"/>
-          <rect class="gl" x="262" y="205" width="28" height="20" rx="3"/>
-          <circle class="led-live" cx="270" cy="219" r="2"/><path class="gl" d="M276 219h8"/>
-          <text class="nm" x="300" y="211">pve</text>
-          <text class="lbl" x="334" y="211">static LAN address</text>
-          <text class="lbl" x="300" y="227">GMKTec K12 mini PC · Ryzen 7 H255 · 32 GB RAM · Proxmox VE 9.2</text>
-          <text class="lbl soft" x="300" y="242">SSH key only · firewall default deny inbound</text>
-        </g>
-
-        <!-- containers -->
-<g class="nd ct games st-live" data-id="ct110" tabindex="0" role="button" aria-pressed="false" aria-label="CT 110 mc-vanilla, live">
-  <rect class="box" x="50" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="50" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M60 304h16v12h-16zM60 308h16M64 312h3M69 312h3"/>
-  <text class="lbl" x="82" y="314">CT 110</text>
-  <circle class="led-live" cx="142" cy="310" r="4.5"/>
-  <text class="nm" x="60" y="340">mc-vanilla</text>
-  <text class="lbl" x="60" y="357">Paper server</text>
-  <text class="lbl soft" x="60" y="372">public port</text>
-</g>
-<g class="nd ct games st-live" data-id="ct111" tabindex="0" role="button" aria-pressed="false" aria-label="CT 111 cte2, live">
-  <rect class="box" x="162" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="162" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M172 304h16v12h-16zM172 308h16M176 312h3M181 312h3"/>
-  <text class="lbl" x="194" y="314">CT 111</text>
-  <circle class="led-live" cx="254" cy="310" r="4.5"/>
-  <text class="nm" x="172" y="340">cte2</text>
-  <text class="lbl" x="172" y="357">ATM9 modded</text>
-  <text class="lbl soft" x="172" y="372">public port</text>
-</g>
-<g class="nd ct games st-planned" data-id="ct112" tabindex="0" role="button" aria-pressed="false" aria-label="CT 112 terraria, planned">
-  <rect class="box" x="274" y="290" width="104" height="90" rx="3"/>
-  
-  <path class="gl" d="M284 304h16v12h-16zM284 308h16M288 312h3M293 312h3"/>
-  <text class="lbl" x="306" y="314">CT 112</text>
-  <circle class="led-plan" cx="366" cy="310" r="4.5"/>
-  <text class="nm" x="284" y="340">terraria</text>
-  <text class="lbl" x="284" y="357">Terraria</text>
-  <text class="lbl soft" x="284" y="372">not built</text>
-</g>
-<g class="nd ct svc st-live" data-id="ct120" tabindex="0" role="button" aria-pressed="false" aria-label="CT 120 tools, live">
-  <rect class="box" x="414" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="414" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M424 304h16v12h-16zM424 308h16M428 312h3M433 312h3"/>
-  <text class="lbl" x="446" y="314">CT 120</text>
-  <circle class="led-live" cx="506" cy="310" r="4.5"/>
-  <text class="nm" x="424" y="340">tools</text>
-  <text class="lbl" x="424" y="357">tools pages</text>
-  <text class="lbl soft" x="424" y="372">tailnet HTTPS</text>
-</g>
-<g class="nd ct svc st-live" data-id="ct121" tabindex="0" role="button" aria-pressed="false" aria-label="CT 121 vault, live">
-  <rect class="box" x="526" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="526" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M536 304h16v12h-16zM536 308h16M540 312h3M545 312h3"/>
-  <text class="lbl" x="558" y="314">CT 121</text>
-  <circle class="led-live" cx="618" cy="310" r="4.5"/>
-  <text class="nm" x="536" y="340">vault</text>
-  <text class="lbl" x="536" y="357">files + hub</text>
-  <text class="lbl soft" x="536" y="372">tailnet + LAN</text>
-</g>
-<g class="nd ct svc st-live" data-id="ct123" tabindex="0" role="button" aria-pressed="false" aria-label="CT 123 ai, live">
-  <rect class="box" x="638" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="638" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M760 304h16v12h-16zM760 308h16M764 312h3M769 312h3"/>
-  <text class="lbl" x="670" y="314">CT 123</text>
-  <circle class="led-live" cx="730" cy="310" r="4.5"/>
-  <text class="nm" x="648" y="340">ai</text>
-  <text class="lbl" x="648" y="357">AI front end</text>
-  <text class="lbl soft" x="648" y="372">tailnet HTTPS</text>
-</g>
-<g class="nd ct svc st-live" data-id="ct125" tabindex="0" role="button" aria-pressed="false" aria-label="CT 125 dns, live">
-  <rect class="box" x="750" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="750" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M872 304h16v12h-16zM872 308h16M876 312h3M881 312h3"/>
-  <text class="lbl" x="782" y="314">CT 125</text>
-  <circle class="led-live" cx="842" cy="310" r="4.5"/>
-  <text class="nm" x="760" y="340">dns</text>
-  <text class="lbl" x="760" y="357">AdGuard DNS</text>
-  <text class="lbl soft" x="760" y="372">tailnet DoT</text>
-</g>
-<g class="nd ct lab st-setup" data-id="ct124" tabindex="0" role="button" aria-pressed="false" aria-label="CT 124 linuxlab, setting up">
-  <rect class="box" x="890" y="290" width="104" height="90" rx="3"/>
-  <rect class="band" x="890" y="290" width="104" height="4" rx="1"/>
-  <path class="gl" d="M1012 304h16v12h-16zM1012 308h16M1016 312h3M1021 312h3"/>
-  <text class="lbl" x="922" y="314">CT 124</text>
-  <g class="blink"><circle class="led-ring" cx="982" cy="310" r="4.5"/><path class="led-half" d="M982 305.5A4.5 4.5 0 0 0 982 314.5Z"/></g>
-  <text class="nm" x="900" y="340">linuxlab</text>
-  <text class="lbl" x="900" y="357">practice box</text>
-  <text class="lbl soft" x="900" y="372">LAN SSH</text>
-</g>
-
-        <!-- drive -->
-        <g class="nd drv" data-id="drive" tabindex="0" role="button" aria-pressed="false" aria-label="Single internal drive, live">
-          <rect class="box" x="32" y="614" width="440" height="68" rx="3"/>
-          <rect class="gl" x="44" y="632" width="30" height="22" rx="3"/>
-          <circle class="gl" cx="66" cy="643" r="5"/><path class="gl" d="M48 648h8"/>
-          <text class="nm" x="86" y="642">Single internal drive</text>
-          <text class="lbl" x="86" y="660">pve and every container disk share it</text>
-        </g>
-        <g class="nd vol svc" data-id="vault" tabindex="0" role="button" aria-pressed="false" aria-label="vault data volume, live">
-          <rect class="box" x="500" y="616" width="240" height="64" rx="3"/>
-          <path class="gl" d="M512 632a10 4 0 0 0 20 0a10 4 0 0 0-20 0v20a10 4 0 0 0 20 0v-20"/>
-          <text class="nm" x="542" y="642">vault data volume</text>
-          <text class="lbl" x="542" y="660">500 GB · belongs to CT 121</text>
-        </g>
-      </svg>
-      </div>
-      <p class="topo-hint" aria-hidden="true">Scroll sideways to see the whole drawing. Tap a device to trace it.</p>
-      <div class="topo-foot">
-        <div class="readout" id="topo-ro">
-          <div class="ro-head" aria-hidden="true"><span>pve:~# show node <span id="ro-id">all</span><span class="cur"></span></span><span>hover, focus or tap</span></div>
-          <dl aria-live="polite">
-            <div><dt>name</dt><dd id="ro-name">pve homelab, 1 host, 8 containers</dd></div>
-            <div><dt>role</dt><dd id="ro-ip">Proxmox host on a private home LAN</dd></div>
-            <div><dt>reached</dt><dd id="ro-reach">Two public game ports; everything else over Tailscale or the LAN. Select a device to trace its links.</dd></div>
-            <div><dt>status</dt><dd id="ro-st"><span class="ro-led live"></span>containers: 6 live, 1 setting up, 1 planned</dd></div>
-          </dl>
+      <div class="lab-trace">
+        <div class="lab-chips" role="group" aria-label="Trace a path through the lab">
+          <span class="lab-lbl" aria-hidden="true">Trace a path</span>
+          <button class="lab-chip" type="button" data-s="overview" aria-pressed="true">Overview</button>
+          <button class="lab-chip" type="button" data-s="game" aria-pressed="false">A friend joins Minecraft</button>
+          <button class="lab-chip" type="button" data-s="deny" aria-pressed="false">Anything else from the Internet</button>
+          <button class="lab-chip" type="button" data-s="files" aria-pressed="false">My files, from my phone</button>
+          <button class="lab-chip" type="button" data-s="ai" aria-pressed="false">Ask the AI front end</button>
+          <button class="lab-chip" type="button" data-s="dns" aria-pressed="false">A DNS lookup</button>
         </div>
-        <ul class="legend" role="list" aria-label="Legend">
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="1" y="1" width="24" height="10" rx="2" class="lg-games"/></svg>Games</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="1" y="1" width="24" height="10" rx="2" class="lg-svc"/></svg>Services</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="1" y="1" width="24" height="10" rx="2" class="lg-lab"/></svg>Lab</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><circle cx="13" cy="6" r="4.5" class="led-live"/></svg>live</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><g class="blink"><circle cx="13" cy="6" r="4.5" class="led-ring"/><path class="led-half" d="M13 1.5A4.5 4.5 0 0 0 13 10.5Z"/></g></svg>setting up</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><circle cx="13" cy="6" r="4.5" class="led-plan"/></svg>planned (dashed)</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><path d="M1 6h24" class="lg-pub"/></svg>public forward</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><path d="M1 6h24" class="lg-lan"/></svg>LAN / host</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><path d="M1 6h24" class="lg-tail"/></svg>Tailscale</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><path d="M1 6h24" class="lg-store"/></svg>storage mount</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><path d="M1 6h24" class="lg-hub"/></svg>Home Hub link</li>
-          <li><svg viewBox="0 0 26 12" aria-hidden="true"><circle cx="13" cy="6" r="3.4" fill="#FFB547"/></svg>traffic</li>
-        </ul>
+        <div class="lab-cap" aria-live="polite">
+          <span class="lab-step" id="lab-step">Overview</span>
+          <div id="lab-body"><p>Two game ports are open to the Internet. Everything else is reached over Tailscale. Pick a path to trace, or point at any device.</p></div>
+          <button class="lab-replay" id="lab-replay" type="button" hidden>Replay</button>
+        </div>
       </div>
-      <details class="topo-alt">
-        <summary>Read the topology as text</summary>
+
+      <div class="lab-stage" id="lab-stage">
+        <svg class="dg" id="dg" role="group" aria-label="Homelab diagram. Internet, router, the pve host with eight containers and its storage, and the Tailscale tailnet with three devices."></svg>
+        <div class="lab-pop" id="lab-pop" hidden></div>
+      </div>
+
+      <ul class="lab-legend" aria-label="Legend">
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" stroke="var(--acc)" stroke-width="2" fill="none"/></svg>open to the Internet</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" stroke="var(--tail)" stroke-width="2" stroke-dasharray="5 4" fill="none"/></svg>Tailscale only</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" stroke="var(--mut)" stroke-width="2" fill="none"/></svg>home LAN</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" stroke="var(--mut)" stroke-width="2.2" stroke-dasharray="1.5 5" stroke-linecap="round" fill="none"/></svg>storage</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="var(--fg)"/></svg>live</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="none" stroke="var(--fg)" stroke-width="1.3"/><path d="M15 1.5a3.5 3.5 0 0 0 0 7z" fill="var(--fg)"/></svg>setting up</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="none" stroke="var(--mut)" stroke-width="1.2" stroke-dasharray="2 2"/></svg>planned</li>
+      </ul>
+
+      <details class="lab-text">
+        <summary>Read the diagram as text</summary>
         <ul>
           <li>Internet: only two router port forwards come in, one game port each to CT 110 and CT 111. All else is denied.</li>
           <li>Router: gateway for a private home LAN.</li>
           <li>Tailscale tailnet: pve advertises the home subnet. Members: desktop-main (home PC, model host), desktop-secondary (second PC), phone.</li>
           <li>Host pve: GMKTec K12 mini PC, Ryzen 7 H255, 32 GB RAM, Proxmox VE 9.2. SSH key only, firewall default deny inbound.</li>
           <li>Games: CT 110 mc-vanilla (Minecraft Paper, public, live); CT 111 cte2 (Minecraft ATM9 modded, public, live); CT 112 terraria (planned).</li>
-          <li>Services: CT 120 tools (tools pages over the tailnet, live, being retired into the hub); CT 121 vault (file vault, Home Hub, portfolio; tailnet HTTPS and a LAN file share; live); CT 123 ai (Odysseus AI front end over the tailnet, live); CT 125 dns (AdGuard Home, DNS over TLS on the tailnet, live).</li>
-          <li>Lab: CT 124 linuxlab (disposable Linux practice machine, LAN SSH from the desktop only, setting up).</li>
-          <li>CT 121 serves the Home Hub linking the other services. CT 123 reaches the model API on desktop-main over Tailscale, and is the only container allowed to. CT 125 serves DNS to the phone over Tailscale.</li>
-          <li>Drive: one internal drive shared by everything. It holds the 500 GB vault data volume of CT 121; CT 110 and CT 111 read their Minecraft folders from it through the host, and CT 111 writes backups there.</li>
+          <li>Services: CT 120 tools (live, being retired into the hub); CT 121 vault (file vault, Home Hub, portfolio; live); CT 123 ai (Odysseus AI front end, live); CT 125 dns (AdGuard Home, DNS over TLS on the tailnet, live).</li>
+          <li>Lab: CT 124 linuxlab (disposable Linux practice machine, setting up).</li>
+          <li>Drive: one internal drive shared by everything. It holds the 500 GB vault data volume of CT 121. CT 110 and CT 111 read their Minecraft folders from it through the host.</li>
           <li>Every container blocks outbound traffic to the LAN.</li>
         </ul>
       </details>
-      <figcaption class="titleblock" id="topo-cap">
-        <span>Drawing<b>CJ-01</b></span>
-        <span>Title<b>Homelab, pve</b></span>
-        <span>Drawn by<b>C. Jones</b></span>
-        <span>Revision<b>2026.11</b></span>
-        <span>Scale<b>NTS</b></span>
-      </figcaption>
-    </figure>
     </div>
   </div>
 </section>
@@ -2126,131 +1888,434 @@ dlg.addEventListener('keydown', e => {
 })();
 </script>
 <script>
-/* hero topology: highlight, readout, touch and keyboard */
+/* homelab diagram: drawn from the data below, with paths you can play */
 (function () {
-  const svg = document.getElementById('topo');
-  if (!svg) return;
-  const DATA = {"inet": {"name": "Internet", "ip": "WAN (public address not shown)", "reach": "Two router port forwards only, one game port each to CT 110 and CT 111. All other inbound is denied.", "status": "edge"}, "router": {"name": "Router", "ip": "home gateway", "reach": "Gateway for the home LAN. Forwards the two game ports inward; everything else from the Internet is dropped.", "status": "live"}, "lan": {"name": "Home LAN", "ip": "private /24", "reach": "Router and pve on the wire. Tailnet devices reach it through the subnet route that pve advertises.", "status": "live"}, "tailnet": {"name": "Tailscale tailnet", "ip": "overlay network", "reach": "pve advertises the home subnet into the tailnet. Members: desktop-main, desktop-secondary, phone.", "status": "live"}, "dm": {"name": "desktop-main", "ip": "home PC, model host", "reach": "Serves a model API over Tailscale, to CT 123 only.", "status": "live"}, "ds": {"name": "desktop-secondary", "ip": "second PC", "reach": "Reaches the lab over Tailscale.", "status": "live"}, "phone": {"name": "phone", "ip": "mobile", "reach": "Reaches the services over Tailscale and resolves DNS through CT 125 (DNS over TLS).", "status": "live"}, "pve": {"name": "pve, Proxmox VE 9.2", "ip": "Proxmox VE 9.2 host", "reach": "GMKTec K12 mini PC, Ryzen 7 H255, 32 GB RAM. SSH key only, host firewall default deny inbound. Subnet router for the tailnet.", "status": "live"}, "ct110": {"name": "CT 110 mc-vanilla", "ip": "Minecraft Paper server", "reach": "Public through one router port forward. Reads its Minecraft folder from the vault volume through the host. Outbound to the LAN is blocked.", "status": "live"}, "ct111": {"name": "CT 111 cte2", "ip": "Minecraft ATM9 modded server", "reach": "Public through one router port forward. Reads its Minecraft folder from the vault volume and writes backups there. Outbound to the LAN is blocked.", "status": "live"}, "ct112": {"name": "CT 112 terraria", "ip": "Terraria server", "reach": "Terraria server, planned. Not built yet.", "status": "planned"}, "ct120": {"name": "CT 120 tools", "ip": "tools pages", "reach": "Over the tailnet (HTTPS). Being retired into the Home Hub. Outbound to the LAN is blocked.", "status": "live"}, "ct121": {"name": "CT 121 vault", "ip": "file vault, Home Hub, portfolio", "reach": "Over the tailnet (HTTPS) plus a file share on the LAN. Owns the 500 GB vault data volume. Outbound to the LAN is blocked.", "status": "live"}, "ct123": {"name": "CT 123 ai", "ip": "Odysseus AI front end", "reach": "Over the tailnet (HTTPS). The only container allowed to reach the model API on desktop-main. Outbound to the LAN is blocked.", "status": "live"}, "ct124": {"name": "CT 124 linuxlab", "ip": "disposable Linux practice machine", "reach": "Disposable Linux practice machine. SSH on the LAN, from the desktop only. Outbound to the LAN is blocked.", "status": "setup"}, "ct125": {"name": "CT 125 dns", "ip": "AdGuard Home DNS", "reach": "DNS over TLS, over the tailnet. Serves the phone. Outbound to the LAN is blocked.", "status": "live"}, "vault": {"name": "vault data volume", "ip": "500 GB on the internal drive", "reach": "Belongs to CT 121. CT 110 and CT 111 read their Minecraft folders from it through the host; CT 111 also writes backups here.", "status": "live"}, "drive": {"name": "Single internal drive", "ip": "host storage", "reach": "Holds pve, every container disk, and the vault data volume. Everything shares this one drive.", "status": "live"}};
-  const ST = {"live":"live","setup":"setting up","planned":"planned","edge":"edge, untrusted"};
-  const CTS = ['ct110','ct111','ct112','ct120','ct121','ct123','ct124','ct125'];
-  const EXTRA = {
-    pve: CTS.concat(['lan','drive','vault']),
-    tailnet: ['dm','ds','phone','pve'],
-    lan: ['router','pve'],
-    drive: ['pve','vault'],
-    vault: ['drive'],
-    ds: ['tailnet'],
-    phone: ['tailnet'],
-    dm: ['tailnet'],
-    ct112: ['pve'],
-    ct124: ['pve']
-  };
-  const nodes = Array.from(svg.querySelectorAll('.nd[data-id]'));
-  const links = Array.from(svg.querySelectorAll('.ln[data-l]'));
-  const linked = Array.from(svg.querySelectorAll('[data-l]'));
-  const ro = {
-    id: document.getElementById('ro-id'),
-    name: document.getElementById('ro-name'),
-    ip: document.getElementById('ro-ip'),
-    reach: document.getElementById('ro-reach'),
-    st: document.getElementById('ro-st')
-  };
-  const def = {
-    name: ro.name.textContent, ip: ro.ip.textContent,
-    reach: ro.reach.textContent, st: ro.st.innerHTML
-  };
-  let pinned = null;
-  let current = null;
+  'use strict';
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('dg'), stage = document.getElementById('lab-stage'), pop = document.getElementById('lab-pop');
+  const capStep = document.getElementById('lab-step'), capBody = document.getElementById('lab-body'), replay = document.getElementById('lab-replay');
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wideMQ = window.matchMedia('(min-width: 861px)');
+  const el = (n, a, kids) => { const e = document.createElementNS(NS, n); for (const k in (a || {})) e.setAttribute(k, a[k]); (kids || []).forEach(c => e.append(c)); return e; };
+  const txt = (s, a) => { const t = el('text', a); t.textContent = s; return t; };
 
-  function related(id) {
-    const ids = new Set([id]);
-    const ls = new Set();
-    links.forEach(function (l) {
-      const ends = l.dataset.ends.split(' ');
-      if (ends.indexOf(id) !== -1) {
-        ls.add(l.dataset.l);
-        ends.forEach(function (e) { ids.add(e); });
+  /* ---- what each thing is. Wording carried over from the current diagram. ---- */
+  const N = {
+    inet:   { t: 'Internet', s: 'untrusted', kind: 'edge', st: 'edge', role: 'WAN (public address not shown)', reach: 'Two router port forwards only, one game port each to CT 110 and CT 111. All other inbound is denied.' },
+    router: { t: 'Router', s: 'home gateway', kind: 'net', st: 'live', role: 'home gateway', reach: 'Gateway for the home LAN. Forwards the two game ports inward; everything else from the Internet is dropped.' },
+    pve:    { t: 'pve', kind: 'host', st: 'live', role: 'Proxmox VE 9.2 host', reach: 'GMKTec K12 mini PC, Ryzen 7 H255, 32 GB RAM. SSH key only, host firewall default deny inbound. Subnet router for the tailnet.' },
+    ct110:  { tag: 'CT 110', t: 'mc-vanilla', s: 'Minecraft Paper', kind: 'ct', pub: 1, st: 'live', role: 'Minecraft Paper server', reach: 'Public through one router port forward. Reads its Minecraft folder from the vault volume through the host. Outbound to the LAN is blocked.' },
+    ct111:  { tag: 'CT 111', t: 'cte2', s: 'Minecraft ATM9', kind: 'ct', pub: 1, st: 'live', role: 'Minecraft ATM9 modded server', reach: 'Public through one router port forward. Reads its Minecraft folder from the vault volume and writes backups there. Outbound to the LAN is blocked.' },
+    ct112:  { tag: 'CT 112', t: 'terraria', s: 'not built yet', kind: 'ct', st: 'planned', role: 'Terraria server', reach: 'Terraria server, planned. Not built yet.' },
+    ct120:  { tag: 'CT 120', t: 'tools', s: 'tools pages', kind: 'ct', st: 'live', role: 'tools pages', reach: 'Over the tailnet (HTTPS). Being retired into the Home Hub. Outbound to the LAN is blocked.' },
+    ct121:  { tag: 'CT 121', t: 'vault', s: 'files + hub', kind: 'ct', st: 'live', role: 'file vault, Home Hub, portfolio', reach: 'Over the tailnet (HTTPS) plus a file share on the LAN. Owns the 500 GB vault data volume. Outbound to the LAN is blocked.' },
+    ct123:  { tag: 'CT 123', t: 'ai', s: 'AI front end', kind: 'ct', st: 'live', role: 'Odysseus AI front end', reach: 'Over the tailnet (HTTPS). The only container allowed to reach the model API on desktop-main. Outbound to the LAN is blocked.' },
+    ct125:  { tag: 'CT 125', t: 'dns', s: 'AdGuard Home', kind: 'ct', st: 'live', role: 'AdGuard Home DNS', reach: 'DNS over TLS, over the tailnet. Serves the phone. Outbound to the LAN is blocked.' },
+    ct124:  { tag: 'CT 124', t: 'linuxlab', s: 'practice box', kind: 'ct', st: 'setup', role: 'disposable Linux practice machine', reach: 'Disposable Linux practice machine. SSH on the LAN, from the desktop only. Outbound to the LAN is blocked.' },
+    vault:  { t: 'vault data volume', s: '500 GB, belongs to CT 121', sTall: '500 GB, CT 121', tTall: 'vault volume', kind: 'vol', st: 'live', role: '500 GB on the internal drive', reach: 'Belongs to CT 121. CT 110 and CT 111 read their Minecraft folders from it through the host; CT 111 also writes backups here.' },
+    dm:     { t: 'desktop-main', s: 'home PC, model host', kind: 'dev', st: 'live', role: 'home PC, model host', reach: 'Serves a model API over Tailscale, to CT 123 only.' },
+    ds:     { t: 'desktop-secondary', s: 'second PC', kind: 'dev', st: 'live', role: 'second PC', reach: 'Reaches the lab over Tailscale.' },
+    phone:  { t: 'phone', s: 'mobile', kind: 'dev', st: 'live', role: 'mobile', reach: 'Reaches the services over Tailscale and resolves DNS through CT 125 (DNS over TLS).' }
+  };
+  const ST = { live: 'live', setup: 'setting up', planned: 'planned', edge: 'untrusted' };
+
+  /* ---- link kinds ---- */
+  const K = { wan: 'lan', lan: 'lan', fwd110: 'pub', fwd111: 'pub', trunk: 'tail', t120: 'tail', t121: 'tail', t123: 'tail', t125: 'tail',
+              d_dm: 'tail', d_ds: 'tail', d_ph: 'tail', s121: 'store', sGames: 'store' };
+
+  /* ---- what lights up when you point at a device ---- */
+  const REL = {
+    inet:   { l: ['wan', 'fwd110', 'fwd111'], n: ['router', 'ct110', 'ct111'] },
+    router: { l: ['wan', 'fwd110', 'fwd111', 'lan'], n: ['inet', 'ct110', 'ct111', 'pve'] },
+    pve:    { l: ['lan', 'trunk'], n: ['router', 'ct110', 'ct111', 'ct112', 'ct120', 'ct121', 'ct123', 'ct125', 'ct124', 'vault'] },
+    ct110:  { l: ['wan', 'fwd110', 'sGames'], n: ['inet', 'router', 'vault'] },
+    ct111:  { l: ['wan', 'fwd111', 'sGames'], n: ['inet', 'router', 'vault'] },
+    ct112:  { l: [], n: [] },
+    ct120:  { l: ['t120', 'trunk'], n: ['ct121'] },
+    ct121:  { l: ['t121', 'trunk', 's121'], n: ['vault', 'ct120', 'ct123', 'ct125'] },
+    ct123:  { l: ['t123', 'trunk', 'd_dm'], n: ['dm', 'ct121'] },
+    ct125:  { l: ['t125', 'trunk', 'd_ph'], n: ['phone', 'ct121'] },
+    ct124:  { l: [], n: [] },
+    vault:  { l: ['s121', 'sGames'], n: ['ct121', 'ct110', 'ct111'] },
+    dm:     { l: ['d_dm', 'trunk', 't123'], n: ['ct123'] },
+    ds:     { l: ['d_ds', 'trunk'], n: [] },
+    phone:  { l: ['d_ph', 'trunk', 't125'], n: ['ct125'] }
+  };
+
+  /* ---- two drawings of the same lab: wide for desktops, tall for phones ---- */
+  const LAYOUT = {
+    wide: {
+      vb: [1180, 612],
+      nodes: {
+        inet: [24, 250, 146, 76], router: [214, 250, 146, 76],
+        ct110: [436, 132, 146, 76], ct111: [592, 132, 146, 76], ct112: [748, 132, 146, 76],
+        ct120: [436, 264, 108, 76], ct121: [552, 264, 108, 76], ct123: [668, 264, 108, 76], ct125: [784, 264, 108, 76],
+        ct124: [436, 404, 138, 76], vault: [436, 518, 300, 48],
+        dm: [986, 136, 154, 70], ds: [986, 216, 154, 70], phone: [986, 296, 154, 70]
+      },
+      frames: [
+        { id: 'host', cls: 'host', box: [400, 44, 530, 548] },
+        { id: 'games', cls: 'grp', box: [420, 104, 490, 118], label: 'GAMES', tag: 'public', tagCls: 'pub', lx: 436, ly: 122 },
+        { id: 'services', cls: 'grp', box: [420, 236, 490, 118], label: 'SERVICES', tag: 'tailnet only', tagCls: 'tail', lx: 436, ly: 254 },
+        { id: 'lab', cls: 'grp', box: [420, 376, 170, 118], label: 'LAB', lx: 436, ly: 394 },
+        { id: 'storage', cls: 'grp', box: [420, 508, 490, 68] },
+        { id: 'tailnet', cls: 'tailnet', box: [970, 104, 186, 280], label: 'TAILNET', tag: 'Tailscale', tagCls: 'tail', lx: 986, ly: 122 }
+      ],
+      host: { hit: [412, 52, 506, 36], x: 420, y: 76, lines: [['pve', 'Proxmox VE 9.2 · GMKTec K12 mini PC · Ryzen 7 H255 · 32 GB RAM']] },
+      wall: { x: 188, y: 240, h: 96, lx: 192, ly: 352 },
+      labels: [
+        { x: 24, y: 236, s: 'INTERNET', cls: 't-flabel' }, { x: 214, y: 208, s: '2 ports forwarded,', cls: 't-call' }, { x: 214, y: 223, s: 'everything else denied', cls: 't-call' },
+        { x: 214, y: 344, s: 'home LAN, private', cls: 't-sub' },
+        { x: 752, y: 538, s: 'one internal drive', cls: 't-title' }, { x: 752, y: 556, s: 'shared by everything', cls: 't-sub' },
+        { x: 970, y: 404, s: 'pve advertises the home', cls: 't-sub' }, { x: 970, y: 419, s: 'subnet into the tailnet', cls: 't-sub' }
+      ],
+      notes: [
+        { id: 'n-lan', x: 632, y: 414, lines: ['Every container blocks outbound', 'traffic to the LAN.'] },
+        { id: 'n-host', x: 632, y: 460, lines: ['Host firewall: default deny inbound.', 'SSH is key only.'] }
+      ],
+      links: {
+        wan: 'M170 288H214', lan: 'M360 312H400',
+        fwd110: 'M360 276H380V170H436', fwd111: 'M360 290H388V229H665V208',
+        trunk: 'M970 302H930',
+        t125: 'M930 302H892', t123: 'M930 302H914V365H722V340', t121: 'M930 302H914V365H590V340', t120: 'M930 302H914V365H490V340',
+        d_dm: 'M986 171H978V302H970', d_ds: 'M986 251H978V302H970', d_ph: 'M986 331H978V302H970',
+        s121: 'M602 340V518', sGames: 'M420 196H410V542H436'
+      }
+    },
+    tall: {
+      vb: [390, 862],
+      nodes: {
+        inet: [16, 16, 150, 60], router: [224, 16, 150, 60],
+        ct110: [38, 154, 98, 62], ct111: [146, 154, 98, 62], ct112: [254, 154, 98, 62],
+        ct120: [38, 264, 153, 62], ct121: [199, 264, 153, 62], ct123: [38, 334, 153, 62], ct125: [199, 334, 153, 62],
+        ct124: [38, 444, 143, 56], vault: [209, 444, 143, 56],
+        dm: [28, 668, 326, 44], ds: [28, 720, 326, 44], phone: [28, 772, 326, 44]
+      },
+      frames: [
+        { id: 'host', cls: 'host', box: [16, 116, 358, 500] },
+        { id: 'games', cls: 'grp', box: [28, 128, 334, 98], label: 'GAMES', tag: 'public', tagCls: 'pub', lx: 352, ly: 146, end: 1 },
+        { id: 'services', cls: 'grp', box: [28, 238, 334, 168], label: 'SERVICES', tag: 'tailnet only', tagCls: 'tail', lx: 38, ly: 256 },
+        { id: 'lab', cls: 'grp', box: [28, 418, 163, 92], label: 'LAB', lx: 38, ly: 436 },
+        { id: 'storage', cls: 'grp', box: [199, 418, 163, 92], label: 'STORAGE', lx: 209, ly: 436 },
+        { id: 'tailnet', cls: 'tailnet', box: [16, 650, 358, 196], label: 'TAILNET', tag: 'Tailscale', tagCls: 'tail', lx: 28, ly: 836 }
+      ],
+      host: { hit: [22, 568, 340, 44], x: 30, y: 588, lines: [['pve', 'Proxmox VE 9.2 · GMKTec K12 mini PC'], ['', 'Ryzen 7 H255 · 32 GB RAM']] },
+      wall: { x: 191, y: 14, h: 62, lx: 195, ly: 90 },
+      labels: [],
+      notes: [
+        { id: 'n-lan', x: 46, y: 538, lines: ['Every container blocks outbound traffic to the LAN.'] },
+        { id: 'n-host', x: 46, y: 556, lines: ['Host firewall: default deny inbound. SSH key only.'] }
+      ],
+      links: {
+        wan: 'M166 46H224', lan: 'M340 76V116',
+        fwd110: 'M262 76V102H87V154', fwd111: 'M284 76V109H195V154',
+        trunk: 'M368 650V616',
+        t120: 'M368 616V330H114V326', t121: 'M368 616V330H275V326', t123: 'M368 616V330H114V334', t125: 'M368 616V330H275V334',
+        d_dm: 'M354 690H368V650', d_ds: 'M354 742H368V650', d_ph: 'M354 794H368V650',
+        s121: 'M352 295H357V426H340V444', sGames: 'M28 196H22V518H280V500'
+      }
+    }
+  };
+
+  /* ---- the five paths. [link, direction]: 1 follows the drawn line, -1 runs it backwards ---- */
+  const SC = {
+    game: { steps: [
+      { say: 'A friend connects from the Internet. Only two ports are forwarded at the router.', from: ['inet'], path: [['wan', 1]], kind: 'lan', to: ['router'] },
+      { say: 'The router forwards one game port to CT 110, the Minecraft Paper server.', path: [['fwd110', 1]], kind: 'pub', to: ['ct110'] },
+      { say: 'CT 110 reads its Minecraft folder from the vault volume, through the host.', path: [['sGames', 1]], kind: 'store', to: ['vault'] },
+      { say: 'That is as far as it goes. CT 110 cannot open a connection to the rest of the LAN.', note: 'n-lan' }
+    ] },
+    deny: { steps: [
+      { say: 'Anything that is not one of the two game ports stops at the router.', from: ['inet'], path: [['wan', 1, 0.42]], kind: 'lan', deny: 1 },
+      { say: 'Behind it, the host has its own firewall with default deny inbound, and SSH is key only.', note: 'n-host', frame: 'host' }
+    ] },
+    files: { steps: [
+      { say: 'My phone is on the tailnet. pve advertises the home subnet into it.', from: ['phone'], path: [['d_ph', 1], ['trunk', 1]], kind: 'tail', frame: 'host' },
+      { say: 'Over the tailnet, HTTPS reaches CT 121, the file vault and Home Hub.', path: [['t121', 1]], kind: 'tail', to: ['ct121'] },
+      { say: 'CT 121 owns the 500 GB vault data volume.', path: [['s121', 1]], kind: 'store', to: ['vault'] }
+    ] },
+    ai: { steps: [
+      { say: 'From a tailnet device, HTTPS reaches CT 123, the AI front end.', from: ['ds'], path: [['d_ds', 1], ['trunk', 1], ['t123', 1]], kind: 'tail', to: ['ct123'] },
+      { say: 'CT 123 calls the model API on desktop-main over Tailscale. It is the only container allowed to.', path: [['t123', -1], ['trunk', -1], ['d_dm', -1]], kind: 'tail', to: ['dm'] }
+    ] },
+    dns: { steps: [
+      { say: 'The phone sends its DNS lookups over the tailnet, using DNS over TLS.', from: ['phone'], path: [['d_ph', 1], ['trunk', 1]], kind: 'tail' },
+      { say: 'CT 125 answers them with AdGuard Home.', path: [['t125', 1]], kind: 'tail', to: ['ct125'] }
+    ] }
+  };
+  const OVERVIEW = 'Two game ports are open to the Internet. Everything else is reached over Tailscale. Pick a path to trace, or point at any device.';
+
+  let mode = null, nodeEls = {}, glow = {}, frameEls = {}, noteEls = {}, wallG = null, pk = null;
+  let run = 0, current = 'overview', pinned = null;
+
+  /* ---- drawing ---- */
+  function statusDot(st, cx, cy) {
+    if (st === 'planned') return el('circle', { cx, cy, r: 3.6, class: 'sdot-p' });
+    if (st === 'setup') return el('g', {}, [el('circle', { cx, cy, r: 3.6, class: 'sdot-o' }), el('path', { d: `M${cx} ${cy - 3.6}a3.6 3.6 0 0 0 0 7.2z`, class: 'sdot' })]);
+    return el('circle', { cx, cy, r: 3.6, class: 'sdot' });
+  }
+  function drawNode(id, b) {
+    const d = N[id], [x, y, w, h] = b, tall = mode === 'tall';
+    const g = el('g', { class: 'nd ' + d.kind + (d.pub ? ' pub' : '') + (d.st === 'planned' ? ' planned' : ''), 'data-id': id, tabindex: 0, role: 'button',
+      'aria-label': `${d.tag ? d.tag + ' ' : ''}${d.t}, ${ST[d.st]}. ${d.role}. ${d.reach}` });
+    g.append(el('rect', { class: 'box', x, y, width: w, height: h, rx: 10 }));
+    const title = (tall && d.tTall) || d.t, sub = (tall && d.sTall) || d.s;
+    if (d.kind === 'dev' && h < 50) {
+      g.append(txt(title, { class: 't-title', x: x + 14, y: y + h / 2 + 4.5 }), txt(sub, { class: 't-sub', x: x + w - 14, y: y + h / 2 + 4, 'text-anchor': 'end' }));
+    } else if (d.tag) {
+      const big = h >= 70;
+      g.append(txt(d.tag, { class: 't-tag', x: x + 12, y: y + (big ? 20 : 17) }), statusDot(d.st, x + w - 14, y + (big ? 16 : 14)),
+        txt(title, { class: 't-title', x: x + 12, y: y + (big ? 44 : 36) }), txt(sub, { class: 't-sub', x: x + 12, y: y + (big ? 61 : 51) }));
+    } else {
+      const mid = y + h / 2;
+      g.append(txt(title, { class: 't-title', x: x + 14, y: mid - 1 }), txt(sub, { class: 't-sub', x: x + 14, y: mid + 15 }));
+    }
+    g.append(el('rect', { class: 'hit', x, y, width: w, height: h, rx: 10 }));
+    return g;
+  }
+  function build() {
+    mode = wideMQ.matches ? 'wide' : 'tall';
+    const L = LAYOUT[mode];
+    run++;
+    svg.setAttribute('viewBox', `0 0 ${L.vb[0]} ${L.vb[1]}`);
+    svg.setAttribute('class', 'dg ' + mode);
+    svg.replaceChildren();
+    nodeEls = {}; glow = {}; frameEls = {}; noteEls = {};
+    const gF = el('g'), gL = el('g', { 'aria-hidden': 'true' }), gG = el('g', { 'aria-hidden': 'true' }), gN = el('g'), gX = el('g', { 'aria-hidden': 'true' });
+
+    L.frames.forEach(f => {
+      const [x, y, w, h] = f.box;
+      const r = el('rect', { class: 'frame ' + f.cls, x, y, width: w, height: h, rx: f.cls === 'host' ? 18 : 12 });
+      frameEls[f.id] = r; gF.append(r);
+      if (f.label) {
+        const t = el('text', { x: f.lx, y: f.ly, 'aria-hidden': 'true' });
+        if (f.end) t.setAttribute('text-anchor', 'end');
+        const a = el('tspan', { class: 't-flabel' }); a.textContent = f.label; t.append(a);
+        if (f.tag) { const s = el('tspan', { class: 't-ftag ' + (f.tagCls || ''), dx: 8 }); s.textContent = f.tag; t.append(s); }
+        gF.append(t);
       }
     });
-    (EXTRA[id] || []).forEach(function (e) { ids.add(e); });
-    if (id === 'lan') { ls.add('bus'); ls.add('up'); ls.add('hl'); }
-    if (id === 'pve') { ls.add('bus'); }
-    return { ids: ids, ls: ls };
-  }
-
-  function write(id) {
-    const d = DATA[id];
-    ro.id.textContent = id;
-    ro.name.textContent = d.name;
-    ro.ip.textContent = d.ip;
-    ro.reach.textContent = d.reach;
-    ro.st.textContent = '';
-    const dot = document.createElement('span');
-    dot.className = 'ro-led ' + d.status;
-    ro.st.appendChild(dot);
-    ro.st.appendChild(document.createTextNode(ST[d.status]));
-  }
-
-  function show(id) {
-    if (current === id) return;
-    current = id;
-    const r = related(id);
-    svg.classList.add('has-sel');
-    nodes.forEach(function (n) {
-      n.classList.toggle('on', r.ids.has(n.dataset.id));
-      n.classList.toggle('sel', n.dataset.id === id);
+    L.labels.forEach(l => gF.append(txt(l.s, { class: l.cls, x: l.x, y: l.y, 'aria-hidden': 'true' })));
+    L.notes.forEach(n => {
+      const g = el('g', { class: 'note' });
+      g.append(el('path', { class: 'lock', d: `M${n.x - 16} ${n.y - 5}h9v7h-9zM${n.x - 14} ${n.y - 5}v-2.4a2.5 2.5 0 0 1 5 0v2.4` }));
+      n.lines.forEach((s, i) => g.append(txt(s, { class: 't-note', x: n.x, y: n.y + i * 16 })));
+      noteEls[n.id] = g; gF.append(g);
     });
-    linked.forEach(function (el) { el.classList.toggle('on', r.ls.has(el.dataset.l)); });
-    write(id);
+
+    /* the host header is a device you can point at, like the rest */
+    const H = L.host, hg = el('g', { class: 'nd host', 'data-id': 'pve', tabindex: 0, role: 'button', 'aria-label': `pve, live. ${N.pve.role}. ${N.pve.reach}` });
+    H.lines.forEach((ln, i) => {
+      const t = el('text', { x: H.x, y: H.y + i * 16 });
+      if (ln[0]) { const a = el('tspan', { class: 't-host' }); a.textContent = ln[0]; t.append(a); }
+      const b = el('tspan', { class: 't-spec' }); if (ln[0]) b.setAttribute('dx', 10); b.textContent = ln[1]; t.append(b);
+      hg.append(t);
+    });
+    hg.append(el('rect', { class: 'hit box', x: H.hit[0], y: H.hit[1], width: H.hit[2], height: H.hit[3], rx: 9, style: 'fill:transparent;stroke:transparent' }));
+    nodeEls.pve = hg;
+
+    for (const id in L.links) {
+      gL.append(el('path', { class: 'lk ' + K[id], d: L.links[id] }));
+      const g = el('path', { class: 'gl ' + K[id], d: L.links[id] });
+      glow[id] = g; gG.append(g);
+    }
+    const W = L.wall;
+    wallG = el('g', { class: 'wallg', style: 'transform-box:fill-box;transform-origin:center' }, [
+      el('rect', { class: 'wall', x: W.x, y: W.y, width: 8, height: W.h, rx: 2 }),
+      el('path', { class: 'wall-l', d: `M${W.x} ${W.y + W.h * 0.25}h8M${W.x} ${W.y + W.h * 0.5}h8M${W.x} ${W.y + W.h * 0.75}h8` })
+    ]);
+    gX.append(wallG, txt('deny', { class: 't-wall', x: W.lx, y: W.ly, 'text-anchor': 'middle' }));
+
+    for (const id in L.nodes) { const g = drawNode(id, L.nodes[id]); nodeEls[id] = g; gN.append(g); }
+    gN.append(hg);
+
+    pk = el('g', { class: 'pk', style: 'opacity:0' }, [el('circle', { class: 'pk-halo', r: 11 }), el('circle', { class: 'pk-core', r: 5 })]);
+    gX.append(pk);
+    svg.append(gF, gL, gG, gX, gN);
+
+    Object.values(nodeEls).forEach(g => {
+      const id = g.dataset.id;
+      g.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover(id); });
+      g.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') unhover(); });
+      g.addEventListener('focus', () => hover(id));
+      g.addEventListener('blur', () => unhover());
+      g.addEventListener('click', e => { e.stopPropagation(); pin(pinned === id ? null : id); });
+      g.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pin(pinned === id ? null : id); }
+        else if (e.key === 'Escape') { pin(null); g.blur(); }
+      });
+    });
+    pinned = null; hidePop();
+    if (current !== 'overview') finish(current); else overview();
   }
 
-  function clear() {
-    current = null;
-    svg.classList.remove('has-sel');
-    nodes.forEach(function (n) { n.classList.remove('on', 'sel'); });
-    linked.forEach(function (el) { el.classList.remove('on'); });
-    ro.id.textContent = 'all';
-    ro.name.textContent = def.name;
-    ro.ip.textContent = def.ip;
-    ro.reach.textContent = def.reach;
-    ro.st.innerHTML = def.st;
+  /* ---- highlight state ---- */
+  function clearLit() {
+    svg.classList.remove('dim');
+    Object.values(nodeEls).forEach(g => g.classList.remove('on', 'sel'));
+    Object.values(glow).forEach(g => { g.classList.remove('lit'); g.style.strokeDasharray = ''; g.style.strokeDashoffset = ''; });
+    Object.values(frameEls).forEach(f => f.classList.remove('on'));
+    Object.values(noteEls).forEach(n => n.classList.remove('on'));
+    if (pk) pk.style.opacity = 0;
+    if (wallG) wallG.classList.remove('hit-now');
+  }
+  function select(id) {
+    clearLit();
+    const r = REL[id];
+    if (!r) return;
+    svg.classList.add('dim');
+    nodeEls[id].classList.add('sel');
+    r.n.forEach(n => nodeEls[n] && nodeEls[n].classList.add('on'));
+    r.l.forEach(l => glow[l] && glow[l].classList.add('lit'));
+    if (id === 'pve') frameEls.host.classList.add('on');
   }
 
-  function restore() { if (pinned) show(pinned); else clear(); }
-
-  function setPin(id) {
+  /* ---- popover ---- */
+  function showPop(id) {
+    const d = N[id], g = nodeEls[id];
+    pop.innerHTML = '';
+    const top = document.createElement('div'); top.className = 'lab-pop-top';
+    const tag = document.createElement('span'); tag.textContent = d.tag || (d.kind === 'dev' ? 'tailnet device' : d.kind === 'vol' ? 'storage' : d.kind === 'host' ? 'host' : 'network');
+    const st = document.createElement('span'); st.className = 'lab-pop-st ' + d.st; st.textContent = ST[d.st];
+    top.append(tag, st);
+    const h = document.createElement('h4'); h.textContent = d.t;
+    const role = document.createElement('p'); role.className = 'role'; role.textContent = d.role;
+    const reach = document.createElement('p'); reach.className = 'reach'; reach.textContent = d.reach;
+    pop.append(top, h, role, reach);
+    pop.hidden = false;
+    const s = stage.getBoundingClientRect(), b = g.querySelector('.hit').getBoundingClientRect();
+    const pw = pop.offsetWidth, ph = pop.offsetHeight;
+    let x, y;
+    if (s.width >= 700) {
+      x = b.right - s.left + 12;
+      if (x + pw > s.width - 8) x = b.left - s.left - pw - 12;
+      if (x < 8) x = Math.max(8, Math.min(s.width - pw - 8, b.left - s.left));
+      y = Math.max(8, Math.min(s.height - ph - 8, b.top - s.top));
+      if (x >= b.left - s.left - 4 && x <= b.right - s.left) y = b.bottom - s.top + 10;
+    } else {
+      x = (s.width - pw) / 2;
+      y = b.bottom - s.top + 10;
+      if (y + ph > s.height - 8) y = b.top - s.top - ph - 10;
+    }
+    pop.style.left = x + 'px'; pop.style.top = Math.max(8, y) + 'px';
+  }
+  function hidePop() { pop.hidden = true; }
+  const tracing = () => current !== 'overview';
+  function hover(id) { showPop(id); if (!tracing()) select(id); }
+  function unhover() {
+    if (pinned) { showPop(pinned); if (!tracing()) select(pinned); }
+    else { hidePop(); if (!tracing()) overview(); }
+  }
+  function pin(id) {
     pinned = id;
-    nodes.forEach(function (n) { n.setAttribute('aria-pressed', String(n.dataset.id === id)); });
-    restore();
+    if (id) { if (tracing()) setScenario('overview'); showPop(id); select(id); }
+    else unhover();
+  }
+  stage.addEventListener('click', () => { if (pinned) pin(null); });
+
+  /* ---- captions ---- */
+  function caption(step, total, say) {
+    capStep.textContent = total ? `Step ${step} of ${total}` : 'Overview';
+    const p = document.createElement('p'); p.textContent = say;
+    capBody.replaceChildren(p);
+  }
+  function captionAll(sc) {
+    capStep.textContent = `${sc.steps.length} steps`;
+    const ol = document.createElement('ol');
+    sc.steps.forEach(s => { const li = document.createElement('li'); const sp = document.createElement('span'); sp.textContent = s.say; li.append(sp); ol.append(li); });
+    capBody.replaceChildren(ol);
+  }
+  function overview() {
+    clearLit();
+    caption(0, 0, OVERVIEW);
+    replay.hidden = true;
   }
 
-  nodes.forEach(function (n) {
-    const id = n.dataset.id;
-    n.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') show(id); });
-    n.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') restore(); });
-    n.addEventListener('focus', function () { show(id); });
-    n.addEventListener('blur', function () { restore(); });
-    n.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const unpin = pinned === id;
-      setPin(unpin ? null : id);
-      /* after unpinning, keep the hover highlight only for a mouse or keyboard user */
-      if (unpin && (e.pointerType === 'mouse' || e.detail === 0)) show(id);
+  /* ---- playing a path ---- */
+  const wait = (ms, my) => new Promise(res => setTimeout(() => res(my === run), ms));
+  const ease = k => k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+  function travel(id, dir, kind, my, upTo) {
+    const p = glow[id], len = p.getTotalLength(), part = upTo || 1;
+    const dur = Math.max(850, len * part / 190 * 1000);
+    p.style.strokeDasharray = len + ' ' + len;
+    p.style.strokeDashoffset = dir > 0 ? len : -len;
+    p.classList.add('lit');
+    pk.setAttribute('class', 'pk ' + kind);
+    pk.style.opacity = 1;
+    return new Promise(res => {
+      const t0 = performance.now();
+      (function f(now) {
+        if (my !== run) return res(false);
+        const k = Math.min((now - t0) / dur, 1), e = ease(k) * part;
+        const at = dir > 0 ? len * e : len * (1 - e);
+        const pt = p.getPointAtLength(at);
+        pk.setAttribute('transform', `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
+        p.style.strokeDashoffset = dir > 0 ? len * (1 - e) : -len * (1 - e);
+        if (k < 1) requestAnimationFrame(f); else res(true);
+      })(t0);
     });
-    n.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); n.dispatchEvent(new MouseEvent('click', { bubbles: true })); }
-      else if (e.key === 'Escape') { setPin(null); n.blur(); }
-    });
-  });
-  svg.addEventListener('click', function () { setPin(null); });
-
-  const mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-  function motion() {
-    if (!svg.pauseAnimations) return;
-    if (mq && mq.matches) svg.pauseAnimations(); else svg.unpauseAnimations();
   }
-  motion();
-  if (mq && mq.addEventListener) mq.addEventListener('change', motion);
+  function lightStep(s, instant) {
+    (s.from || []).forEach(n => nodeEls[n].classList.add('on'));
+    if (instant) (s.path || []).forEach(([id, dir, upTo]) => {
+      const p = glow[id], len = p.getTotalLength();
+      p.classList.add('lit');
+      if (upTo) { p.style.strokeDasharray = len + ' ' + len; p.style.strokeDashoffset = len * (1 - upTo); }
+      else { p.style.strokeDasharray = ''; p.style.strokeDashoffset = ''; }
+    });
+  }
+  function landStep(s) {
+    (s.to || []).forEach(n => nodeEls[n].classList.add('on'));
+    if (s.frame) frameEls[s.frame].classList.add('on');
+    if (s.note) noteEls[s.note].classList.add('on');
+    if (s.deny) { pk.setAttribute('class', 'pk deny'); wallG.classList.remove('hit-now'); void wallG.getBoundingClientRect(); wallG.classList.add('hit-now'); }
+  }
+  /* the finished state of a path, with no motion */
+  function finish(name) {
+    const sc = SC[name];
+    clearLit(); svg.classList.add('dim');
+    sc.steps.forEach(s => { lightStep(s, true); landStep(s); });
+    pk.style.opacity = 0;
+    captionAll(sc);
+    replay.hidden = RM;
+  }
+  async function play(name) {
+    const sc = SC[name], my = ++run;
+    clearLit(); svg.classList.add('dim'); replay.hidden = true;
+    for (let i = 0; i < sc.steps.length; i++) {
+      const s = sc.steps[i];
+      caption(i + 1, sc.steps.length, s.say);
+      lightStep(s, false);
+      for (const [id, dir, upTo] of (s.path || [])) { if (!(await travel(id, dir, s.kind, my, upTo))) return; }
+      landStep(s);
+      if (!(await wait(s.path ? 1500 : 2600, my))) return;
+      if (s.deny) pk.style.opacity = 0;
+    }
+    pk.style.opacity = 0;
+    replay.hidden = false;
+  }
+  function setScenario(name) {
+    current = name; run++;
+    document.querySelectorAll('.lab-chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.s === name)));
+    pinned = null; hidePop();
+    if (name === 'overview') overview();
+    else if (RM) finish(name);
+    else play(name);
+  }
+  document.querySelector('.lab-chips').addEventListener('click', e => { const c = e.target.closest('.lab-chip'); if (c) setScenario(c.dataset.s); });
+  replay.addEventListener('click', () => { if (tracing()) play(current); });
+
+  wideMQ.addEventListener('change', build);
+  build();
+  /* play the first path once, the first time the diagram scrolls into view */
+  if (!RM && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(en => {
+      if (!en[0].isIntersecting) return;
+      io.disconnect();
+      setTimeout(() => { if (current === 'overview' && !pinned && !document.hidden) setScenario('game'); }, 900);
+    }, { threshold: 0.3 });
+    io.observe(stage);
+  }
 })();
 </script>
 </body>
