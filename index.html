@@ -140,7 +140,7 @@ ul,ol{padding:0;list-style:none}
 .js:not(.seen) .pre{
   display:grid;place-items:center;position:fixed;inset:0;z-index:150;
   background:#0a0a0b;color:#f3f2ed;
-  transition:transform .95s cubic-bezier(.76,0,.24,1),border-radius .95s cubic-bezier(.76,0,.24,1);
+  transition:transform 1.3s cubic-bezier(.76,0,.24,1),border-radius 1.3s cubic-bezier(.76,0,.24,1);
 }
 .pre-word{font-size:clamp(2rem,6vw,4.2rem);font-weight:500;letter-spacing:-.04em;display:flex;align-items:center;gap:.4em}
 .pre-word::before{content:"";width:.28em;height:.28em;border-radius:50%;background:#ff5a1f}
@@ -814,18 +814,18 @@ footer{padding:36px 0 0;overflow:hidden}
 
         <!-- packets (hidden under reduced motion) -->
         <g class="pks" aria-hidden="true">
-<circle class="pk" data-l="f1" r="3.4"><animateMotion dur="3.4s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f1"/></animateMotion></circle>
-<circle class="pk" data-l="f1" r="3.4"><animateMotion dur="3.4s" begin="1.7s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f1"/></animateMotion></circle>
-<circle class="pk" data-l="f2" r="3.4"><animateMotion dur="3.8s" begin="0.9s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f2"/></animateMotion></circle>
-<circle class="pk" data-l="hl" r="3.4"><animateMotion dur="2.2s" begin="0.4s" repeatCount="indefinite" rotate="auto"><mpath href="#pk-p3"/></animateMotion></circle>
-<circle class="pk" data-l="ai" r="3.4"><animateMotion dur="2.8s" begin="0.2s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-ai"/></animateMotion></circle>
-<circle class="pk" data-l="dns" r="3.4"><animateMotion dur="3.2s" begin="1.2s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-dns"/></animateMotion></circle>
-<circle class="pk" data-l="b110" r="3.4"><animateMotion dur="4.4s" begin="0.6s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-b110"/></animateMotion></circle>
-<circle class="pk" data-l="b111" r="3.4"><animateMotion dur="4.8s" begin="2s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-b111"/></animateMotion></circle>
-<circle class="pk" data-l="b111" r="3.4"><animateMotion dur="4.8s" begin="4.4s" repeatCount="indefinite" rotate="auto"><mpath href="#pk-p8"/></animateMotion></circle>
-<circle class="pk" data-l="m121" r="3.4"><animateMotion dur="3s" begin="1s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-m121"/></animateMotion></circle>
-<circle class="pk" data-l="h120" r="3.4"><animateMotion dur="2.6s" begin="0.3s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-h120"/></animateMotion></circle>
-<circle class="pk" data-l="h123" r="3.4"><animateMotion dur="2.6s" begin="1.5s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-h123"/></animateMotion></circle>
+<circle class="pk" data-l="f1" r="3.4"><animateMotion dur="4.8s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f1"/></animateMotion></circle>
+<circle class="pk" data-l="f1" r="3.4"><animateMotion dur="4.8s" begin="2.4s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f1"/></animateMotion></circle>
+<circle class="pk" data-l="f2" r="3.4"><animateMotion dur="5.3s" begin="1.3s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-f2"/></animateMotion></circle>
+<circle class="pk" data-l="hl" r="3.4"><animateMotion dur="3.1s" begin="0.6s" repeatCount="indefinite" rotate="auto"><mpath href="#pk-p3"/></animateMotion></circle>
+<circle class="pk" data-l="ai" r="3.4"><animateMotion dur="3.9s" begin="0.3s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-ai"/></animateMotion></circle>
+<circle class="pk" data-l="dns" r="3.4"><animateMotion dur="4.5s" begin="1.7s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-dns"/></animateMotion></circle>
+<circle class="pk" data-l="b110" r="3.4"><animateMotion dur="6.2s" begin="0.8s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-b110"/></animateMotion></circle>
+<circle class="pk" data-l="b111" r="3.4"><animateMotion dur="6.7s" begin="2.8s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-b111"/></animateMotion></circle>
+<circle class="pk" data-l="b111" r="3.4"><animateMotion dur="6.7s" begin="6.2s" repeatCount="indefinite" rotate="auto"><mpath href="#pk-p8"/></animateMotion></circle>
+<circle class="pk" data-l="m121" r="3.4"><animateMotion dur="4.2s" begin="1.4s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-m121"/></animateMotion></circle>
+<circle class="pk" data-l="h120" r="3.4"><animateMotion dur="3.6s" begin="0.4s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-h120"/></animateMotion></circle>
+<circle class="pk" data-l="h123" r="3.4"><animateMotion dur="3.6s" begin="2.1s" repeatCount="indefinite" rotate="auto"><mpath href="#ln-h123"/></animateMotion></circle>
         </g>
 
         <!-- nodes: network row -->
@@ -1593,7 +1593,7 @@ function toast(msg) {
   toastEl.textContent = msg;
   toastEl.classList.add('on');
   clearTimeout(toastT);
-  toastT = setTimeout(() => toastEl.classList.remove('on'), 2200);
+  toastT = setTimeout(() => toastEl.classList.remove('on'), 3100);
 }
 function copyEmail() {
   const done = () => {
@@ -1601,7 +1601,7 @@ function copyEmail() {
     const b = $('#copy');
     b.classList.add('done');
     $('span', b).textContent = 'Copied';
-    setTimeout(() => { b.classList.remove('done'); $('span', b).textContent = 'Copy email'; }, 2000);
+    setTimeout(() => { b.classList.remove('done'); $('span', b).textContent = 'Copy email'; }, 2800);
   };
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(EMAIL).then(done, () => toast(EMAIL));
@@ -1630,7 +1630,7 @@ $$('[data-split]').forEach(el => {
   if (RM || root.classList.contains('seen')) { start(); return; }
   const words = ['Help desk', 'Intune', 'Entra ID', 'Internal tools', 'Homelab', 'Christian Jones'];
   const wordEl = $('#pre-word'), countEl = $('#pre-count');
-  const step = 210, total = words.length * step;
+  const step = 300, total = words.length * step;
   let i = 0;
   const t0 = performance.now();
   const iv = setInterval(() => { i += 1; if (i < words.length) wordEl.textContent = words[i]; }, step);
@@ -1644,8 +1644,8 @@ $$('[data-split]').forEach(el => {
     pre.classList.add('out');
     start();
     try { sessionStorage.setItem('cj-seen', '1'); } catch (e) {}
-    setTimeout(() => pre.remove(), 1100);
-  }, total + 260);
+    setTimeout(() => pre.remove(), 1500);
+  }, total + 360);
 })();
 
 /* ---------- reveal on scroll ---------- */
@@ -1673,7 +1673,7 @@ $$('[data-split]').forEach(el => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
       io.unobserve(en.target);
-      const end = Number(en.target.dataset.count), t0 = performance.now(), dur = 1300;
+      const end = Number(en.target.dataset.count), t0 = performance.now(), dur = 1850;
       (function run(now) {
         const p = clamp((now - t0) / dur, 0, 1);
         en.target.textContent = Math.round(end * (1 - Math.pow(1 - p, 4)));
@@ -1708,20 +1708,25 @@ const prog = $('#prog');
 const caseEls = $$('.case');
 const rolesEl = $('#roles'), tlFill = $('#tl-fill');
 const stackMQ = window.matchMedia('(min-width:900px) and (min-height:720px)');
-let lastY = window.scrollY, vel = 0, mqX = 0, mqHalf = 0, dirty = true;
+/* Marquee speed is in pixels per second, so it moves at the same pace on a
+   60 Hz screen and a 144 Hz one. MQ_BOOST adds speed while the page scrolls. */
+const MQ_SPEED = 23, MQ_BOOST = 0.084, MQ_BOOST_MAX = 3600;
+let lastY = window.scrollY, lastT = 0, vel = 0, mqX = 0, mqHalf = 0, dirty = true;
 const measure = () => { mqHalf = mq.scrollWidth / 2; dirty = true; };
 window.addEventListener('scroll', () => { dirty = true; }, { passive: true });
 window.addEventListener('resize', measure);
 window.addEventListener('load', measure);
 measure();
 
-function frame() {
+function frame(now) {
   const y = window.scrollY, vh = window.innerHeight;
-  vel += ((y - lastY) - vel) * 0.12;
+  const dt = lastT ? Math.min((now - lastT) / 1000, 0.05) : 0;
+  lastT = now;
+  if (dt > 0) vel += ((y - lastY) / dt - vel) * (1 - Math.exp(-dt / 0.13));
   lastY = y;
 
   if (!RM && mqHalf > 0) {
-    mqX -= 0.55 + Math.min(Math.abs(vel), 60) * 0.12;
+    mqX -= (MQ_SPEED + Math.min(Math.abs(vel), MQ_BOOST_MAX) * MQ_BOOST) * dt;
     if (-mqX >= mqHalf) mqX += mqHalf;
     mq.style.transform = `translate3d(${mqX.toFixed(2)}px,0,0)`;
   }
@@ -1802,7 +1807,7 @@ function toggleTheme() {
   document.startViewTransition(apply).ready.then(() => {
     root.animate(
       { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${R}px at ${x}px ${y}px)`] },
-      { duration: 700, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
+      { duration: 950, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
     );
   }).catch(() => {});
 }
@@ -1836,7 +1841,7 @@ $('#theme').addEventListener('click', toggleTheme);
     p.dx = horiz ? (Math.random() < 0.5 ? 1 : -1) : 0;
     p.dy = horiz ? 0 : (Math.random() < 0.5 ? 1 : -1);
     p.t = 0;
-    p.speed = 5 + Math.random() * 6;
+    p.speed = 3.5 + Math.random() * 4.2;
     p.trail = [];
     return p;
   }
