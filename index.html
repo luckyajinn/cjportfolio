@@ -430,13 +430,14 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .dg .nd.pub .box{stroke:var(--acc)}
 .dg .nd.dev .box{stroke:var(--tail);stroke-opacity:.75}
 .dg .nd.planned .box{stroke-dasharray:5 4;fill:transparent}
-.dg .nd.planned{opacity:.62}
+.dg .nd.planned,.dg .nd.inactive{opacity:.62}
+.dg .nd.inactive .box{fill:transparent}
 .dg .nd{cursor:pointer;outline:none;transition:opacity .35s}
 .dg .nd:hover .box,.dg .nd.sel .box{stroke:var(--fg);stroke-width:1.8}
 .dg .nd:focus-visible .box{stroke:var(--acc);stroke-width:2.4}
 .dg .nd.on .box{stroke-width:2}
 .dg .hit{fill:transparent}
-.dg .sdot{fill:var(--fg)} .dg .sdot-o{fill:none;stroke:var(--fg);stroke-width:1.3} .dg .sdot-p{fill:none;stroke:var(--mut);stroke-width:1.2;stroke-dasharray:2 2}
+.dg .sdot{fill:var(--fg)} .dg .sdot-o{fill:none;stroke:var(--fg);stroke-width:1.3} .dg .sdot-p{fill:none;stroke:var(--mut);stroke-width:1.2;stroke-dasharray:2 2} .dg .sdot-i{fill:none;stroke:var(--mut);stroke-width:1.3}
 .dg .lk{fill:none;stroke-width:1.6;opacity:.6;transition:opacity .35s}
 .dg .lk.pub{stroke:var(--acc);opacity:.9} .dg .lk.lan{stroke:var(--mut)} .dg .lk.tail{stroke:var(--tail);stroke-dasharray:5 5} .dg .lk.store{stroke:var(--mut);stroke-dasharray:1.5 5;stroke-linecap:round;stroke-width:2}
 .dg .gl{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;opacity:0}
@@ -454,7 +455,7 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .dg .pk.pub{color:var(--acc)} .dg .pk.tail{color:var(--tail)} .dg .pk.lan,.dg .pk.store{color:var(--fg)} .dg .pk.deny{color:var(--deny)}
 .dg .pk-halo{fill:currentColor} .dg .pk-core{stroke:currentColor}
 .dg.dim .nd:not(.on):not(.sel){opacity:.34}
-.dg.dim .nd.planned:not(.on):not(.sel){opacity:.22}
+.dg.dim .nd.planned:not(.on):not(.sel),.dg.dim .nd.inactive:not(.on):not(.sel){opacity:.22}
 .dg.dim .lk{opacity:.16}
 .dg .note.on text{fill:var(--fg)} .dg .note.on .lock{stroke:var(--acc)}
 
@@ -465,6 +466,7 @@ dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);bac
 .lab-pop-st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fg)}
 .lab-pop-st.setup::before{background:linear-gradient(90deg,var(--fg) 50%,transparent 50%);outline:1px solid var(--fg)}
 .lab-pop-st.planned::before{background:transparent;outline:1px dashed var(--mut)}
+.lab-pop-st.inactive::before{background:transparent;outline:1px solid var(--mut)}
 .lab-pop-st.edge::before{background:var(--deny)}
 .lab-pop h4{font-size:1.15rem;font-weight:600;letter-spacing:-.03em;margin-top:4px}
 .lab-pop .role{font-size:13.5px;color:var(--acc-t)}
@@ -739,12 +741,12 @@ footer{padding:36px 0 0;overflow:hidden}
     <div class="sh rv">
       <span class="idx">03 / Homelab</span>
       <h2 id="h-homelab">The lab, <em>drawn</em></h2>
-      <p>My home server. Two game ports face the Internet. Everything else is private and reached over Tailscale.</p>
+      <p>My home server. Two game servers face the Internet. Everything else is private and reached over Tailscale.</p>
     </div>
     <div class="lab rv">
       <ul class="lab-facts">
-        <li><b>2</b><span>ports open to the Internet, one for each public game server</span></li>
-        <li><b>8</b><span>containers on one mini PC: 6 live, 1 setting up, 1 planned</span></li>
+        <li><b>2</b><span>game servers open to the Internet, each through one forwarded port</span></li>
+        <li><b>8</b><span>containers on one mini PC: 6 live, 1 setting up, 1 inactive</span></li>
         <li><b>0</b><span>containers that can open a connection to the home LAN</span></li>
       </ul>
 
@@ -760,7 +762,7 @@ footer{padding:36px 0 0;overflow:hidden}
         </div>
         <div class="lab-cap" aria-live="polite">
           <span class="lab-step" id="lab-step">Overview</span>
-          <div id="lab-body"><p>Two game ports are open to the Internet. Everything else is reached over Tailscale. Pick a path to trace, or point at any device.</p></div>
+          <div id="lab-body"><p>Two game servers are open to the Internet. Everything else is reached over Tailscale. Pick a path to trace, or point at any device.</p></div>
           <button class="lab-replay" id="lab-replay" type="button" hidden>Replay</button>
         </div>
       </div>
@@ -777,17 +779,17 @@ footer{padding:36px 0 0;overflow:hidden}
         <li><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" stroke="var(--mut)" stroke-width="2.2" stroke-dasharray="1.5 5" stroke-linecap="round" fill="none"/></svg>storage</li>
         <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="var(--fg)"/></svg>live</li>
         <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="none" stroke="var(--fg)" stroke-width="1.3"/><path d="M15 1.5a3.5 3.5 0 0 0 0 7z" fill="var(--fg)"/></svg>setting up</li>
-        <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="none" stroke="var(--mut)" stroke-width="1.2" stroke-dasharray="2 2"/></svg>planned</li>
+        <li><svg viewBox="0 0 30 10" aria-hidden="true"><circle cx="15" cy="5" r="3.5" fill="none" stroke="var(--mut)" stroke-width="1.3"/></svg>inactive</li>
       </ul>
 
       <details class="lab-text">
         <summary>Read the diagram as text</summary>
         <ul>
-          <li>Internet: only two router port forwards come in, one game port each to CT 110 and CT 111. All else is denied.</li>
+          <li>Internet: only the game ports are forwarded at the router, one each to CT 111 and CT 112. All else is denied.</li>
           <li>Router: gateway for a private home LAN.</li>
           <li>Tailscale tailnet: pve advertises the home subnet. Members: desktop-main (home PC, model host), desktop-secondary (second PC), phone.</li>
           <li>Host pve: GMKTec K12 mini PC, Ryzen 7 H255, 32 GB RAM, Proxmox VE 9.2. SSH key only, firewall default deny inbound.</li>
-          <li>Games: CT 110 mc-vanilla (Minecraft Paper, public, live); CT 111 cte2 (Minecraft ATM9 modded, public, live); CT 112 terraria (planned).</li>
+          <li>Games: CT 110 mc-vanilla (Minecraft Paper, inactive at the moment); CT 111 cte2 (Minecraft ATM9 modded, public, live); CT 112 terraria (Terraria, public, live).</li>
           <li>Services: CT 120 tools (live, being retired into the hub); CT 121 vault (file vault, Home Hub, portfolio; live); CT 123 ai (Odysseus AI front end, live); CT 125 dns (AdGuard Home, DNS over TLS on the tailnet, live).</li>
           <li>Lab: CT 124 linuxlab (disposable Linux practice machine, setting up).</li>
           <li>Drive: one internal drive shared by everything. It holds the 500 GB vault data volume of CT 121. CT 110 and CT 111 read their Minecraft folders from it through the host.</li>
@@ -1901,12 +1903,12 @@ dlg.addEventListener('keydown', e => {
 
   /* ---- what each thing is. Wording carried over from the current diagram. ---- */
   const N = {
-    inet:   { t: 'Internet', s: 'untrusted', kind: 'edge', st: 'edge', role: 'WAN (public address not shown)', reach: 'Two router port forwards only, one game port each to CT 110 and CT 111. All other inbound is denied.' },
-    router: { t: 'Router', s: 'home gateway', kind: 'net', st: 'live', role: 'home gateway', reach: 'Gateway for the home LAN. Forwards the two game ports inward; everything else from the Internet is dropped.' },
+    inet:   { t: 'Internet', s: 'untrusted', kind: 'edge', st: 'edge', role: 'WAN (public address not shown)', reach: 'Router port forwards for the game servers only. CT 111 and CT 112 are live. All other inbound is denied.' },
+    router: { t: 'Router', s: 'home gateway', kind: 'net', st: 'live', role: 'home gateway', reach: 'Gateway for the home LAN. Forwards the game ports inward; everything else from the Internet is dropped.' },
     pve:    { t: 'pve', kind: 'host', st: 'live', role: 'Proxmox VE 9.2 host', reach: 'GMKTec K12 mini PC, Ryzen 7 H255, 32 GB RAM. SSH key only, host firewall default deny inbound. Subnet router for the tailnet.' },
-    ct110:  { tag: 'CT 110', t: 'mc-vanilla', s: 'Minecraft Paper', kind: 'ct', pub: 1, st: 'live', role: 'Minecraft Paper server', reach: 'Public through one router port forward. Reads its Minecraft folder from the vault volume through the host. Outbound to the LAN is blocked.' },
+    ct110:  { tag: 'CT 110', t: 'mc-vanilla', s: 'Minecraft Paper', kind: 'ct', st: 'inactive', role: 'Minecraft Paper server', reach: 'Inactive at the moment. When it runs, it reads its Minecraft folder from the vault volume through the host. Outbound to the LAN is blocked.' },
     ct111:  { tag: 'CT 111', t: 'cte2', s: 'Minecraft ATM9', kind: 'ct', pub: 1, st: 'live', role: 'Minecraft ATM9 modded server', reach: 'Public through one router port forward. Reads its Minecraft folder from the vault volume and writes backups there. Outbound to the LAN is blocked.' },
-    ct112:  { tag: 'CT 112', t: 'terraria', s: 'not built yet', kind: 'ct', st: 'planned', role: 'Terraria server', reach: 'Terraria server, planned. Not built yet.' },
+    ct112:  { tag: 'CT 112', t: 'terraria', s: 'Terraria', kind: 'ct', pub: 1, st: 'live', role: 'Terraria server', reach: 'Public through one router port forward. Outbound to the LAN is blocked.' },
     ct120:  { tag: 'CT 120', t: 'tools', s: 'tools pages', kind: 'ct', st: 'live', role: 'tools pages', reach: 'Over the tailnet (HTTPS). Being retired into the Home Hub. Outbound to the LAN is blocked.' },
     ct121:  { tag: 'CT 121', t: 'vault', s: 'files + hub', kind: 'ct', st: 'live', role: 'file vault, Home Hub, portfolio', reach: 'Over the tailnet (HTTPS) plus a file share on the LAN. Owns the 500 GB vault data volume. Outbound to the LAN is blocked.' },
     ct123:  { tag: 'CT 123', t: 'ai', s: 'AI front end', kind: 'ct', st: 'live', role: 'Odysseus AI front end', reach: 'Over the tailnet (HTTPS). The only container allowed to reach the model API on desktop-main. Outbound to the LAN is blocked.' },
@@ -1917,20 +1919,20 @@ dlg.addEventListener('keydown', e => {
     ds:     { t: 'desktop-secondary', s: 'second PC', kind: 'dev', st: 'live', role: 'second PC', reach: 'Reaches the lab over Tailscale.' },
     phone:  { t: 'phone', s: 'mobile', kind: 'dev', st: 'live', role: 'mobile', reach: 'Reaches the services over Tailscale and resolves DNS through CT 125 (DNS over TLS).' }
   };
-  const ST = { live: 'live', setup: 'setting up', planned: 'planned', edge: 'untrusted' };
+  const ST = { live: 'live', setup: 'setting up', planned: 'planned', inactive: 'inactive', edge: 'untrusted' };
 
   /* ---- link kinds ---- */
-  const K = { wan: 'lan', lan: 'lan', fwd110: 'pub', fwd111: 'pub', trunk: 'tail', t120: 'tail', t121: 'tail', t123: 'tail', t125: 'tail',
+  const K = { wan: 'lan', lan: 'lan', fwd111: 'pub', fwd112: 'pub', trunk: 'tail', t120: 'tail', t121: 'tail', t123: 'tail', t125: 'tail',
               d_dm: 'tail', d_ds: 'tail', d_ph: 'tail', s121: 'store', sGames: 'store' };
 
   /* ---- what lights up when you point at a device ---- */
   const REL = {
-    inet:   { l: ['wan', 'fwd110', 'fwd111'], n: ['router', 'ct110', 'ct111'] },
-    router: { l: ['wan', 'fwd110', 'fwd111', 'lan'], n: ['inet', 'ct110', 'ct111', 'pve'] },
+    inet:   { l: ['wan', 'fwd111', 'fwd112'], n: ['router', 'ct111', 'ct112'] },
+    router: { l: ['wan', 'fwd111', 'fwd112', 'lan'], n: ['inet', 'ct111', 'ct112', 'pve'] },
     pve:    { l: ['lan', 'trunk'], n: ['router', 'ct110', 'ct111', 'ct112', 'ct120', 'ct121', 'ct123', 'ct125', 'ct124', 'vault'] },
-    ct110:  { l: ['wan', 'fwd110', 'sGames'], n: ['inet', 'router', 'vault'] },
+    ct110:  { l: ['sGames'], n: ['vault'] },
     ct111:  { l: ['wan', 'fwd111', 'sGames'], n: ['inet', 'router', 'vault'] },
-    ct112:  { l: [], n: [] },
+    ct112:  { l: ['wan', 'fwd112'], n: ['inet', 'router'] },
     ct120:  { l: ['t120', 'trunk'], n: ['ct121'] },
     ct121:  { l: ['t121', 'trunk', 's121'], n: ['vault', 'ct120', 'ct123', 'ct125'] },
     ct123:  { l: ['t123', 'trunk', 'd_dm'], n: ['dm', 'ct121'] },
@@ -1964,7 +1966,7 @@ dlg.addEventListener('keydown', e => {
       host: { hit: [412, 52, 506, 36], x: 420, y: 76, lines: [['pve', 'Proxmox VE 9.2 · GMKTec K12 mini PC · Ryzen 7 H255 · 32 GB RAM']] },
       wall: { x: 188, y: 240, h: 96, lx: 192, ly: 352 },
       labels: [
-        { x: 24, y: 236, s: 'INTERNET', cls: 't-flabel' }, { x: 214, y: 208, s: '2 ports forwarded,', cls: 't-call' }, { x: 214, y: 223, s: 'everything else denied', cls: 't-call' },
+        { x: 24, y: 236, s: 'INTERNET', cls: 't-flabel' }, { x: 214, y: 208, s: 'game ports forwarded,', cls: 't-call' }, { x: 214, y: 223, s: 'everything else denied', cls: 't-call' },
         { x: 214, y: 344, s: 'home LAN, private', cls: 't-sub' },
         { x: 752, y: 538, s: 'one internal drive', cls: 't-title' }, { x: 752, y: 556, s: 'shared by everything', cls: 't-sub' },
         { x: 970, y: 404, s: 'pve advertises the home', cls: 't-sub' }, { x: 970, y: 419, s: 'subnet into the tailnet', cls: 't-sub' }
@@ -1975,7 +1977,7 @@ dlg.addEventListener('keydown', e => {
       ],
       links: {
         wan: 'M170 288H214', lan: 'M360 312H400',
-        fwd110: 'M360 276H380V170H436', fwd111: 'M360 290H388V229H665V208',
+        fwd111: 'M360 276H380V226H665V208', fwd112: 'M360 290H388V232H821V208',
         trunk: 'M970 302H930',
         t125: 'M930 302H892', t123: 'M930 302H914V365H722V340', t121: 'M930 302H914V365H590V340', t120: 'M930 302H914V365H490V340',
         d_dm: 'M986 171H978V302H970', d_ds: 'M986 251H978V302H970', d_ph: 'M986 331H978V302H970',
@@ -1993,7 +1995,7 @@ dlg.addEventListener('keydown', e => {
       },
       frames: [
         { id: 'host', cls: 'host', box: [16, 116, 358, 500] },
-        { id: 'games', cls: 'grp', box: [28, 128, 334, 98], label: 'GAMES', tag: 'public', tagCls: 'pub', lx: 352, ly: 146, end: 1 },
+        { id: 'games', cls: 'grp', box: [28, 128, 334, 98], label: 'GAMES', tag: 'public', tagCls: 'pub', lx: 38, ly: 146 },
         { id: 'services', cls: 'grp', box: [28, 238, 334, 168], label: 'SERVICES', tag: 'tailnet only', tagCls: 'tail', lx: 38, ly: 256 },
         { id: 'lab', cls: 'grp', box: [28, 418, 163, 92], label: 'LAB', lx: 38, ly: 436 },
         { id: 'storage', cls: 'grp', box: [199, 418, 163, 92], label: 'STORAGE', lx: 209, ly: 436 },
@@ -2008,7 +2010,7 @@ dlg.addEventListener('keydown', e => {
       ],
       links: {
         wan: 'M166 46H224', lan: 'M340 76V116',
-        fwd110: 'M262 76V102H87V154', fwd111: 'M284 76V109H195V154',
+        fwd111: 'M262 76V102H195V154', fwd112: 'M303 76V154',
         trunk: 'M368 650V616',
         t120: 'M368 616V330H114V326', t121: 'M368 616V330H275V326', t123: 'M368 616V330H114V334', t125: 'M368 616V330H275V334',
         d_dm: 'M354 690H368V650', d_ds: 'M354 742H368V650', d_ph: 'M354 794H368V650',
@@ -2020,13 +2022,13 @@ dlg.addEventListener('keydown', e => {
   /* ---- the five paths. [link, direction]: 1 follows the drawn line, -1 runs it backwards ---- */
   const SC = {
     game: { steps: [
-      { say: 'A friend connects from the Internet. Only two ports are forwarded at the router.', from: ['inet'], path: [['wan', 1]], kind: 'lan', to: ['router'] },
-      { say: 'The router forwards one game port to CT 110, the Minecraft Paper server.', path: [['fwd110', 1]], kind: 'pub', to: ['ct110'] },
-      { say: 'CT 110 reads its Minecraft folder from the vault volume, through the host.', path: [['sGames', 1]], kind: 'store', to: ['vault'] },
-      { say: 'That is as far as it goes. CT 110 cannot open a connection to the rest of the LAN.', note: 'n-lan' }
+      { say: 'A friend connects from the Internet. Only the game ports are forwarded at the router.', from: ['inet'], path: [['wan', 1]], kind: 'lan', to: ['router'] },
+      { say: 'The router forwards one game port to CT 111, the modded Minecraft server.', path: [['fwd111', 1]], kind: 'pub', to: ['ct111'] },
+      { say: 'CT 111 reads its Minecraft folder from the vault volume, through the host.', path: [['sGames', 1]], kind: 'store', to: ['vault'] },
+      { say: 'That is as far as it goes. CT 111 cannot open a connection to the rest of the LAN.', note: 'n-lan' }
     ] },
     deny: { steps: [
-      { say: 'Anything that is not one of the two game ports stops at the router.', from: ['inet'], path: [['wan', 1, 0.42]], kind: 'lan', deny: 1 },
+      { say: 'Anything that is not a game port stops at the router.', from: ['inet'], path: [['wan', 1, 0.42]], kind: 'lan', deny: 1 },
       { say: 'Behind it, the host has its own firewall with default deny inbound, and SSH is key only.', note: 'n-host', frame: 'host' }
     ] },
     files: { steps: [
@@ -2043,7 +2045,7 @@ dlg.addEventListener('keydown', e => {
       { say: 'CT 125 answers them with AdGuard Home.', path: [['t125', 1]], kind: 'tail', to: ['ct125'] }
     ] }
   };
-  const OVERVIEW = 'Two game ports are open to the Internet. Everything else is reached over Tailscale. Pick a path to trace, or point at any device.';
+  const OVERVIEW = 'Two game servers are open to the Internet. Everything else is reached over Tailscale. Pick a path to trace, or point at any device.';
 
   let mode = null, nodeEls = {}, glow = {}, frameEls = {}, noteEls = {}, wallG = null, pk = null;
   let run = 0, current = 'overview', pinned = null;
@@ -2051,12 +2053,13 @@ dlg.addEventListener('keydown', e => {
   /* ---- drawing ---- */
   function statusDot(st, cx, cy) {
     if (st === 'planned') return el('circle', { cx, cy, r: 3.6, class: 'sdot-p' });
+    if (st === 'inactive') return el('circle', { cx, cy, r: 3.6, class: 'sdot-i' });
     if (st === 'setup') return el('g', {}, [el('circle', { cx, cy, r: 3.6, class: 'sdot-o' }), el('path', { d: `M${cx} ${cy - 3.6}a3.6 3.6 0 0 0 0 7.2z`, class: 'sdot' })]);
     return el('circle', { cx, cy, r: 3.6, class: 'sdot' });
   }
   function drawNode(id, b) {
     const d = N[id], [x, y, w, h] = b, tall = mode === 'tall';
-    const g = el('g', { class: 'nd ' + d.kind + (d.pub ? ' pub' : '') + (d.st === 'planned' ? ' planned' : ''), 'data-id': id, tabindex: 0, role: 'button',
+    const g = el('g', { class: 'nd ' + d.kind + (d.pub ? ' pub' : '') + (d.st === 'planned' ? ' planned' : d.st === 'inactive' ? ' inactive' : ''), 'data-id': id, tabindex: 0, role: 'button',
       'aria-label': `${d.tag ? d.tag + ' ' : ''}${d.t}, ${ST[d.st]}. ${d.role}. ${d.reach}` });
     g.append(el('rect', { class: 'box', x, y, width: w, height: h, rx: 10 }));
     const title = (tall && d.tTall) || d.t, sub = (tall && d.sTall) || d.s;
