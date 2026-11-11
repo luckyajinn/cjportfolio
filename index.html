@@ -785,7 +785,7 @@ footer{padding:36px 0 0;overflow:hidden}
       <details class="lab-text">
         <summary>Read the diagram as text</summary>
         <ul>
-          <li>Internet: only the game ports are forwarded at the router, one each to CT 111 and CT 112. All else is denied.</li>
+          <li>Internet: only game ports are forwarded at the router. CT 111 and CT 112 answer on theirs. All else is denied.</li>
           <li>Router: gateway for a private home LAN.</li>
           <li>Tailscale tailnet: pve advertises the home subnet. Members: desktop-main (home PC, model host), desktop-secondary (second PC), phone.</li>
           <li>Host pve: GMKTec K12 mini PC, Ryzen 7 H255, 32 GB RAM, Proxmox VE 9.2. SSH key only, firewall default deny inbound.</li>
