@@ -11,8 +11,8 @@ and no build. The only outside request is the Geist and Instrument Serif fonts
 from Google Fonts, and the page falls back to system fonts without them.
 Screenshots load from `assets/`.
 
-The design is dark by default with a light theme toggle. It has an animated
-dot grid in the hero, a project gallery that expands on hover, case studies
+The design is dark by default with a light theme toggle. The resume is the
+main button in the nav and the hero. It has an animated dot grid in the hero, a project gallery that expands on hover, case studies
 that stack as you scroll, a diagram of my home server with paths you can play, and a
 command menu on Ctrl K (or Cmd K) for jumping around the page.
 
@@ -67,6 +67,11 @@ Append an object to `SITE.tools`:
 Each `group` gets a tab above the gallery (Professional, Personal), in the
 order the groups first appear in the list. The first project in each group is
 the one shown open, so put the strongest one first.
+
+One project can have `featured: true` and a `highlights` list of three or so
+short points. It gets the large block above the gallery and is left out of
+the gallery itself. The screenshot in the hero is that same project, and is
+set in the hero markup.
 
 - Each project is a panel in the gallery. The first screenshot is the panel
   background.
