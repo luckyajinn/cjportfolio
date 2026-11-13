@@ -34,15 +34,15 @@ ul{list-style:none}
 header{
   display:flex;justify-content:space-between;align-items:flex-end;gap:24pt;
   padding:.36in .6in .27in;color:var(--paper);
-  background:
-    radial-gradient(3in 2.1in at 92% -10%,rgba(255,90,31,.42),rgba(255,90,31,0) 100%),
-    linear-gradient(100deg,#0a0a0b 38%,rgba(10,10,11,0) 100%),
-    radial-gradient(rgba(243,242,237,.24) .8pt,rgba(243,242,237,0) .9pt) 7pt 7pt / 15pt 15pt,
-    var(--night);
+  /* The glow and dots are a flat image (header-bg.jpg), not CSS gradients.
+     See-through gradients print as PDF transparency, and some PDF previews
+     drop the dark layer under them and show the band pink. Keep every
+     colour in this file solid: no rgba(), opacity, or blend modes. */
+  background:var(--night) url("header-bg.jpg") center / 100% 100% no-repeat;
 }
 h1{font-size:40pt;line-height:.88;font-weight:600;letter-spacing:-.055em}
 h1 em{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.03em;color:var(--glow);margin-left:.05em}
-.role{display:inline-block;margin-top:9pt;padding:3pt 9pt;border:.6pt solid rgba(255,255,255,.3);border-radius:99pt;font-family:"Geist Mono",Consolas,monospace;font-size:7.8pt;color:#c9c8c1}
+.role{display:inline-block;margin-top:9pt;padding:3pt 9pt;border:.6pt solid #545455;border-radius:99pt;font-family:"Geist Mono",Consolas,monospace;font-size:7.8pt;color:#c9c8c1}
 .role::before{content:"";display:inline-block;width:4.6pt;height:4.6pt;margin-right:6pt;border-radius:50%;background:var(--glow);vertical-align:.06em}
 .contact{text-align:right;font-size:8.5pt;line-height:1.52;color:#b9b8b1}
 .contact b{font-weight:500;color:var(--paper)}

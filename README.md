@@ -150,6 +150,11 @@ the file in `assets/`. Check that it is still one page. The file avoids CSS
 to the PDF out of order and scramble the text that applicant tracking systems
 read.
 
+The dark band behind the name is a flat image, `resume/header-bg.jpg`, not CSS
+gradients. See-through gradients print as PDF transparency, and some PDF
+previews drop the dark layer under them and show the band pink. Keep every
+colour in `resume.html` solid: no `rgba()`, `opacity`, or blend modes.
+
 In `SITE.credentials`, `active: true` marks something in progress and
 `done: true` marks something completed.
 
