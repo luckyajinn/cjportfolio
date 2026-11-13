@@ -709,7 +709,7 @@ footer{padding:36px 0 0;overflow:hidden}
   <div class="wrap">
     <div class="sh rv">
       <span class="idx">Projects</span>
-      <h2 id="h-projects">A help desk app, four IT tools, and six open source mods</h2>
+      <h2 id="h-projects">A help desk app, three IT tools, and six open source mods</h2>
       <p>Built for day-to-day IT work, plus what I build and run at home.</p>
     </div>
     <article class="feat rv" id="feat"></article>
@@ -1039,127 +1039,117 @@ const SITE = {
       stack: ["Django", "Python", "PostgreSQL", "Docker", "Caddy", "Microsoft Graph", "Entra ID", "Claude Code"]
     },
     {
-      name: "Device deployment checklist",
+      name: "Deployment checklist",
       group: "professional",
-      short: "Step-by-step device builds with an exportable record.",
+      short: "Step-by-step device builds and returns, with a device log built in.",
       shots: [
-        "assets/deployment-checklist-1.webp",
-        "assets/deployment-checklist-2.webp",
-        "assets/deployment-checklist-3.webp",
-        "assets/deployment-checklist-4.webp"
+        "assets/it-deployment-checklist.webp",
+        "assets/it-deployment-devices.webp",
+        "assets/it-deployment-timeline.webp",
+        "assets/it-deployment-intune.webp"
       ],
       captions: [
-        "Prerequisites and device condition capture",
-        "Management enrollment and endpoint protection phase",
-        "Peripheral setup and device handoff phase",
-        "Administrator edit mode with exportable configuration"
+        "Checklist for a Windows 11 laptop build, linked to its device record",
+        "Device log with status totals, needs attention flags, and filters",
+        "A device's timeline: status changes, assignment, checklist runs, and notes",
+        "Comparing the device log with an Intune export"
       ],
       sections: [
-        { h: "What it does", p: "Walks a tech through a device build phase by phase and records what was done. Replaced a printed checklist that left no record." },
-        { h: "Features", list: [
-          "Deploy mode for techs, edit mode for changing steps without touching code",
-          "Skips phases that don't apply to the device type",
-          "Separate procedures for workstations and warehouse devices",
-          "Condition and damage notes",
-          "Saved history, print view, and JSON export into the asset register"
-        ]}
+        { h: "What it does", p: "Walks a tech through a device build step by step and keeps a log of every device. It replaced a printed checklist that left no record. The device log used to be a separate tool, the asset register, and is now a tab on the same page." },
+        { h: "Checklist", list: [
+          "Checklists for laptops and desktops, scanner guns, and iPads, plus one for returns and offboarding",
+          "A return ends in one outcome: back to stock, repair, pending retirement, or disposal",
+          "Edit mode changes the steps without touching code",
+          "Keeps the last 10 sessions per checklist, with a clean print view",
+          "Censor mode masks names, serials, and tags for screenshots and demos"
+        ]},
+        { h: "Device log", list: [
+          "One record per device: asset tag, serial, model, status, location, assignee, purchase details, and warranty",
+          "A checklist session syncs to its device as you work, and a finished one marks it deployed",
+          "Flags warranties ending within 90 days, devices stuck in a status, and deployed devices with no assignee",
+          "Each device keeps a timeline of status changes, assignments, moves, and checklist runs",
+          "Bulk update from rows pasted out of a spreadsheet, with a preview before anything changes",
+          "Compares the log with an Intune or Autopilot export to find devices missing from either side",
+          "Hand-off, return receipt, and device record printouts with signature lines"
+        ]},
+        { h: "How the tools connect", p: "This tool, Purchasing & Inventory, and Printer Manifest share one look and one export format. Devices are matched by serial number, then asset tag, so a laptop received in Purchasing & Inventory can be imported here, deployed, and sent back as issued." },
+        { h: "Screenshots and source", p: "The screenshots use made-up people and devices. The code is private." }
       ],
-      stack: ["HTML", "JavaScript", "localStorage", "JSON schema"]
+      stack: ["HTML", "JavaScript", "localStorage", "Shared export schema"]
     },
     {
-      name: "Asset register",
+      name: "Purchasing & Inventory",
       group: "professional",
-      short: "Searchable inventory built from checklist exports.",
+      short: "IT stock, purchases, and renewals on one page.",
       shots: [
-        "assets/asset-register1.webp",
-        "assets/asset-register2.webp",
-        "assets/asset-register3.webp",
-        "assets/asset-register4.webp"
+        "assets/it-purchasing-inventory.webp",
+        "assets/it-purchasing-item.webp",
+        "assets/it-purchasing-quotes.webp",
+        "assets/it-purchasing-reports.webp"
       ],
       captions: [
-        "Inventory overview with status totals and search",
-        "Asset record with device access and linked documents",
-        "Category filter, status sorting, and bulk actions",
-        "Imported deployment record with phase progress"
+        "Inventory: stock on hand by location, with low stock and issued items flagged",
+        "An item opened: stock by location, who has a unit, and each unit's warranty",
+        "A purchase request with competing quotes, the lowest one marked",
+        "Reports: budget by cost center, and renewals and warranties coming up"
       ],
       sections: [
-        { h: "What it does", p: "Imports deployment checklist exports into a searchable inventory of every device." },
-        { h: "Features", list: [
-          "Deduplicates by session, serial, then asset tag",
-          "Six asset categories and six lifecycle statuses",
-          "Custom fields and linked docs per asset",
-          "Search, filter, sort, and bulk status change or delete",
-          "CSV export and JSON backup and restore"
-        ]}
+        { h: "What it does", p: "Tracks IT stock and the purchases that feed it: what is on hand at each location, who has what, and every change to stock. It grew out of my earlier procurement tracker and reads that tool's saved data." },
+        { h: "Inventory", list: [
+          "Counted items like cables and toner, or individual units with their own asset tag, serial, and warranty",
+          "Issue stock to a person with a due-back date, take returns, and print a checkout receipt",
+          "Every stock change is a history entry with a reason. Quantities are never typed over",
+          "Low-stock levels per location, stock counts, and a scan box that works with USB barcode scanners"
+        ]},
+        { h: "Purchases and renewals", list: [
+          "Follows a purchase from request to order to delivery, including partial shipments",
+          "Collects competing quotes and flags the lowest and the expired ones",
+          "Received items go straight into inventory",
+          "Renewals for licenses, subscriptions, and contracts, with a calendar file for reminders",
+          "Budget by cost center, plus spend by vendor and by month",
+          "Undo for the last change"
+        ]},
+        { h: "Screenshots and source", p: "The screenshots use made-up items, vendors, and prices. The code is private." }
       ],
-      stack: ["HTML", "JavaScript", "CSV export", "JSON backup"]
+      stack: ["HTML", "JavaScript", "localStorage", "CSV and calendar export"]
     },
     {
-      name: "Procurement tracker",
+      name: "Printer Manifest",
       group: "professional",
-      short: "Hardware purchase list with price tracking and history.",
+      short: "Printer register with drift flags, supplies, and service history.",
       shots: [
-        "assets/procurement-tracker1.webp",
-        "assets/procurement-tracker2.webp",
-        "assets/procurement-tracker3.webp",
-        "assets/procurement-tracker4.webp"
+        "assets/it-printer-table.webp",
+        "assets/it-printer-service.webp",
+        "assets/it-printer-supplies.webp"
       ],
       captions: [
-        "Add item form with the store detected from the product URL",
-        "Purchase history filtered by store, with CSV and backup export",
-        "Requisitions with a stale price flag, price history, and mark purchased",
-        "Duplicate warning when adding an item already purchased"
+        "Printer table grouped by site, with supply levels and flags",
+        "A printer record: service history and the PowerShell command to install it",
+        "Supplies view: what is low or out, and every part number in use"
       ],
       sections: [
-        { h: "What it does", p: "Tracks hardware purchases in one place instead of across email threads and spreadsheets." },
-        { h: "Features", list: [
-          "Two lists: items to requisition and items already purchased, with a purchase date",
-          "Quantity and price per item, with totals for estimated cost, total spent, and spent this month",
-          "Flags a price that has not been checked in 14 days, and keeps a price history",
-          "Detects the store from the product URL",
-          "Warns when an item is already on a list",
-          "Search, store filter, and sorting",
-          "CSV export, and JSON backup and import"
-        ]}
-      ],
-      stack: ["HTML", "JavaScript", "localStorage"]
-    },
-    {
-      name: "Printer registry",
-      group: "professional",
-      short: "Searchable printer inventory with standards checks and flags.",
-      shots: [
-        "assets/printer-registry-1.webp",
-        "assets/printer-registry-2.webp",
-        "assets/printer-registry-3.webp",
-        "assets/printer-registry-4.webp"
-      ],
-      captions: [
-        "Printer list grouped by building, with status and scan test results",
-        "Flagged view: duplicate IP, DNS off standard, and warranty flags",
-        "Printer record with scan to email and support details",
-        "Site standards that new printers start from"
-      ],
-      sections: [
-        { h: "What it does", p: "Keeps one record per printer in a searchable, sortable table: location, make and model, IP address, DNS, scan to email account, support dates, and a change log." },
-        { h: "Checks and flags", list: [
-          "Duplicate IP addresses",
-          "Failed scan to email tests",
-          "DNS that differs from the site standard",
-          "Scan account that differs from the standard",
-          "Warranty expired or ending within 90 days"
+        { h: "What it does", p: "A register of every printer: where it is, how it connects, its network, queue, and driver settings, scan to email, supplies, service history, and a change log. It grew out of my earlier printer registry." },
+        { h: "Flags", list: [
+          "Duplicate IP or MAC address",
+          "Failed scan to email test",
+          "DNS or scanner account that differs from the site standard",
+          "A supply that is low or out",
+          "A driver version that differs from other printers of the same model",
+          "Warranty, lease, or contract ended or ending soon",
+          "Details not verified within a set number of days"
         ]},
         { h: "Features", list: [
-          "Site standards set the default DNS, subnet mask, scanner account, and vault entry for new printers",
-          "Quick filters, search, and building, make, connection, and status filters",
-          "Handles network, USB, and standalone printers differently",
+          "Supplies per printer with part numbers and levels, and a reorder list as CSV",
+          "Service history with date, cost, and page count, and totals for the last 12 months",
+          "Shows the PowerShell command to add each printer on a Windows PC. Nothing runs from the page",
           "Stores the name of the password vault entry only, never the password",
-          "Change log, duplicate printer, and a mark verified today button",
+          "Groups by site, floor, make, or status, with search and quick filters",
+          "Light and dark themes, and a card layout on phones",
           "CSV export and import, plus JSON backup and restore"
         ]},
-        { h: "Screenshots", p: "The screenshots use made-up printers and addresses." }
+        { h: "Screenshots and source", p: "The screenshots use made-up printers and example addresses. The code is private." }
       ],
-      stack: ["HTML", "JavaScript", "localStorage"]
+      stack: ["HTML", "JavaScript", "localStorage", "CSV and JSON export"]
     },
     {
       name: "Claude Code mods",
